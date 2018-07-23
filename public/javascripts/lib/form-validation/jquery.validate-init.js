@@ -1,4 +1,15 @@
-
+$(function () {
+  $.validator.addMethod("pwcheck", function(value) {
+          return /^[A-Za-z0-9\d=!\-@._*]*$/.test(value) // consists of only these
+              && /[a-z]/.test(value) // has a lowercase letter
+              && /[A-Z]/.test(value) // has a uppercase letter
+              && /\d/.test(value) // has a digit
+              && /(\b(?:([A-Za-z0-9])(?!\2{4}))+\b)/.test(value) //don't repeate more than 2
+       });
+       $.validator.addMethod("phcheck",function (value) {
+         return /^\d*(?:\.\d{1,2})?$/.test(value)
+       });
+var key = "SL1116"
 var form_validation = function() {
     var e = function() {
             jQuery(".form-valide").validate({
@@ -15,34 +26,57 @@ var form_validation = function() {
                     jQuery(e).closest(".form-group").removeClass("is-invalid"), jQuery(e).remove()
                 },
                 rules: {
-                    "val-username": {
+                    "username": {
                         required: !0,
                         minlength: 3
+                    },
+                    "name": {
+                        required: !0,
+                        minlength: 3
+                    },
+                    "email": {
+                        required: !0,
+                        email: !0
+                    },
+                    "ref_code":{
+                      required: !0,
+                      equalTo : '[name="key"]',
                     },
                     "val-email": {
                         required: !0,
                         email: !0
                     },
-                    "val-password": {
+                    "password": {
                         required: !0,
-                        minlength: 5
+                        minlength: 5,
+                        pwcheck: true,
                     },
                     "val-confirm-password": {
                         required: !0,
                         equalTo: "#val-password"
                     },
-                    "val-select2": {
+                    "main_cat": {
+                        required: !0
+                    },
+                    "sub_cat_i": {
+                        required: !0,
+                        minlength: 3
+                    },
+                    "sub_cat": {
                         required: !0
                     },
                     "val-select2-multiple": {
                         required: !0,
                         minlength: 2
                     },
-                    "val-suggestions": {
+                    "rfid": {
                         required: !0,
                         minlength: 5
                     },
-                    "val-skill": {
+                    "year": {
+                        required: !0
+                    },
+                    "major": {
                         required: !0
                     },
                     "val-currency": {
@@ -53,51 +87,101 @@ var form_validation = function() {
                         required: !0,
                         url: !0
                     },
-                    "val-phoneus": {
+                    "phoneus": {
                         required: !0,
-                        phoneUS: !0
+                        minlength: 9,
+                        maxlength: 12,
+                        phcheck : true
                     },
                     "val-digits": {
                         required: !0,
                         digits: !0
                     },
-                    "val-number": {
+                    "role": {
                         required: !0,
                         number: !0
                     },
-                    "val-range": {
+                    "book_range": {
                         required: !0,
-                        range: [1, 5]
+                        range: [1, 31]
                     },
                     "val-terms": {
                         required: !0
-                    }
+                    },
+                    "book_author":{
+                      required: !0,
+                      minlength: 3
+                    },
+                    "book_name":{
+                      required: !0,
+                      minlength: 3
+                    },
+                    "barcode":{
+                      required: !0,
+                      number: !0
+                    },
                 },
                 messages: {
-                    "val-username": {
+                    "username": {
                         required: "Please enter a username",
                         minlength: "Your username must consist of at least 3 characters"
                     },
+                    "name": {
+                        required: "Please enter a username",
+                        minlength: "Your username must consist of at least 3 characters"
+                    },
+                    "book_name": {
+                        required: "Please enter a book name",
+                        minlength: "Book name must consist of at least 3 characters"
+                    },
+                    "ref_code": {
+                        required: "Please enter a REF code",
+                        equalTo: "You need to correct Ref code"
+                    },
+                    "book_author": {
+                        required: "Please enter a book author name",
+                        minlength: "Book author name must consist of at least 3 characters"
+                    },
+                    "barcode": {
+                        required: "Please scan barcode number",
+                        number: "Don't Type characters"
+                    },
+                    "book_range": {
+                        required: "Please input book range",
+                        range: "Please enter a number between 1 and 31!"
+                    },
+                    "sub_cat_i": {
+                        required: "Please enter a Sub categories",
+                        minlength: "Your sub category name must consist of at least 3 characters"
+                    },
                     "val-email": "Please enter a valid email address",
-                    "val-password": {
+                    "password": {
                         required: "Please provide a password",
-                        minlength: "Your password must be at least 5 characters long"
+                        minlength: "Your password must be at least 5 characters long",
+                        pwcheck: "Please input at least 1 Upper, 1 lower, 1 digit and don't more 4 same word"
                     },
                     "val-confirm-password": {
                         required: "Please provide a password",
                         minlength: "Your password must be at least 5 characters long",
                         equalTo: "Please enter the same password as above"
                     },
-                    "val-select2": "Please select a value!",
+                    "phoneus": {
+                      required:"Please enter a Myanmar phone!",
+                      minlength: "Phone number is at least 9 Number",
+                      phcheck: "Please enter phone number english only",
+                    },
+                    "main_cat": "Please select a main categories!",
+                    "sub_cat": "Please select a sub categories!",
                     "val-select2-multiple": "Please select at least 2 values!",
-                    "val-suggestions": "What can we do to become better?",
-                    "val-skill": "Please select a skill!",
+                    "rfid": "What can we do to become better?",
+                    "major": "Please select a major!",
+                    "year": "Please select a year!",
                     "val-currency": "Please enter a price!",
                     "val-website": "Please enter your website!",
-                    "val-phoneus": "Please enter a US phone!",
+
                     "val-digits": "Please enter only digits!",
-                    "val-number": "Please enter a number!",
-                    "val-range": "Please enter a number between 1 and 5!",
+                    "role": "Please enter a role!",
+                    "val-range": "Please enter a number between 1 and 31!",
                     "val-terms": "You must agree to the service terms!"
                 }
             })
@@ -112,4 +196,5 @@ var form_validation = function() {
 }();
 jQuery(function() {
     form_validation.init()
+});
 });

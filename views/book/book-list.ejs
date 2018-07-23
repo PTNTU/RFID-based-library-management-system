@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partial/head %>
+</head>
+
+<body class="fix-header fix-sidebar">
+    <!-- Preloader - style you can find in spinners.css -->
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+			<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+    </div>
+    <!-- Main wrapper  -->
+    <div id="main-wrapper">
+        <!-- header header  -->
+        <!-- header header  -->
+        <% include ../partial/header %>
+          <!-- End header header -->
+          <!-- Left Sidebar  -->
+          <% include ../partial/leftSidebar %>
+        <!-- End Left Sidebar  -->
+        <!-- Page wrapper  -->
+        <div class="page-wrapper">
+            <!-- Bread crumb -->
+            <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h3 class="text-primary">Book List</h3> </div>
+                <div class="col-md-7 align-self-center">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Book</a></li>
+                        <li class="breadcrumb-item active">List</li>
+                    </ol>
+                </div>
+            </div>
+            <!-- End Bread crumb -->
+            <!-- Container fluid  -->
+            <div class="container-fluid">
+                <!-- Start Page Content -->
+                <div class="row">
+                    <div class="col-12">
+                      <div class="card">
+                          <div class="card-body">
+                              <h4 class="card-title">Book List</h4>
+                              <h6 class="card-subtitle">You can search everythings</h6>
+                              <div class="table-responsive m-t-40">
+                                  <table id="myTable" class="table table-bordered table-striped">
+                                      <thead>
+                                          <tr>
+                                              <th>#</th>
+                                              <th>Name</th>
+                                              <th>Author</th>
+                                              <th>Main Category</th>
+                                              <th>Sub Category</th>
+                                              <th>Published Date</th>
+                                              <th>Range</th>
+                                              <th>Barcode No.</th>
+                                              <th>Inserted Date</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                        <% for(var i = 0; i< book.length; i++){%>
+
+                                          <tr>
+                                              <td><%= i+1 %></td>
+                                              <td><%= book[i].book_name %></td>
+                                              <td><%= book[i].book_author %></td>
+                                              <td><%= book[i].main_cat %></td>
+                                              <td><%= book[i].sub_cat %></td>
+                                              <td><%= book[i].published_date %></td>
+                                              <td><%= book[i].book_range %></td>
+                                              <td><%= book[i].barcode %></td>
+                                              <td><%= book[i].inserted_date %></td>
+                                          </tr>
+                                          <%}%>
+                                      </tbody>
+                                  </table>
+                              </div>
+                          </div>
+                      </div>
+
+                    </div>
+                </div>
+                <!-- End PAge Content -->
+            </div>
+            <!-- End Container fluid  -->
+            <!-- footer -->
+            <footer class="footer"> © 2018 All rights reserved. Template designed by <a href="https://colorlib.com">Colorlib</a></footer>
+            <!-- End footer -->
+        </div>
+        <!-- End Page wrapper  -->
+    </div>
+    <!-- End Wrapper -->
+    <!-- All Jquery -->
+    <% include ../partial/javascript %>
+
+    <script src="/javascripts/lib/datatables/datatables.min.js"></script>
+    <script src="/javascripts/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="/javascripts/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>
+    <script src="/javascripts/lib/datatables/cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script src="/javascripts/lib/datatables/cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+    <script src="/javascripts/lib/datatables/cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+    <script src="/javascripts/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+    <script src="/javascripts/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
+    <script src="/javascripts/lib/datatables/datatables-init.js"></script>
+</body>
+
+</html>

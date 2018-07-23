@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include ../partial/head %>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->
+    <!--[if lt IE 9]>
+    <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body class="fix-header fix-sidebar">
+  <!-- Preloader - style you can find in spinners.css -->
+  <div class="preloader">
+    <svg class="circular" viewBox="25 25 50 50">
+			<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+  </div>
+  <!-- Main wrapper  -->
+  <div id="main-wrapper">
+    <!-- header header  -->
+    <% include ../partial/header %>
+      <!-- End header header -->
+      <!-- Left Sidebar  -->
+      <% include ../partial/leftSidebar %>
+        <!-- End Left Sidebar  -->
+        <!-- Page wrapper  -->
+        <div class="page-wrapper">
+            <!-- Bread crumb -->
+            <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h3 class="text-primary">Book Registration</h3> </div>
+                <div class="col-md-7 align-self-center">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Book</a></li>
+                        <li class="breadcrumb-item active">Add</li>
+                    </ol>
+                </div>
+            </div>
+            <!-- End Bread crumb -->
+            <!-- Container fluid  -->
+            <div class="container-fluid">
+                <!-- Start Page Content -->
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="form-validation">
+                                    <form class="form-valide" action="/books/add" method="post">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="book_name">Book Name <span class="text-danger">*</span></label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="book_name" name="book_name" placeholder="Enter book name">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="main_cat">Main Categorie<span class="text-danger">*</span></label>
+                                            <div class="col-lg-6">
+                                                <select class="form-control" id="main_cat" name="main_cat">
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="sub_cat">Sub Categorie<span class="text-danger">*</span></label>
+                                            <div class="col-lg-6">
+                                                <select class="form-control" id="sub_cat" name="sub_cat">
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="book_author">Author <span class="text-danger">*</span></label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="book_author" name="book_author" placeholder="Book Author">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="pub_date">Published Date <span class="text-danger">*</span></label>
+                                            <div class="col-lg-6">
+                                                <input type="date" class="form-control" id="pub_date" name="pub_date" placeholder="Published Date">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="book_range">Reading Range<span class="text-danger">*</span></label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="book_range" name="book_range" placeholder="4">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="barcode">BarCode No<span class="text-danger">*</span></label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="barcode" name="barcode" placeholder="489834343343424545">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <div class="col-lg-8 ml-auto">
+                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End PAge Content -->
+            </div>
+            <!-- End Container fluid  -->
+            <!-- footer -->
+            <footer class="footer"> © 2018 All rights reserved. Template designed by <a href="https://colorlib.com">Colorlib</a></footer>
+            <!-- End footer -->
+        </div>
+        <!-- End Page wrapper  -->
+    </div>
+    <!-- End Wrapper -->
+    <!-- All Jquery -->
+    <% include ../partial/javascript %>
+    <script src="/javascripts/lib/form-validation/jquery.validate.min.js"></script>
+    <script src="/javascripts/lib/form-validation/jquery.validate-init.js"></script>
+    <script src="/javascripts/lib/toastr/toastr.min.js"></script>
+    <!-- scripit init-->
+    <script src="/javascripts/lib/toastr/toastr.init.js"></script>
+
+</body>
+<script type="text/javascript">
+var categories = [<%- cat%>];
+console.log(categories);
+    addOptions('main_cat', categories);
+    $("#main_cat").on('change', function(){
+        var sub = $.grep( categories, function( n, i ) {
+          return n.main_cat == $("#main_cat").val();
+        });
+        addOptions('sub_cat', sub);
+    });
+
+    function addOptions(id, arr){
+        $("#"+id).children().remove();
+        for(var idx in arr){
+            if(idx == 0) $("#"+id).append(new Option('Select '+((id == 'main_cat')? "Main Category": "Sub Category"), ''));
+            if(idx == 0 || arr[idx][id] != arr[idx-1][id]){
+                $("#"+id).append(new Option(arr[idx][id], arr[idx][id]));
+            }
+        }
+    }
+
+</script>
+
+</html>

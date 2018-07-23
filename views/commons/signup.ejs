@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partial/head %>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->
+    <!--[if lt IE 9]>
+    <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body class="fix-header fix-sidebar">
+    <!-- Preloader - style you can find in spinners.css -->
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+			<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+    </div>
+    <!-- Main wrapper  -->
+    <div id="main-wrapper">
+
+        <div class="unix-login">
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="login-content card">
+                            <div class="login-form">
+                                <h4>Admin Registeration</h4>
+                                <div class="form-validation">
+                                <form class="form-valide" name="frm" action="/signup" method="post">
+                                  <input type="hidden" name="key" value="SL1116">
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="name">User Name</label>
+                                        <div class="col-lg-6">
+                                        <input type="text" name="name" id="name" class="form-control" placeholder="User Name">
+                                      </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="email">Email address</label>
+                                        <div class="col-lg-6">
+                                        <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+                                      </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="password">Password</label>
+                                        <div class="col-lg-6">
+                                        <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+                                      </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="ref_code">Ref code</label>
+                                        <div class="col-lg-6">
+                                        <input type="text" name="ref_code" id="ref_code" class="form-control" placeholder="Admin Ref code">
+                                      </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Register</button>
+                                    <div class="register-link m-t-15 text-center">
+                                        <p>Already have account ? <a href="/signin"> Sign in</a></p>
+                                    </div>
+                                </form>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="/javascripts/lib/jquery/jquery.min.js"></script>
+    <script src="/javascripts/lib/form-validation/jquery.validate.min.js"></script>
+    <script src="/javascripts/lib/form-validation/jquery.validate-init.js"></script>
+    <% include ../partial/javascript %>
+
+</body>
+
+</html>

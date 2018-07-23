@@ -3,9 +3,13 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var mongoose = require('mongoose');
+var session = require('express-session');
+var flash = require('express-flash');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var memberRouter = require('./routes/members');
+var bookRouter = require('./routes/books');
 
 var app = express();
 
@@ -19,9 +23,28 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+mongoose.connect('mongodb://127.0.0.1/librarydb'); // studydb is anyname can insert
+var db = mongoose.connection;
+db.on('error',console.error.bind(console,'MongoDB connection error:'));
 
+//session : before routing
+    app.use(session({
+          secret: '@#$Th!$@$M@ar4L18R2r4,',// any string for security
+          resave: false,
+          saveUninitialized : true
+}));
+app.use(flash()); // after cookie, session
+
+
+app.use('/', indexRouter);
+app.use('/members', memberRouter);
+app.use('/books', bookRouter);
+app.use(function (req, res, next) {
+  res.locals.user = req.session.user;
+  res.locals.active = req.path;
+  console.log('user path', req.path);
+  next();
+});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
