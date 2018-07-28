@@ -44,6 +44,18 @@
                               <h4 class="card-title">Book Categories</h4>
                               <h6 class="card-subtitle">Book Categorie List</h6>
                               <div class="table-responsive m-t-40">
+                                <% if(locals.messages.warn){%>
+                                <div class="alert alert-warning alert-dismissible" role="alert" >
+                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <strong>Warning!</strong><br><%=messages.warn%>
+                                </div>
+                                <%}%>
+                                <% if(locals.messages.success){%>
+                                <div class="alert alert-success alert-dismissible" role="alert" >
+                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <strong>Success!</strong><br><%=messages.success%>
+                                </div>
+                                <%}%>
                                   <table id="myTable" class="table table-bordered table-striped">
                                       <thead>
                                           <tr>
@@ -57,7 +69,7 @@
                                       <tbody>
                                         <% for(var i = 0; i< cat.length; i++){%>
 
-                                          <tr>
+                                          <tr onclick="go('<%= cat[i]._id %>');">
                                               <td><%= i+1 %></td>
                                               <td><%= cat[i].update_main %></td>
                                               <td><%= cat[i].sub_cat %></td>
@@ -96,5 +108,10 @@
     <script src="/javascripts/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
     <script src="/javascripts/lib/datatables/datatables-init.js"></script>
 </body>
+<script type="text/javascript">
+  function go(id) {
+    location.href ="/books/catDetail/"+id;
+  }
+</script>
 
 </html>

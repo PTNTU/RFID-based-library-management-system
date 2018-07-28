@@ -8,6 +8,12 @@ var BookSchema = new Schema({
     required: true,
     trim: true //remove both-side with space
   },
+  description:{
+    type: String,
+  },
+  imgUrl:{
+    type: String,
+  },
   main_cat:{
     type: String,
     required: true,
@@ -36,6 +42,10 @@ var BookSchema = new Schema({
     type: Number,
     required: true,
     trim: true
+  },
+  status:{
+    type: String,// 00 is avaliable, 01 is borrow, 10 lose
+    required: true,
   },
   updated:{
     type: Date,

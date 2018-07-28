@@ -59,7 +59,7 @@
                                         </thead>
                                         <tbody>
                                           <% for(var i = 0; i< member.length; i++){%>
-                                            <tr>
+                                            <tr onclick="go('<%= member[i]._id %>')" >
                                                 <td><%= i+1 %></td>
                                                 <td><%= member[i].name %></td>
                                                 <td><%= member[i].major %></td>
@@ -67,11 +67,27 @@
                                                 <td><%= member[i].roleNo %></td>
                                                 <td><%= member[i].phone %></td>
                                                 <td><%= member[i].rfid %></td>
-                                                <td><%= member[i].status %></td>
+                                                <td id="td<%= i%>"><span class="label label-rouded label-success pull-center">Normal</span></td>
                                             </tr>
-                                          <%}%>
-
-
+                                            <script type="text/javascript">
+                                               switch ('<%= member[i].status %>') {
+                                                 case '00':
+                                                  $('#td<%= i%>').html('<span class="label label-rouded label-success pull-center">Normal</span>');
+                                                   break;
+                                                  case '01':
+                                                  $('#td<%= i%>').html('<span class="label label-rouded label-warning pull-center">Warning</span>');
+                                                    break;
+                                                  case "10":
+                                                    $('#td<%= i%>').html('<span class="label label-rouded label-default pull-center">Inactive</span>');
+                                                    break;
+                                                  case "11":
+                                                    $('#td<%= i%>').html('<span class="label label-rouded label-danger pull-center">Block</span>');
+                                                    break;
+                                                 default:
+                                                  console.log('Unnormal');
+                                               }
+                                            </script>
+                                            <%}%>
                                         </tbody>
                                     </table>
                                 </div>
@@ -103,5 +119,11 @@
     <script src="/javascripts/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
     <script src="/javascripts/lib/datatables/datatables-init.js"></script>
 </body>
+<script type="text/javascript">
+  function go(id) {
+    location.href = "/members/detail/"+id;
+  }
+
+</script>
 
 </html>

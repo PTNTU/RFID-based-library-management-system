@@ -44,6 +44,18 @@
                               <h4 class="card-title">Book List</h4>
                               <h6 class="card-subtitle">You can search everythings</h6>
                               <div class="table-responsive m-t-40">
+                                <% if(locals.messages.warn){%>
+                                <div class="alert alert-warning alert-dismissible" role="alert" >
+                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <strong>Warning!</strong><br><%=messages.warn%>
+                                </div>
+                                <%}%>
+                                <% if(locals.messages.success){%>
+                                <div class="alert alert-success alert-dismissible" role="alert" >
+                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <strong>Success!</strong><br><%=messages.success%>
+                                </div>
+                                <%}%>
                                   <table id="myTable" class="table table-bordered table-striped">
                                       <thead>
                                           <tr>
@@ -55,13 +67,13 @@
                                               <th>Published Date</th>
                                               <th>Range</th>
                                               <th>Barcode No.</th>
-                                              <th>Inserted Date</th>
+                                              <th>Status</th>
                                           </tr>
                                       </thead>
                                       <tbody>
                                         <% for(var i = 0; i< book.length; i++){%>
 
-                                          <tr>
+                                          <tr onclick="go('<%= book[i]._id %>')">
                                               <td><%= i+1 %></td>
                                               <td><%= book[i].book_name %></td>
                                               <td><%= book[i].book_author %></td>
@@ -70,8 +82,23 @@
                                               <td><%= book[i].published_date %></td>
                                               <td><%= book[i].book_range %></td>
                                               <td><%= book[i].barcode %></td>
-                                              <td><%= book[i].inserted_date %></td>
+                                              <td id="td<%= i%>"><%= book[i].status %></td>
                                           </tr>
+                                          <script type="text/javascript">
+                                          switch ('<%= book[i].status %>') {
+                                            case '00':
+                                             $('#td<%=i%>').html('<span class="label label-rouded label-success pull-center">Avaliable</span>');
+                                              break;
+                                             case '01':
+                                             $('#td<%=i%>').html('<span class="label label-rouded label-warning pull-center">Borrow</span>');
+                                               break;
+                                             case '10':
+                                             $('#td<%=i%>').html('<span class="label label-rouded label-default pull-center">Lost</span>');
+                                               break;
+                                              default:
+                                             console.log('Unnormal');
+                                          }
+                                          </script>
                                           <%}%>
                                       </tbody>
                                   </table>
@@ -104,5 +131,10 @@
     <script src="/javascripts/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
     <script src="/javascripts/lib/datatables/datatables-init.js"></script>
 </body>
+<script type="text/javascript">
+function go(id) {
+  location.href = "/books/detail/"+id;
+}
+</script>
 
 </html>

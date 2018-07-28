@@ -9,7 +9,7 @@ $(function () {
        $.validator.addMethod("phcheck",function (value) {
          return /^\d*(?:\.\d{1,2})?$/.test(value)
        });
-var key = "SL1116"
+var key = "SL1116";
 var form_validation = function() {
     var e = function() {
             jQuery(".form-valide").validate({
@@ -33,6 +33,14 @@ var form_validation = function() {
                     "name": {
                         required: !0,
                         minlength: 3
+                    },
+                    "newPass": {
+                        required: !0,
+                        minlength: 5
+                    },
+                    "oldPass": {
+                        required: !0,
+                        minlength: 5
                     },
                     "email": {
                         required: !0,
@@ -133,6 +141,14 @@ var form_validation = function() {
                     "book_name": {
                         required: "Please enter a book name",
                         minlength: "Book name must consist of at least 3 characters"
+                    },
+                    "oldPass": {
+                        required: "Please provide a password",
+                        minlength: "Your password must be at least 5 characters long"
+                    },
+                    "newPass": {
+                        required: "Please provide a password",
+                        minlength: "Your password must be at least 5 characters long"
                     },
                     "ref_code": {
                         required: "Please enter a REF code",

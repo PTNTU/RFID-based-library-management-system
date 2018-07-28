@@ -90,7 +90,7 @@
                 </li>
                 <!-- End Comment -->
                 <!-- Messages -->
-                <li class="nav-item dropdown">
+                <!-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-muted  " href="#" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-envelope"></i>
         <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
       </a>
@@ -101,28 +101,28 @@
                             </li>
                             <li>
                                 <div class="message-center">
-                                    <!-- Message -->
+
                                     <a href="#">
                                         <div class="user-img"> <img src="/images/users/5.jpg" alt="user" class="img-circle"> <span class="profile-status online pull-right"></span> </div>
                                         <div class="mail-contnet">
                                             <h5>Michael Qin</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:30 AM</span>
                                         </div>
                                     </a>
-                                    <!-- Message -->
+
                                     <a href="#">
                                         <div class="user-img"> <img src="/images/users/2.jpg" alt="user" class="img-circle"> <span class="profile-status busy pull-right"></span> </div>
                                         <div class="mail-contnet">
                                             <h5>John Doe</h5> <span class="mail-desc">I've sung a song! See you at</span> <span class="time">9:10 AM</span>
                                         </div>
                                     </a>
-                                    <!-- Message -->
+
                                     <a href="#">
                                         <div class="user-img"> <img src="/images/users/3.jpg" alt="user" class="img-circle"> <span class="profile-status away pull-right"></span> </div>
                                         <div class="mail-contnet">
                                             <h5>Mr. John</h5> <span class="mail-desc">I am a singer!</span> <span class="time">9:08 AM</span>
                                         </div>
                                     </a>
-                                    <!-- Message -->
+
                                     <a href="#">
                                         <div class="user-img"> <img src="/images/users/4.jpg" alt="user" class="img-circle"> <span class="profile-status offline pull-right"></span> </div>
                                         <div class="mail-contnet">
@@ -136,18 +136,30 @@
                             </li>
                         </ul>
                     </div>
-                </li>
+                </li> -->
                 <!-- End Messages -->
                 <!-- Profile -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="/images/users/5.jpg" alt="user" class="profile-pic" /></a>
-                    <div class="dropdown-menu dropdown-menu-right animated zoomIn">
+                    <div class="dropdown-menu dropdown-menu-right animated slideInRight">
                         <ul class="dropdown-user">
-                            <li><a href="#"><i class="ti-user"></i> Profile</a></li>
-                            <li><a href="#"><i class="ti-wallet"></i> Balance</a></li>
+                            <li>
+                                <div class="dw-user-box">
+                                    <div class="u-img"><img src="/images/users/5.jpg" alt="user"></div>
+                                    <div class="u-text">
+                                        <h4><span id="pro_name">Michael John</span></h4>
+                                        <p class="text-muted" id="pro_email">Zebra Theme@gmail.com</p><a href="/profile" class="btn btn-rounded btn-danger btn-sm">View Profile</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <!--<li><a href="#"><i class="ti-user">&nbsp&nbsp</i> My Profile </a></li>
+                             <li><a href="#"><i class="ti-wallet"></i> My Balance</a></li>
                             <li><a href="#"><i class="ti-email"></i> Inbox</a></li>
-                            <li><a href="#"><i class="ti-settings"></i> Setting</a></li>
-                            <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
+                            <li role="separator" class="divider"></li> -->
+                            <li><a href="/signout"><i class="fa fa-power-off">&nbsp&nbsp</i> Logout</a></li>
                         </ul>
                     </div>
                 </li>
@@ -155,3 +167,13 @@
         </div>
     </nav>
 </div>
+<script src="/javascripts/lib/jquery/jquery.min.js"></script>
+<script src="/javascripts/js.cookie.js"></script>
+<script type="text/javascript">
+    $(function () {
+      if(Cookies.get("user_cookie")){
+        $('#pro_name').html(JSON.parse(Cookies.get("user_cookie").substring(2)).name);
+        $('#pro_email').html(JSON.parse(Cookies.get("user_cookie").substring(2)).email);
+      }
+    });
+</script>

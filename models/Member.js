@@ -26,12 +26,15 @@ var MemberSchema = new Schema({
     required:true,
   },
   status:{
-    type: String,
+    type: String, // 00 is normal,01 is warning,10 is Inactive,11 is block
     required:true,
   },
   year:{
     type: String,
     required:true,
+  },
+  last_borrow:{
+    type: Date,
   },
   roleNo:{
     type:Number,
@@ -49,12 +52,14 @@ var MemberSchema = new Schema({
     type: Date,
     default:Date.now
   },
-  updatedBy:{
-    type: String
+  updatedBy: {
+      type: Schema.Types.ObjectId,
+      ref: 'Admins',
   },
-  insteredBy:{
-    type: String
-  }
+  insertedBy: {
+      type: Schema.Types.ObjectId,
+      ref: 'Admins',
+  },
 });
 
 //hashing a password before saving it to the database

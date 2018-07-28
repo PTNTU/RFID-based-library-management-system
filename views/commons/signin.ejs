@@ -39,7 +39,7 @@
                                   <% if(locals.messages.success){%>
                                   <div class="alert alert-success alert-dismissible" role="alert" >
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                      <strong>Success!</strong><br><%=messages.sucess%>
+                                      <strong>Success!</strong><br><%=messages.success%>
                                   </div>
                                   <%}%>
                                     <div class="form-group row">
@@ -55,7 +55,7 @@
                                       </div>
                                     </div>
                                     <div class="checkbox">
-                                        <label><input type="checkbox"> Remember Me</label>
+                                        <label><input type="checkbox" name="rememberMe" id="rememberMe"> Remember Me</label>
                                         <label class="pull-right"><a href="#">Forgotten Password?</a></label>
                                     </div>
                                     <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Sign in</button>
@@ -73,10 +73,26 @@
 
     </div>
     <script src="/javascripts/lib/jquery/jquery.min.js"></script>
+    <script src="/javascripts/js.cookie.js"></script>
     <script src="/javascripts/lib/form-validation/jquery.validate.min.js"></script>
     <script src="/javascripts/lib/form-validation/jquery.validate-init.js"></script>
     <% include ../partial/javascript %>
 
 </body>
+<script type="text/javascript">
+$(function () {
+  frm.onsubmit = function () {
+    if(frm.rememberMe.checked){
+      Cookies.set('email', frm.email.value, { expires: 7 });
+    }else {
+      Cookies.remove("email");
+    }
+  }
+  if( Cookies.get("email")){
+    frm.email.value = Cookies.get("email");
+    frm.rememberMe.checked = true;
+  }
+});
+</script>
 
 </html>

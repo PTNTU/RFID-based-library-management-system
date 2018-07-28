@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include ../partial/head %>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->
+    <!--[if lt IE 9]>
+    <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body class="fix-header fix-sidebar">
+  <!-- Preloader - style you can find in spinners.css -->
+  <div class="preloader">
+    <svg class="circular" viewBox="25 25 50 50">
+			<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+  </div>
+  <!-- Main wrapper  -->
+  <div id="main-wrapper">
+    <!-- header header  -->
+    <% include ../partial/header %>
+      <!-- End header header -->
+      <!-- Left Sidebar  -->
+      <% include ../partial/leftSidebar %>
+        <!-- End Left Sidebar  -->
+        <!-- Page wrapper  -->
+        <div class="page-wrapper">
+          <!-- Bread crumb -->
+          <div class="row page-titles">
+            <div class="col-md-5 align-self-center">
+              <h3 class="text-primary">Assign Book Categorie</h3> </div>
+            <div class="col-md-7 align-self-center">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Books</a></li>
+                <li class="breadcrumb-item active">Assign Catories</li>
+              </ol>
+            </div>
+          </div>
+          <!-- End Bread crumb -->
+          <!-- Container fluid  -->
+          <div class="container-fluid">
+              <!-- Start Page Content -->
+              <div class="row justify-content-center">
+                  <div class="col-lg-6">
+                      <div class="card">
+                          <div class="card-body">
+                              <div class="form-validation">
+                                  <form class="form-valide" action="/books/modifyCat" method="post">
+                                    <input type="hidden" name="id" value="<%= cat._id %>">
+                                      <div class="form-group row">
+                                          <label class="col-lg-4 col-form-label" for="main_cat">Main Categorie<span class="text-danger">*</span></label>
+                                          <div class="col-lg-6">
+                                              <select class="form-control" id="main_cat" name="main_cat">
+                                                  <option value="">Select Main Categorie</option>
+                                                  <option value="A&M">Art & Music</option>
+                                                  <option value="Bio">Biographies</option>
+                                                  <option value="Bus">Business</option>
+                                                  <option value="Kid">Kids</option>
+                                                  <option value="Com">Comics</option>
+                                                  <option value="C&T">Computer & Tech</option>
+                                                  <option value="Cook">Cooking</option>
+                                                  <option value="H&C">Hobbies & Crafts</option>
+                                                  <option value="E&R">Edu & Reference</option>
+                                                  <option value="G&L">Gay & Lesbian</option>
+                                                  <option value="H&F">Health & Fitness</option>
+                                                  <option value="Hist">History</option>
+                                                  <option value="H&G">Home & Garden</option>
+                                                  <option value="Hor">Horror</option>
+                                                  <option value="Ent">Entertainment</option>
+                                                  <option value="L&F">Literature & Fiction</option>
+                                                  <option value="Med">Medical</option>
+                                                  <option value="Myst">Mysteries</option>
+                                                  <option value="Par">Parenting</option>
+                                                  <option value="Sos">Social Scienes</option>
+                                                  <option value="Reg">Regligion</option>
+                                                  <option value="Rom">Romance</option>
+                                                  <option value="S&M">Science & Math</option>
+                                                  <option value="S&F">Sci-fi & Fantasy</option>
+                                                  <option value="SelH">Self-Help</option>
+                                                  <option value="Spor">Sports</option>
+                                                  <option value="Teen">Teen</option>
+                                                  <option value="Tra">Travel</option>
+                                                  <option value="TruC">True Crime</option>
+                                                  <option value="West">Westerns</option>
+
+                                              </select>
+                                          </div>
+                                      </div>
+                                      <div class="form-group row">
+                                          <label class="col-lg-4 col-form-label" for="sub_cat_i">Sub Categories<span class="text-danger">*</span></label>
+                                          <div class="col-lg-6">
+                                              <input type="text" class="form-control" id="sub_cat_i" name="sub_cat_i" value="<%= cat.sub_cat %>">
+                                          </div>
+                                      </div>
+                                      <div class="form-group row">
+                                          <div class="col-lg-2 ml-auto">
+                                              <button type="submit" class="btn btn-success ">Modify</button>
+                                          </div>
+                                          <div class="col-lg-4 ml-auto">
+                                              <a href="javascript:del();"><button type="button" class="btn btn-danger ">Remove</button></a>
+                                          </div>
+                                      </div>
+                                  </form>
+                              </div>
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <!-- End PAge Content -->
+          </div>
+
+
+            <!-- End PAge Content -->
+          </div>
+          <!-- End Container fluid  -->
+          <!-- footer -->
+          <footer class="footer"> © 2018 All rights reserved. Template designed by <a href="https://colorlib.com">Colorlib</a></footer>
+          <!-- End footer -->
+        </div>
+        <!-- End Page wrapper  -->
+  </div>
+  <!-- End Wrapper -->
+  <!-- All Jquery -->
+  <% include ../partial/javascript %>
+  <script src="/javascripts/lib/form-validation/jquery.validate.min.js"></script>
+  <script src="/javascripts/lib/form-validation/jquery.validate-init.js"></script>
+  <script src="/javascripts/lib/toastr/toastr.min.js"></script>
+  <!-- scripit init-->
+  <script src="/javascripts/lib/toastr/toastr.init.js"></script>
+  <!--Custom JavaScript -->
+
+</body>
+
+<script type="text/javascript">
+  if('<%= cat.main_cat %>'){
+    $('#main_cat').val('<%= cat.main_cat %>');
+  }
+  function del() {
+    location.href = "/books/catDelete/<%=cat._id %>";
+  }
+</script>
+
+</html>

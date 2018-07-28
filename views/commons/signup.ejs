@@ -74,5 +74,18 @@
     <% include ../partial/javascript %>
 
 </body>
+<script type="text/javascript">
+  $('#email').blur(function () {
+    var data = { email : $('#email').val()};
+    if(data.email == '') return;
+    $.ajax({url:"/signup/duplicate", data:data, type:"POST", success: function (result) {
+      if(result.status == false){
+        alert(result.msg);
+        $('#email').val('');
+        $('#email').focus();
+      }
+    }});
+  });
+</script>
 
 </html>

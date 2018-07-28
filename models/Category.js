@@ -20,6 +20,14 @@ var CategorySchema = new Schema({
     type: Date,
     default:Date.now
   },
+  updatedBy: {
+      type: Schema.Types.ObjectId,
+      ref: 'Admins',
+  },
+  insertedBy: {
+      type: Schema.Types.ObjectId,
+      ref: 'Admins',
+  },
 });
 
 CategorySchema.virtual('updated_date').get(function () {
