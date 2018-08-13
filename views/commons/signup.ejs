@@ -9,6 +9,11 @@
     <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+<link href="/stylesheets/lib/sweetalert/sweetalert.css" rel="stylesheet">
+<link href="/stylesheets/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="/stylesheets/helper.css" rel="stylesheet">
+<link href="/stylesheets/style.css" rel="stylesheet">
 </head>
 
 <body class="fix-header fix-sidebar">
@@ -71,6 +76,7 @@
     <script src="/javascripts/lib/jquery/jquery.min.js"></script>
     <script src="/javascripts/lib/form-validation/jquery.validate.min.js"></script>
     <script src="/javascripts/lib/form-validation/jquery.validate-init.js"></script>
+    <script src="/javascripts/lib/sweetalert/sweetalert.min.js"></script>
     <% include ../partial/javascript %>
 
 </body>
@@ -80,7 +86,7 @@
     if(data.email == '') return;
     $.ajax({url:"/signup/duplicate", data:data, type:"POST", success: function (result) {
       if(result.status == false){
-        alert(result.msg);
+        sweetAlert("Oops...", result.msg, "error");
         $('#email').val('');
         $('#email').focus();
       }

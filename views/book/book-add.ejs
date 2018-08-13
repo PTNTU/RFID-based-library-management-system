@@ -9,6 +9,12 @@
     <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+<link href="/stylesheets/lib/sweetalert/sweetalert.css" rel="stylesheet">
+<!-- Bootstrap Core CSS -->
+<link href="/stylesheets/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="/stylesheets/helper.css" rel="stylesheet">
+<link href="/stylesheets/style.css" rel="stylesheet">
 </head>
 
 <body class="fix-header fix-sidebar">
@@ -109,7 +115,7 @@
             </div>
             <!-- End Container fluid  -->
             <!-- footer -->
-            <footer class="footer"> © 2018 All rights reserved. Template designed by <a href="https://colorlib.com">Colorlib</a></footer>
+            <% include ../partial/footer %>
             <!-- End footer -->
         </div>
         <!-- End Page wrapper  -->
@@ -119,14 +125,28 @@
     <% include ../partial/javascript %>
     <script src="/javascripts/lib/form-validation/jquery.validate.min.js"></script>
     <script src="/javascripts/lib/form-validation/jquery.validate-init.js"></script>
+    <script src="/javascripts/lib/sweetalert/sweetalert.min.js"></script>
     <script src="/javascripts/lib/toastr/toastr.min.js"></script>
     <!-- scripit init-->
     <script src="/javascripts/lib/toastr/toastr.init.js"></script>
 
 </body>
 <script type="text/javascript">
+  $('#book_name').blur(function () {
+    var data = { book : $('#book_name').val()};
+    if(data.book == '') return;
+    $.ajax({url:"/books/duplicate", data:data, type:"POST", success: function (result) {
+      if(result.status == false){
+        sweetAlert("Oops...", result.msg, "error");
+        $('#book_name').val('');
+        $('#book_name').focus();
+      }
+    }});
+  });
+
 var categories = [<%- cat%>];
 console.log(categories);
+
     addOptions('main_cat', categories);
     $("#main_cat").on('change', function(){
         var sub = $.grep( categories, function( n, i ) {
@@ -140,9 +160,107 @@ console.log(categories);
         for(var idx in arr){
             if(idx == 0) $("#"+id).append(new Option('Select '+((id == 'main_cat')? "Main Category": "Sub Category"), ''));
             if(idx == 0 || arr[idx][id] != arr[idx-1][id]){
-                $("#"+id).append(new Option(arr[idx][id], arr[idx][id]));
+                $("#"+id).append(new Option(((id == 'main_cat')? str(arr[idx][id]):arr[idx][id]),arr[idx][id]));
+
             }
         }
+    }
+
+    function str(data) {
+      switch (data) {
+        case "A&M":
+            return "Art & Music";
+          break;
+        case "Bio":
+            return "Biographies";
+          break;
+        case "Bus":
+            return "Business";
+          break;
+        case "Kid":
+            return "Kids";
+          break;
+        case "Com":
+            return "Comics";
+          break;
+        case "C&T":
+            return "Computer & Tech";
+          break;
+        case "Cook":
+            return "Cooking";
+          break;
+        case "H&C":
+            return "Hobbies & Crafts";
+          break;
+        case "E&R":
+            return "Edu & Reference";
+          break;
+        case "G&L":
+            return "Gay & Lesbian";
+          break;
+        case "H&F":
+            return "Health & Fitness";
+          break;
+        case "Hist":
+            return "History";
+          break;
+        case "H&G":
+            return "Home & Garden";
+          break;
+        case "Hor":
+            return "Horror";
+          break;
+        case "Ent":
+            return "Entertainment";
+          break;
+        case "L&F":
+            return "Literature & Fiction";
+          break;
+        case "Med":
+            return "Medical";
+          break;
+        case "Myst":
+            return "Mysteries";
+          break;
+        case "Par":
+            return "Parenting";
+          break;
+        case "Sos":
+            return "Social Scienes";
+          break;
+        case "Reg":
+            return "Regligion";
+          break;
+        case "Rom":
+            return "Romance";
+          break;
+        case "S&M":
+            return "Science & Math";
+          break;
+        case "S&F":
+            return "Sci-fi & Fantasy";
+          break;
+        case "SelH":
+            return "Self-Help";
+          break;
+        case "Spor":
+            return "Sports";
+          break;
+        case "Teen":
+            return "Teen";
+          break;
+        case "Tra":
+            return "Travel";
+          break;
+        case "TruC":
+            return "True Crime";
+          break;
+        case "West":
+            return "Westerns";
+          break;
+        default:
+           return "";
+      }
     }
 
 </script>

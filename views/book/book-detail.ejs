@@ -9,6 +9,12 @@
     <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+<link href="/stylesheets/lib/sweetalert/sweetalert.css" rel="stylesheet">
+<!-- Bootstrap Core CSS -->
+<link href="/stylesheets/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="/stylesheets/helper.css" rel="stylesheet">
+<link href="/stylesheets/style.css" rel="stylesheet">
 </head>
 
 <body class="fix-header fix-sidebar">
@@ -50,7 +56,7 @@
                               <div class="card-two">
                                   <header>
                                       <div class="avatar">
-                                          <img src="https://randomuser.me/api/portraits/women/21.jpg" alt="Allison Walker" />
+                                          <img src="/images/users/7.jpg" alt="Allison Walker" />
                                       </div>
                                   </header>
 
@@ -147,7 +153,7 @@
                                           </div>
                                           <div class="col-md-2 col-xs-6 b-r"> <strong>Main Category</strong>
                                               <br>
-                                              <p class="text-muted"><%= book.main_cat %></p>
+                                              <p class="text-muted" id="main"><%= book.main_cat %></p>
                                           </div>
                                           <div class="col-md-2 col-xs-6 b-r"> <strong>Sub Category</strong>
                                               <br>
@@ -257,13 +263,10 @@
                                               </div>
                                           </div>
                                           <div class="form-group">
-                                              <div class="col-sm-6">
+                                              <div class="col-sm-12">
                                                   <button class="btn btn-success" >Update Book</button>
-                                              </div>
-                                              <div class="col-sm-6">
                                                   <a href="javascript:del();"><button type="button" class="btn btn-danger ">Remove</button></a>
                                               </div>
-                                          </div>
                                       </form>
                                   </div>
                               </div>
@@ -277,7 +280,7 @@
           </div>
           <!-- End Container fluid  -->
           <!-- footer -->
-          <footer class="footer"> © 2018 All rights reserved. Template designed by <a href="https://colorlib.com">Colorlib</a></footer>
+          <% include ../partial/footer %>
           <!-- End footer -->
         </div>
         <!-- End Page wrapper  -->
@@ -289,11 +292,18 @@
   <script src="/javascripts/lib/form-validation/jquery.validate.unobtrusive.min.js"></script>
   <script src="/javascripts/lib/form-validation/jquery.validate.min.js"></script>
   <script src="/javascripts/lib/form-validation/jquery.validate-init.js"></script>
+  <script src="/javascripts/lib/sweetalert/sweetalert.min.js"></script>
 
   <script src="/javascripts/lib/jquery.nicescroll/jquery.nicescroll.min.js"></script>
   <!--Custom JavaScript -->
   <script>
-      $(function(){
+      // $(function(){
+      //   if ($('#main').html()) {
+      //     var reasign = str($('#main').html());
+      //     console.log('assign',$('#main').html().remove('amp;'));
+      //     $('#main').html(reasign);
+      //   }
+
         $("html").niceScroll({
             cursorcolor:"#16385d",
             cursorwidth:"5px",
@@ -316,12 +326,12 @@
                   for(var idx in arr){
                       if(idx == 0) $("#"+id).append(new Option('Select '+((id == 'main_cat')? "Main Category": "Sub Category"), ''));
                       if(idx == 0 || arr[idx][id] != arr[idx-1][id]){
-                          $("#"+id).append(new Option(arr[idx][id], arr[idx][id]));
+                          $("#"+id).append(new Option(((id == 'main_cat')? str(arr[idx][id]):arr[idx][id]), arr[idx][id]));
                       }
                   }
               }
-              $('#main_cat').val('<%= book.main_cat %>');
-              $('#sub_cat').val('<%= book.sub_cat %>');
+              // $('#main_cat').val('<%= book.main_cat %>');
+              // $('#sub_cat').val('<%= book.sub_cat %>');
               $('#status').val('<%= book.status %>');
 
               switch ('<%= book.status %>') {
@@ -338,8 +348,122 @@
                  console.log('Unnormal');
               }
       });
+      function str(data) {
+        switch (data) {
+          case "A&M":
+              return "Art & Music";
+            break;
+          case "Bio":
+              return "Biographies";
+            break;
+          case "Bus":
+              return "Business";
+            break;
+          case "Kid":
+              return "Kids";
+            break;
+          case "Com":
+              return "Comics";
+            break;
+          case "C&T":
+              return "Computer & Tech";
+            break;
+          case "Cook":
+              return "Cooking";
+            break;
+          case "H&C":
+              return "Hobbies & Crafts";
+            break;
+          case "E&R":
+              return "Edu & Reference";
+            break;
+          case "G&L":
+              return "Gay & Lesbian";
+            break;
+          case "H&F":
+              return "Health & Fitness";
+            break;
+          case "Hist":
+              return "History";
+            break;
+          case "H&G":
+              return "Home & Garden";
+            break;
+          case "Hor":
+              return "Horror";
+            break;
+          case "Ent":
+              return "Entertainment";
+            break;
+          case "L&F":
+              return "Literature & Fiction";
+            break;
+          case "Med":
+              return "Medical";
+            break;
+          case "Myst":
+              return "Mysteries";
+            break;
+          case "Par":
+              return "Parenting";
+            break;
+          case "Sos":
+              return "Social Scienes";
+            break;
+          case "Reg":
+              return "Regligion";
+            break;
+          case "Rom":
+              return "Romance";
+            break;
+          case "S&M":
+              return "Science & Math";
+            break;
+          case "S&F":
+              return "Sci-fi & Fantasy";
+            break;
+          case "SelH":
+              return "Self-Help";
+            break;
+          case "Spor":
+              return "Sports";
+            break;
+          case "Teen":
+              return "Teen";
+            break;
+          case "Tra":
+              return "Travel";
+            break;
+          case "TruC":
+              return "True Crime";
+            break;
+          case "West":
+              return "Westerns";
+            break;
+          default:
+             return "";
+        }
+      }
       function del() {
-        location.href = "/books/bookDelete/<%=book._id %>";
+        swal({
+                title: "Are you sure to delete ?",
+                text: "You will not be able to recover this book !!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Yes, delete it !!",
+                closeOnConfirm: false
+            },
+            function(){
+                swal({
+                  title:"Deleted !!",
+                  text: "Hey, your book has been deleted !!",
+                  type: "success",
+                  closeOnConfirm: true
+                },function(isConfirm){
+                  location.href = "/books/bookDelete/<%=book._id %>";
+                } );
+            });
       }
   </script>
 </body>

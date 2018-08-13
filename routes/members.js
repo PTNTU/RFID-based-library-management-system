@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Member = require('../models/Member');
+var Admin = require('../models/Admin');
 
 var auth = function(req, res, next) {
   if (req.session.user) {
@@ -44,6 +45,13 @@ router.get('/list',auth, function(req, res, next) {
   });
 });
 
+router.get('/warn',auth, function(req, res, next) {
+  Member.find({status:"01"},function (err,rtn) {
+    if (err) throw err;
+    res.render('member/member-warn',{member:rtn});
+  });
+});
+
 router.post('/modify',(req,res,next)=>{
   var update ={
     name: req.body.username,
@@ -74,4 +82,49 @@ router.get('/memberDelete/:id',(req,res,next)=>{
     res.redirect('/members/list');
   })
 });
+
+router.post('/admcheck',(req,res,next)=>{
+  Admin.findById(req.body.id,(err,admin)=>{
+    if(err) throw err;
+    if(admin == null || !Admin.compare(req.body.pwd,admin.password)){
+      res.json({ status: false, msg: "Password not matched"});
+    }else{
+      res.json({ status: true, msg: "Password matched"});
+    }
+  });
+});
+
+router.post('/memcheck',(req,res,next)=>{
+  Member.findById(req.body.id,(err,member)=>{
+    if(err) throw err;
+    if(member == null || !Member.compare(req.body.pwd,member.password)){
+      res.json({ status: false, msg: "Password not matched"});
+    }else{
+      res.json({ status: true, msg: "Password matched"});
+    }
+  });
+});
+
+router.post('/duplicate',(req,res,next)=>{
+  Member.findOne({name:req.body.member},(err,rtn)=>{
+    if(err) throw err;
+    if(rtn != null) res.json({ status: false, msg: "Duplicate User Name!!!"});
+    else res.json({ status: true});
+  })
+});
+
+router.get('/auth',auth, function(req, res, next) {
+  res.render("member/member-auth");
+});
+
+router.post('/authcheck',(req,res,next)=>{
+  console.log(req.body.rfid);
+  Member.findOne({rfid:req.body.rfid},(err,rtn)=>{
+    if(err) throw err;
+    console.log(rtn);
+    if(rtn != null) res.json({ status: true, msg: "Member card succefully scan!!"});
+    else res.json({ status: false, msg: "Member card is not registered"});
+  })
+})
+
 module.exports = router;

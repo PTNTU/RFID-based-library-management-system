@@ -132,4 +132,12 @@ router.get('/bookDelete/:id',(req,res,next)=>{
     res.redirect('/books/list');
   })
 });
+
+router.post('/duplicate',(req,res,next)=>{
+  Book.findOne({book_name:req.body.book},(err,rtn)=>{
+    if(err) throw err;
+    if(rtn != null) res.json({ status: false, msg: "Duplicate Book Name!!!"});
+    else res.json({ status: true});
+  })
+});
 module.exports = router;
