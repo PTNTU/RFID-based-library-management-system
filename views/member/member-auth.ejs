@@ -35,11 +35,11 @@
           <!-- Bread crumb -->
           <div class="row page-titles">
             <div class="col-md-5 align-self-center">
-              <h3 class="text-primary">Member Registration</h3> </div>
+              <h3 class="text-primary">Member Authorication</h3> </div>
             <div class="col-md-7 align-self-center">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="javascript:void(0)">Members</a></li>
-                <li class="breadcrumb-item active">Add Member</li>
+                <li class="breadcrumb-item active">Member Auth</li>
               </ol>
             </div>
           </div>
@@ -65,29 +65,10 @@
                                             <div class="col-lg-10">
                                                 <input type="text" class="form-control" id="rfid" name="rfid" placeholder="Place Member's Cart at RFID reader">
                                             </div>
-                                            <div class="col-lg-2" >
-                                              <span id="msg"></span>
+                                            <div class="col-lg-2 loader loader--style2" id="msg">
+
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-lg-12 col-form-label text-center" for="info">Message</span></label>
-                                            <div class="col-lg-12" >
-                                                <p id="showmsg">You are good man</p>
-                                            </div>
-                                        </div>
-                                    <hr>
-                                    <div class="form-actions">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="row">
-                                                    <div class="col-md-offset-3 col-md-9 text-right">
-                                                      <button class="btn btn-light waves-effect waves-light" id="goto" hidden> <span>Go to member registration</span> <i class="fa fa-send m-l-10"></i> </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6"> </div>
-                                        </div>
-                                    </div>
                                 </form>
                             </div>
                         </div>
@@ -123,8 +104,7 @@
 <script type="text/javascript">
 var timeout = null;
 $('#rfid').keyup(function () {
-  console.log($('#rfid').val());
-$('#msg').html('<svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="7" fill="none" stroke-width="5" stroke-miterlimit="10" /> </svg>');
+$('#msg').html('<svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve"> <path fill="#000" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z"> <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"/> </path></svg>');
   clearTimeout(timeout);
   timeout = setTimeout(function () {
 
@@ -134,19 +114,41 @@ $('#msg').html('<svg class="circular" viewBox="25 25 50 50"><circle class="path"
     ).done(function (res) {
       if(res.status){
         $('#msg').html('<i class = "fa fa-check" style ="color:green;"></i>');
-        $('#showmsg').html(res.msg);
+        swal({
+          title: "Member card is correct!!",
+          text: "Can go to the member function",
+          type: "success",
+          confirmButtonText: "OK",
+          closeOnConfirm: false
+        },
+        function (isConfirm) {
+          location.href = "/books/record/"+$('#rfid').val();
+        }
+      )
       }else{
         $('#msg').html('<i class = "fa fa-remove " style ="color:red;"></i>');
-        $('#showmsg').html(res.msg);
-        $('#goto').removeAttr('hidden');
+        swal({
+          title: "It is not member's card!!",
+          text: "This card is not member card, need to register",
+          type: "warning",
+          showCancelButton: true,
+          confirmButtonText: "Go to member register",
+          closeOnConfirm: false
+        },
+        function (isConfirm) {
+          if(isConfirm){
+          location.href = "/members/add";
+        }else {
+          location.href = "/members/auth";
+        }
+        }
+      )
       }
     }).fail(function (err) {
       console.log(err.status);
     });
   }, 1500);
-  $('#goto').click(location.href = '/members/add');
 });
-
 </script>
 
 </html>

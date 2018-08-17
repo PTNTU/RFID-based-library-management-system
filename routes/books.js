@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var Category = require('../models/Category');
 var Book = require('../models/Book');
+var Member = require('../models/Member');
+var Record = require('../models/Record');
 
 var auth = function(req, res, next) {
   if (req.session.user) {
@@ -139,5 +141,64 @@ router.post('/duplicate',(req,res,next)=>{
     if(rtn != null) res.json({ status: false, msg: "Duplicate Book Name!!!"});
     else res.json({ status: true});
   })
+});
+
+router.get('/record/:id',auth,(req,res,next)=>{
+    Member.findOne({rfid:req.params.id},(err,mem)=>{
+      if(err) throw err;
+      Record.findOne({member_id:mem._id},(err2,rec)=>{
+        if(err2) throw err2;
+        console.log();
+        res.render('book/book-record',{member:mem, record: rec});
+      });
+    });
+});
+
+router.post('/barcheck',(req,res,next)=>{
+    Book.findOne({barcode:req.body.barcode},(err,book)=>{
+      if(err) throw err;
+      if(book != null) res.json({ status: true, msg: "Member card succefully scan!!", book: book});
+      else res.json({ status: false, msg: "Member card is not registered", book: book});
+    });
+});
+
+router.post('/borrow',(req,res,next)=>{
+  var keys = []
+  var record = new Record();
+  console.log('don1');
+  record.member_id = req.body.mem;
+  record.type = 00;
+  record.status = 00;
+  record.borrowed = Date.now();
+  record.borrowedBy = req.session.user.id;
+  record.tol_range = req.body.tol_dur;
+  var keys = JSON.parse(req.body.bor);
+
+  console.log(keys);
+  Book.find({
+    _id:{
+      $in: keys
+    }
+  },(err,book)=>{
+    if(err) throw err;
+    console.log('do');
+    for( var y in book){
+      record.books.push({
+          book_id: book[y]._id,
+          range: book[y].book_range,
+          name: book[y].book_name,
+          author : book[y].book_author,
+          barcode : book[y].barcode
+        });
+    }
+    console.log('don3',record.books);
+    record.save((err,rtn)=>{
+      console.log('don');
+      if(err) throw err;
+      console.log(req.body.bor, req.body.mem,req.session.user);
+       res.json({ status: true, msg: "Book Borrowing process is succefully complete!!"});
+    });
+  });
+
 });
 module.exports = router;

@@ -109,10 +109,10 @@
 
             var onMoveEvent = function(e)
             {
-                if (list.dragEl) {
-                    e.preventDefault();
-                    list.dragMove(e.touches ? e.touches[0] : e);
-                }
+                // if (list.dragEl) {
+                //     e.preventDefault();
+                //     list.dragMove(e.touches ? e.touches[0] : e);
+                // }
             };
 
             var onEndEvent = function(e)

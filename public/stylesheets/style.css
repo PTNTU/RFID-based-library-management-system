@@ -78,6 +78,24 @@
   z-index: 99999;
   background: #fff;
 }
+.loader {
+  margin: 0 0 2em;
+  height: 50px;
+  width: 20%;
+  text-align: center;
+  padding: 1em;
+  margin: 0 auto 1em;
+  display: inline-block;
+  vertical-align: top;
+}
+/*
+  Set the color of the icon
+*/
+svg path,
+svg rect {
+  fill: #FF6700;
+}
+
 .preloader .cssload-speeding-wheel {
   position: absolute;
   top: calc(46.5%);
