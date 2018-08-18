@@ -122,11 +122,9 @@
                                                             <div class="col-lg-10">
                                                                 <input type="number" class="form-control" id="barcode" name="barcode" placeholder="Please scan book barcode serial number">
                                                             </div>
-                                                            <div class="col-lg-2 loader loader--style2" id="msg">
-
                                                             </div>
                                                           </div>
-                                                          </div>
+
                                                   </form>
                                               </div>
                                           </div>
@@ -248,9 +246,7 @@
                                                           <div class="col-lg-10">
                                                               <input type="number" class="form-control" id="barcodeRec" name="barcodeRec" placeholder="Please scan book barcode serial number">
                                                           </div>
-                                                          <div class="col-lg-2 loader loader--style2" id="msgRec">
 
-                                                          </div>
                                                         </div>
                                                         </div>
                                                 </form>
@@ -360,10 +356,10 @@ switch ('<%= member.status %>') {
 var timeout = null;
 var borList = [];
 var tol_dur = 0;
-$('#barcode').keyup(function () {
-$('#msg').html('<svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve"> <path fill="#000" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z"> <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"/> </path></svg>');
-  clearTimeout(timeout);
-  timeout = setTimeout(function () {
+$('#barcode').keypress(function (e) {
+
+  if(e.keyCode == 13) {
+    e.preventDefault();
     $.post(
       '/books/barcheck',
       {barcode : $('#barcode').val()}
@@ -372,8 +368,6 @@ $('#msg').html('<svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/s
         borList.push(res.book._id);
         tol_dur += res.book.book_range;
         $('#tol').html(tol_dur +" days");
-
-        $('#msg').html('<i class = "fa fa-check" style ="color:green;"></i>');
 
         var inTab = document.getElementById('inTab');
         var row = inTab.insertRow(0);
@@ -386,14 +380,11 @@ $('#msg').html('<svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/s
         var cell3 = row.insertCell(3);
         cell3.appendChild(document.createTextNode(res.book.book_range));
 
-      }else{
-        $('#msg').html('<i class = "fa fa-remove " style ="color:red;"></i>');
-
       }
     }).fail(function (err) {
       console.log(err.status);
     });
-  }, 1500);
+  }
 });
 
 $('#btnborrow').click(function () {
@@ -420,10 +411,9 @@ $('#btnborrow').click(function () {
   })
 });
 
-$('#barcodeRec').keyup(function () {
-  $('#msgRec').html('<svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve"> <path fill="#000" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z"> <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"/> </path></svg>');
-    clearTimeout(timeout);
-    timeout = setTimeout(function () {
+$('#barcodeRec').keypress(function (e) {
+  if(e.keyCode == 13) {
+    e.preventDefault();
       <% for(var i = 0; i< record.books.length; i++){%>
         console.log('call');
           if(<%= record.books[i].barcode %> == $('#barcodeRec').val()){
@@ -434,7 +424,7 @@ $('#barcodeRec').keyup(function () {
             $(ret).removeAttr('hidden');
           }
       <%}%>
-    }, 1500);
+    }
 });
 
 

@@ -62,11 +62,9 @@
                                         <div class="form-group row">
 
                                             <label class="col-lg-12 col-form-label text-center" for="rfid">RFID No </label>
-                                            <div class="col-lg-10">
+                                            <div class="col-lg-12">
                                                 <input type="text" class="form-control" id="rfid" name="rfid" placeholder="Place Member's Cart at RFID reader">
                                             </div>
-                                            <div class="col-lg-2 loader loader--style2" id="msg">
-
                                             </div>
                                         </div>
                                 </form>
@@ -102,18 +100,18 @@
 
 </body>
 <script type="text/javascript">
-var timeout = null;
-$('#rfid').keyup(function () {
-$('#msg').html('<svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve"> <path fill="#000" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z"> <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"/> </path></svg>');
-  clearTimeout(timeout);
-  timeout = setTimeout(function () {
 
+var timeout = null;
+$('#rfid').keypress(function (e) {
+  console.log(e.keyCode);
+  if(e.keyCode == 13) {
+    e.preventDefault();
+    console.log('done');
     $.post(
       '/members/authcheck',
       {rfid : $('#rfid').val()}
     ).done(function (res) {
       if(res.status){
-        $('#msg').html('<i class = "fa fa-check" style ="color:green;"></i>');
         swal({
           title: "Member card is correct!!",
           text: "Can go to the member function",
@@ -126,7 +124,6 @@ $('#msg').html('<svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/s
         }
       )
       }else{
-        $('#msg').html('<i class = "fa fa-remove " style ="color:red;"></i>');
         swal({
           title: "It is not member's card!!",
           text: "This card is not member card, need to register",
@@ -147,7 +144,7 @@ $('#msg').html('<svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/s
     }).fail(function (err) {
       console.log(err.status);
     });
-  }, 1500);
+  }
 });
 </script>
 
