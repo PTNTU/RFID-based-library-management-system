@@ -34,11 +34,11 @@ var RecordSchema = new Schema({
       },
   }],
   type:{
-    type: Number, // 00 is borrow, 01 is return
+    type: String, // 00 is borrow, 01 is return
     required: true,
   },
   status:{
-    type: Number, // 00 is not finish, 01 complete
+    type: String, // 00 is not finish, 01 complete
     required: true,
   },
   borrowed:{

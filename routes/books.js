@@ -146,10 +146,12 @@ router.post('/duplicate',(req,res,next)=>{
 router.get('/record/:id',auth,(req,res,next)=>{
     Member.findOne({rfid:req.params.id},(err,mem)=>{
       if(err) throw err;
-      Record.findOne({member_id:mem._id},(err2,rec)=>{
+      console.log('sts',typeof mem.last_act);
+      Record.findOne({member_id:mem._id,status:mem.last_act},(err2,rec)=>{
+        console.log('//////',rec);
         if(err2) throw err2;
-        console.log();
-        res.render('book/book-record',{member:mem, record: rec});
+        console.log(rec);
+        res.render('book/book-record',{member:mem, record: (rec == null)? "0" : rec});
       });
     });
 });
@@ -164,41 +166,67 @@ router.post('/barcheck',(req,res,next)=>{
 
 router.post('/borrow',(req,res,next)=>{
   var keys = []
-  var record = new Record();
-  console.log('don1');
-  record.member_id = req.body.mem;
-  record.type = 00;
-  record.status = 00;
-  record.borrowed = Date.now();
-  record.borrowedBy = req.session.user.id;
-  record.tol_range = req.body.tol_dur;
-  var keys = JSON.parse(req.body.bor);
+  Member.findByIdAndUpdate(req.body.mem,{$set:{last_borrow:Date.now(),_id:req.body.mem,last_act:"00"}},{new: true},(err3,upd)=>{
+  if(err3) throw err3;
+    var record = new Record();
+    console.log('don1',upd);
+    record.member_id = upd._id;
+    record.type = "00";
+    record.status = "00";
+    record.borrowed = Date.now();
+    record.borrowedBy = req.session.user.id;
+    record.tol_range = req.body.tol_dur;
+    var keys = JSON.parse(req.body.bor);
 
-  console.log(keys);
-  Book.find({
-    _id:{
-      $in: keys
-    }
-  },(err,book)=>{
-    if(err) throw err;
-    console.log('do');
-    for( var y in book){
-      record.books.push({
-          book_id: book[y]._id,
-          range: book[y].book_range,
-          name: book[y].book_name,
-          author : book[y].book_author,
-          barcode : book[y].barcode
-        });
-    }
-    console.log('don3',record.books);
-    record.save((err,rtn)=>{
-      console.log('don');
+    console.log(keys);
+    Book.find({
+      _id:{
+        $in: keys
+      }
+    },(err,book)=>{
       if(err) throw err;
-      console.log(req.body.bor, req.body.mem,req.session.user);
-       res.json({ status: true, msg: "Book Borrowing process is succefully complete!!"});
-    });
+      for( var y in book){
+        record.books.push({
+            book_id: book[y]._id,
+            range: book[y].book_range,
+            name: book[y].book_name,
+            author : book[y].book_author,
+            barcode : book[y].barcode
+          });
+      }
+      record.save((err2,rtn)=>{
+        if(err2) throw err2;
+          res.json({ status: true, msg: "Book Borrowing process is succefully complete!!"});
+        });
+      });
   });
 
 });
+
+router.post('/return/:id',(req,res,next)=>{
+  var update = {
+    type : "01",
+    status : "01",
+    received : Date.now(),
+    receivedBy : req.session.user.id
+  }
+    Record.findByIdAndUpdate(req.params.id,{$set:update},(err,rec)=>{
+      if(err) throw err;
+      Member.findByIdAndUpdate(rec.member_id,{$set:{last_borrow:Date.now(),_id:rec.member_id,last_act:"01"}},{new: true},(err3,upd)=>{
+      if(err3) throw err3;
+      res.json({ status: true, msg: "Book retrun process is complete!!!", rec: rec});
+    });
+  })
+});
+
+router.get('/history',(req,res)=>{
+  var key = [];
+  // TODO need pages
+  Record.find({}).limit(10).populate('member_id').exec((err,rtn)=>{
+    if(err) throw err;
+    console.log(rtn);
+      res.render('book/book-history',{hist:rtn});
+    });
+  });
+
 module.exports = router;

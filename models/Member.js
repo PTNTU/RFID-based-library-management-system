@@ -40,6 +40,10 @@ var MemberSchema = new Schema({
     type:Number,
     required:true,
   },
+  last_act:{
+    type: String,
+    default: "01" // 01 complete, 00 is borrow
+  },
   rfid:{
     type:String,
     required:true,

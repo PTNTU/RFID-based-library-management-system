@@ -104,8 +104,9 @@
                             <div class="card-header">
                                 <h4 class="m-b-0 text-white">Book Borrowing Process</h4>
                             </div>
+                            <% if(member.status != '11') {%>
                             <div class="card-body">
-                              <% if(!record){%>
+                              <% if(record.status == '01' || record == "0"){%>
                                 <form class="form-horizontal">
                                     <div class="form-body">
                                         <div class="form-group row">
@@ -171,11 +172,14 @@
                                   <h2>Member cannot borrow before return borrowed books</h2>
                                 <%}%>
                             </div>
+                            <%}else{%>
+                              <h2>Cannot allow block member for borrowing and returning process</h2>
+                              <%}%>
                         </div>
                     </div>
 
                 </div>
-
+                <% if(member.status != '11'){%>
               <div class="row justify-content-center">
                   <div class="col-lg-12">
                         <div class="card card-outline-success">
@@ -183,6 +187,7 @@
                                 <h4 class="m-b-0 text-white">Book Returning Process</h4>
                             </div>
                             <div class="card-body">
+                              <% if( record.status == '00' ){%>
                               <form class="form-horizontal">
                                   <div class="form-body">
                                       <div class="form-group row">
@@ -212,7 +217,10 @@
                                                           </tr>
                                                       </tfoot>
                                                       <tbody id="borTab">
-                                                        <% if(record.books.length < 0){%>
+                                                        <% if (record == 0){%>
+                                                           <p>Data not found!!</p>
+                                                        <%}else{%>
+                                                        <% if(record.books.length < 0 ){%>
                                                           <p>Data Not Found!!</p>
                                                         <%}else{%>
                                                           <% for(var i = 0; i< record.books.length; i++){%>
@@ -225,6 +233,7 @@
 
                                                             <%}%>
                                                           <%}%>
+                                                        <%}%>
                                                       </tbody>
                                                   </table>
                                               </div>
@@ -278,6 +287,9 @@
                                                           </tr>
                                                     </tfoot>
                                                     <tbody id="RecTab">
+                                                      <% if(record == 0){%>
+                                                      <p>Data not Found</p>
+                                                    <%}else{%>
                                                       <% if(record.books.length < 0){%>
                                                         <p>Data Not Found!!</p>
                                                       <%}else{%>
@@ -291,11 +303,12 @@
 
                                                           <%}%>
                                                         <%}%>
+                                                        <%}%>
                                                     </tbody>
                                                 </table>
                                             </div>
                                           </div>
-                                          <button type="button" id="btnreturn" class="btn btn-success btn-rounded m-b-10 m-l-5 ">Return</button>
+                                          <button type="button" id="btnreturn" hidden class="btn btn-success btn-rounded m-b-10 m-l-5 ">Return</button>
                                       </div>
 
                                     </div>
@@ -304,12 +317,15 @@
                                       </div>
 
                               </form>
+                              <%} else{%>
+                                <h2>No book borrowing history!!</h2>
+                                <%}%>
                             </div>
                         </div>
                     </div>
 
                 </div>
-
+                <%}%>
               </div>
 
         </div>
@@ -353,9 +369,14 @@ switch ('<%= member.status %>') {
   default:
    console.log('Unnormal');
 }
+</script>
+<script type="text/javascript">
+
 var timeout = null;
 var borList = [];
+var retList = [];
 var tol_dur = 0;
+var retList = [];
 $('#barcode').keypress(function (e) {
 
   if(e.keyCode == 13) {
@@ -411,22 +432,68 @@ $('#btnborrow').click(function () {
   })
 });
 
+
+var booklist = [];
+<% if(record!=0){%>
+<% for(var k = 0; k< record.books.length; k++){%>
+  booklist.push('<%= record.books[k]._id %>');
+  <%}%>
+<%}%>
+var list_len = 0
 $('#barcodeRec').keypress(function (e) {
   if(e.keyCode == 13) {
     e.preventDefault();
+
+    <% if(record != 0) { %>
       <% for(var i = 0; i< record.books.length; i++){%>
-        console.log('call');
-          if(<%= record.books[i].barcode %> == $('#barcodeRec').val()){
+          if(<%= record.books[i].barcode %> == $('#barcodeRec').val() ){
+            list_len ++;
+            retList.push('<%=record.books[i]._id %>');
             var bar = '#bor'+$('#barcodeRec').val();
             var ret = '#ret'+$('#barcodeRec').val();
-            $('#msgRec').html('<i class = "fa fa-check" style ="color:green;"></i>');
             $(bar).hide();
             $(ret).removeAttr('hidden');
           }
+
       <%}%>
+      if(list_len == <%= record.books.length %>){
+        $('#btnreturn').removeAttr('hidden');
+      }
+
+    <%}%>
+    $('#barcodeRec').val('');
+    $('#barcodeRec').focus();
     }
 });
 
+
+$('#btnreturn').click(function () {
+  console.log('init');
+if(_.isEqual(booklist,retList)){
+  console.log('equal');
+  $.post(
+    '/books/return/<%=record._id%>',
+  ).done(function (res) {
+    if(res.status){
+      swal({
+        title: "Well Done",
+        text: res.msg,
+        type: "success",
+        confirmButtonText: "OK",
+        closeOnConfirm: true
+      },
+      function (isConfirm) {
+        location.href = '/books/record/<%= member.rfid %>';
+      }
+    )
+    }else {
+      sweetAlert("Oops...", res.msg, "error");
+    }
+  })
+}
+
+});
+console.log('<%=record.status%>');
 
 
 </script>
