@@ -5,6 +5,9 @@ var Book = require('../models/Book');
 var Member = require('../models/Member');
 var Record = require('../models/Record');
 var mongoose = require('mongoose');
+// 
+// var server = http.createServer().listen(config.stream.socketPort);
+// var serverIo = require('socket.io')(server);
 
 var auth = function(req, res, next) {
   if (req.session.user) {

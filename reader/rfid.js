@@ -15,14 +15,21 @@
 # needed: BCM 2835 library
 # needed: sudo
 */
+// var rc522 = require("rc522");
+//
+// function Rfid(callback){
+//     console.log(rc522);
+//     rc522(function(rfidSerialNumber){
+//         console.log(rfidSerialNumber);
+//         callback('RFID', 0, rfidSerialNumber);
+//     });
+// }
+//
+// module.exports = Rfid;
 var rc522 = require("rc522");
 
-function Rfid(callback){
-    // console.log(rc522);
-    rc522(function(rfidSerialNumber){
-        // console.log(rfidSerialNumber);
-        callback('RFID', 0, rfidSerialNumber);
-    });
-}
+console.log('Ready!!!');
 
-module.exports = Rfid;
+rc522(function(rfidSerialNumber){
+    console.log(rfidSerialNumber);
+});

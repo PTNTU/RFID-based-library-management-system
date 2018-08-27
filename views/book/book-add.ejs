@@ -129,6 +129,7 @@
     <script src="/javascripts/lib/toastr/toastr.min.js"></script>
     <!-- scripit init-->
     <script src="/javascripts/lib/toastr/toastr.init.js"></script>
+    <script src="/javascripts/socket.io.js" charset="utf-8"></script>
 
 </body>
 <script type="text/javascript">
@@ -262,7 +263,10 @@ console.log(categories);
            return "";
       }
     }
-
+ var socket = io();
+ socket.on('control',function (data) {
+   if(data) console.log(data);
+ })
 </script>
 
 </html>
