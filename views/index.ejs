@@ -100,10 +100,10 @@
 
             <div class="row">
 
-              <div class="col-lg-5">
+              <div class="col-lg-6">
                 <div class="card">
                   <div class="card-title">
-                    <a href="#"><h4>Warning Member</h4></a>
+                    <a href="/members/warn"><h4>Warning Member</h4></a>
                   </div>
                   <div class="card-body">
                     <div class="table-responsive">
@@ -112,9 +112,10 @@
                           <tr>
                             <th>#</th>
                             <th>Name</th>
-                            <th>Product</th>
-                            <th>quantity</th>
-                            <th>Status</th>
+                            <th>Major</th>
+                            <th>Year</th>
+                            <th>Roll No</th>
+                            <th>Expired</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -128,48 +129,17 @@
                             <td>John Abraham</td>
                             <td><span>iBook</span></td>
                             <td><span>456 pcs</span></td>
+                            <td><span>11</span></td>
                             <td><span class="badge badge-success">Done</span></td>
                           </tr>
-                          <tr>
-                            <td>
-                              <div class="round-img">
-                                <a href=""><img src="images/avatar/2.jpg" alt=""></a>
-                              </div>
-                            </td>
-                            <td>John Abraham</td>
-                            <td><span>iPhone</span></td>
-                            <td><span>456 pcs</span></td>
-                            <td><span class="badge badge-success">Done</span></td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div class="round-img">
-                                <a href=""><img src="images/avatar/3.jpg" alt=""></a>
-                              </div>
-                            </td>
-                            <td>John Abraham</td>
-                            <td><span>iMac</span></td>
-                            <td><span>456 pcs</span></td>
-                            <td><span class="badge badge-warning">Pending</span></td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div class="round-img">
-                                <a href=""><img src="images/avatar/4.jpg" alt=""></a>
-                              </div>
-                            </td>
-                            <td>John Abraham</td>
-                            <td><span>iBook</span></td>
-                            <td><span>456 pcs</span></td>
-                            <td><span class="badge badge-success">Done</span></td>
-                          </tr>
+
                         </tbody>
                       </table>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-lg-7">
+              <div class="col-lg-6">
                 <div class="card">
                   <div class="card-title">
                     <a href="#"><h4>Book Borrowing History</h4></a>
@@ -199,39 +169,7 @@
                             <td><span>456 pcs</span></td>
                             <td><span class="badge badge-success">Done</span></td>
                           </tr>
-                          <tr>
-                            <td>
-                              <div class="round-img">
-                                <a href=""><img src="images/avatar/2.jpg" alt=""></a>
-                              </div>
-                            </td>
-                            <td>John Abraham</td>
-                            <td><span>iPhone</span></td>
-                            <td><span>456 pcs</span></td>
-                            <td><span class="badge badge-success">Done</span></td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div class="round-img">
-                                <a href=""><img src="images/avatar/3.jpg" alt=""></a>
-                              </div>
-                            </td>
-                            <td>John Abraham</td>
-                            <td><span>iMac</span></td>
-                            <td><span>456 pcs</span></td>
-                            <td><span class="badge badge-warning">Pending</span></td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div class="round-img">
-                                <a href=""><img src="images/avatar/4.jpg" alt=""></a>
-                              </div>
-                            </td>
-                            <td>John Abraham</td>
-                            <td><span>iBook</span></td>
-                            <td><span>456 pcs</span></td>
-                            <td><span class="badge badge-success">Done</span></td>
-                          </tr>
+
                         </tbody>
                       </table>
                     </div>
@@ -353,5 +291,13 @@
   <% include partial/javascript %>
 
 </body>
+<script type="text/javascript">
+$.post(
+  'books/warningli',
+).done(function (res) {
+  
+});
+
+</script>
 
 </html>

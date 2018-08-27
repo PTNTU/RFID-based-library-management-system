@@ -4,6 +4,7 @@ var Admin = require('../models/Admin');
 var flash = require('express-flash');
 var Category = require('../models/Category');
 var Book = require('../models/Book');
+var Record = require('../models/Record');
 var Member = require('../models/Member');
 var multer = require('multer');
 

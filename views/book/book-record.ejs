@@ -371,21 +371,29 @@ switch ('<%= member.status %>') {
 }
 </script>
 <script type="text/javascript">
-
-var timeout = null;
 var borList = [];
 var retList = [];
 var tol_dur = 0;
 var retList = [];
 $('#barcode').keypress(function (e) {
-
   if(e.keyCode == 13) {
     e.preventDefault();
     $.post(
       '/books/barcheck',
       {barcode : $('#barcode').val()}
     ).done(function (res) {
+      var check = false;
       if(res.status){
+        for(var j in borList){
+          console.log(borList[j],res.book._id);
+          if(borList[j]== res.book._id) {
+            check=true;
+            console.log('do');
+          }
+        }
+        if(check && borList.length>0){
+          sweetAlert("Oops...", "This Book is already inserted", "error");
+        }else{
         borList.push(res.book._id);
         tol_dur += res.book.book_range;
         $('#tol').html(tol_dur +" days");
@@ -402,34 +410,63 @@ $('#barcode').keypress(function (e) {
         cell3.appendChild(document.createTextNode(res.book.book_range));
 
       }
-    }).fail(function (err) {
-      console.log(err.status);
-    });
-  }
-});
-
-$('#btnborrow').click(function () {
-
-  $.post(
-    '/books/borrow',
-    {bor:JSON.stringify(borList) , mem: '<%= member._id %>', tol_dur: tol_dur}
-  ).done(function (res) {
-    if(res.status){
-      swal({
-        title: "Well Done",
-        text: res.msg,
-        type: "success",
-        confirmButtonText: "OK",
-        closeOnConfirm: true
-      },
-      function (isConfirm) {
-        location.href = '/books/record/<%= member.rfid %>';
-      }
-    )
     }else {
       sweetAlert("Oops...", res.msg, "error");
     }
-  })
+    }).fail(function (err) {
+      console.log(err.status);
+    });
+    }
+  // }
+});
+
+$('#btnborrow').click(function () {
+  swal({
+          title: "Checking Authorization",
+          text: "Enter Member's password!!",
+          type: "input",
+          showCancelButton: true,
+          closeOnConfirm: false,
+          animation: "slide-from-top",
+          inputPlaceholder: "Your Password Here"
+      },
+      function(inputValue){
+        if (inputValue === false) return false;
+        $.post(
+          '/books/pwdcheck',
+          {mem : '<%=member._id%>', pwd : inputValue}
+        ).done(function (resc) {
+          if(resc.status){
+            $.post(
+              '/books/borrow',
+              {bor:JSON.stringify(borList) , mem: '<%= member._id %>', tol_dur: tol_dur}
+            ).done(function (res) {
+              if(res.status){
+                swal({
+                  title: "Well Done",
+                  text: res.msg,
+                  type: "success",
+                  confirmButtonText: "OK",
+                  closeOnConfirm: true
+                },
+                function (isConfirm) {
+                  location.href = '/books/record/<%= member.rfid %>';
+                }
+              )
+              }else {
+                sweetAlert("Oops...", res.msg, "error");
+              }
+            });
+          }else {
+            swal.showInputError(resc.msg);
+            return false;
+          }
+        });
+
+      });
+
+
+
 });
 
 
@@ -447,6 +484,10 @@ $('#barcodeRec').keypress(function (e) {
     <% if(record != 0) { %>
       <% for(var i = 0; i< record.books.length; i++){%>
           if(<%= record.books[i].barcode %> == $('#barcodeRec').val() ){
+            if(list_len == <%= record.books.length %>){
+              console.log('same barcode');
+              return;
+            }
             list_len ++;
             retList.push('<%=record.books[i]._id %>');
             var bar = '#bor'+$('#barcodeRec').val();
@@ -493,7 +534,6 @@ if(_.isEqual(booklist,retList)){
 }
 
 });
-console.log('<%=record.status%>');
 
 
 </script>
