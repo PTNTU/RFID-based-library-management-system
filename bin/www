@@ -29,6 +29,12 @@ app.set('port', port);
  //  });
 
 var server = http.createServer(app);
+var io = require('socket.io')(server);
+io.on('connection', function (client) {
+  client.on('control', function(data){
+    io.emit('rfid',data);
+  });
+})
 
 
 /**

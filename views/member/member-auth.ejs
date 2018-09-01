@@ -55,7 +55,7 @@
                                 <h4 class="m-b-0 text-white">Member Authorication</h4>
                             </div>
                             <div class="card-body">
-                                <form class="form-horizontal">
+                                <form class="form-horizontal" name="frm">
                                     <div class="form-body">
                                         <h3 class="box-title m-t-15 ">Member Smart Card Number Here</h3>
                                         <hr class="m-t-0 m-b-40">
@@ -96,6 +96,7 @@
   <script src="/javascripts/lib/toastr/toastr.min.js"></script>
   <!-- scripit init-->
   <script src="/javascripts/lib/toastr/toastr.init.js"></script>
+  <script src="/javascripts/socket.io.js" charset="utf-8"></script>
   <!--Custom JavaScript -->
 
 </body>
@@ -107,44 +108,55 @@ $('#rfid').keypress(function (e) {
   if(e.keyCode == 13) {
     e.preventDefault();
     console.log('done');
-    $.post(
-      '/members/authcheck',
-      {rfid : $('#rfid').val()}
-    ).done(function (res) {
-      if(res.status){
-        swal({
-          title: "Member card is correct!!",
-          text: "Can go to the member function",
-          type: "success",
-          confirmButtonText: "OK",
-          closeOnConfirm: false
-        },
-        function (isConfirm) {
-          location.href = "/books/record/"+$('#rfid').val();
-        }
-      )
-      }else{
-        swal({
-          title: "It is not member's card!!",
-          text: "This card is not member card, need to register",
-          type: "warning",
-          showCancelButton: true,
-          confirmButtonText: "Go to member register",
-          closeOnConfirm: false
-        },
-        function (isConfirm) {
-          if(isConfirm){
-          location.href = "/members/add";
-        }else {
-          location.href = "/members/auth";
-        }
-        }
-      )
-      }
-    }).fail(function (err) {
-      console.log(err.status);
-    });
+    checkingRfid();
   }
+});
+function checkingRfid() {
+  $.post(
+    '/members/authcheck',
+    {rfid : $('#rfid').val()}
+  ).done(function (res) {
+    if(res.status){
+      swal({
+        title: "Member card is correct!!",
+        text: "Can go to the member function",
+        type: "success",
+        confirmButtonText: "OK",
+        closeOnConfirm: false
+      },
+      function (isConfirm) {
+        location.href = "/books/record/"+$('#rfid').val();
+      }
+    )
+    }else{
+      swal({
+        title: "It is not member's card!!",
+        text: "This card is not member card, need to register",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Go to member register",
+        closeOnConfirm: false
+      },
+      function (isConfirm) {
+        if(isConfirm){
+        location.href = "/members/add";
+      }else {
+        location.href = "/members/auth";
+      }
+      }
+    )
+    }
+  }).fail(function (err) {
+    console.log(err.status);
+  });
+}
+var socket = io();
+socket.on('rfid',function (data) {
+  if(data) {
+    $('#rfid').val(data);
+    checkingRfid();
+  }
+
 });
 </script>
 

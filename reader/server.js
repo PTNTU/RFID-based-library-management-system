@@ -1,4 +1,4 @@
-var Rfid = require('./Rfid');
+var Rfid = require('./rfid');
 var io = require('socket.io-client');
 var config = require('../config');
 
@@ -10,9 +10,5 @@ var rfid = new Rfid(readRfid);
 function readRfid(type, index, value) {
    // send to socket
    console.log(type, index, value);
-   socket.emit('control', {
-       type: type,
-       no: index,
-       falg: value
-   });
+   socket.emit('control',value);
 }

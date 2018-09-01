@@ -111,7 +111,7 @@
                                       <div class="form-group row">
                                           <label class="col-lg-4 col-form-label" for="val-suggestions">RFID <span class="text-danger">*</span></label>
                                           <div class="col-lg-6">
-                                              <textarea class="form-control" id="val-suggestions" name="rfid" rows="5" placeholder="You are RFID number"></textarea>
+                                              <textarea class="form-control" id="rfid" name="rfid" rows="5" placeholder="You are RFID number"></textarea>
                                           </div>
                                       </div>
 
@@ -150,6 +150,7 @@
   <script src="/javascripts/lib/toastr/toastr.min.js"></script>
   <!-- scripit init-->
   <script src="/javascripts/lib/toastr/toastr.init.js"></script>
+  <script src="/javascripts/socket.io.js" charset="utf-8"></script>
   <!--Custom JavaScript -->
 
 </body>
@@ -164,6 +165,11 @@ $('#username').blur(function () {
       $('#username').focus();
     }
   }});
+});
+
+var socket = io();
+socket.on('rfid',function (data) {
+  if(data) $('#rfid').val(data);
 });
 
 </script>
