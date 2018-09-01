@@ -27,7 +27,18 @@ router.get('/',auth, function(req, res, next) {
       Member.count({},(err3, mCount)=>{
         if(err3) throw err3;
         Book.count({status: '01'},(err,brCount)=>{
-          res.render('index', { catCount: catCount, bookCounnt: bCount, memCount: mCount, brCount:brCount });
+          Book.aggregate([
+            {
+              $group: {
+                _id:"$main_cat",
+                count:{$sum:1}
+              }
+            }
+          ],(err4,avg)=>{
+            if(err4) throw err4
+              res.render('index', { catCount: catCount, bookCounnt: bCount, memCount: mCount, brCount:brCount, avg:avg });
+          });
+
         });
       });
     })

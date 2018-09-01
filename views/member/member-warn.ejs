@@ -25,11 +25,11 @@
             <!-- Bread crumb -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-primary">Member List</h3> </div>
+                    <h3 class="text-primary">Warning Member</h3> </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Member</a></li>
-                        <li class="breadcrumb-item active">List</li>
+                        <li class="breadcrumb-item active">warning</li>
                     </ol>
                 </div>
             </div>
@@ -55,6 +55,7 @@
                                                 <th>Ph no.</th>
                                                 <th>RFID no.</th>
                                                 <th>Status</th>
+                                                <th>Expired</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -68,6 +69,7 @@
                                                 <td><%= member[i].phone %></td>
                                                 <td><%= member[i].rfid %></td>
                                                 <td id="td<%= i%>"><span class="label label-rouded label-success pull-center">Normal</span></td>
+                                                <td><%= time%></td>
                                             </tr>
                                             <script type="text/javascript">
                                                switch ('<%= member[i].status %>') {

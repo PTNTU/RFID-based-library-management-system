@@ -35,16 +35,28 @@ db.on('error',console.error.bind(console,'MongoDB connection error:'));
 }));
 app.use(flash()); // after cookie, session
 
-
-app.use('/', indexRouter);
-app.use('/members', memberRouter);
-app.use('/books', bookRouter);
-app.use(function (req, res, next) {
+app.use(function (req,res,next) {
   res.locals.user = req.session.user;
-  res.locals.active = req.path;
-  console.log('user path', req.path);
   next();
 });
+app.use('/', indexRouter);
+app.use(function (req, res, next) {
+  // res.locals.active = req.path;
+  console.log('user path', req.path);
+  if(req.session.user){
+    next();
+  }else{
+    req.flash("warning", "Authorization failed! Please login");
+    req.flash('forward', req.path);
+    res.redirect('/signin');
+  }
+
+});
+
+
+app.use('/members', memberRouter);
+app.use('/books', bookRouter);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

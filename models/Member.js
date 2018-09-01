@@ -77,7 +77,7 @@ MemberSchema.virtual('updated_date').get(function () {
 });
 
 MemberSchema.virtual('inserted_date').get(function () {
-  return dateformat(this.Inserted, 'dd/mm/yyyy HH:MM');
+  return dateformat(this.inserted, 'dd/mm/yyyy HH:MM');
 });
 
 MemberSchema.statics.compare = function (cleartext,encrypted) {

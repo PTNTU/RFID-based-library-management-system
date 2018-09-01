@@ -126,7 +126,6 @@ var form_validation = function() {
                     },
                     "barcode":{
                       required: !0,
-                      number: !0
                     },
                 },
                 messages: {

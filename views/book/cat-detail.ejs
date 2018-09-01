@@ -54,36 +54,36 @@
                                           <div class="col-lg-6">
                                               <select class="form-control" id="main_cat" name="main_cat">
                                                   <option value="">Select Main Categorie</option>
-                                                  <option value="A&M">Art & Music</option>
-                                                  <option value="Bio">Biographies</option>
-                                                  <option value="Bus">Business</option>
-                                                  <option value="Kid">Kids</option>
-                                                  <option value="Com">Comics</option>
-                                                  <option value="C&T">Computer & Tech</option>
-                                                  <option value="Cook">Cooking</option>
-                                                  <option value="H&C">Hobbies & Crafts</option>
-                                                  <option value="E&R">Edu & Reference</option>
-                                                  <option value="G&L">Gay & Lesbian</option>
-                                                  <option value="H&F">Health & Fitness</option>
-                                                  <option value="Hist">History</option>
-                                                  <option value="H&G">Home & Garden</option>
-                                                  <option value="Hor">Horror</option>
-                                                  <option value="Ent">Entertainment</option>
-                                                  <option value="L&F">Literature & Fiction</option>
-                                                  <option value="Med">Medical</option>
-                                                  <option value="Myst">Mysteries</option>
-                                                  <option value="Par">Parenting</option>
-                                                  <option value="Sos">Social Scienes</option>
-                                                  <option value="Reg">Regligion</option>
-                                                  <option value="Rom">Romance</option>
-                                                  <option value="S&M">Science & Math</option>
-                                                  <option value="S&F">Sci-fi & Fantasy</option>
-                                                  <option value="SelH">Self-Help</option>
-                                                  <option value="Spor">Sports</option>
+                                                  <option value="Art & Music">Art & Music</option>
+                                                  <option value="Biographies">Biographies</option>
+                                                  <option value="Business">Business</option>
+                                                  <option value="Kids">Kids</option>
+                                                  <option value="Comics">Comics</option>
+                                                  <option value="omputer & Tech">Computer & Tech</option>
+                                                  <option value="Cooking">Cooking</option>
+                                                  <option value="Hobbies & Crafts">Hobbies & Crafts</option>
+                                                  <option value="Edu & Reference">Edu & Reference</option>
+                                                  <option value="Gay & Lesbian">Gay & Lesbian</option>
+                                                  <option value="Health & Fitness">Health & Fitness</option>
+                                                  <option value="History">History</option>
+                                                  <option value="Home & Garden">Home & Garden</option>
+                                                  <option value="Horror">Horror</option>
+                                                  <option value="Entertainment">Entertainment</option>
+                                                  <option value="Literature & Fiction">Literature & Fiction</option>
+                                                  <option value="Medical">Medical</option>
+                                                  <option value="Mysteries">Mysteries</option>
+                                                  <option value="Parenting">Parenting</option>
+                                                  <option value="Social Scienes">Social Scienes</option>
+                                                  <option value="Regligion">Regligion</option>
+                                                  <option value="Romance">Romance</option>
+                                                  <option value="Science & Math">Science & Math</option>
+                                                  <option value="Sci-fi & Fantasy">Sci-fi & Fantasy</option>
+                                                  <option value="Self-Help">Self-Help</option>
+                                                  <option value="Sports">Sports</option>
                                                   <option value="Teen">Teen</option>
-                                                  <option value="Tra">Travel</option>
-                                                  <option value="TruC">True Crime</option>
-                                                  <option value="West">Westerns</option>
+                                                  <option value="Travel">Travel</option>
+                                                  <option value="True Crime">True Crime</option>
+                                                  <option value="Westerns">Westerns</option>
 
                                               </select>
                                           </div>
@@ -136,7 +136,8 @@
 
 <script type="text/javascript">
   if('<%= cat.main_cat %>'){
-    $('#main_cat').val('<%= cat.main_cat %>');
+    $('#main_cat').val('<%- cat.main_cat %>').change();
+
   }
   function del() {
     location.href = "/books/catDelete/<%=cat._id %>";

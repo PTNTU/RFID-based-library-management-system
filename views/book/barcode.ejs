@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="/stylesheets/print.min.css">
+  <% include ../partial/head %>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->
+    <!--[if lt IE 9]>
+    <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body class="fix-header fix-sidebar">
+  <!-- Preloader - style you can find in spinners.css -->
+  <div class="preloader">
+    <svg class="circular" viewBox="25 25 50 50">
+			<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+  </div>
+  <!-- Main wrapper  -->
+  <div id="main-wrapper">
+    <!-- header header  -->
+    <% include ../partial/header %>
+      <!-- End header header -->
+      <!-- Left Sidebar  -->
+      <% include ../partial/leftSidebar %>
+        <!-- End Left Sidebar  -->
+        <!-- Page wrapper  -->
+        <div class="page-wrapper">
+          <!-- Bread crumb -->
+          <div class="row page-titles">
+            <div class="col-md-5 align-self-center">
+              <h3 class="text-primary">Barcode Generator</h3> </div>
+            <div class="col-md-7 align-self-center">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Library</a></li>
+                <li class="breadcrumb-item active">Barcode</li>
+              </ol>
+            </div>
+          </div>
+          <!-- End Bread crumb -->
+          <!-- Container fluid  -->
+          <div class="container-fluid">
+              <!-- Start Page Content -->
+              <div class="row justify-content-center">
+                  <div class="col-lg-6">
+                      <div class="card">
+                          <div class="card-body">
+                              <div class="form-validation">
+                                  <form >
+                                      <div class="form-group row">
+                                          <label class="col-lg-4 col-form-label" for="barcode">Barcode serial<span class="text-danger">*</span></label>
+                                          <div class="col-lg-5">
+                                              <input type="text" class="form-control" id="barcode" name="barcode" >
+                                          </div>
+                                          <div class="col-lg-3 ml-auto">
+                                            <button type="button" class="btn btn-primary " id="check">Genernate</button>
+                                          </div>
+                                      </div>
+                                  </form>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-9" >
+                      <div class="card">
+                          <div class="card-body" id="info">
+
+                          </div>
+
+                      </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="col-lg-2 ml-auto">
+                      <button type="button" class="btn btn-primary " id="print" onclick="printJS({printable:'info', type:'html', header:'Smart Library barcode generator', showModal:true})">Print</button>
+                    </div>
+                  </div>
+              </div>
+              <!-- End PAge Content -->
+          </div>
+
+
+            <!-- End PAge Content -->
+          </div>
+          <!-- End Container fluid  -->
+          <!-- footer -->
+          <% include ../partial/footer %>
+          <!-- End footer -->
+        </div>
+        <!-- End Page wrapper  -->
+  </div>
+
+  <!-- End Wrapper -->
+  <!-- All Jquery -->
+  <% include ../partial/javascript %>
+  <script src="/javascripts/lib/form-validation/jquery.validate.min.js"></script>
+  <script src="/javascripts/lib/form-validation/jquery.validate-init.js"></script>
+  <script src="/javascripts/lib/toastr/toastr.min.js"></script>
+  <!-- scripit init-->
+  <script src="/javascripts/lib/toastr/toastr.init.js"></script>
+
+  <!--Custom JavaScript -->
+
+</body>
+<script src="/javascripts/JsBarcode.all.js"></script>
+<script src="/javascripts/print.min.js" charset="utf-8"></script>
+
+<script type="text/javascript">
+
+var count = 0;
+  $('#check').click(function () {
+    $.post(
+      '/books/barCodeCh',
+      {no:$('#barcode').val()}
+    ).done(function (res) {
+      if(res.status){
+        count++;
+        let divDOM = document.getElementById("info");
+        var svg = document.createElement("IMG");
+        var ptag = document.createElement("H1");
+        svg.setAttribute('jsbarcode-format', 'code39')
+        svg.setAttribute('jsbarcode-value', $('#barcode').val())
+        svg.style.height = "130px"
+        svg.style.width = "190px"
+        svg.style.margin = "5px"
+        svg.className = "barcode";
+        divDOM.appendChild(svg);
+        console.log('>>>',count);
+        if(count%4==0) {
+          divDOM.appendChild(ptag);
+          console.log(document.querySelector('#info'));
+          }
+        // console.log(document.querySelector('.barcode'));
+        JsBarcode(".barcode").init();
+      }
+    })
+  })
+</script>
+
+</html>

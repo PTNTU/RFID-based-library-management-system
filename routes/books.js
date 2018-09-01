@@ -5,22 +5,23 @@ var Book = require('../models/Book');
 var Member = require('../models/Member');
 var Record = require('../models/Record');
 var mongoose = require('mongoose');
-// 
+var timeAgo = require('node-time-ago');
+//
 // var server = http.createServer().listen(config.stream.socketPort);
 // var serverIo = require('socket.io')(server);
 
-var auth = function(req, res, next) {
-  if (req.session.user) {
-    return next();
-  } else {
-    req.flash('warn', 'You need to signin');
-    console.log('request path', req.originalUrl);
-    req.flash('forward', req.originalUrl);
-    res.redirect('/signin');
-  }
-};
+// var auth = function(req, res, next) {
+//   if (req.session.user) {
+//     return next();
+//   } else {
+//     req.flash('warn', 'You need to signin');
+//     console.log('request path', req.originalUrl);
+//     req.flash('forward', req.originalUrl);
+//     res.redirect('/signin');
+//   }
+// };
 
-router.get('/assignCat', auth, (req, res, next) => {
+router.get('/assignCat',  (req, res, next) => {
   res.render('book/assign-bookCat');
 });
 
@@ -37,7 +38,7 @@ router.post('/assignCat', (req, res, next) => {
   });
 });
 
-router.get('/catList', auth, (req, res, next) => {
+router.get('/catList',  (req, res, next) => {
   Category.find((err, rtn) => {
     if (err) throw err;
     res.render('book/bookCat-list', {
@@ -46,7 +47,7 @@ router.get('/catList', auth, (req, res, next) => {
   });
 });
 
-router.get('/add', auth, (req, res, next) => {
+router.get('/add',  (req, res, next) => {
   Category.find({}, {
     'main_cat': 1,
     _id: 0,
@@ -59,7 +60,7 @@ router.get('/add', auth, (req, res, next) => {
   });
 });
 
-router.get('/list', auth, (req, res, next) => {
+router.get('/list',  (req, res, next) => {
   Book.find((err, rtn) => {
     if (err) throw err;
     res.render('book/book-list', {
@@ -87,7 +88,7 @@ router.post('/add', (req, res, next) => {
   });
 });
 
-router.get('/detail/:id', auth, (req, res, next) => {
+router.get('/detail/:id',  (req, res, next) => {
   Category.find({}, {
     'main_cat': 1,
     _id: 0,
@@ -100,6 +101,7 @@ router.get('/detail/:id', auth, (req, res, next) => {
       console.log(rtn);
       res.render('book/book-detail', {
         book: rtn,
+        timeago: timeAgo(rtn.instered),
         cat: cat
       });
     });
@@ -125,7 +127,7 @@ router.post('/modify', (req, res, next) => {
   });
 });
 
-router.get('/catDetail/:id', auth, (req, res, next) => {
+router.get('/catDetail/:id',  (req, res, next) => {
   Category.findById(req.params.id, (err, rtn) => {
     if (err) throw err;
     res.render('book/cat-detail', {
@@ -138,13 +140,14 @@ router.post('/modifyCat', (req, res, next) => {
   var update = {
     main_cat: req.body.main_cat,
     sub_cat: req.body.sub_cat_i,
+    updated: Date.now()
   }
   Category.findByIdAndUpdate(req.body.id, {
     $set: update
   }, (err, rtn) => {
     if (err) throw err;
     console.log(rtn);
-    res.redirect('/Books/catDetail/' + rtn._id);
+    res.redirect('/books/catList');
   });
 });
 
@@ -179,7 +182,7 @@ router.post('/duplicate', (req, res, next) => {
   })
 });
 
-router.get('/record/:id', auth, (req, res, next) => {
+router.get('/record/:id',  (req, res, next) => {
   Member.findOne({
     rfid: req.params.id
   }, (err, mem) => {
@@ -367,6 +370,55 @@ router.get('/history', (req, res) => {
       hist: rtn
     });
   });
+});
+
+router.post('/warningli',(req,res)=>{
+  Record.find({status:"00"}).populate('member_id').exec((err,rtn)=>{
+    for(var i=0; i < rtn.length; i++){
+      var today = new Date
+      rtn[i].borrowed.setDate(rtn[i].borrowed.getDate()+rtn[i].tol_range);
+      console.log(rtn[i].borrowed.getDate(),today.getDate());
+      if(rtn[i].borrowed.getDate() < today.getDate()){
+        console.log('need to set member to warning member',rtn[i]);
+        Member.findByIdAndUpdate(rtn[i].member_id._id,{$set:{status:"01",_id:rtn[i].member_id._id,updated:Date.now()}},(err2,rtn2)=>{
+          if(err2) throw err2;
+          console.log('succefully change');
+        });
+      }else {
+        console.log("This is normal");
+      }
+    }
+    Member.find({status:"01"},(err3,rtn3)=>{
+      if(err3) throw err3;
+      var time=[];
+      for(var i in rtn3){
+        time.push(timeAgo(rtn3[i].updated))
+      }
+      res.json({data:rtn3,time:time});
+    });
+  });
+
+});
+
+router.post('/histBor',(req,res)=>{
+  Record.find({}).limit(5).populate('member_id').exec((err,rtn)=>{
+    if(err) throw err;
+    res.json({data:rtn});
+  });
+});
+
+router.get('/barcode',(req,res)=>{
+  res.render('book/barcode');
+});
+router.post('/barCodeCh',(req,res)=>{
+  Book.find({barcode:req.body.no},(err,rtn)=>{
+    if(err) throw err;
+    if(rtn.length == 0){
+      res.json({status:true});
+    }else{
+      res.json({status:false});
+    }
+  })
 });
 
 module.exports = router;
