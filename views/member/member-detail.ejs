@@ -80,8 +80,9 @@
                           </ul>
                           <!-- Tab panes -->
                           <div class="tab-content">
-                              <div class="tab-pane active" id="home" role="tabpanel">
-                                  <div class="card-body">
+                              <div class="tab-pane active" id="home" role="tabpanel" >
+                                <h2>Coming Soon!!</h2>
+                                  <div class="card-body" style="filter:blur(10px)">
                                       <div class="profiletimeline">
                                           <div class="sl-item">
                                               <div class="sl-left"> <img src="/images/users/avatar-1.jpg" alt="user" class="img-circle" /> </div>
@@ -171,7 +172,12 @@
                                           </div>
                                       </div>
                                       <hr>
-                                      <p class="m-t-30">Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.Cras dapibus. Vivamus
+                                      <h2>Coming Soon!!!</h2>
+                                      <div class="" style="filter:blur(10px);" tabindex="-1">
+
+
+
+                                      <p class="m-t-30" >Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.Cras dapibus. Vivamus
                                           elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p>
                                       <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
                                           it to make a type specimen book. It has survived not only five centuries </p>
@@ -196,6 +202,7 @@
                                           <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
                                       </div>
                                   </div>
+                                </div>
                               </div>
                               <div class="tab-pane" id="settings" role="tabpanel">
                                   <div class="card-body">
@@ -312,7 +319,7 @@
                           <ul class="nav nav-tabs customtab2" role="tablist">
                               <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#admin" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Admin</span></a> </li>
                               <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#member" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Member</span></a> </li>
-                              <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#security" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Security</span></a> </li>
+                              <!-- <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#security" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Security</span></a> </li> -->
                           </ul>
                           <!-- Tab panes -->
                           <div class="tab-content">
@@ -347,7 +354,7 @@
                                   </div>
                                 </div>
                               </div>
-                              <div class="tab-pane  p-20" id="security" role="tabpanel">
+                              <!-- <div class="tab-pane  p-20" id="security" role="tabpanel">
                                 <div class="form-group row">
                                     <label for="secPass" class="col-lg-4 col-form-label">
                                         Security Password
@@ -360,7 +367,7 @@
                                     <span id="secmsg"></span>
                                   </div>
                                 </div>
-                              </div>
+                              </div> -->
                           </div>
                       </div>
                   </div>
@@ -424,7 +431,7 @@
       }
       var adminPass = document.getElementById('adminPass');
       var memberPass = document.getElementById('memberPass');
-      var secPass = document.getElementById('secPass');
+      // var secPass = document.getElementById('secPass');
       var timeout = null;
       var inName = ["#name","#major","#year","#status","#role","#phoneus","#rfid"];
 
@@ -483,26 +490,26 @@
         }, 1500)
       }
 
-      secPass.onkeyup = function (e) {
-        clearTimeout(timeout);
-
-        timeout = setTimeout(function () {
-          if(secPass.value == "Smart112016"){
-            $('#secshow').html("Password Match!!");
-            $('#secmsg').html('<i class = "fa fa-check" style ="color:green;"></i>');
-            $('#save').removeAttr('disabled');
-            $('#secsp').removeAttr('style');
-            for(var i = 0; i < inName.length; i++){
-              $(inName[i]).removeAttr('readonly');
-            }
-            $('#remove_btn').attr('hidden',false);
-          }else {
-            $('#secshow').html("Password Not Match!!");
-            $('#secmsg').html('<i class = "fa fa-remove" style ="color:red;"></i>');
-            $('#secsp').removeAttr('style');
-          }
-        }, 1500)
-      }
+      // secPass.onkeyup = function (e) {
+      //   clearTimeout(timeout);
+      //
+      //   timeout = setTimeout(function () {
+      //     if(secPass.value == "Smart112016"){
+      //       $('#secshow').html("Password Match!!");
+      //       $('#secmsg').html('<i class = "fa fa-check" style ="color:green;"></i>');
+      //       $('#save').removeAttr('disabled');
+      //       $('#secsp').removeAttr('style');
+      //       for(var i = 0; i < inName.length; i++){
+      //         $(inName[i]).removeAttr('readonly');
+      //       }
+      //       $('#remove_btn').attr('hidden',false);
+      //     }else {
+      //       $('#secshow').html("Password Not Match!!");
+      //       $('#secmsg').html('<i class = "fa fa-remove" style ="color:red;"></i>');
+      //       $('#secsp').removeAttr('style');
+      //     }
+      //   }, 1500)
+      // }
       function check() {
         $('#changePassModal').modal('hide');
         $('#update_btn').attr('hidden',false);

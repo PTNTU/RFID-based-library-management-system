@@ -4,17 +4,6 @@ var Member = require('../models/Member');
 var Admin = require('../models/Admin');
 var timeAgo = require('node-time-ago');
 
-// var auth = function(req, res, next) {
-//   if (req.session.user) {
-//     return next();
-//   } else{
-//     req.flash('warn','You need to signin');
-//     console.log('request path',req.originalUrl);
-//     req.flash('forward', req.originalUrl);
-//     res.redirect('/signin');
-//     }
-// };
-
 /* GET users listing. */
 router.get('/add', function(req, res, next) {
   res.render('member/member-add');
@@ -112,9 +101,9 @@ router.post('/memcheck',(req,res,next)=>{
 });
 
 router.post('/duplicate',(req,res,next)=>{
-  Member.findOne({name:req.body.member},(err,rtn)=>{
+  Member.findOne({$or:[{name:req.body.member},{rfid:req.body.rfid}]},(err,rtn)=>{
     if(err) throw err;
-    if(rtn != null) res.json({ status: false, msg: "Duplicate User Name!!!"});
+    if(rtn != null) res.json({ status: false, msg: "Duplicate User Name! Or RFID card!!"});
     else res.json({ status: true});
   })
 });

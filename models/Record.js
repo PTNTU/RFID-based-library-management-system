@@ -28,7 +28,7 @@ var RecordSchema = new Schema({
         trim: true
       },
       barcode:{
-        type: Number,
+        type: String,
         required: true,
         trim: true
       },

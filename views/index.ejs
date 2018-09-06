@@ -10,8 +10,6 @@
     <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 <link rel="stylesheet" href="/stylesheets/jquery-ui.min.css"/>
-<link rel="stylesheet" href="/stylesheets/lib/bootstrap/bootstrap.min.css"/>
-<link rel="stylesheet" href="/stylesheets/lobilist.css">
 </head>
 
 <body class="fix-header fix-sidebar ">
@@ -165,10 +163,10 @@
                     <div class="card">
                       <a href="#"><h4 class="card-title">Book Categorie</h4></a>
                       <div class="card-body browser">
-                        <%for(var l=0; l< avg.length; l++){%>
-                          <p class="f-w-600"><%= avg[l]._id%> <span class="pull-right"><%=Math.round((avg[l].count/avg.length)*100)%>%</span></p>
+                        <%for(var l=0; l< avg.length; l++){ %>
+                          <p class="f-w-600"><%= avg[l]._id%> <span class="pull-right"><%=Math.round((avg[l].count/bookCounnt)*100)%>%</span></p>
                           <div class="progress ">
-                            <div role="progressbar" style="width: <%=Math.round((avg[l].count/avg.length)*100)%>%; height:8px;" class="progress-bar bg-warning wow animated progress-animated"> <span class="sr-only">60% Complete</span> </div>
+                            <div role="progressbar" style="width: <%=Math.round((avg[l].count/bookCounnt)*100)%>%; height:8px;" class="progress-bar bg-warning wow animated progress-animated"> <span class="sr-only">60% Complete</span> </div>
                           </div>
                         <%}%>
 
@@ -188,16 +186,16 @@
 
               <div class="col-lg-4">
                 <div class="card">
-                    <div id="lobilist">
-                        <div id="lobilist-examples">
-                            <div>
-                                <div class="bs-example">
-                                    <div id="todo-lists-basic-demo"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                  <a href="#"><h4 class="card-title">Top Ten book rating</h4></a>
+                  <div class="card-body browser">
+                    <%for(var e=0; e< rat.length; e++){ %>
+                      <p class="f-w-600"><%= rat[e].book_name%> <span class="pull-right"><%=Math.round((rat[e].count/bcount)*100)%>%</span></p>
+                      <div class="progress ">
+                        <div role="progressbar" style="width: <%=Math.round((rat[e].count/bcount)*100)%>%; height:8px;" class="progress-bar bg-success wow animated progress-animated"> <span class="sr-only">60% Complete</span> </div>
+                      </div>
+                    <%}%>
 
+                  </div>
                 </div>
               </div>
 
@@ -221,9 +219,6 @@
 <script src="/javascripts/lib/jquery-ui/jquery-ui.min.js"></script>
 <script src="/javascripts/lib/jquery-ui/jquery.ui.touch-punch.min.js"></script>
 <script src="/javascripts/lib/bootstrap/js/bootstrap.min.js"></script>
-<script src="/javascripts/lobilist.js"></script>
-<script src="/javascripts/lobibox.min.js"></script>
-
 <script type="text/javascript">
 $.post(
   'books/warningli',
@@ -234,7 +229,6 @@ $.post(
     row.insertCell(0).appendChild(document.createTextNode("Data Not Found"))
   }
   for(var k=0; k<res.data.length; k++){
-    console.log('do',res.data[k]);
     var row = warnTab.insertRow(k);
     var cell0 = row.insertCell(0);
     cell0.appendChild(document.createTextNode(k+1));//TODO need to add real path
@@ -261,7 +255,6 @@ $.post(
       row.insertCell(0).appendChild(document.createTextNode("Data Not Found"))
     }
     for(var k=0; k<res.data.length; k++){
-      console.log('do',res.data[k]);
       var row = histTab.insertRow(k);
       var cell0 = row.insertCell(0);
       cell0.appendChild(document.createTextNode(k+1));//TODO need to add real path
@@ -279,27 +272,6 @@ $.post(
     }
 
 
-});
-$(function () {
-    $('#todo-lists-basic-demo').lobiList({
-        lists: [
-            {
-                id: 'todo',
-                title: 'TODO',
-                defaultStyle: 'lobilist-success',
-                items: [
-                    {
-                        title: 'Checking Member list',
-                        description: 'You need to check warning list',
-                        dueDate: '1/1/2016'
-
-                    },
-
-                ]
-            },
-
-        ]
-    });
 });
 
 </script>

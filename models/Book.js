@@ -47,6 +47,11 @@ var BookSchema = new Schema({
     type: String,// 00 is avaliable, 01 is borrow, 10 lose
     required: true,
   },
+  count:{
+    type: Number,
+    required: true,
+    default:0
+  },
   updated:{
     type: Date,
     default:Date.now

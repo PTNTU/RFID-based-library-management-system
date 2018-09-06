@@ -20,6 +20,7 @@ var auth = function(req, res, next) {
 
 /* GET home page. */
 router.get('/',auth, function(req, res, next) {
+  var rcount = 0;
   Category.count({},(err,catCount)=>{
     if(err) throw err;
     Book.count({},(err2, bCount)=>{
@@ -36,9 +37,26 @@ router.get('/',auth, function(req, res, next) {
             }
           ],(err4,avg)=>{
             if(err4) throw err4
-              res.render('index', { catCount: catCount, bookCounnt: bCount, memCount: mCount, brCount:brCount, avg:avg });
+            console.log(avg);
+            Book.find({}).sort({count:-1}).limit(10).exec((err5,rat)=>{
+            if(err5) throw err5;
+            console.log(rat);
+            Record.aggregate([
+              {
+                $group:{
+                  _id:"$books.name",
+                  count:{$sum:1}
+                }
+              }
+            ],(err6,bcount)=>{
+              if(err6) throw err6;
+              for(var t in bcount){
+                rcount += bcount[t]._id.length;
+              }
+              res.render('index', { catCount: catCount, bookCounnt: bCount, memCount: mCount, brCount:brCount, avg:avg,rat:rat, bcount:rcount });
+            });
           });
-
+        });
         });
       });
     })

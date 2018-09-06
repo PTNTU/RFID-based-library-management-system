@@ -121,7 +121,7 @@
                                                           <div class="form-group row">
                                                             <label class="col-lg-12 col-form-label text-center" for="barcode">Book's barcode </label>
                                                             <div class="col-lg-10">
-                                                                <input type="number" class="form-control" id="barcode" name="barcode" placeholder="Please scan book barcode serial number">
+                                                                <input type="text" class="form-control" id="barcode" name="barcode" placeholder="Please scan book barcode serial number">
                                                             </div>
                                                             </div>
                                                           </div>
@@ -253,7 +253,7 @@
                                                         <div class="form-group row">
                                                           <label class="col-lg-12 col-form-label text-center" for="barcodeRec">Book's barcode </label>
                                                           <div class="col-lg-10">
-                                                              <input type="number" class="form-control" id="barcodeRec" name="barcodeRec" placeholder="Please scan book barcode serial number">
+                                                              <input type="text" class="form-control" id="barcodeRec" name="barcodeRec" placeholder="Please scan book barcode serial number">
                                                           </div>
 
                                                         </div>
@@ -395,6 +395,8 @@ $('#barcode').keypress(function (e) {
           sweetAlert("Oops...", "This Book is already inserted", "error");
         }else{
         borList.push(res.book._id);
+        $('#barcode').val('');
+        $('#barcode').focus();
         tol_dur += res.book.book_range;
         $('#tol').html(tol_dur +" days");
 
@@ -484,7 +486,8 @@ $('#barcodeRec').keypress(function (e) {
 
     <% if(record != 0) { %>
       <% for(var i = 0; i< record.books.length; i++){%>
-          if(<%= record.books[i].barcode %> == $('#barcodeRec').val() ){
+          if('<%= record.books[i].barcode %>' == $('#barcodeRec').val() ){
+
             if(list_len == <%= record.books.length %>){
               console.log('same barcode');
               return;
@@ -510,8 +513,15 @@ $('#barcodeRec').keypress(function (e) {
 
 
 $('#btnreturn').click(function () {
-  console.log('init');
-if(_.isEqual(booklist,retList)){
+  console.log('init',booklist,retList);
+  var result = false;
+  for(var i = 0; i< booklist.length; i++){
+    for(var j in retList){
+      if(retList[j]== booklist[i]) result = true;
+      break;
+    }
+  }
+if(result){
   console.log('equal');
   $.post(
     '/books/return/<%=record._id%>',

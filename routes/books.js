@@ -6,20 +6,6 @@ var Member = require('../models/Member');
 var Record = require('../models/Record');
 var mongoose = require('mongoose');
 var timeAgo = require('node-time-ago');
-//
-// var server = http.createServer().listen(config.stream.socketPort);
-// var serverIo = require('socket.io')(server);
-
-// var auth = function(req, res, next) {
-//   if (req.session.user) {
-//     return next();
-//   } else {
-//     req.flash('warn', 'You need to signin');
-//     console.log('request path', req.originalUrl);
-//     req.flash('forward', req.originalUrl);
-//     res.redirect('/signin');
-//   }
-// };
 
 router.get('/assignCat',  (req, res, next) => {
   res.render('book/assign-bookCat');
@@ -268,7 +254,10 @@ router.post('/borrow', (req, res, next) => {
     }, {
       $set: {
         status: "01"
-      }
+      },
+      $inc:{
+        count: 1
+      },
     },{
       multi: true
     },function(err, rtn) {
