@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Member = require('../models/Member');
 var Admin = require('../models/Admin');
+var Student = require('../models/Student');
 var timeAgo = require('node-time-ago');
 
 /* GET users listing. */
@@ -11,14 +12,9 @@ router.get('/add', function(req, res, next) {
 
 router.post('/add',function (req,res,next) {
  var member = new Member();
- member.name = req.body.username;
- member.phone = req.body.phoneus;
+ member.ent_id = req.body.ent_id;
  member.password = req.body.password;
- member.major = req.body.major;
- member.year = req.body.year;
- member.roleNo = req.body.role;
  member.rfid = req.body.rfid;
- member.status = "00";
  member.insertedBy = req.session.user.id;
 
  member.save(function (err,rtn) {
@@ -29,14 +25,14 @@ router.post('/add',function (req,res,next) {
 });
 
 router.get('/list', function(req, res, next) {
-  Member.find(function (err,rtn) {
+  Member.find({}).populate('ent_id').exec(function (err,rtn) {
     if (err) throw err;
     res.render('member/member-list',{member:rtn});
   });
 });
 
 router.get('/warn', function(req, res, next) {
-  Member.find({status:"01"},function (err,rtn) {
+  Member.find({status:"01"}).populate('ent_id').exec(function (err,rtn) {
     if (err) throw err;
     time =[];
     for(var i in rtn){
@@ -48,11 +44,6 @@ router.get('/warn', function(req, res, next) {
 
 router.post('/modify',(req,res,next)=>{
   var update ={
-    name: req.body.username,
-    major: req.body.major,
-    year: req.body.year,
-    roleNo: req.body.role,
-    phone : req.body.phoneus,
     rfid : req.body.rfid,
     status : req.body.status,
     updatedBy : req.session.user.id,
@@ -64,7 +55,7 @@ router.post('/modify',(req,res,next)=>{
 });
 
 router.get('/detail/:id',(req,res,next)=>{
-  Member.findOne({_id:req.params.id},(err,rtn)=>{
+  Member.findOne({_id:req.params.id}).populate('ent_id').exec((err,rtn)=>{
     console.log(rtn);
     res.render('member/member-detail',{member:rtn,timeago: timeAgo(rtn.instered)});
   });
@@ -101,9 +92,10 @@ router.post('/memcheck',(req,res,next)=>{
 });
 
 router.post('/duplicate',(req,res,next)=>{
-  Member.findOne({$or:[{name:req.body.member},{rfid:req.body.rfid}]},(err,rtn)=>{
+  Member.findOne({$or:[{ent_no:req.body.ent_no},{rfid:req.body.rfid}]},(err,rtn)=>{
     if(err) throw err;
-    if(rtn != null) res.json({ status: false, msg: "Duplicate User Name! Or RFID card!!"});
+    console.log(rtn);
+    if(rtn != null) res.json({ status: false, msg: "Duplicate Entery No. Or RFID card!!"});
     else res.json({ status: true});
   })
 });
@@ -114,12 +106,20 @@ router.get('/auth', function(req, res, next) {
 
 router.post('/authcheck',(req,res,next)=>{
   console.log(req.body.rfid);
-  Member.findOne({rfid:req.body.rfid},(err,rtn)=>{
+  Member.findOne({rfid:req.body.rfid}).populate('ent_id').exec((err,rtn)=>{
     if(err) throw err;
     console.log(rtn);
     if(rtn != null) res.json({ status: true, msg: "Member card succefully scan!!"});
     else res.json({ status: false, msg: "Member card is not registered"});
-  })
-})
+  });
+});
+
+router.post('/checkentery',(req,res)=>{
+  Student.findOne({ent_no:req.body.ent_no},(err,rtn)=>{
+    if(err) throw err;
+    if(rtn != null) res.json({status: true, msg: "Student account exist!!", student:rtn});
+    else res.json({ status: false, msg: "Member is not exist"});
+  });
+});
 
 module.exports = router;

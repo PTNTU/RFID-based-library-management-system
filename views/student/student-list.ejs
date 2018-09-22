@@ -25,11 +25,11 @@
             <!-- Bread crumb -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-primary">Warning Member</h3> </div>
+                    <h3 class="text-primary">Student List</h3> </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">Member</a></li>
-                        <li class="breadcrumb-item active">warning</li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Student</a></li>
+                        <li class="breadcrumb-item active">List</li>
                     </ol>
                 </div>
             </div>
@@ -41,7 +41,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Member Data Export</h4>
+                                <h4 class="card-title">Student Data Export</h4>
                                 <h6 class="card-subtitle">Export data to Copy, CSV, Excel, PDF & Print</h6>
                                 <div class="table-responsive m-t-40">
                                     <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
@@ -53,42 +53,22 @@
                                                 <th>Year</th>
                                                 <th>Roll no.</th>
                                                 <th>Ph no.</th>
-                                                <th>RFID no.</th>
-                                                <th>Status</th>
-                                                <th>Expired</th>
+                                                <th>Academic Year</th>
+                                                <th>Entery Number</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                          <% for(var i = 0; i< member.length; i++){%>
-                                            <tr onclick="go('<%= member[i]._id %>')" >
+                                          <% for(var i = 0; i< student.length; i++){%>
+                                            <tr onclick="go('<%= student[i]._id %>')" >
                                                 <td><%= i+1 %></td>
-                                                <td><%= member[i].ent_id.name %></td>
-                                                <td><%= member[i].ent_id.major %></td>
-                                                <td><%= member[i].ent_id.year %></td>
-                                                <td><%= member[i].ent_id.roleNo %></td>
-                                                <td><%= member[i].ent_id.phone %></td>
-                                                <td><%= member[i].rfid %></td>
-                                                <td id="td<%= i%>"><span class="label label-rouded label-success pull-center">Normal</span></td>
-                                                <td><%= time%></td>
+                                                <td><%= student[i].name %></td>
+                                                <td><%= student[i].major %></td>
+                                                <td><%= student[i].year %></td>
+                                                <td><%= student[i].roleNo %></td>
+                                                <td><%= student[i].phone %></td>
+                                                <td><%= student[i].ac_year %></td>
+                                                <td><%= student[i].ent_no %></td>
                                             </tr>
-                                            <script type="text/javascript">
-                                               switch ('<%= member[i].status %>') {
-                                                 case '00':
-                                                  $('#td<%= i%>').html('<span class="label label-rouded label-success pull-center">Normal</span>');
-                                                   break;
-                                                  case '01':
-                                                  $('#td<%= i%>').html('<span class="label label-rouded label-warning pull-center">Warning</span>');
-                                                    break;
-                                                  case "10":
-                                                    $('#td<%= i%>').html('<span class="label label-rouded label-default pull-center">Inactive</span>');
-                                                    break;
-                                                  case "11":
-                                                    $('#td<%= i%>').html('<span class="label label-rouded label-danger pull-center">Block</span>');
-                                                    break;
-                                                 default:
-                                                  console.log('Unnormal');
-                                               }
-                                            </script>
                                             <%}%>
                                         </tbody>
                                     </table>
@@ -123,8 +103,9 @@
 </body>
 <script type="text/javascript">
   function go(id) {
-    location.href = "/members/detail/"+id;
+    location.href = "/students/detail/"+id;
   }
+
 </script>
 
 </html>

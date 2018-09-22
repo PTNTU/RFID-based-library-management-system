@@ -61,11 +61,11 @@
                                           <% for(var i = 0; i< member.length; i++){%>
                                             <tr onclick="go('<%= member[i]._id %>')" >
                                                 <td><%= i+1 %></td>
-                                                <td><%= member[i].name %></td>
-                                                <td><%= member[i].major %></td>
-                                                <td><%= member[i].year %></td>
-                                                <td><%= member[i].roleNo %></td>
-                                                <td><%= member[i].phone %></td>
+                                                <td><%= member[i].ent_id.name %></td>
+                                                <td><%= member[i].ent_id.major %></td>
+                                                <td><%= member[i].ent_id.year %></td>
+                                                <td><%= member[i].ent_id.roleNo %></td>
+                                                <td><%= member[i].ent_id.phone %></td>
                                                 <td><%= member[i].rfid %></td>
                                                 <td id="td<%= i%>"><span class="label label-rouded label-success pull-center">Normal</span></td>
                                             </tr>

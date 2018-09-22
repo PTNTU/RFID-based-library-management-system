@@ -144,11 +144,11 @@
                                       <div class="row">
                                           <div class="col-md-2 col-xs-6 b-r"> <strong>Full Name</strong>
                                               <br>
-                                              <p class="text-muted"><%= member.name %></p>
+                                              <p class="text-muted"><%= member.ent_id.name %></p>
                                           </div>
                                           <div class="col-md-2 col-xs-6 b-r"> <strong>Mobile</strong>
                                               <br>
-                                              <p class="text-muted"><%= member.phone %></p>
+                                              <p class="text-muted"><%= member.ent_id.phone %></p>
                                           </div>
                                           <div class="col-md-2 col-xs-6 b-r"> <strong>RFID No.</strong>
                                               <br>
@@ -156,15 +156,15 @@
                                           </div>
                                           <div class="col-md-1 col-xs-6"> <strong>Major</strong>
                                               <br>
-                                              <p class="text-muted"><%= member.major %></p>
+                                              <p class="text-muted"><%= member.ent_id.major %></p>
                                           </div>
                                           <div class="col-md-1 col-xs-6"> <strong>Year</strong>
                                               <br>
-                                              <p class="text-muted"><%= member.year %></p>
+                                              <p class="text-muted"><%= member.ent_id.year %></p>
                                           </div>
                                           <div class="col-md-2 col-xs-6"> <strong>Roll No</strong>
                                               <br>
-                                              <p class="text-muted"><%= member.roleNo %></p>
+                                              <p class="text-muted"><%= member.ent_id.roleNo %></p>
                                           </div>
                                           <div class="col-md-2 col-xs-6"> <strong>Status</strong>
                                               <br>
@@ -211,63 +211,10 @@
                                           <div class="form-group">
                                               <label class="col-md-12">Full Name</label>
                                               <div class="col-md-12">
-                                                  <input type="text" value="<%= member.name %>" id="name" readonly name="username" class="form-control form-control-line">
+                                                  <input type="text" value="<%= member.ent_id.name %>" id="name" readonly name="username" class="form-control form-control-line">
                                               </div>
                                           </div>
-                                          <div class="form-group">
-                                              <label for="example-email" class="col-md-12">Major</label>
-                                              <div class="col-md-12">
-                                                  <select class="form-control" readonly id="major" name="major">
-                                                      <option value="">Select Major</option>
-                                                      <option value="IT" >IT</option>
-                                                      <option value="CIVIL">Civil</option>
-                                                      <option value="MP">MP</option>
-                                                      <option value="EP">EP</option>
-                                                      <option value="EC">EC</option>
-                                                      <option value="MC">MC</option>
 
-                                                  </select>
-                                              </div>
-                                          </div>
-                                          <div class="form-group">
-                                              <label for="example-email" class="col-md-12">Year</label>
-                                              <div class="col-md-12">
-                                                <select class="form-control" readonly id="year" name="year">
-                                                    <option value="">Select Year</option>
-                                                    <option value="1BE">First Year</option>
-                                                    <option value="2BE">Second Year</option>
-                                                    <option value="3BE">Third Year</option>
-                                                    <option value="4BE">Fourth Year</option>
-                                                    <option value="5BE">Fifth Year</option>
-                                                    <option value="6BE">Final Year</option>
-
-                                                </select>
-                                              </div>
-                                          </div>
-                                          <div class="form-group">
-                                              <label for="example-email" class="col-md-12">Status</label>
-                                              <div class="col-md-12">
-                                                <select class="form-control" readonly id="status" name="status">
-                                                    <option value="">Select Status</option>
-                                                    <option value="00">Normal</option>
-                                                    <option value="01">Warning</option>
-                                                    <option value="10">Inactive</option>
-                                                    <option value="11">Block</option>
-                                                </select>
-                                              </div>
-                                          </div>
-                                          <div class="form-group">
-                                              <label class="col-md-12">Roll No</label>
-                                              <div class="col-md-12">
-                                                  <input type="text" class="form-control" readonly id="role" name="role" value="<%= member.roleNo %>">
-                                              </div>
-                                          </div>
-                                          <div class="form-group">
-                                              <label class="col-md-12">Phone No</label>
-                                              <div class="col-md-12">
-                                                  <input type="text" class="form-control" readonly id="phoneus" name="phoneus" value="<%= member.phone %>">
-                                              </div>
-                                          </div>
 
                                           <div class="form-group">
                                               <label class="col-md-12">RFID</label>
@@ -318,7 +265,7 @@
                           <!-- Nav tabs -->
                           <ul class="nav nav-tabs customtab2" role="tablist">
                               <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#admin" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Admin</span></a> </li>
-                              <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#member" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Member</span></a> </li>
+                              <!-- <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#member" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Member</span></a> </li> -->
                               <!-- <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#security" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Security</span></a> </li> -->
                           </ul>
                           <!-- Tab panes -->
@@ -340,7 +287,7 @@
                                     </div>
                                   </div>
                               </div>
-                              <div class="tab-pane  p-20" id="member" role="tabpanel">
+                              <!-- <div class="tab-pane  p-20" id="member" role="tabpanel">
                                 <div class="form-group row">
                                     <label for="memberPass" class="col-lg-4 col-form-label">
                                         Member Password
@@ -353,7 +300,7 @@
                                     <span id="membermsg"></span>
                                   </div>
                                 </div>
-                              </div>
+                              </div> -->
                               <!-- <div class="tab-pane  p-20" id="security" role="tabpanel">
                                 <div class="form-group row">
                                     <label for="secPass" class="col-lg-4 col-form-label">
@@ -392,8 +339,25 @@
   <script src="/javascripts/lib/form-validation/jquery.validate-init.js"></script>
 
   <script src="/javascripts/lib/jquery.nicescroll/jquery.nicescroll.min.js"></script>
+  <script src="/javascripts/socket.io.js" charset="utf-8"></script>
   <!--Custom JavaScript -->
   <script>
+  var socket = io();
+  socket.on('rfid',function (data) {
+    if(data) $('#rfid').val(data);
+  });
+  var date = new Date();
+  var yr = [];
+  date.setYear(date.getFullYear()-2);
+  yr[0]= date.getFullYear();
+  for (var i = 1; i < 4; i++) {
+    date.setYear(date.getFullYear()+1);
+    yr[i] = date.getFullYear();
+    $('#acyear').append(new Option(yr[i-1]+'/'+yr[i],yr[i]));
+  }
+  var year = Date.parse('<%= member.ac_year%>');
+  var date = new Date(year);
+  $('#acyear').val(date.getFullYear());
       $(function(){
         $("html").niceScroll({
             cursorcolor:"#16385d",
@@ -430,7 +394,7 @@
         location.href = "/members/memberDelete/<%=member._id %>";
       }
       var adminPass = document.getElementById('adminPass');
-      var memberPass = document.getElementById('memberPass');
+      // var memberPass = document.getElementById('memberPass');
       // var secPass = document.getElementById('secPass');
       var timeout = null;
       var inName = ["#name","#major","#year","#status","#role","#phoneus","#rfid"];
@@ -446,7 +410,7 @@
           ).done(function (res) {
             if(res.status){
               $('#admshow').html(res.msg);
-              $('#status').removeAttr('readonly');
+              $('#rfid').removeAttr('readonly');
               $('#save').removeAttr('disabled');
               $('#adminmsg').html('<i class = "fa fa-check" style ="color:green;"></i>');
               $('#adminsp').removeAttr('style');
@@ -461,34 +425,34 @@
         }, 1500);
       }
 
-      memberPass.onkeyup = function (e) {
-        clearTimeout(timeout);
-
-        timeout = setTimeout(function () {
-          $.post(
-            '/members/memcheck',
-            {id : "<%= member._id %>" , pwd : memberPass.value}
-          ).done(function (res) {
-            if(res.status){
-              $('#memshow').html(res.msg);
-              $('#membermsg').html('<i class = "fa fa-check" style ="color:green;"></i>');
-              $('#save').removeAttr('disabled');
-              $('#membersp').removeAttr('style');
-              for(var i = 0; i < inName.length; i++){
-                $(inName[i]).removeAttr('readonly');
-
-              }
-
-            }else{
-              $('#memshow').html(res.msg);
-              $('#membersp').removeAttr('style');
-              $('#membermsg').html('<i class = "fa fa-remove" style ="color:red;"></i>');
-            }
-          }).fail(function (err) {
-            console.log(err.status);
-          });
-        }, 1500)
-      }
+      // memberPass.onkeyup = function (e) {
+      //   clearTimeout(timeout);
+      //
+      //   timeout = setTimeout(function () {
+      //     $.post(
+      //       '/members/memcheck',
+      //       {id : "<%= member._id %>" , pwd : memberPass.value}
+      //     ).done(function (res) {
+      //       if(res.status){
+      //         $('#memshow').html(res.msg);
+      //         $('#membermsg').html('<i class = "fa fa-check" style ="color:green;"></i>');
+      //         $('#save').removeAttr('disabled');
+      //         $('#membersp').removeAttr('style');
+      //         for(var i = 0; i < inName.length; i++){
+      //           $(inName[i]).removeAttr('readonly');
+      //
+      //         }
+      //
+      //       }else{
+      //         $('#memshow').html(res.msg);
+      //         $('#membersp').removeAttr('style');
+      //         $('#membermsg').html('<i class = "fa fa-remove" style ="color:red;"></i>');
+      //       }
+      //     }).fail(function (err) {
+      //       console.log(err.status);
+      //     });
+      //   }, 1500)
+      // }
 
       // secPass.onkeyup = function (e) {
       //   clearTimeout(timeout);

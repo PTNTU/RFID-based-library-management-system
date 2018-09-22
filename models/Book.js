@@ -24,6 +24,16 @@ var BookSchema = new Schema({
     required: true,
     trim: true
   },
+  item:{
+    type: Number,
+    required: true,
+    default: 1
+  },
+  place:{
+    type: String,
+    required: true,
+    trim: true
+  },
   book_author:{
     type: String,
     required: true,
@@ -78,7 +88,7 @@ BookSchema.virtual('inserted_date').get(function () {
   return dateformat(this.inserted, 'dd/mm/yyyy HH:MM');
 });
 BookSchema.virtual('published_date').get(function () {
-  return dateformat(this.pub_date, 'dd/mm/yyyy HH:MM');
+  return dateformat(this.pub_date, 'yyyy-mm-dd');
 });
 
 

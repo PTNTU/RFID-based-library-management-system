@@ -35,11 +35,11 @@
           <!-- Bread crumb -->
           <div class="row page-titles">
             <div class="col-md-5 align-self-center">
-              <h3 class="text-primary">Member Registration</h3> </div>
+              <h3 class="text-primary">Student Detail</h3> </div>
             <div class="col-md-7 align-self-center">
               <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0)">Members</a></li>
-                <li class="breadcrumb-item active">Add Member</li>
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Students</a></li>
+                <li class="breadcrumb-item active">Student Detail</li>
               </ol>
             </div>
           </div>
@@ -52,35 +52,52 @@
                       <div class="card">
                           <div class="card-body">
                               <div class="form-validation">
-                                  <form class="form-valide" name="frm" action="/members/add" method="post">
-                                    <input type="hidden" name="ent_id" id="ent_id" value="">
+                                  <form class="form-valide" name="frm" action="#">
                                       <div class="form-group row">
-                                          <label class="col-lg-4 col-form-label" for="ent_no">Entery Number <span class="text-danger">*</span></label>
+                                          <label class="col-lg-4 col-form-label" for="val-username">Entery Number </label>
                                           <div class="col-lg-6">
-                                              <input type="text" class="form-control" id="ent_no" name="ent_no" placeholder="Enter a Student Entery Number..">
-                                          </div>
-                                          <div class="col-lg-2" id="adminsp" style="margin-top: -10%;">
-                                            <span id="adminmsg"></span>
+                                              <p><%= student.ent_no%></p>
                                           </div>
                                       </div>
                                       <div class="form-group row">
-                                          <label class="col-lg-4 col-form-label" for="val-password">Password <span class="text-danger">*</span></label>
+                                          <label class="col-lg-4 col-form-label" for="val-username">Name </label>
                                           <div class="col-lg-6">
-                                              <input type="password" class="form-control" id="val-password" name="password" placeholder="Enter password...">
+                                              <p><%= student.name%></p>
                                           </div>
                                       </div>
-
                                       <div class="form-group row">
-                                          <label class="col-lg-4 col-form-label" for="val-suggestions">RFID <span class="text-danger">*</span></label>
+                                          <label class="col-lg-4 col-form-label" for="major">Major</label>
                                           <div class="col-lg-6">
-                                              <textarea class="form-control" id="rfid" name="rfid" rows="5" placeholder="Your RFID number"></textarea>
+                                              <p><%= student.major%></p>
                                           </div>
                                       </div>
-
-
+                                      <div class="form-group row">
+                                          <label class="col-lg-4 col-form-label" for="year">Year</label>
+                                          <div class="col-lg-6">
+                                              <p><%= student.year%></p>
+                                          </div>
+                                      </div>
+                                      <div class="form-group row">
+                                          <label class="col-lg-4 col-form-label" for="acyear">Acdmine Year</label>
+                                          <div class="col-lg-6">
+                                              <p><%= student.ac_year%></p>
+                                          </div>
+                                      </div>
+                                      <div class="form-group row">
+                                          <label class="col-lg-4 col-form-label" for="role">Roll Number</label>
+                                          <div class="col-lg-6">
+                                              <p><%= student.roleNo%></p>
+                                          </div>
+                                      </div>
+                                      <div class="form-group row">
+                                          <label class="col-lg-4 col-form-label" for="val-phoneus">Phone </label>
+                                          <div class="col-lg-6">
+                                              <p><%= student.phone%></p>
+                                          </div>
+                                      </div>
                                       <div class="form-group row">
                                           <div class="col-lg-8 ml-auto">
-                                              <button type="button" id="submitit" class="btn btn-success" hidden>Submit</button>
+                                              <a href="/students/modify/<%=student._id%>"><button type="button" id="submitit" class="btn btn-success">Go to Modify</button></a> 
                                           </div>
                                       </div>
                                   </form>
@@ -112,55 +129,34 @@
   <script src="/javascripts/lib/toastr/toastr.min.js"></script>
   <!-- scripit init-->
   <script src="/javascripts/lib/toastr/toastr.init.js"></script>
-  <script src="/javascripts/socket.io.js" charset="utf-8"></script>
   <!--Custom JavaScript -->
 
 </body>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
+var date = new Date();
+var yr = [];
+date.setYear(date.getFullYear()-30);
+yr[0]= date.getFullYear();
+for (var i = 1; i < 40; i++) {
+  date.setYear(date.getFullYear()+1);
+  yr[i] = date.getFullYear();
+  $('#acyear').append(new Option(yr[i-1]+'-'+yr[i],yr[i-1]+'-'+yr[i]));
+}
 $('#submitit').click(function () {
-  var data = { ent_no : $('#ent_no').val(),rfid:$('#rfid').val()};
-  if(data.ent_no == ''|| data.rfid =='') return;
-  $.ajax({url:"/members/duplicate", data:data, type:"POST", success: function (result) {
+  var data = { ent_no : $('#ent_no').val(),major:$('#major').val(),year:$('#year').val(),role:$('#role').val()};
+  if(data.ent_no == '') return;
+  $.ajax({url:"/students/duplicate", data:data, type:"POST", success: function (result) {
     if(result.status == false){
       sweetAlert("Oops...", result.msg, "error");
       $('#ent_no').val('');
-      $('#rfid').val('');
-      $('#ent_no').focus();
+      $('#username').focus();
     }else {
       frm.submit();
     }
   }});
 });
 
-var socket = io();
-socket.on('rfid',function (data) {
-  if(data) $('#rfid').val(data);
-});
 
-var timeout = null;
-var ent_no = document.getElementById('ent_no');
-ent_no.onkeyup = function (e) {
-  clearTimeout(timeout);
-  $('#adminmsg').html('<svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="7" fill="none" stroke-width="3" stroke-miterlimit="10" /> </svg>')
-  timeout = setTimeout(function () {
-    $.post(
-      '/members/checkentery',
-      {ent_no : $('#ent_no').val()}
-    ).done(function (res) {
-      if(res.status){
-        $('#ent_id').val(res.student._id);
-        $('#submitit').removeAttr('hidden');
-        $('#adminmsg').html('<i class = "fa fa-check" style ="color:green;"></i>');
-      }else{
-        $('#admshow').html(res.msg);
-        $('#adminmsg').html('<i class = "fa fa-remove " style ="color:red;"></i>');
-      }
-    }).fail(function (err) {
-      console.log(err.status);
-    });
-  }, 1500);
-}
-
-</script>
+</script> -->
 
 </html>

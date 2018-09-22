@@ -6,6 +6,7 @@ var Category = require('../models/Category');
 var Book = require('../models/Book');
 var Record = require('../models/Record');
 var Member = require('../models/Member');
+var Student = require('../models/Student');
 var multer = require('multer');
 
 var auth = function(req, res, next) {
@@ -20,11 +21,28 @@ var auth = function(req, res, next) {
 
 /* GET home page. */
 router.get('/',auth, function(req, res, next) {
+  Member.update({
+    ac_year:{
+      $lte: new Date()
+    }
+  },{
+      $set:{
+        status: "10"
+      }
+    },{
+        multi: true
+      },(err9,rtn9)=>{
+        if(err9) throw err9;
+        console.log('Member updated list',rtn9);
+      });
+
   var rcount = 0;
   Category.count({},(err,catCount)=>{
     if(err) throw err;
     Book.count({},(err2, bCount)=>{
       if(err2) throw err2;
+      Student.count({},(err7, sCount)=>{
+        if(err7) throw err7;
       Member.count({},(err3, mCount)=>{
         if(err3) throw err3;
         Book.count({status: '01'},(err,brCount)=>{
@@ -53,11 +71,12 @@ router.get('/',auth, function(req, res, next) {
               for(var t in bcount){
                 rcount += bcount[t]._id.length;
               }
-              res.render('index', { catCount: catCount, bookCounnt: bCount, memCount: mCount, brCount:brCount, avg:avg,rat:rat, bcount:rcount });
+              res.render('index', { catCount: catCount, bookCounnt: bCount, memCount: mCount, brCount:brCount, avg:avg,rat:rat, bcount:rcount, scount:sCount });
             });
           });
         });
         });
+      });
       });
     })
   });

@@ -3,6 +3,7 @@ var router = express.Router();
 var Category = require('../models/Category');
 var Book = require('../models/Book');
 var Member = require('../models/Member');
+var Student = require('../models/Student');
 var Record = require('../models/Record');
 var mongoose = require('mongoose');
 var timeAgo = require('node-time-ago');
@@ -61,6 +62,8 @@ router.post('/add', (req, res, next) => {
   book.main_cat = req.body.main_cat;
   book.sub_cat = req.body.sub_cat;
   book.book_author = req.body.book_author;
+  book.item = req.body.item;
+  book.place = req.body.place;
   book.pub_date = req.body.pub_date;
   book.book_range = req.body.book_range;
   book.barcode = req.body.barcode;
@@ -99,6 +102,8 @@ router.post('/modify', (req, res, next) => {
     book_name: req.body.book_name,
     main_cat: req.body.main_cat,
     sub_cat: req.body.sub_cat,
+    item: req.body.item,
+    place: req.body.place,
     book_author: req.body.book_author,
     pub_date: req.body.pub_date,
     book_range: req.body.book_range,
@@ -171,9 +176,9 @@ router.post('/duplicate', (req, res, next) => {
 router.get('/record/:id',  (req, res, next) => {
   Member.findOne({
     rfid: req.params.id
-  }, (err, mem) => {
+  }).populate('ent_id').exec((err, mem) => {
     if (err) throw err;
-    console.log('sts', typeof mem.last_act);
+    console.log('sts',mem);
     Record.findOne({
       member_id: mem._id,
       status: mem.last_act
@@ -251,24 +256,37 @@ router.post('/borrow', (req, res, next) => {
       _id: {
         $in: keys
       }
-    }, {
-      $set: {
-        status: "01"
-      },
-      $inc:{
-        count: 1
-      },
+    },{
+        $inc:{
+          item: -1,
+          count: 1
+        }
     },{
       multi: true
     },function(err, rtn) {
       if (err) throw err;
+      Book.update({
+        _id:{
+          $in: keys
+        },
+        item: 0
+      },{
+        $set: {
+        status: "01"
+        },
+      },{
+        multi: true
+      },function (err4,rtn4) {
+        if(err4) throw err4;
+        console.log('klklkl',rtn4);
+      });
       console.log('book borrowed',rtn);
       Book.find({
         _id: {
           $in: keys
         }
-      }, (err, book) => {
-        if (err) throw err;
+      }, (err3, book) => {
+        if (err3) throw err;
         for (var y in book) {
           record.books.push({
             book_id: book[y]._id,
@@ -322,7 +340,10 @@ router.post('/return/:id', (req, res, next) => {
     }, {
       $set: {
         status: "00"
-      }
+      },
+      $inc:{
+        item: 1
+      },
     },{
       multi: true
     }, function(err, rtn) {

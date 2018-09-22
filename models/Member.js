@@ -4,41 +4,22 @@ var dateformat = require('dateformat');
 //Define a schama
 var Schema = mongoose.Schema;
 var MemberSchema = new Schema({
-  name: {
-    type: String,
-    required: true,
-    trim: true //remove both-side with space
-  },
-  phone: {
-    type: String,
-    trim: true
+  ent_id: {
+    type: Schema.Types.ObjectId,
+    ref: 'Students'
   },
   password: {
     type: String,
     required: true,
     trim: true
   },
-  imgUrl:{
-    type: String
-  },
-  major:{
-    type: String,
-    required:true,
-  },
   status:{
-    type: String, // 00 is normal,01 is warning,10 is Inactive,11 is block
-    required:true,
-  },
-  year:{
     type: String,
+    default: '00', // 00 is normal,01 is warning,10 is Inactive,11 is block
     required:true,
   },
   last_borrow:{
     type: Date,
-  },
-  roleNo:{
-    type:Number,
-    required:true,
   },
   last_act:{
     type: String,

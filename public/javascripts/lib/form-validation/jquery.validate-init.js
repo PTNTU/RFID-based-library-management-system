@@ -30,6 +30,10 @@ var form_validation = function() {
                         required: !0,
                         minlength: 3
                     },
+                    "ent_no": {
+                        required: !0,
+                        minlength: 3
+                    },
                     "name": {
                         required: !0,
                         minlength: 3
@@ -113,6 +117,10 @@ var form_validation = function() {
                         required: !0,
                         range: [1, 31]
                     },
+                    "item": {
+                        required: !0,
+                        range: [1, 100]
+                    },
                     "val-terms": {
                         required: !0
                     },
@@ -132,6 +140,10 @@ var form_validation = function() {
                     "username": {
                         required: "Please enter a username",
                         minlength: "Your username must consist of at least 3 characters"
+                    },
+                    "ent_no": {
+                        required: "Please enter a student entry number",
+                        minlength: "Your entery number must consist of at least 3 characters"
                     },
                     "name": {
                         required: "Please enter a username",
@@ -164,6 +176,10 @@ var form_validation = function() {
                     "book_range": {
                         required: "Please input book range",
                         range: "Please enter a number between 1 and 31!"
+                    },
+                    "item": {
+                        required: "Please input number of books",
+                        range: "Please enter a number between 1 and 100!"
                     },
                     "sub_cat_i": {
                         required: "Please enter a Sub categories",

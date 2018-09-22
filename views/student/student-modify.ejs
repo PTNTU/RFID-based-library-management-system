@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include ../partial/head %>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->
+    <!--[if lt IE 9]>
+    <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<link href="/stylesheets/lib/sweetalert/sweetalert.css" rel="stylesheet">
+<link href="/stylesheets/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="/stylesheets/helper.css" rel="stylesheet">
+<link href="/stylesheets/style.css" rel="stylesheet">
+</head>
+
+<body class="fix-header fix-sidebar">
+  <!-- Preloader - style you can find in spinners.css -->
+  <div class="preloader">
+    <svg class="circular" viewBox="25 25 50 50">
+			<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+  </div>
+  <!-- Main wrapper  -->
+  <div id="main-wrapper">
+    <!-- header header  -->
+    <% include ../partial/header %>
+      <!-- End header header -->
+      <!-- Left Sidebar  -->
+      <% include ../partial/leftSidebar %>
+        <!-- End Left Sidebar  -->
+        <!-- Page wrapper  -->
+        <div class="page-wrapper">
+          <!-- Bread crumb -->
+          <div class="row page-titles">
+            <div class="col-md-5 align-self-center">
+              <h3 class="text-primary">Student Registration</h3> </div>
+            <div class="col-md-7 align-self-center">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Students</a></li>
+                <li class="breadcrumb-item active">Add Student</li>
+              </ol>
+            </div>
+          </div>
+          <!-- End Bread crumb -->
+          <!-- Container fluid  -->
+          <div class="container-fluid">
+              <!-- Start Page Content -->
+              <div class="row justify-content-center">
+                  <div class="col-lg-6">
+                      <div class="card">
+                          <div class="card-body">
+                              <div class="form-validation">
+                                  <form class="form-valide" name="frm" action="/students/modify" method="post">
+                                    <input type="hidden" name="id" value="<%=student._id%>">
+                                      <div class="form-group row">
+                                          <label class="col-lg-4 col-form-label" for="val-username">Entery Number <span class="text-danger">*</span></label>
+                                          <div class="col-lg-6">
+                                              <input type="text" class="form-control" id="ent_no" name="ent_no" value="<%=student.ent_no%>" readonly>
+                                          </div>
+                                      </div>
+                                      <div class="form-group row">
+                                          <label class="col-lg-4 col-form-label" for="val-username">Name <span class="text-danger">*</span></label>
+                                          <div class="col-lg-6">
+                                              <input type="text" class="form-control" id="username" name="username" value="<%=student.name%>">
+                                          </div>
+                                      </div>
+                                      <div class="form-group row">
+                                          <label class="col-lg-4 col-form-label" for="major">Major<span class="text-danger">*</span></label>
+                                          <div class="col-lg-6">
+                                              <select class="form-control" id="major" name="major" readonly>
+                                                  <option value="">Select Major</option>
+                                                  <option value="IT">IT</option>
+                                                  <option value="CIVIL">Civil</option>
+                                                  <option value="MP">MP</option>
+                                                  <option value="EP">EP</option>
+                                                  <option value="EC">EC</option>
+                                                  <option value="MC">MC</option>
+
+                                              </select>
+                                          </div>
+                                      </div>
+                                      <div class="form-group row">
+                                          <label class="col-lg-4 col-form-label" for="year">Year<span class="text-danger">*</span></label>
+                                          <div class="col-lg-6">
+                                              <select class="form-control" id="year" name="year">
+                                                  <option value="">Select Year</option>
+                                                  <option value="1BE">First Year</option>
+                                                  <option value="2BE">Second Year</option>
+                                                  <option value="3BE">Third Year</option>
+                                                  <option value="4BE">Fourth Year</option>
+                                                  <option value="5BE">Fifth Year</option>
+                                                  <option value="6BE">Final Year</option>
+
+                                              </select>
+                                          </div>
+                                      </div>
+                                      <div class="form-group row">
+                                          <label class="col-lg-4 col-form-label" for="acyear">Acdmine Year<span class="text-danger">*</span></label>
+                                          <div class="col-lg-6">
+                                              <select class="form-control" id="acyear" name="acyear">
+
+                                              </select>
+                                          </div>
+                                      </div>
+                                      <div class="form-group row">
+                                          <label class="col-lg-4 col-form-label" for="role">Roll Number<span class="text-danger">*</span></label>
+                                          <div class="col-lg-6">
+                                              <input type="text" class="form-control" id="role" name="role" value="<%=student.roleNo%>">
+                                          </div>
+                                      </div>
+                                      <div class="form-group row">
+                                          <label class="col-lg-4 col-form-label" for="val-phoneus">Phone <span class="text-danger">*</span></label>
+                                          <div class="col-lg-6">
+                                              <input type="text" class="form-control" id="val-phoneus" name="phoneus" value="<%=student.phone%>">
+                                          </div>
+                                      </div>
+                                      <div class="form-group row">
+                                          <div class="col-lg-8 ml-auto">
+                                              <button type="submit" id="submitit" class="btn btn-success">Modify</button>
+                                          </div>
+                                      </div>
+                                  </form>
+                              </div>
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <!-- End PAge Content -->
+          </div>
+
+
+            <!-- End PAge Content -->
+          </div>
+          <!-- End Container fluid  -->
+          <!-- footer -->
+          <% include ../partial/footer %>
+          <!-- End footer -->
+        </div>
+        <!-- End Page wrapper  -->
+  </div>
+  <!-- End Wrapper -->
+  <!-- All Jquery -->
+  <% include ../partial/javascript %>
+  <script src="/javascripts/lib/form-validation/jquery.validate.min.js"></script>
+  <script src="/javascripts/lib/form-validation/jquery.validate-init.js"></script>
+  <script src="/javascripts/lib/sweetalert/sweetalert.min.js"></script>
+  <script src="/javascripts/lib/toastr/toastr.min.js"></script>
+  <!-- scripit init-->
+  <script src="/javascripts/lib/toastr/toastr.init.js"></script>
+  <!--Custom JavaScript -->
+
+</body>
+<script type="text/javascript">
+var date = new Date();
+var yr = [];
+date.setYear(date.getFullYear()-30);
+yr[0]= date.getFullYear();
+for (var i = 1; i < 40; i++) {
+  date.setYear(date.getFullYear()+1);
+  yr[i] = date.getFullYear();
+  $('#acyear').append(new Option(yr[i-1]+'-'+yr[i],yr[i-1]+'-'+yr[i]));
+}
+// $('#submitit').click(function () {
+//   var data = { major:$('#major').val(),year:$('#year').val(),role:$('#role').val()};
+//   if(data.ent_no == '') return;
+//   $.ajax({url:"/students/duplicateMo", data:data, type:"POST", success: function (result) {
+//     if(result.status == false){
+//       sweetAlert("Oops...", result.msg, "error");
+//       $('#ent_no').val('');
+//       $('#username').focus();
+//     }else {
+//       frm.submit();
+//     }
+//   }});
+// });
+$('#major').val('<%=student.major%>').change();
+$('#year').val('<%=student.year%>').change();
+$('#acyear').val('<%=student.ac_year%>').change();
+
+</script>
+
+</html>
