@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include ../partial/head %>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->
+    <!--[if lt IE 9]>
+    <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body class="fix-header fix-sidebar">
+  <!-- Preloader - style you can find in spinners.css -->
+  <div class="preloader">
+    <svg class="circular" viewBox="25 25 50 50">
+			<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+  </div>
+  <!-- Main wrapper  -->
+  <div id="main-wrapper">
+    <!-- header header  -->
+    <% include ../partial/header %>
+      <!-- End header header -->
+      <!-- Left Sidebar  -->
+      <% include ../partial/leftSidebar %>
+        <!-- End Left Sidebar  -->
+        <!-- Page wrapper  -->
+        <div class="page-wrapper">
+          <!-- Bread crumb -->
+          <div class="row page-titles">
+            <div class="col-md-5 align-self-center">
+              <h3 class="text-primary">Member Detail(For Staff)</h3> </div>
+            <div class="col-md-7 align-self-center">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Members</a></li>
+                <li class="breadcrumb-item active">Member Detail</li>
+              </ol>
+            </div>
+          </div>
+          <!-- End Bread crumb -->
+          <!-- Container fluid  -->
+          <div class="container-fluid">
+              <!-- Start Page Content -->
+              <div class="row">
+                  <!-- Column -->
+                  <div class="col-lg-12">
+                      <div class="card">
+                          <div class="card-body">
+                              <div class="card-two">
+                                  <header>
+                                      <div class="avatar">
+                                          <img src="/images/users/7.jpg" alt="Allison Walker" />
+                                      </div>
+                                  </header>
+
+                                  <h3><%= staff.name %></h3>
+                                  <div class="desc">
+                                      This user registed at <%= timeago%>
+                                  </div>
+                                  <div class="contacts">
+                                      <a href=""><i class="fa fa-plus"></i></a>
+                                      <a href=""><i class="fa fa-whatsapp"></i></a>
+                                      <a href=""><i class="fa fa-envelope"></i></a>
+                                      <div class="clear"></div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- Column -->
+                  <!-- Column -->
+                  <div class="col-lg-12">
+                      <div class="card">
+                          <!-- Nav tabs -->
+                          <ul class="nav nav-tabs profile-tab" role="tablist">
+                              <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Timeline</a> </li>
+                              <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile" role="tab">Profile</a> </li>
+                              <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#settings" role="tab">Settings</a> </li>
+                          </ul>
+                          <!-- Tab panes -->
+                          <div class="tab-content">
+                              <div class="tab-pane active" id="home" role="tabpanel" >
+                                <h2>Coming Soon!!</h2>
+                                  <div class="card-body" style="filter:blur(10px)">
+                                      <div class="profiletimeline">
+                                          <div class="sl-item">
+                                              <div class="sl-left"> <img src="/images/users/avatar-1.jpg" alt="user" class="img-circle" /> </div>
+                                              <div class="sl-right">
+                                                  <div><a href="#" class="link">Michael Qin</a> <span class="sl-date">5 minutes ago</span>
+                                                      <p>assign a new task <a href="#changePassModal"> Design weblayout</a></p>
+                                                      <div class="row">
+                                                          <div class="col-lg-3 col-md-6 m-b-20"><img src="/images/big/img1.jpg" class="img-responsive radius" /></div>
+                                                          <div class="col-lg-3 col-md-6 m-b-20"><img src="/images/big/img2.jpg" class="img-responsive radius" /></div>
+                                                          <div class="col-lg-3 col-md-6 m-b-20"><img src="/images/big/img3.jpg" class="img-responsive radius" /></div>
+                                                          <div class="col-lg-3 col-md-6 m-b-20"><img src="/images/big/img4.jpg" class="img-responsive radius" /></div>
+                                                      </div>
+                                                      <div class="like-comm"> <a href="javascript:void(0)" class="link m-r-10">2 comment</a> <a href="javascript:void(0)" class="link m-r-10"><i class="fa fa-heart text-danger"></i> 5 Love</a> </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <hr>
+                                          <div class="sl-item">
+                                              <div class="sl-left"> <img src="/images/users/avatar-2.jpg" alt="user" class="img-circle" /> </div>
+                                              <div class="sl-right">
+                                                  <div> <a href="#" class="link">Michael Qin</a> <span class="sl-date">5 minutes ago</span>
+                                                      <div class="m-t-20 row">
+                                                          <div class="col-md-3 col-xs-12"><img src="/images/big/img1.jpg" alt="user" class="img-responsive radius" /></div>
+                                                          <div class="col-md-9 col-xs-12">
+                                                              <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. </p> <a href="#" class="btn btn-success"> Design weblayout</a></div>
+                                                      </div>
+                                                      <div class="like-comm m-t-20"> <a href="javascript:void(0)" class="link m-r-10">2 comment</a> <a href="javascript:void(0)" class="link m-r-10"><i class="fa fa-heart text-danger"></i> 5 Love</a> </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <hr>
+                                          <div class="sl-item">
+                                              <div class="sl-left"> <img src="/images/users/avatar-3.jpg" alt="user" class="img-circle" /> </div>
+                                              <div class="sl-right">
+                                                  <div><a href="#" class="link">Michael Qin</a> <span class="sl-date">5 minutes ago</span>
+                                                      <p class="m-t-10"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.
+                                                          Praesent mauris. Fusce nec tellus sed augue semper </p>
+                                                  </div>
+                                                  <div class="like-comm m-t-20"> <a href="javascript:void(0)" class="link m-r-10">2 comment</a> <a href="javascript:void(0)" class="link m-r-10"><i class="fa fa-heart text-danger"></i> 5 Love</a> </div>
+                                              </div>
+                                          </div>
+                                          <hr>
+                                          <div class="sl-item">
+                                              <div class="sl-left"> <img src="/images/users/avatar-4.jpg" alt="user" class="img-circle" /> </div>
+                                              <div class="sl-right">
+                                                  <div><a href="#" class="link">Michael Qin</a> <span class="sl-date">5 minutes ago</span>
+                                                      <blockquote class="m-t-10">
+                                                          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                                                      </blockquote>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!--second tab-->
+                              <div class="tab-pane" id="profile" role="tabpanel">
+                                  <div class="card-body">
+                                      <div class="row">
+                                          <div class="col-md-2 col-xs-6 b-r"> <strong>Full Name</strong>
+                                              <br>
+                                              <p class="text-muted"><%= staff.name %></p>
+                                          </div>
+                                          <div class="col-md-2 col-xs-6 b-r"> <strong>Mobile</strong>
+                                              <br>
+                                              <p class="text-muted"><%= staff.phone %></p>
+                                          </div>
+                                          <div class="col-md-2 col-xs-6 b-r"> <strong>RFID No.</strong>
+                                              <br>
+                                              <p class="text-muted"><%= staff.rfid %></p>
+                                          </div>
+                                          <div class="col-md-2 col-xs-6"> <strong>Department</strong>
+                                              <br>
+                                              <p class="text-muted"><%= staff.dept %></p>
+                                          </div>
+                                          <div class="col-md-2 col-xs-6"> <strong>Occupation</strong>
+                                              <br>
+                                              <p class="text-muted"><%= staff.ocp %></p>
+                                          </div>
+                                          </div>
+                                          <div class="col-md-2 col-xs-6"> <strong>Status</strong>
+                                              <br>
+                                              <p class="text-muted" id="sts"><span class="label label-rouded label-success pull-right" >Normal</span></p>
+                                          </div>
+                                      </div>
+                                      <hr>
+                                      <h2>Coming Soon!!!</h2>
+                                      <div class="" style="filter:blur(10px);" tabindex="-1">
+
+
+
+                                      <p class="m-t-30" >Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.Cras dapibus. Vivamus
+                                          elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p>
+                                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+                                          it to make a type specimen book. It has survived not only five centuries </p>
+                                      <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                      </p>
+                                      <h4 class="font-medium m-t-30">Skill Set</h4>
+                                      <hr>
+                                      <h5 class="m-t-30">Wordpress <span class="pull-right">80%</span></h5>
+                                      <div class="progress">
+                                          <div class="progress-bar bg-success" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
+                                      </div>
+                                      <h5 class="m-t-30">HTML 5 <span class="pull-right">90%</span></h5>
+                                      <div class="progress">
+                                          <div class="progress-bar bg-info" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
+                                      </div>
+                                      <h5 class="m-t-30">jQuery <span class="pull-right">50%</span></h5>
+                                      <div class="progress">
+                                          <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
+                                      </div>
+                                      <h5 class="m-t-30">Photoshop <span class="pull-right">70%</span></h5>
+                                      <div class="progress">
+                                          <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
+                                      </div>
+                                  </div>
+                                </div>
+                              <div class="tab-pane" id="settings" role="tabpanel">
+                                  <div class="card-body">
+                                      <form class="form-horizontal form-material" action="/members/modifystf" method="post">
+                                        <input type="hidden" name="id" value="<%= staff._id %>">
+                                          <div class="form-group">
+                                              <label class="col-md-12">Full Name</label>
+                                              <div class="col-md-12">
+                                                  <input type="text" value="<%= staff.name %>" id="name" name="username" class="form-control form-control-line" readonly>
+                                              </div>
+                                          </div>
+
+                                          <div class="form-group" >
+                                              <label class="col-md-12">RFID</label>
+                                              <div class="col-md-12">
+                                                  <input type="text" class="form-control" id="rfid" name="rfid" value="<%= staff.rfid%>" readonly>
+                                              </div>
+                                          </div>
+                                          <div class="form-group " >
+                                            <label class="col-md-12">Phone No.</label>
+                                            <div class="col-md-12">
+                                                  <input type="text" class="form-control" id="phone" name="phone" value="<%= staff.phone%>" readonly>
+                                              </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="example-email" class="col-md-12">Status</label>
+                                            <div class="col-md-12">
+                                              <select class="form-control" readonly id="status" name="status">
+                                                  <option value="">Select Status</option>
+                                                  <option value="00">Normal</option>
+                                                  <option value="01">Warning</option>
+                                                  <option value="10">Inactive</option>
+                                                  <option value="11">Block</option>
+                                              </select>
+                                            </div>
+                                        </div>
+                                          <div class="form-group ">
+                                            <label class="col-md-12">Department</label>
+                                            <div class="col-md-12" >
+                                              <select class="form-control" id="dept" name="dept" readonly>
+                                                  <option value="">Select Department</option>
+                                                  <option value="IT">IT</option>
+                                                  <option value="CIVIL">Civil</option>
+                                                  <option value="MP">MP</option>
+                                                  <option value="EP">EP</option>
+                                                  <option value="EC">EC</option>
+                                                  <option value="MC">MC</option>
+                                                  <option value="ENGLISH">English</option>
+                                                  <option value="MATH">Math</option>
+                                                  <option value="MYANMAR">Myanmar</option>
+                                                  <option value="PHYSIC">Physic</option>
+                                                  <option value="CHEMISTRY">Chemistry</option>
+                                                  <option value="STU_AFF">Student Affair</option>
+                                                  <option value="STA_AFF">Staff Affair</option>
+                                              </select>
+                                              </div>
+                                          </div>
+                                          <div class="form-group ">
+                                            <label class="col-md-12">Occupation</label>
+                                            <div class="col-md-12" >
+                                              <select class="form-control" id="ocp" name="ocp" readonly>
+                                                  <option value="">Select Occupation</option>
+                                                  <option value="Professer">Professer</option>
+                                                  <option value="Associate Professer">Associate Professer</option>
+                                                  <option value="Lecturer">Lecturer</option>
+                                                  <option value="Assistant Lecturer">Assistant Lecturer</option>
+                                                  <option value="Tutor">Tutor</option>
+                                                  <option value="Demonstrator">Demonstrator</option>
+                                                  <option value="Officer">Officer</option>
+                                                  <option value="Others">Others</option>
+                                              </select>
+                                              </div>
+                                          </div>
+                                          <div class="form-group">
+                                              <div class="col-sm-12">
+                                                  <button class="btn btn-success" id="update_btn" hidden="true">Update Profile</button>
+                                                    <a href="javascript:del();" ><button type="button" hidden="true" id="remove_btn" class="btn btn-danger ">Remove</button></a>
+                                              </div>
+                                          </div>
+                                      </form>
+                                      <button type="submit" class="btn btn-primary" name="button" id="modal_btn" data-toggle="modal" data-target="#changePassModal">Check Password</button>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                </div>
+                  <!-- Column -->
+              </div>
+
+              <!-- End PAge Content -->
+          </div>
+          <!-- End Container fluid  -->
+          <!-- footer -->
+          <% include ../partial/footer %>
+          <!-- End footer -->
+        </div>
+        <!-- End Page wrapper  -->
+  </div>
+  <div class="modal"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" id="changePassModal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="form-validation">
+              <form action="javascript:check();" class="form-valide">
+                  <div class="modal-header">
+                  <h5 class="modal-title">Check Password</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+                  </div>
+                  <div class="card">
+                      <div class="card-body p-b-0">
+                          <h4 class="card-title">Choice Account</h4>
+                          <!-- Nav tabs -->
+                          <ul class="nav nav-tabs customtab2" role="tablist">
+                              <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#admin" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Admin</span></a> </li>
+                              <!-- <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#member" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Member</span></a> </li> -->
+                              <!-- <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#security" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Security</span></a> </li> -->
+                          </ul>
+                          <!-- Tab panes -->
+                          <div class="tab-content">
+                              <div class="tab-pane active" id="admin" role="tabpanel">
+                                  <div class="p-20">
+                                    <div class="form-group row">
+                                        <label for="adminPass" class="col-lg-4 col-form-label">
+                                            Admin Password
+                                        </label>
+                                        <div class="col-lg-6">
+                                        <input type="password"  class="form-control" name="adminPass" id="adminPass"/>
+                                        Status: <span id="admshow"></span>
+                                      </div>
+                                      <div class="col-lg-2" id="adminsp" style="margin-top: -10%;">
+                                        <span id="adminmsg"></span>
+                                      </div>
+
+                                    </div>
+                                  </div>
+                              </div>
+                              <!-- <div class="tab-pane  p-20" id="member" role="tabpanel">
+                                <div class="form-group row">
+                                    <label for="memberPass" class="col-lg-4 col-form-label">
+                                        Member Password
+                                    </label>
+                                    <div class="col-lg-6">
+                                    <input type="password"  class="form-control" name="memberPass" id="memberPass"/>
+                                    Status: <span id="memshow"></span>
+                                  </div>
+                                  <div class="col-lg-2" id="membersp" style="margin-top: -10%;">
+                                    <span id="membermsg"></span>
+                                  </div>
+                                </div>
+                              </div> -->
+                              <!-- <div class="tab-pane  p-20" id="security" role="tabpanel">
+                                <div class="form-group row">
+                                    <label for="secPass" class="col-lg-4 col-form-label">
+                                        Security Password
+                                    </label>
+                                    <div class="col-lg-6">
+                                    <input type="password"  class="form-control" name="secPass" id="secPass"/>
+                                    Status: <span id="secshow"></span>
+                                  </div>
+                                  <div class="col-lg-2" id="secsp" style="margin-top: -10%;">
+                                    <span id="secmsg"></span>
+                                  </div>
+                                </div>
+                              </div> -->
+                          </div>
+                      </div>
+                  </div>
+
+                      </div>
+
+                  </div>
+                  <div class="modal-footer">
+                  <button type="submit" id="save" class="btn btn-primary" disabled>Save changes</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+              </form>
+        </div>
+      </div>
+    </div>
+
+  <!-- End Wrapper -->
+  <!-- All Jquery -->
+  <% include ../partial/javascript %>
+  <script src="/javascripts/lib/form-validation/jquery.validate.unobtrusive.min.js"></script>
+  <script src="/javascripts/lib/form-validation/jquery.validate.min.js"></script>
+  <script src="/javascripts/lib/form-validation/jquery.validate-init.js"></script>
+
+  <script src="/javascripts/lib/jquery.nicescroll/jquery.nicescroll.min.js"></script>
+  <script src="/javascripts/socket.io.js" charset="utf-8"></script>
+  <!--Custom JavaScript -->
+  <script>
+  var socket = io();
+  socket.on('rfid',function (data) {
+    if(data) $('#rfid').val(data);
+  });
+      $(function(){
+        $("html").niceScroll({
+            cursorcolor:"#16385d",
+            cursorwidth:"5px",
+            background:"#fff",
+            cursorborder:"1px solid #5c4ac7",
+            cursorborderradius:0
+            });  // a world f
+
+          $('#dept').val('<%= staff.dept%>').change();
+          $('#ocp').val('<%= staff.ocp %>').change();
+          $('#status').val('<%= staff.status %>').change();
+
+          switch ('<%= staff.status %>') {
+            case '00':
+             $('#sts').html('<span class="label label-rouded label-success pull-center">Normal</span>');
+              break;
+             case '01':
+             $('#sts').html('<span class="label label-rouded label-warning pull-center">Warning</span>');
+               break;
+             case "10":
+               $('#sts').html('<span class="label label-rouded label-default pull-center">Inactive</span>');
+               break;
+             case "11":
+               $('#sts').html('<span class="label label-rouded label-danger pull-center">Block</span>');
+               break;
+            default:
+             console.log('Unnormal');
+          }
+
+
+      });
+      function del() {
+        location.href = "/members/memberDeletestf/<%=staff._id %>";
+      }
+      var adminPass = document.getElementById('adminPass');
+      var timeout = null;
+
+      adminPass.onkeyup = function (e) {
+        clearTimeout(timeout);
+        $('#adminmsg').html('<svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="7" fill="none" stroke-width="3" stroke-miterlimit="10" /> </svg>')
+        timeout = setTimeout(function () {
+          var admId = JSON.parse(Cookies.get('user_cookie').substring(2)).id;
+          $.post(
+            '/members/admcheck',
+            {id : admId, pwd : adminPass.value}
+          ).done(function (res) {
+            if(res.status){
+              $('#admshow').html(res.msg);
+              $('#rfid').removeAttr('readonly');
+              $('#username').removeAttr('readonly');
+              $('#phone').removeAttr('readonly');
+              $('#status').removeAttr('readonly');
+              // $('#ocp').removeAttr('readonly');
+              $('#save').removeAttr('disabled');
+              $('#remove_btn').removeAttr('hidden');
+              $('#adminmsg').html('<i class = "fa fa-check" style ="color:green;"></i>');
+              $('#adminsp').removeAttr('style');
+            }else{
+              $('#admshow').html(res.msg);
+              $('#adminmsg').html('<i class = "fa fa-remove " style ="color:red;"></i>');
+              $('#adminsp').removeAttr('style');
+            }
+          }).fail(function (err) {
+            console.log(err.status);
+          });
+        }, 1500);
+      }
+
+      function check() {
+        $('#changePassModal').modal('hide');
+        $('#update_btn').attr('hidden',false);
+        $('#modal_btn').attr('hidden', true);
+      }
+
+  </script>
+</body>
+
+</html>

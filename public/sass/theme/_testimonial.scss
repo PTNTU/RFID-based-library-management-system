@@ -1,0 +1,315 @@
+.testimonial-1 {
+	padding: 280px 0 250px 0;
+	@include mobile {
+		padding: 100px 0 150px 0;
+	}
+}
+.testimonial-border {
+	border: 3px solid $primary-color;
+	width: 100%;
+	height: 360px;
+	position: relative;
+	.test-img {
+		position: absolute;
+		bottom: -63px;
+		left: -75px
+	}
+	.testimonial-content {
+		padding-top: 60px;
+		@include mobile {
+			padding-top: 20px;
+		}
+		.item {
+			@include tablet {
+				padding: 0 50px;
+			}
+			@include mobile {
+				padding: 0 20px;
+			}
+		}
+		.fa-quote-left {
+			font-size: 36px;
+			color: #eeeeee;
+		}
+		p {
+			margin-top: 20px;
+			padding-right: 20px;
+		}
+		h6 {
+			color: $primary-color;
+		}
+		.owl-controls {
+			position: absolute;
+			left: 0;
+			bottom: -200px;
+			transform: translate(-80%);
+			margin-top: 40px;
+			@include tablet {
+				left: 50%;
+				transform: translate(-50%);
+			}
+			@include mobile {
+				left: 50%;
+				transform: translate(-50%);
+				margin-top: 0;
+				bottom: -70px;
+			}
+		}
+		.owl-dots {
+			@include flexbox();
+			margin-left: -5px;
+		}
+		.owl-dot  span {
+			width: 12px;
+			height: 12px;
+			background: $dark-gray;
+			margin-left: 5px;
+			display: inline-block;
+
+		}
+		.owl-dot.active span {
+			position: relative;
+			background: $primary-color;
+			&:after {
+				position: absolute;
+				width: 12px;
+				height: 2px;
+				background: $primary-color;
+				content: "";
+				top: -4px;
+			}
+		}
+	}
+}
+
+/* ----------------05 Home Kindergarten ---------------- */
+.kindergarten-testimonial {
+	.active-test-carousel {
+		padding-bottom: 100px;
+		.owl-controls {
+			position: absolute;
+			left: 50%;
+			bottom: 0;
+			transform: translate(-50%);
+			margin-top: 40px;
+		}
+		.owl-dots {
+			@include flexbox();
+			margin-left: -5px;
+		}
+		.owl-dot  span {
+			width: 12px;
+			height: 12px;
+			background: $dark-gray;
+			margin-left: 5px;
+			display: inline-block;
+
+		}
+		.owl-dot.active span {
+			position: relative;
+			background: #ac40ff;
+			&:after {
+				position: absolute;
+				width: 12px;
+				height: 2px;
+				background: #fbbc05;
+				content: "";
+				top: -4px;
+			}
+		}
+	}
+	.single-testimonial {
+		.icon {
+			span {
+				display: inline-block;
+				font-size: 60px;
+			}
+			margin-bottom: 30px;
+		}
+		.test-body {
+			padding-right: 100px;
+			@include cmq (0, 599px) {
+				padding: 0 30px;
+			}
+			h4 {
+				margin-bottom: 10px;
+			}
+		}
+	}
+	.test1 {
+		.icon {
+			span {
+				color: #ac40ff;
+			}
+		}
+		.test-body {
+			h4 {
+				color: #ac40ff;
+			}
+		}
+	}
+	.test2 {
+		.icon {
+			span {
+				color: #4285f4;
+			}
+		}
+		.test-body {
+			h4 {
+				color: #4285f4;
+			}
+		}
+	}
+}
+
+/* ----------------07 Home Designing---------------- */
+.designing-testimonial {
+	.active-design-carousel {
+		padding-bottom: 90px;
+		
+		.owl-controls {
+			position: absolute;
+			left: 50%;
+			bottom: 0;
+			transform: translate(-50%);
+			margin-top: 40px;
+		}
+		.owl-dots {
+			@include flexbox();
+			margin-left: -5px;
+		}
+		.owl-dot  span {
+			width: 12px;
+			height: 12px;
+			background: $dark-gray;
+			margin-left: 5px;
+			display: inline-block;
+
+		}
+		.owl-dot.active span {
+			position: relative;
+			background: $primary-color2;
+			&:after {
+				position: absolute;
+				width: 12px;
+				height: 2px;
+				background: $primary-color2;
+				content: "";
+				top: -4px;
+			}
+		}
+	}
+	.single-testimonial {
+		.test-img {
+			text-align: center;
+			margin-bottom: 35px;
+			img {
+				display: inline-block;
+				width: 80px;
+				height: 80px;
+				border-radius: 3px;
+			}
+		}
+		.test-body {
+			padding: 0 20px;
+			text-align: center;
+			p {
+				margin-bottom: 30px;
+			}
+			h4 {
+				color: $primary-color2;
+			}
+			span {
+				color: #999999;
+			}
+		}
+	}
+}
+/* ----------------08 Home Designing---------------- */
+.cooking-testimonial {
+	.active-design-carousel {
+		.owl-dot.active span {
+			background: $primary-color3;
+			&:after {
+				background: $primary-color3;
+			}
+		}
+	}
+	.single-testimonial {
+		.test-body {
+			h4 {
+				color: $primary-color3;
+			}
+		}
+	}
+}
+
+/* --------------- 19 Testimonial Page ---------------- */
+.testimonial-page {
+	.single-testimoinal {
+		padding: 50px 20px;
+		@include transition (all .3s ease 0s);
+		&:hover {
+			box-shadow: 7.071px 7.071px 30px 0px rgba(0, 0, 0, 0.1);
+		}
+		img {
+			display: inline-block;
+			width: 80px;
+			height: 80px;
+			border-radius: 2px;
+		}
+		p {
+			margin: 30px 0;
+			font-style: italic;
+		}
+		h4 {
+			font-size: 18px;
+			color: $primary-color;
+			margin-bottom: 5px;
+		}
+	}
+}
+.total-testimonial-carousel {
+	.owl-controls {
+		position: absolute;
+		left: 50%;
+		transform: translate(-50%);
+		margin-top: 40px;
+		@include tablet {
+			left: 50%;
+			transform: translate(-50%);
+		}
+		@include mobile {
+			left: 50%;
+			transform: translate(-50%);
+			margin-top: 0;
+			bottom: -70px;
+		}
+	}
+	.owl-dots {
+		@include flexbox();
+		margin-left: -5px;
+	}
+	.owl-dot  span {
+		width: 12px;
+		height: 12px;
+		background: $dark-gray;
+		margin-left: 5px;
+		display: inline-block;
+
+	}
+	.owl-dot.active span {
+		position: relative;
+		background: $primary-color;
+		&:after {
+			position: absolute;
+			width: 12px;
+			height: 2px;
+			background: $primary-color;
+			content: "";
+			left:0;
+			top: -4px;
+		}
+	}
+}
+

@@ -1,0 +1,346 @@
+/* --------------- 17 Publication Board ---------------- */
+.single-widget {
+	.widget-notice {
+		box-shadow: 7.071px 7.071px 30px 0px rgba(0, 0, 0, 0.1);
+		padding: 20px 60px 40px 20px;
+		li {
+			line-height: 30px;
+			a {
+				@include transition (all .2s ease 0s);
+				&:hover {
+					color: $primary-color;
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+	.widget-keywords {
+		padding: 20px 60px 40px 0px;
+		li {
+			display: inline;
+			line-height: 30px;
+			a {
+				display: inline-block;
+				text-transform: capitalize;
+			}
+			.big {
+				font-size: 18px;
+				color: $primary-color;
+				font-family: $fjalla-one;
+			}
+		}
+	}
+}
+/* ----------------22 Department Grid ---------------- */
+.edu-widget {
+	margin-top: 30px;
+	h3 {
+		border-bottom: 1px solid $dark-gray;
+		font-size: 18px;
+		padding-bottom: 25px;
+	}
+	.widget-body {
+		box-shadow: 2.121px 2.121px 7px 0px rgba(0, 0, 0, 0.1);
+		padding: 30px;
+		@include tablet {
+			padding: 20px;
+		}
+		@include mobile {
+			padding: 20px;
+		}
+	}
+}
+.departement-widget {
+	.course-widget {
+		.number {
+			color: $light;
+			display: inline-block;
+			background: $text-color;
+			min-width: 25px;
+			line-height: 25px;
+			border-radius: 3px;
+			text-align: center;
+			&:hover {
+				background: $primary-color;
+				color: $light !important;
+			}
+		}
+		.post-cat ul:first-child li {
+			margin-top: 5px;
+		}
+	}
+}
+.course-category-widget {
+	.widget-body {
+		label {
+			font-size: 14px;
+			font-weight: 400;
+			color: $text-color;
+			
+		}
+		.check {
+			position: relative;
+			input[type="checkbox"] {
+				margin-right: 17px;
+				opacity: 0;
+			}
+			span {
+				width: 12px;
+				height: 12px;
+				background: #f3f3f3;
+				display: inline-block;
+				position: absolute;
+				left: 1px;
+				top: 5px;
+				border-radius: 2px;
+				&:before {
+					position: absolute;
+					content: '';
+
+				}
+			}
+			input:checked + label > span {
+				position: absolute;
+				background: $text-color;
+			}
+			input:checked + label > span:before {
+				content: "\f00c";
+				font-family: "fontAwesome";
+				font-size: 8px;
+				position: absolute;
+				top: -4px;
+				left: 2.5px;
+				color: $light;
+			}
+		}
+	}
+}
+
+/* ----------------33 Blog Home Left Sidebar --------------- */
+.single-widget {
+	.popular-post {
+		.post-img {
+			position: relative;
+			display: block;
+		}
+		.overlay-bg {
+			background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.2) 100%);
+			background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.2) 100%);
+			background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.2) 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#33000000',GradientType=0 );
+		}
+		.media-left {
+			padding-right: 20px;
+		}
+		.media-body {
+			p {
+				color: $title-color;
+			}
+			a {
+				color: $primary-color;
+			}
+			.media-heading {
+				a {
+					h4{
+						@include transition (all .3s ease 0s);
+					}
+					&:hover {
+						h4 {
+							color: $primary-color;
+						}
+					}
+				}
+				margin: 10px 0 15px 0;
+				@include tablet {
+					margin: 0px 0 15px 0;
+					a {
+						h4 {
+							font-size: 16px;
+							line-height: 1.3em;
+						}
+					}
+				}
+				@include mobile {
+					margin: 0px 0 15px 0;
+					a {
+						h4 {
+							font-size: 16px;
+							line-height: 1.3em;
+						}
+					}
+				}
+			}
+		}
+	}
+	.common-shadow {
+		box-shadow: 2.121px 2.121px 7px 0px rgba(0, 0, 0, 0.1);
+		padding: 30px;
+		@include tablet {
+			padding: 20px;
+		}
+		@include mobile {
+			padding: 20px;
+		}
+	}
+	.post-cat {
+		 ul {
+			margin-top: -13px;
+			&:first-child {
+				li {
+					margin-top: 13px;
+					a {
+						&:hover {
+							color: $primary-color;
+						}
+					}
+					.sub-list {
+						margin-top: 0;
+						padding-left: 10px;
+					}
+				}
+			}
+		}
+	}
+	.post-arc {
+		.year {
+			width: 95px;
+			margin-top: -13px;
+			li {
+				margin-top: 13px;
+				a {
+					&:hover {
+						padding-left: 10px;
+						color: $primary-color;
+					}
+				}
+			}
+		}
+		.month {
+			width: 90px;
+			margin-top: -13px;
+			li {
+				margin-top: 13px;
+				a {
+					&:hover {
+						padding-left: 10px;
+						color: $primary-color;
+					}
+				}
+			}
+		}
+	}
+}
+/* ----------------35 Blog Details ---------------- */
+.blog-details {
+	.first-head {
+		margin-top: 0;
+		@include tablet {
+			margin-top: 30px;
+		}
+		@include mobile {
+			margin-top: 30px;
+		}
+	}
+}
+/* ----------------37 Shop Home ---------------- */
+.col-3 {
+	.widget-keywords {
+		padding: 20px 30px 40px 0;
+	}
+}
+.single-widget {
+	.shop-widget {
+		.post-img {
+			box-shadow: 2.121px 2.121px 5px 0px rgba(0, 0, 0, 0.07);
+		}
+		.media-body {
+			padding-bottom: 6px;
+			.media-heading {
+				margin: 10px 0 9px;
+				a {
+					h4 {
+						@include transition (all .3s ease 0s);
+					}
+					&:hover {
+						h4 {
+							color: $primary-color;
+						}
+					}
+				}
+			}
+		}
+		.media {
+			margin-top: 10px;
+		}
+	}
+	.post-cat {
+		.first-li {
+			.main-list {
+				a {
+					&:hover {
+						color:$primary-color;
+					}
+				}
+			}
+		}
+	}
+}
+/* ----------------44 Buddypress activity after login ---------------- */
+.buddypress-widget-total {
+	.main-head-event {
+		margin-top: 30px;
+		font-size: 18px;
+	}
+	.community {
+		li {
+			a {
+				display: inline-block;
+				margin-bottom: 5px;
+				&:hover {
+					color: $primary-color;
+				}
+			}
+		}
+	}
+	.member-login {
+		background: #f7f7f7;
+		.single-filter {
+			margin-right: 0;
+			input {
+				height: 35px;
+				width: 100%;
+				border: none;
+				&:focus {
+					border: none;
+				}
+			}
+			.btn {
+				line-height: 35px;
+				height: 35px;
+			}
+		}
+		p {
+			text-align: center;
+			margin-bottom: 0;
+			a {
+				color: $primary-color;
+				text-decoration: underline;
+			}
+		}
+		.forgot {
+			margin-bottom: 8px;
+		}
+	}
+	.recent-comments {
+		li {
+			a {
+				display: inline-block;
+				margin-bottom: 5px;
+				color: $title-color;
+				&:hover {
+					color: $primary-color;
+				}
+			}
+		}
+	}
+}

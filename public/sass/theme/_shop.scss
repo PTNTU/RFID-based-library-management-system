@@ -1,0 +1,1198 @@
+/* ----------------36 Shop Home Slider --------------- */
+.deal {
+	.single-service {
+		text-align: center;
+		a {
+			display: block;
+			padding: 40px 20px;
+			box-shadow: 2.121px 2.121px 7px 0px rgba(0, 0, 0, 0.1);
+			height: 225px;
+			@include tablet {
+				height: 250px;
+			}
+			&:hover {
+				box-shadow: 7.071px 7.071px 30px 0px rgba(0, 0, 0, 0.1);
+				.sum-text {
+					display: none;
+				}
+				.bullet {
+					left: 0;
+				}
+			}
+		}
+		.sum-text {
+			@include transition (all .3s all 0s);
+		}
+		span {
+			display: inline-block;
+			font-size: 36px;
+			color: $primary-color;
+		}
+		h4 {
+			margin: 30px 0 10px 0;
+		}
+		.bullet {
+			@include transition (all .8s all 0s);
+			position: relative;
+			left: -99999px;
+			margin-top: 20px;
+			.fa {
+				font-size: 8px;
+				color: $primary-color;
+				margin-right: 5px;
+			}
+		}
+	}
+}
+.women-headphone {
+	@include tablet {
+		margin-top: 75px;
+	}
+	background: #fafafa;
+	.deal-right {
+		margin-top: 135px;
+		text-align: center;
+		padding: 0 70px;
+		@include tablet {
+			margin-top: 50px;
+			padding: 0 30px;
+		}
+		@include mobile {
+			margin-top: 50px;
+			padding: 0 30px;
+		}
+		.top {
+			text-transform: uppercase;
+			letter-spacing: 2.5px;
+		}
+		h3 {
+			text-transform: uppercase;
+			padding: 10px 0 20px 0;
+			@include tablet {
+				font-size: 18px;
+			}
+			@include mobile {
+				font-size: 18px;
+			}
+		}
+		.total-box {
+			padding: 10px 0 30px 0;
+			@include tablet {
+				padding: 0 0 10px 0;
+			}
+			@include mobile {
+				padding: 0 0 10px 0;
+			}
+		}
+		.price {
+			position: relative;
+			font-family: $fjalla-one;
+			display: inline;
+			width: auto;
+			h2 {
+				font-size: 36px;
+				color: $primary-color;
+				display: inline;
+			}
+			span {
+				font-size: 18px;
+				display: inline-block;
+				position: absolute;
+				right: -60px;
+				bottom: -3px;
+				
+				&:after {
+					content: "";
+					position: absolute;
+					width: 100%;
+					height: 1px;
+					background: $text-color;
+					left: 0;
+					top: 48%;
+				}
+			}
+		}
+	}
+}
+.mt-n {
+	@include tablet {
+		margin-top: 0;
+	}
+	@include mobile {
+		margin-top: 0;
+	}
+}
+.coutndown-area {
+	position: relative;
+	height: 60px;
+	.countdown {
+		height: 60px;
+		padding: 0 10px;
+		width: 337px;
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		top: 0;
+		box-shadow: 7.071px 7.071px 30px 0px rgba(0, 0, 0, 0.1);
+		@include mobile {
+			width: 280px;
+		}
+		li {
+			padding: 0px 18px;
+			margin: 10px 0;
+			border-right: 1px solid $dark-gray;
+			@include mobile {
+				padding: 0 10px;
+			}
+			&:last-child {
+				border-right: 0px;
+			}
+		}
+		p {
+			margin: 0;
+			text-transform: capitalize;
+			color: $primary-color;
+			span {
+				color: $title-color;
+				font-family: $fjalla-one;
+			}
+		}
+	}
+}
+.single-product {
+	figure {
+		border: 1px solid $dark-gray;
+		height: 290px;
+		padding: 20px 30px 30px 30px;
+		text-align: center;
+		@include transition (all .3s ease 0s);
+		&:hover {
+			background: $light;
+			border: 1px solid $light;
+			box-shadow: 7.071px 7.071px 30px 0px rgba(0, 0, 0, 0.1);
+			h6 {
+				color: $primary-color;
+			}
+			.fa-shopping-basket {
+				color: $primary-color;
+			}
+		}
+		.fa-shopping-basket {
+			&:hover {
+				transform: scale(1.8);
+			}
+		}
+		img {
+			display: inline-block;
+			width: 220px;
+			height: 180px;
+		}
+		figcaption {
+			h6 {
+				text-align: left;
+				margin-top: 20px;
+			}
+			ul {
+				margin-top: 9px;
+				li {
+					del {
+						color: $text-color;
+						margin-left: 5px;
+					}
+					.fa-shopping-basket {
+						@include transition (all .1s ease 0s);
+						display: inline-block;
+					}
+				}
+			}
+		}
+	}
+}
+.offer-product {
+	position: relative;
+	.percent {
+		position: absolute;
+		color: $light;
+		background: $primary-color;
+		padding: 3px 5px;
+		top: 30px;
+		right: 30px;
+		border-radius: 3px;
+		pointer-events: none;
+	}
+}
+.popular-product {
+	a {
+		display: block;
+	}
+	figure {
+		height: 290px;
+		background: #001e32;
+		text-align: center;
+		padding: 50px 0;
+		.et-line {
+			font-size: 36px;
+			color: $primary-color;
+		}
+		h5 {
+			color: $light;
+			margin: 22px 0;
+		}
+		p {
+			color: $light;
+			margin-bottom: 47px;
+			font-family: $nunito;
+		}
+		.more {
+			color: $primary-color;
+			font-family: $fjalla-one;
+			.fa {
+				margin-left: 3px;
+			}
+		}
+	}
+}
+.total-product {
+	.btn {
+		text-transform: capitalize;
+		&:hover {
+			color: $title-color;
+		}
+	}
+}
+/* ----------------37 Shop Grid Sidebar  --------------- */
+.women-headphone2 {
+	.deal-right {
+		margin-top: 85px;
+		@include tablet {
+			margin-top: 50px;
+		}
+		h3 {
+			font-size: 18px;
+		}
+		padding: 0 30px;
+	}
+	.deal-left {
+		width: 54.0094%;
+		@include mobile {
+			width: 100%;
+		}
+	}
+	.deal-right {
+		width: 45.9905%;
+		@include mobile {
+			width: 100%;
+		}
+	}
+	.coutndown-area {
+		.countdown {
+			width: 303px;
+			li {
+				padding: 0px 13px;
+			}
+		}
+	}
+}
+.shop-widget-total {
+	.main-head-event {
+		margin-top: 30px;
+	}
+}
+/* ----------------38 Shop list Sidebar  --------------- */
+.single-product-list {
+	@include transition(all .3s ease 0s);
+	box-shadow: 2.121px 2.121px 5px 0px rgba(0, 0, 0, 0.07);
+	.pl-n {
+		@include mobile {
+			padding-right: 0;
+		}
+	}
+	.shop-list-img {
+		@include mobile {
+			img {
+				width: 100%;
+			}
+		}
+	}
+	&:hover {
+		box-shadow: 7.071px 7.071px 30px 0px rgba(0, 0, 0, 0.1);
+		.shop-list-content {
+			.icon {
+				a {
+					color: $primary-color;
+				}
+			}
+		}
+	}
+	.shop-list-content {
+		.icon {
+			a {
+				&:hover {
+					font-size: 24px;
+				}
+			}
+		}
+	}
+}
+.shop-list-img {
+	a {
+		display: block;
+		img {
+			border: 1px solid $dark-gray;
+		}
+	}
+}
+.shop-list-content {
+	padding: 40px 35px 40px 12px;
+	@include tablet {
+		padding: 20px 15px 20px 0;
+	}
+	@include mobile {
+		padding: 20px 15px 20px 15px;
+	}
+	h3 {
+		a {	
+			display: inline-block;
+			font-size: 18px;
+			margin-bottom: 20px;
+			@include transition(all .3s ease 0s);
+			color: $title-color;
+		}
+	}
+	.price {
+		font-size: 24px;
+		font-family: $fjalla-one;
+		color: $primary-color;
+		del {
+			color: $text-color;
+			font-size: 14px;
+			margin-left: 5px;
+		}
+	}
+	.icon {
+		position: relative;
+		top: 10px;
+		a {
+			color: $title-color;
+		}
+	}
+}
+.total-shop-list {
+	.btn {
+		text-transform: capitalize;
+		&:hover {
+			color: $title-color;
+		}
+	}
+}
+/* ----------------39 Shop Single Product  --------------- */
+.total-product-slider {
+	position: relative;
+	.item {
+		img {
+			height: 451px;
+			width: auto;
+			@include mobile {
+				height: 250px;
+				width: auto;
+			}
+		}
+		
+	}
+	.owl-controls {
+		position: absolute;
+		top: 50%;
+		left: 30px;
+		transform: translateY(-50%);
+		.owl-dots {
+			margin-top: -20px;
+			.owl-dot {
+				width: 50px;
+				height: 50px;
+				&:nth-child(1) {
+					background: url(../img/slider/d1.jpg) no-repeat;
+				}
+				&:nth-child(2) {
+					background: url(../img/slider/d2.jpg) no-repeat;
+				}
+				&:nth-child(3) {
+					background: url(../img/slider/d3.jpg) no-repeat;
+				}
+				margin-top: 20px;
+				box-shadow: 2.121px 2.121px 7px 0px rgba(0, 0, 0, 0.1);
+				position: relative;
+				&:after {
+					position: absolute;
+					content: "";
+					width: 100%;
+					height: 100%;
+					top: 0;
+					left: 0;
+					@include transition (all .5s ease 0s);
+				}
+				&:hover {
+					&:after {
+						background: rgba($primary-color, .8);
+					}
+				}
+			}
+			.active {
+				position: relative;
+				&:after {
+					position: absolute;
+					content: "";
+					width: 100%;
+					height: 100%;
+					top: 0;
+					left: 0;
+					background: rgba($primary-color, .8);
+				}
+			}
+		}
+	}
+}
+.single-product {
+	.single-info {
+		.review-star {
+			line-height: 60px;
+		}
+		.color-list {
+			line-height: 60px;
+		}
+	}
+}
+.product-details {
+	.color-list {
+		.color {
+			width: 15px;
+			height: 15px;
+			display: inline-block;
+			border-radius: 50%;
+			margin-left: 5px;
+			cursor: pointer;
+		}
+		.color1 {
+			background: #ff00ae;
+		}
+		.color2 {
+			background: #8400ff;
+		}
+		.color3 {
+			background: #ff0000;
+		}
+		.color4 {
+			background: #333333;
+		}
+	}
+	.price {
+		color: $primary-color;
+	}
+	.prev-price {
+		font-size: 14px;
+		color: $text-color;
+		margin-left: 20px;
+	}
+	.parcent {
+		font-size: 14px;
+		padding: 5px;
+		border-radius: 3px;
+		background: $primary-color;
+		color: $light;
+		margin-left: 20px;
+	}
+	.btn {
+		font-size: 16px;
+		&:hover {
+			i {
+				color: $primary-color;
+			}
+		}
+	}
+}
+@include mobile {
+	.teacher-details {
+		.course-tab li a {
+			font-size: 14px;
+		}
+	}
+}
+.myform {
+	line-height: 60px;
+	font-size: 18px;
+	color: $title-color;
+	font-family: $fjalla-one;
+	.qtyminus {
+		border: none;
+		background: transparent;
+		@include transition (all .3s ease 0s);
+		&:hover {
+			color: $primary-color;
+		}
+	}
+	.qtyplus {
+		@extend .qtyminus;
+	}
+	.qtyplus2 {
+		@extend .qtyminus;
+	}
+	.qtyminus2 {
+		@extend .qtyminus;
+	}
+	.qtyplus3 {
+		@extend .qtyminus;
+		color: #cccccc;
+		&:hover {
+			color: $title-color;
+		}
+	}
+	.qtyminus3 {
+		@extend .qtyplus3;
+	}
+	.qtyplus4 {
+		@extend .qtyplus3;
+	}
+	.qtyminus4 {
+		@extend .qtyplus3;
+	}
+	.qtyplus5 {
+		@extend .qtyplus3;
+	}
+	.qtyminus5 {
+		@extend .qtyplus3;
+	}
+	
+	.qty {
+		width: 40px;
+		border: none;
+		text-align: center;
+		@include tablet {
+			width: 20px;
+		}
+		@include mobile {
+			width: 20px;
+		}
+	}
+}
+.specification {
+	table {
+		th,td {
+			vertical-align: top;
+			padding: 40px 0;
+		}
+		tr {
+			border-bottom: 1px solid $dark-gray;
+		}
+		tr:last-child {
+			border-bottom: none;
+		}
+		th {
+			width: 40%;
+			font-size: 18px;
+			color: $title-color;
+			font-family: $fjalla-one;
+			font-weight: 400;
+			@include mobile {
+				font-size: 16px;
+				width: 30%;
+			}
+		}
+		td {
+			font-size: 14px;
+			font-family: $fjalla-one;
+			color: $title-color;
+			width: 30%;
+			span {
+				display: block;
+				font-size: 14px;
+				font-family: $nunito;
+				color: $text-color;
+				margin-top: 6px;
+			}
+		}
+		.multi-row {
+			border-bottom: none;
+			td {
+				padding-bottom: 0px;
+			}
+			.pt-20 {
+				padding-top: 20px;
+			}
+		}
+	}
+}
+.related-product {
+	.single-product {
+		figure {
+			border: none;
+			height: auto;
+			padding: 30px 20px;
+			text-align: center;
+			background: #f7f7f7;
+			height: 240px;
+			@include transition (all .3s ease 0s);
+			&:hover {
+				background: $light;
+				border: none;
+				box-shadow: 7.071px 7.071px 30px 0px rgba(0, 0, 0, 0.1);
+				h6 {
+					color: $primary-color;
+				}
+			}
+			img {
+				display: inline-block;
+				width: auto;
+				height: auto;
+			}
+			figcaption {
+				h6 {
+					text-align: left;
+					margin-top: 20px;
+				}
+				ul {
+					margin-top: 9px;
+					li {
+						del {
+							color: $text-color;
+							margin-left: 5px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+.related-title {
+	border-bottom: 1px solid $dark-gray;
+	margin-bottom: 30px;
+	margin-top: 20px;
+	h4 {
+		padding-bottom: 20px;
+		display: inline-block;
+		position: relative;
+		&:after {
+			width: 100%;
+			content: "";
+			position: absolute;
+			height: 1px;
+			background: $primary-color;
+			bottom: -1px;
+			left: 0;
+		}
+	}
+}
+/* ----------------40 Shop Cart  --------------- */
+.cart-topbar {
+	width: 100%;
+	height: 100px;
+	background: $primary-color;
+}
+.table-wrap {
+	padding: 0 65px;
+	@include tablet {
+		padding: 0 30px;
+	}
+	@include mobile {
+		padding: 0;
+	}
+}
+.total-table {
+	box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.1);
+}
+.cart-table-head {
+	margin-top: -65px;
+	ul {
+		border-bottom: 1px solid $dark-gray;
+		li {
+			width: 33.3333%;
+			border-right: 1px solid $dark-gray;
+			&:last-child {
+				border-right: 0px;
+			}
+			a {
+				display: block;
+				font-family: $fjalla-one;
+				height: 65px;
+				line-height: 65px;
+				background: $light;
+				text-align: center;
+				
+			}
+			.active {
+				background: $primary-color;
+				color: $light;
+			}
+		}
+	}
+}
+.cart-table {
+	tbody {
+		tr {
+			border-bottom: 1px solid $dark-gray;
+			&:last-child {
+				border-bottom: 0px;
+			}
+		}
+		td {
+			padding-left: 30px;
+			padding-right: 30px;
+			@include tablet {
+				padding-left: 10px;
+				padding-right: 10px;
+			}
+			@include mobile {
+				padding: 10px;
+				display: block;
+				text-align: center;
+			}
+
+		}
+
+	}
+	.mcart-product {
+		padding: 20px 0px;
+		figure {
+			margin-right: 30px;
+		}
+		.desc {
+			h6 {
+				margin-top: 20px;
+			}
+			span {
+				color: $primary-color;
+				margin-top: 5px;
+				display: inline-block;
+			}
+		}
+	}
+	.total-price {
+		color : $title-color;
+		font-family: $fjalla-one;
+	}
+	.total {
+		color: $primary-color;
+		font-family: $fjalla-one;
+	}
+	.remove-product {
+		i {
+			display: inline-block;
+			width: 35px;
+			height: 35px;
+			border-radius: 50%;
+			border: 1px solid $dark-gray;
+			line-height: 35px;
+			text-align: center;
+			cursor: pointer;
+			@include mobile {
+				line-height: 33px;
+			}
+			@include transition (all .3s ease 0s);
+			&:hover {
+				background: $primary-color;
+				color: $light;
+				border: 1px solid $primary-color;
+			}
+		}
+	}
+	.cupon-form {
+		padding: 40px 30px;
+		@include tablet {
+			padding: 40px 0px;
+		}
+		input {
+			background: #fff none repeat scroll 0 0;
+			border: 1px solid #eeeeee;
+			color: #333333;
+			font-size: 13px;
+			padding: 0px 20px;
+			height: 40px;
+			margin-right: -4px;
+			width: 215px;
+		}
+		.btn {
+			border-radius: 0px;
+			padding: 0 30px;
+			@include mobile {
+				margin-top: 10px;
+			}
+		}
+	}
+	.checkout-btn {
+		text-align: center;
+		a {
+			font-family: $fjalla-one;
+			display: inline-block;
+			padding: 20px 10px;
+			@include transition (all .3s ease 0s);
+			i {
+				margin-left: 10px;
+			}
+			&:hover {
+				color: $primary-color;
+			}
+		}
+	}
+}
+/* ----------------40 Shop Cart  --------------- */
+.checkout-body {
+	.login-head {
+		background: #f3f3f3;
+		p {
+			padding: 15px 30px;
+			color: $title-color;
+			a {
+				color: $primary-color;
+			}
+		}
+	}
+	.cupon-head {
+		border-top: 1px solid $light;
+	}
+	.login-field {
+		background: #fafafa;
+		padding: 30px;
+		.single-filter {
+			input {
+				border: none;
+				display: block;
+				color: #333333;
+				font-size: 13px;
+				height: 40px;
+				line-height: 40px;
+				padding: 0 20px;
+				@include transition(all .3s ease 0s);
+				width: 100%;
+				background: #fff;
+				box-shadow: 2.121px 2.121px 7px 0px rgba(0, 0, 0, 0.1);
+				@include mobile {
+					margin-bottom: 10px;
+				}
+				&:focus {
+					outline: none;
+					box-shadow: 7.071px 7.071px 30px 0px rgba(0, 0, 0, 0.1);
+				}
+			}
+		}
+		.btn {
+			border-radius: 0px;
+			height: 40px;
+			line-height: 40px;
+			padding: 0;
+			width: 100%;
+			text-align: center;
+			box-shadow: 2.121px 2.121px 7px 0px rgba(0, 0, 0, 0.1);
+			&:hover {
+				color: $title-color;
+			}
+		}
+	}
+}
+.login-notice {
+	margin-top: 15px;
+	p {
+		margin-bottom: 0;
+	}
+	.remember {
+		margin-right: 75px;
+		@include mobile {
+			margin-right: 20px;
+		}
+		
+		label {
+			font-size: 14px;
+			font-weight: 400;
+			color: $title-color;
+			cursor: pointer;
+		}
+		.check {
+			position: relative;
+			input[type="checkbox"] {
+				margin-right: 17px;
+				visibility: hidden;
+			}
+			span {
+				width: 15px;
+				height: 15px;
+				border: 1px solid $title-color;
+				display: inline-block;
+				position: absolute;
+				left: 1px;
+				top: 5px;
+				border-radius: 50%;
+				&:before {
+					position: absolute;
+					content: '';
+
+				}
+			}
+			input:checked + label > span {
+				position: absolute;
+				background: $title-color;
+			}
+			input:checked + label > span:before {
+				content: "\f00c";
+				font-family: "fontAwesome";
+				font-size: 9px;
+				position: absolute;
+				top: -4px;
+				left: 2px;
+				color: $light;
+			}
+		}
+	}
+	.forgot {
+		a {
+			color: $primary-color;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+/* ----------------41 Shop Checkout  --------------- */
+
+.billing-info {
+	background: $light;
+	padding: 30px 60px;
+	@include tablet {
+		padding: 30px;
+	}
+	@include mobile {
+		padding: 30px;
+	}
+	.single-filter {
+		margin-top: 15px;
+		input {
+			border: none;
+			display: block;
+			color: #333333;
+			font-size: 13px;
+			height: 40px;
+			line-height: 40px;
+			padding: 0 20px;
+			@include transition(all .3s ease 0s);
+			width: 100%;
+			background: #fff;
+			box-shadow: 2.121px 2.121px 7px 0px rgba(0, 0, 0, 0.1);
+			&:focus {
+				outline: none;
+				box-shadow: 7.071px 7.071px 30px 0px rgba(0, 0, 0, 0.1);
+			}
+		}
+		textarea {
+			border: none;
+			display: block;
+			color: #333333;
+			font-size: 13px;
+			height: 100px;
+			padding: 10px 20px;
+			@include transition(all .3s ease 0s);
+			width: 100%;
+			background: #fff;
+			box-shadow: 2.121px 2.121px 7px 0px rgba(0, 0, 0, 0.1);
+			resize: none;
+			&:focus {
+				outline: none;
+				box-shadow: 7.071px 7.071px 30px 0px rgba(0, 0, 0, 0.1);
+			}
+		}
+	}
+	.billing-title {
+		padding-bottom: 15px;
+		border-bottom: 1px solid $dark-gray;
+		font-size: 18px;
+	}
+	.select-ct {
+		height: 40px;
+		.nice-select {
+			border: none;
+		}
+	}
+}
+.billing-title {
+	padding-bottom: 15px;
+	border-bottom: 1px solid $dark-gray;
+	font-size: 18px;
+}
+.total-radio {
+	label {
+		cursor: pointer;
+		font-size: 14px;
+		font-weight: 400;
+		color: $text-color;
+		margin-bottom: 10px;
+		&:hover {
+			color: $primary-color;
+		}
+	}
+}
+.custom-radio {
+	position: relative;
+	input[type=radio] {
+		position: relative;
+		cursor: pointer;
+		opacity: 0;
+	}
+	input[type=radio]:checked ~ .ct-radio {
+		background: $primary-color;
+		z-index: 9;
+		border: 1px solid $primary-color;
+	}
+	input[type=radio]:checked ~ .ct-radio {
+		&:after {
+			content: "\f00c";
+			font-family: "fontAwesome";
+			font-size: 9px;
+			position: absolute;
+			top: -4px;
+			left: 2px;
+			color: $light;
+			display: block;
+
+		}
+	}
+	.ct-radio {
+		display: block;
+		position: absolute;
+		border-radius: 100%;
+		height: 15px;
+		width: 15px;
+		background:ddd;
+		top: 3px;
+		right: -2px;
+		border: 1px solid $dark-gray;
+		pointer-events: none;
+	}
+}
+.order-details {
+	@include mobile {
+		margin-left: 0;
+		margin-top: 30px;
+	}
+	table {
+		td {
+			text-align: right;
+			color: $title-color;
+		}
+		.single-product-order {
+			h6 {
+				line-height: 1.3em;
+			}
+			th {
+				padding: 30px 0;
+				border-bottom: 1px solid $dark-gray;
+			}
+			td {
+				border-bottom: 1px solid $dark-gray;
+			}
+		}
+		.subtotal {
+			td {
+				padding: 25px 0 10px 10px;
+			}
+		}
+		.discount {
+			td {
+				padding: 0px 0 10px 10px;
+				color: $primary-color;
+			}
+		}
+		.shipping-cost {
+			td {
+				padding: 0px 0 15px 10px;
+			}
+		}
+		.grand-total {
+			td {
+				padding: 15px 0 10px 30px;
+				border-top: 1px solid $dark-gray;
+				font-family: $fjalla-one;
+				&:first-child {
+					border-top: 0px;
+				}
+			}
+		}
+	}
+}
+.bottom-btn-group {
+	text-align: center;
+	padding: 25px 0;
+	border-top: 1px solid $dark-gray;
+	.btn-proceed {
+		display: inline-block;
+		padding: 0px  10px;
+		font-family: $fjalla-one;
+		&:hover {
+			color: $primary-color;
+		}
+		i {
+			margin-right: 10px;
+		}
+
+	}
+	.btn-proceed2 {
+		display: inline-block;
+		padding: 0px  10px;
+		font-family: $fjalla-one;
+		&:hover {
+			color: $primary-color;
+		}
+		i {
+			margin-left: 10px;
+		}
+	}
+}
+/* ----------------43 Shop Confirmation  --------------- */
+.thanks-top {
+	background: #f7f7f7;
+	p {
+		margin: 0;
+		padding: 20px 30px;
+		a {
+			color: $title-color;
+		}
+	}
+	.confirm-msg {
+		color: #00be9b;
+	}
+}
+
+.billing-details-box {
+	box-shadow: 2.121px 2.121px 7px 0px rgba(0, 0, 0, 0.1);
+	padding: 50px 50px 80px 50px;
+	.single-info {
+		margin-bottom: 15px;
+		h6 {
+			margin-bottom: 4px;
+		}
+		p {
+			color: $primary-color;
+		}
+	}
+}
+.order-details-confirm {
+	table .single-product-order th {
+		border-bottom: 1px solid #eee;
+		padding: 30px;
+		@include mobile {
+			padding: 15px;
+		}
+	}
+}
+.confirm-customer-details {
+	margin-top: 80px;
+	.customer-details {
+		margin-bottom: 20px;
+		p {
+			margin: 0;
+			a {
+				margin-bottom: 5px;
+				display: inline-block;
+				i {
+					color: $primary-color;
+					margin-right: 10px;
+				}
+			}
+		}
+	}
+}

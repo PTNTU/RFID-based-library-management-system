@@ -1,0 +1,255 @@
+.total-notice {
+	.single-notice {
+		padding: 30px 0;
+		@include tablet {
+			padding: 30px;
+		}
+		@include mobile {
+			padding: 30px;
+		}
+		@include transition (all .3s ease 0s);
+		&:hover {
+			box-shadow: 7.071px 7.071px 30px 0px rgba(0, 0, 0, 0.1);
+			padding-left: 30px;
+			padding-right: 30px;
+			background: #fff;
+		}
+		h3 {
+			a {
+				color: $title-color;
+				@include tablet {
+					font-size: 18px;
+				}
+				&:hover {
+					color: $primary-color;
+				}
+			}
+		}
+		.credit {
+			margin-top: 10px;
+			span {
+				color: $primary-color;
+			}
+		}
+		p {
+
+		}
+		.notice-comment {
+			a {
+				color: $text-color;
+				.et-line {
+					margin-right: 5px;
+				}
+			}
+			span {
+				padding: 0 15px;
+			}
+			.notice-left {
+				a {
+					&:hover {
+						color: $primary-color;
+					}
+				}
+			}
+			.notice-right {
+				a {
+					outline: 1px solid $text-color;
+					outline-offset: -1px;
+					padding: 10px 12px;
+					display: inline-block;
+					@include transition (all .3s ease 0s);
+					&:hover {
+						outline: none;
+						color: #fff;
+						background: $primary-color;
+					}
+				}
+			}
+		}
+	}
+}
+// -------------------- 05 Home Kindergaten -------------------//
+.kindergarten-notice {
+	.first-title::before {
+		background: #fbbc05;
+	}
+	.first-title::after {
+		background: #fbbc05;
+	}
+	.notice1 {
+		h3 {
+			a {
+				color: #ac40ff;
+				&:hover {
+					color: #ac40ff;
+				}
+			}
+		}
+		.credit span {
+			color: #ac40ff;
+		}
+		.notice-comment {
+			.notice-left {
+				a {
+					&:hover {
+						color: #ac40ff;
+					}
+				}
+			}
+			.notice-right {
+				a {
+					&:hover {
+						background: #ac40ff;
+					}
+				}
+			}
+		}
+	}
+	.notice2 {
+		h3 {
+			a {
+				color: #96cd39;
+				&:hover {
+					color: #96cd39;
+				}
+			}
+		}
+		.credit span {
+			color: #96cd39;
+		}
+		.notice-comment {
+			.notice-left {
+				a {
+					&:hover {
+						color: #96cd39;
+					}
+				}
+			}
+			.notice-right {
+				a {
+					&:hover {
+						background: #96cd39;
+					}
+				}
+			}
+		}
+	}
+	.notice3 {
+		h3 {
+			a {
+				color: #4285f4;
+				&:hover {
+					color: #4285f4;
+				}
+			}
+
+		}
+		.credit span {
+			color: #4285f4;
+		}
+		.notice-comment {
+			.notice-left {
+				a {
+					&:hover {
+						color: #4285f4;
+					}
+				}
+			}
+			.notice-right {
+				a {
+					&:hover {
+						background: #4285f4;
+					}
+				}
+			}
+		}
+	}
+	.notice4 {
+		h3 {
+			a {
+				color: #ea4335;
+				&:hover {
+					color: #ea4335;
+				}
+			}
+		}
+		.credit span {
+			color: #ea4335;
+		}
+		.notice-comment {
+			.notice-left {
+				a {
+					&:hover {
+						color: #ea4335;
+					}
+				}
+			}
+			.notice-right {
+				a {
+					&:hover {
+						background: #ea4335;
+					}
+				}
+			}
+		}
+	}
+	.notice5 {
+		h3 {
+			a {
+				color: #ff0099;
+				&:hover {
+					color: #ff0099;
+				}
+			}
+		}
+		.credit span {
+			color: #ff0099;
+		}
+		.notice-comment {
+			.notice-left {
+				a {
+					&:hover {
+						color: #ff0099;
+					}
+				}
+			}
+			.notice-right {
+				a {
+					&:hover {
+						background: #ff0099;
+					}
+				}
+			}
+		}
+	}
+	.notice6 {
+		h3 {
+			a {
+				color: #fbbc05;
+				&:hover {
+					color: #fbbc05;
+				}
+			}
+		}
+		.credit span {
+			color: #fbbc05;
+		}
+		.notice-comment {
+			.notice-left {
+				a {
+					&:hover {
+						color: #fbbc05;
+					}
+				}
+			}
+			.notice-right {
+				a {
+					&:hover {
+						background: #fbbc05;
+					}
+				}
+			}
+		}
+	}
+}
+

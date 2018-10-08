@@ -1,0 +1,903 @@
+
+.default-header {
+	position: absolute;
+	z-index: 9999;
+	width: 100%;
+	left: 0;
+	.logo {
+		a {
+			display: inline-block;
+			line-height: 70px;
+		}
+	}
+	.navbar-area {
+		@include transition(all .7s ease 0s);
+	}
+	
+	.search-icon {
+		span {
+			color: #fff;
+			line-height: 70px;
+			padding-left: 15px;
+			cursor: pointer;
+		}
+	}
+}
+.main-menu {
+	.my-active {
+		display: inline-block;
+		position: relative;
+		&:after {
+			position: absolute;
+			content: "";
+			background: #fff;
+			width: 100%;
+			height: 2px;
+			left: 0;
+			bottom: 0;
+		}
+	}
+	li {
+		display: inline-block;
+		position: relative;
+		&:after {
+			position: absolute;
+			content: "";
+			background: #fff;
+			width: 0%;
+			height: 2px;
+			left: 0;
+			bottom: 0;
+			@include transition(all .7s ease 0s);
+		}
+		&:hover {
+			&:after {
+				position: absolute;
+				content: "";
+				background: #fff;
+				width: 100%;
+				left: 0;
+				bottom: 0;
+			}
+			.sub-menu {
+				transform: scaleY(1);
+			}
+		}
+		a {
+			display: inline-block;
+			color: #fff;
+			padding: 0px 20px;
+			line-height: 70px;
+			font-family: $fjalla-one;
+			font-size: 14px;
+			text-transform: capitalize;
+			@include tablet {
+				font-size: 12px;
+				padding: 0 10px;
+			}
+		}
+		&:last-child {
+			.sub-menu {
+				@include tablet {
+					left: auto;
+					right: 0;
+				}
+			}
+		}
+	}
+	padding-right: 10px;
+	.sub-menu {
+		transform: scaleY(0);
+		transform-origin: left top 0;
+		@include transition(all .3s ease 0s);
+		display: block;
+		min-width: 200px;
+		background: $blue-color;
+		position: absolute;
+		top: 70px;
+		left: 0;
+		padding-bottom: 1px;
+		z-index: 99;
+		@include tablet {
+			min-width: 160px;
+		}
+		li {
+			display: block;
+			&:after {
+				width: 0%;
+				height: 1px;
+				opacity: .5;
+			}
+			&:hover {
+				&:after {
+					width: 100%;
+					height: 1px;
+					opacity: .5;
+				}
+			}
+			a {
+				display: block;
+				color: #fff;
+				line-height: 35px;
+				font-size: 12px;
+				text-transform: capitalize;
+			}
+		}
+	}
+}
+
+#header1-sticky-wrapper {
+	height: 0px !important;
+}
+.is-sticky {
+	.blue-bg {
+		background: $blue-color;
+	}
+	.default-header {
+		.navbar-area {
+			padding: 0;
+		}
+	}
+}
+.search-area {
+	top: 70px;
+	position: absolute;
+	background: rgba(255,255,255,.9);
+	z-index: 999;
+	width: 100%;
+	height: 100%;
+	display: none;
+	position: fixed;
+	.search-form {
+		input {
+			width: 100%;
+			background-color: transparent;
+			border-color: currentcolor currentcolor #d7d3d3;
+			border-style: none none solid;
+			border-width: medium medium 1px;
+			padding: 10px 10px 10px 30px;
+			position: absolute;
+			outline: none;
+		}
+	}
+}
+
+/* For Mobile Menu */
+
+.slicknav_menu {
+	display:none;
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: 99999;
+	margin-top: 7px;
+	background: transparent;
+}
+.slicknav_nav {
+	height: 300px;
+	@include mobile {
+		height: 100vh;
+	}
+	overflow-y: auto;
+	background: $blue-color;
+	li {
+		padding: 0px 20px;
+	}
+}
+.slicknav_btn {
+	background-color: $primary-color;
+	border-radius: 4px;
+	margin: 13px 15px 6px;
+	text-decoration: none;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+}
+.slicknav_nav .slicknav_arrow {
+	font-size: 0.6em;
+}
+.slicknav_nav .slicknav_row:hover {
+	background: $light;
+	color: $primary-color;
+	border-radius: 0px;
+	a {
+		color: $primary-color;
+	}
+}
+.slicknav_nav a:hover {
+	background: $light;
+	color: $primary-color;
+	border-radius: 0px;
+}
+.slicknav_nav a:focus {
+	color: $primary-color;
+}
+@media screen and (max-width: 767px) {
+	/* #menu is the original menu */
+	.slicknav_menu {
+		display:block;
+	}
+}
+/* ---------------- 05 Home Kindergarten With Header Top Area ---------------- */
+
+.k-header-top {
+	@include tablet {
+		.header-top .top-left li .fa {
+			color: #f85b31;
+			line-height: 40px;
+			margin-right: 5px;
+		}
+	}
+	.header-top {
+		background: #ac40ff;
+		height: 40px;
+		transition: all 0.5s ease 0s;
+		width: 100%;
+		ul {
+			li {
+				.fa {
+					color: #fbbc05;
+				}
+				color: $light;
+				a {
+					color: $light;
+				}
+				.select-ct {
+					height: 40px;
+					width: 90px;
+					&:after {
+						margin-right: 0;
+					}
+					.nice-select {
+						background: #ac40ff;
+						border: 0px;
+						color: $light;
+						box-shadow: none;
+						.list {
+							background: #ac40ff;
+							box-shadow: none;
+						}
+						.option {
+							
+							&:hover, &.focus { 
+								color: #fbbc05;
+								background: #ac40ff;
+							}
+							&:last-child {
+								border: 0px;
+							}
+						}
+					}
+				}
+			}
+			.email {
+				margin-left: 80px;
+				@include tablet {
+					margin-left: 10px;
+				}
+				@include mobile {
+					margin-left: 10px;
+				}
+			}
+			.phone {
+				margin-right: 80px;
+				@include tablet {
+					margin-right: 20px;
+				}
+				@include mobile {
+					margin-right: 20px;
+				}
+			}
+			.select-icon {
+				.fa {
+					margin-right: 0;
+				}
+			}
+		}
+	}
+}
+.white-bg {
+	background: $light;
+}
+.kindergarten-nav {
+	.logo {
+		a {
+			line-height: 90px;
+			img {
+				height: 53px;
+				width: 168px;
+				margin-top: 0;
+			}
+		}
+	}
+	.main-menu {
+		li {
+			display: inline-block;
+			position: relative;
+
+			&:nth-child(1) {
+				&:after {
+					position: absolute;
+					content: "";
+					background: #ff0099;
+					width: 100%;
+					height: 2px;
+					left: 0;
+					bottom: 0;
+				}
+				&:hover {
+					background: #ff0099;
+					a {
+						color: $light;
+					}
+				}
+			}
+			&:nth-child(2) {
+				&:after {
+					position: absolute;
+					content: "";
+					background: #fbbc05;
+					width: 100%;
+					height: 2px;
+					left: 0;
+					bottom: 0;
+				}
+				&:hover {
+					background: #fbbc05;
+					a {
+						color: $light;
+					}
+				}
+			}
+			&:nth-child(3) {
+				&:after {
+					position: absolute;
+					content: "";
+					background: #96cd39;
+					width: 100%;
+					height: 2px;
+					left: 0;
+					bottom: 0;
+				}
+				&:hover {
+					background: #96cd39;
+					a {
+						color: $light;
+					}
+				}
+			}
+			&:nth-child(4) {
+				&:after {
+					position: absolute;
+					content: "";
+					background: #4285f4;
+					width: 100%;
+					height: 2px;
+					left: 0;
+					bottom: 0;
+				}
+				&:hover {
+					background: #4285f4;
+					a {
+						color: $light;
+					}
+				}
+			}
+			&:nth-child(5) {
+				&:after {
+					position: absolute;
+					content: "";
+					background: #ac40ff;
+					width: 100%;
+					height: 2px;
+					left: 0;
+					bottom: 0;
+				}
+				&:hover {
+					background: #ac40ff;
+					a {
+						color: $light;
+					}
+				}
+			}
+			&:nth-child(6) {
+				&:after {
+					position: absolute;
+					content: "";
+					background: #ff0099;
+					width: 100%;
+					height: 2px;
+					left: 0;
+					bottom: 0;
+				}
+				&:hover {
+					background: #ff0099;
+					a {
+						color: $light;
+					}
+				}
+			}
+			&:nth-child(7) {
+				&:after {
+					position: absolute;
+					content: "";
+					background: #ea4335;
+					width: 100%;
+					height: 2px;
+					left: 0;
+					bottom: 0;
+				}
+				&:hover {
+					background: #ea4335;
+					a {
+						color: $light;
+					}
+				}
+			}
+
+			&:nth-child(8) {
+				&:after {
+					position: absolute;
+					content: "";
+					background: #ac40ff;
+					width: 100%;
+					height: 2px;
+					left: 0;
+					bottom: 0;
+				}
+				&:hover {
+					background: #ac40ff;
+					a {
+						color: $light;
+					}
+				}
+			}
+			&:nth-child(9) {
+				&:after {
+					position: absolute;
+					content: "";
+					background: #4285f4;
+					width: 100%;
+					height: 2px;
+					left: 0;
+					bottom: 0;
+				}
+				&:hover {
+					background: #4285f4;
+					a {
+						color: $light;
+					}
+				}
+			}
+			&:nth-child(10) {
+				&:after {
+					position: absolute;
+					content: "";
+					background: #ac40ff;
+					width: 100%;
+					height: 2px;
+					left: 0;
+					bottom: 0;
+				}
+				&:hover {
+					background: #ac40ff;
+					a {
+						color: $light;
+					}
+				}
+			}
+			&:nth-child(11) {
+				&:after {
+					position: absolute;
+					content: "";
+					background: #ff0099;
+					width: 100%;
+					height: 2px;
+					left: 0;
+					bottom: 0;
+				}
+				&:hover {
+					background: #ff0099;
+					a {
+						color: $light;
+					}
+				}
+			}
+			&:nth-child(12) {
+				&:after {
+					position: absolute;
+					content: "";
+					background: #ea4335;
+					width: 100%;
+					height: 2px;
+					left: 0;
+					bottom: 0;
+				}
+				&:hover {
+					background: #ea4335;
+					a {
+						color: $light;
+					}
+				}
+			}
+
+			&:nth-child(13) {
+				&:after {
+					position: absolute;
+					content: "";
+					background: #ac40ff;
+					width: 100%;
+					height: 2px;
+					left: 0;
+					bottom: 0;
+				}
+				&:hover {
+					background: #ac40ff;
+					a {
+						color: $light;
+					}
+				}
+			}
+			a {
+				display: inline-block;
+				color: $title-color;
+				line-height: 90px;
+				padding: 0 30px;
+				@include tablet {
+					font-size: 12px;
+					padding: 0 10px;
+				}
+			}
+			.sub-menu {
+				top: 90px;
+				li {
+					display: block;
+					&:after {
+						height: 1px;
+						left: 0;
+						bottom: 0;
+					}
+					a {
+						line-height: 35px;
+						display: block;
+					}
+				}
+			}
+		}
+	}
+}
+.default-header {
+	.kindergarten-nav {
+		.search-icon {
+			span {
+				color: $title-color;
+				line-height: 90px;
+				padding-left: 15px;
+				cursor: pointer;
+			}
+		}
+	}
+}
+// #header3-sticky-wrapper {
+// 	height: 90px !important;
+// }
+
+
+
+/* ---------------- 06 Home With Header Top Area ---------------- */
+.header6 {
+	.header-top {
+		@include mobile {
+			display: none;
+		}
+	}
+	.main-menu {
+		padding-right: 0px;
+		li:last-child {
+			a {
+				padding-right: 0;
+			}
+		}
+	}
+}
+.header-top {
+	@include transition(all .5s ease 0s);
+	background: $title-color;
+	width: 100%;
+	height: 40px;
+	.top-left {
+		li {
+			.select-ct {
+				height: 40px;
+				width: 110px;
+				.nice-select {
+					background: $title-color;
+					border: 0px;
+					padding-left: 8px;
+				}
+			}
+			.fa {
+				color: $primary-color;
+				margin-right: 15px;
+				line-height: 40px;
+				@include tablet {
+					margin-right: 10px;
+				}
+			}
+			a {
+				@include transition(all .3s ease 0s);
+				&:hover {
+					color: $light;
+				}
+			}
+		}
+		.pr-60 {
+			padding-right: 60px;
+			@include tablet {
+				padding-right: 15px;
+			}
+		}
+	}
+	.top-right {
+		li {
+			a {
+				&:hover {
+					color: $light;
+				}
+			}
+			.fa {
+				color: $primary-color;
+				margin-right: 15px;
+				line-height: 40px;
+			}
+		}
+		.pl-60 {
+			padding-left: 60px;
+			@include tablet {
+				padding-left: 15px;
+			}
+		}
+	}
+}
+.is-sticky {
+	.header-top {
+		display: none !important;
+	}
+}
+
+/* ---------------- 07 Home With Header Top Area ---------------- */
+
+.header7 {
+	.header-top {
+		background: $light;
+		@include mobile {
+			display: none;
+		}
+		.top-left li  { 
+			.fa {
+				color: $text-color;
+				@include transition(all .3s ease 0s);
+				@include tablet {
+					margin-right: 10px;
+				}
+			}
+			a {
+				&:hover {
+					.fa {
+						color: $primary-color2;
+					}
+					color: $title-color;
+				}
+			}
+			.select-ct  {
+				.nice-select {
+					background: $light;
+					box-shadow: none;
+					padding-left: 9px;
+				}
+			}
+			.pr-60 {
+				padding-right: 60px;
+				@include tablet {
+					padding-right: 15px;
+				}
+			}
+		}
+		.top-right {
+			li {
+				.fa {
+					color: $text-color;
+					@include transition(all .3s ease 0s);
+				}
+				a {
+					&:hover {
+						.fa {
+							color: $primary-color2;
+						}
+						color: $title-color;
+					}
+				}
+				.pl-60 {
+					padding-right: 60px;
+					@include tablet {
+						padding-left: 15px;
+					}
+				}
+			}
+		}
+	}
+}
+/* ---------------- 08 Home With Header Top Area ---------------- */
+.header8 {
+	.header-top {
+		@include mobile {
+			display: none;
+		}
+		background: transparent;
+		height: 40px;
+		@include transition(all .5s ease 0s);
+		width: 100%;
+		ul {
+			li {
+				.fa {
+					color: $primary-color3;
+				}
+				a {
+					color: $light;
+				}
+				.select-ct {
+					margin-right: 80px;
+					height: 40px;
+					width: 90px;
+					@include tablet {
+						margin-right: 20px;
+					}
+					&:after {
+						margin-right: 0;
+						color: $light;
+					}
+					.nice-select {
+						background: transparent;
+						border: 0px;
+						color: $light;
+						box-shadow: none;
+						.list {
+							background: $light;
+							box-shadow: none;
+						}
+						.option {
+							color: $text-color;
+							&:hover, &.focus { 
+								color: $title-color;
+								background: $light;
+							}
+							&:last-child {
+								border: 0px;
+							}
+						}
+					}
+				}
+			}
+			.email {
+				margin-right: 80px;
+				@include tablet {
+					margin-right: 20px;
+				}
+			}
+			.phone {
+				margin-right: 0px;
+			}
+			.select-icon {
+				.fa {
+					margin-right: 0;
+				}
+			}
+		}
+	}
+	.navbar-full {
+		background: rgba(0,0,0,.1);
+	}
+}
+/* ---------------- 36 Home Shop Header ---------------- */
+.default-header {
+	.cart {
+		&:hover {
+			.mini-cart-wrapper {
+				transform: scaleY(1);
+			}
+		}
+		.icon {
+			color: #fff;
+			line-height: 70px;
+			padding-left: 15px;
+			cursor: pointer;
+			margin-right: 10px;
+			display: inline-block;
+			@include tablet {
+				margin-right: 6px;
+				padding-left: 8px;
+			}
+			
+		}
+	}
+	.user {
+		.icon {
+			color: #fff;
+			line-height: 70px;
+			padding-left: 15px;
+			cursor: pointer;
+			margin-right: 10px;
+		}
+	}
+	@include mobile {
+		.user {
+			display: none;
+		}
+		.cart {
+			display: none;
+		}
+	}
+}
+.cart {
+	position: relative;
+}
+.mini-cart-wrapper {
+	@include transition(all .3s ease 0s);
+	min-width: 330px;
+	position: absolute;
+	right: -68px;
+	top: 70px;
+	transform: scaleY(0);
+	.cart-head {
+		border-top: 2px solid $primary-color;
+		background: rgba(0,0,0,.5);
+		padding: 20px 30px;
+		h5 {
+			color: $light;
+			font-size: 14px;
+		}
+		span {
+			color: $primary-color;
+		}
+	}
+	.product-cart {
+		padding: 10px 30px;
+		border-bottom: 1px solid $dark-gray;
+		background: $light;
+		.desc {
+			margin-top: 15px;
+			margin-left: 20px;
+			h5 {
+				font-size: 14px;
+				i {
+					margin-left: 60px;
+					cursor: pointer;
+					color: $text-color;
+					@include transition(all .1s ease 0s);
+					&:hover {
+						color: $primary-color;
+					}
+				}
+			}
+			p {
+				margin-top: 8px;
+				span {
+					color: $primary-color;
+				}
+			}
+		}
+	}
+	.total {
+		padding: 20px 30px;
+		background: #f7f7f7;
+		span {
+			color: $title-color;
+			font-size: 14px;
+			font-family: $fjalla-one;
+		}
+	}
+	.btn {
+		height: 50px;
+		line-height: 50px;
+		width: 100%;
+		border-radius: 0px 0px 2px 2px;
+	}
+}

@@ -1,0 +1,412 @@
+
+/* --------------- 15 Events List View ---------------- */
+.single-event {
+	&:hover {
+		.event-img {
+			@include mobile {
+				img {
+					width: 100%;
+				}
+			}
+			.btn {
+				background: $primary-color;
+			}
+		}
+	}
+	.event-img {
+		.btn {
+			position: absolute;
+			top: 20px;
+			right: 20px;
+			height: 35px;
+			line-height: 35px;
+			padding: 0 30px;
+			background: $title-color;
+			cursor: auto;
+			&:hover {
+				color: #fff;
+				box-shadow: none;
+			}
+		}
+		.overlay-bg {
+			background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.2) 100%);
+			background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.2) 100%); 
+			background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.2) 100%); 
+		}
+	}
+	.event-body {
+		padding: 0 120px 0 25px;
+		@include mobile {
+			padding: 0;
+		}
+		h3 {
+			a {
+				font-size: 24px;
+				color: $title-color;
+				&:hover {
+					color: $primary-color;
+				}
+			}
+			margin: 20px 0;
+			@include tablet {
+				margin: 0 0 20px 0;
+			}
+			@include mobile {
+				a {
+					font-size: 18px;
+				}
+			}
+		}
+		span {
+			color: $primary-color;
+			font-weight: 700;
+		}
+		p {
+			margin-bottom: 10px;
+		}
+		.dark {
+			color: $title-color;
+		}
+		.learn {
+			background: transparent none repeat scroll 0 0;
+		    color: #333;
+		    font-family: "Fjalla One",sans-serif;
+		    text-transform: uppercase;
+		    &:hover {
+		    	color: $primary-color;
+		    }
+		}
+	}
+}
+.main-head-event {
+	font-size: 24px;
+	border-bottom: 1px solid $dark-gray;
+	margin-top: 50px;
+	padding-bottom: 25px;
+}
+
+/* --------------- 16 Events Grid View ---------------- */
+.upcoming-events {
+	.head-area {
+		position: relative;
+		.btn-area {
+			width: 285px;
+			position: absolute;
+			right: 0;
+			bottom: 15px;
+			margin-right: -10px;
+			@include mobile {
+				margin-right: 0;
+				bottom: -55px;
+			}
+			.btn {
+				border-radius: 0px;
+				height: 40px;
+				line-height: 40px;
+				padding: 0;
+				width: 100%;
+				text-align: center;
+				margin-right: 10px;
+				box-shadow: 7.071px 7.071px 30px 0px rgba(0, 0, 0, 0.1);
+				&:hover {
+					color: $title-color;
+				}
+			}
+		}
+	}
+}
+.calendar {
+	@include mobile {
+		display: none;
+	}
+	margin-top: 30px;;
+	ul {
+		li {
+			width: 50%;
+			text-align: center;
+			margin: .5px;
+		}
+	}
+	.pre-date {
+		opacity: .5;
+	}
+	.day {
+		li {
+			background: #f7f7f7;
+			line-height: 40px;
+			
+
+		}
+	}
+	.date {
+		li {
+			background: #fafafa;
+			line-height: 100px;
+			height: 100px;
+			
+		}
+		.event-date {
+			position: relative;
+			background: #fff ;
+			box-shadow: 7.071px 7.071px 30px 0px rgba(0, 0, 0, 0.1);
+			cursor: pointer;
+			.date-pos {
+				position: absolute;
+				top: 10px;
+				right: 10px;
+				line-height: 14px;
+			}
+			.info {
+				font-size: 12px;
+				color: $primary-color;
+				position: absolute;
+				left: 10px;
+				bottom: 10px;
+				line-height: 18px;
+				@include tablet {
+					font-size: 10px;
+					left: 3px;
+					line-height: 15px;
+				}
+			}
+		}
+	}
+}
+.popover {
+	max-width: 450px;
+	padding: 0;
+	border-radius: 0px;
+	border: 0px;
+	box-shadow: 7.071px 7.071px 30px 0px rgba(0, 0, 0, 0.1);
+}
+.popover.right {
+	margin-left: 0;
+}
+.popover.left {
+	margin-left: 0;
+}
+.popover-content {
+	padding: 0;
+}
+.custom-popover {
+	width: 450px;
+	@include tablet {
+		width: 250px;
+	}
+	.custom-popover-content {
+		padding: 40px;
+		@include tablet {
+			padding: 20px;
+		}
+		h4 {
+			font-size: 24px;
+			@include tablet {
+				font-size: 18px;
+			}
+		}
+		span {
+			color: $primary-color;
+			margin-top: 15px;
+			display: inline-block;
+		}
+		p {
+			@include tablet {
+				font-size: 12px;
+			}
+		}
+		.p-title {
+			color: $title-color;
+			margin-bottom: 10px;
+		}
+		a {
+			font-family: $fjalla-one;
+			color: $title-color;
+			&:hover {
+				color: $primary-color;
+			}
+		}
+	}
+}
+
+.calendar-mobile {
+	display: none;
+	@include mobile {
+		display: block;
+	}
+	margin-top: 70px;
+	ul {
+		li {
+			width: 50%;
+			text-align: center;
+			margin: .5px;
+		}
+	}
+	.pre-date {
+		opacity: .5;
+	}
+	.day {
+		li {
+			background: #f7f7f7;
+			line-height: 40px;
+		}
+	}
+	.date {
+		li {
+			background: #fafafa;
+			line-height: 50px;
+			height: 50px;
+			
+		}
+		.mobile-event {
+			background: $primary-color;
+			color: $light;
+			cursor: pointer;
+		}
+	}
+}
+.calendar-mobile {
+	.modal-dialog {
+		max-width: 250px;
+		.modal-content {
+			padding: 0;
+		}
+	}
+}
+.modal-calendar {
+	.custom-popover {
+			width: 250px;
+		.custom-popover-content {
+				background: $light;
+				padding: 20px;
+			h4 {
+				font-size: 18px;
+			}
+			span {
+				color: $primary-color;
+				margin-top: 15px;
+				display: inline-block;
+			}
+			p {
+				font-size: 12px;
+			}
+			.p-title {
+				color: $title-color;
+				margin-bottom: 10px;
+			}
+			a {
+				font-family: $fjalla-one;
+				color: $title-color;
+				&:hover {
+					color: $primary-color;
+				}
+			}
+		}
+	}
+
+}
+/* --------------- 17 Publication Board ---------------- */
+
+
+.publication-board {
+	.single-event {
+		@include transition(all .5s ease 0s);
+		
+		&:hover {
+			padding: 30px;
+			box-shadow: 7.071px 7.071px 30px 0px rgba(0, 0, 0, 0.1);
+			
+		}
+	}
+	.event-img {
+		display: inline-block;
+		margin-right: 20px;
+		img {
+			width: 100%;
+		}
+	}
+	.btn {
+		background: transparent none repeat scroll 0 0;
+	    border: 1px solid #f85b31;
+	    color: #333;
+	    display: inline-block;
+	    &:hover {
+	    	border: 1px solid $light;
+	    	color: $primary-color;
+	    }
+	}
+	.media-left {
+		padding-right: 30px;
+	}
+	.event-body {
+		padding: 0;
+		h3 {
+			margin: 0;
+		}
+		.date {
+			span {
+				margin-right: 10px;
+				color: $text-color;
+				padding-left: 1px;
+			}
+			color: $primary-color;
+			margin-bottom: 0;
+			margin: 10px 0;
+		}
+		p {
+			margin-bottom: 10px;
+			line-height: 21px;
+		}
+		.dark {
+			color: $title-color;
+		}
+		.learn {
+			background: transparent none repeat scroll 0 0;
+		    color: #333;
+		    font-family: "Fjalla One",sans-serif;
+		    text-transform: uppercase;
+		    &:hover {
+		    	color: $primary-color;
+		    }
+		}
+	}
+
+}
+
+
+.single-widget {
+	.widget-notice {
+		box-shadow: 7.071px 7.071px 30px 0px rgba(0, 0, 0, 0.1);
+		padding: 30px 70px 50px 30px;
+		li {
+			line-height: 30px;
+			a {
+				@include transition (all .2s ease 0s);
+				&:hover {
+					color: $primary-color;
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+	.widget-keywords {
+		padding: 30px 70px 50px 0px;
+		li {
+			display: inline;
+			line-height: 30px;
+			a {
+				display: inline-block;
+				text-transform: capitalize;
+			}
+			.big {
+				font-size: 18px;
+				color: $primary-color;
+			}
+		}
+	}
+}
+
+
+
+
+
+

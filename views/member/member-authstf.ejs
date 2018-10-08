@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include ../partial/head %>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->
+    <!--[if lt IE 9]>
+    <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<link href="/stylesheets/lib/sweetalert/sweetalert.css" rel="stylesheet">
+<link href="/stylesheets/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="/stylesheets/helper.css" rel="stylesheet">
+<link href="/stylesheets/style.css" rel="stylesheet">
+</head>
+
+<body class="fix-header fix-sidebar">
+  <!-- Preloader - style you can find in spinners.css -->
+  <div class="preloader">
+    <svg class="circular" viewBox="25 25 50 50">
+			<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+  </div>
+  <!-- Main wrapper  -->
+  <div id="main-wrapper">
+    <!-- header header  -->
+    <% include ../partial/header %>
+      <!-- End header header -->
+      <!-- Left Sidebar  -->
+      <% include ../partial/leftSidebar %>
+        <!-- End Left Sidebar  -->
+        <!-- Page wrapper  -->
+        <div class="page-wrapper">
+          <!-- Bread crumb -->
+          <div class="row page-titles">
+            <div class="col-md-5 align-self-center">
+              <h3 class="text-primary">Member Authorization(For Staff)</h3> </div>
+            <div class="col-md-7 align-self-center">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Members</a></li>
+                <li class="breadcrumb-item active">Member Auth</li>
+              </ol>
+            </div>
+          </div>
+          <!-- End Bread crumb -->
+          <!-- Container fluid  -->
+          <div class="container-fluid">
+              <!-- Start Page Content -->
+              <div class="row justify-content-center">
+
+                  <div class="col-lg-6">
+                        <div class="card card-outline-info">
+                            <div class="card-header">
+                                <h4 class="m-b-0 text-white">Member Authorization</h4>
+                            </div>
+                            <div class="card-body">
+                                <form class="form-horizontal" name="frm">
+                                    <div class="form-body">
+                                        <h3 class="box-title m-t-15 ">Member Smart Card Number Here</h3>
+                                        <hr class="m-t-0 m-b-40">
+                                        <div class="form-group row">
+
+                                            <label class="col-lg-12 col-form-label text-center" for="rfid">RFID No </label>
+                                            <div class="col-lg-12">
+                                                <input type="text" class="form-control" id="rfid" name="rfid" placeholder="Place Member's Cart at RFID reader">
+                                            </div>
+                                            </div>
+                                        </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+              </div>
+              <!-- End PAge Content -->
+          </div>
+
+
+            <!-- End PAge Content -->
+          </div>
+          <!-- End Container fluid  -->
+          <!-- footer -->
+          <% include ../partial/footer %>
+          <!-- End footer -->
+        </div>
+        <!-- End Page wrapper  -->
+  </div>
+  <!-- End Wrapper -->
+  <!-- All Jquery -->
+  <% include ../partial/javascript %>
+  <script src="/javascripts/lib/form-validation/jquery.validate.min.js"></script>
+  <script src="/javascripts/lib/form-validation/jquery.validate-init.js"></script>
+  <script src="/javascripts/lib/sweetalert/sweetalert.min.js"></script>
+  <script src="/javascripts/lib/toastr/toastr.min.js"></script>
+  <!-- scripit init-->
+  <script src="/javascripts/lib/toastr/toastr.init.js"></script>
+  <script src="/javascripts/socket.io.js" charset="utf-8"></script>
+  <!--Custom JavaScript -->
+
+</body>
+<script type="text/javascript">
+
+var timeout = null;
+$('#rfid').keypress(function (e) {
+  console.log(e.keyCode);
+  if(e.keyCode == 13) {
+    e.preventDefault();
+    console.log('done');
+    checkingRfid();
+  }
+});
+function checkingRfid() {
+  $.post(
+    '/members/authcheckstf',
+    {rfid : $('#rfid').val()}
+  ).done(function (res) {
+    if(res.status){
+      swal({
+        title: "Member card is correct!!",
+        text: "Can go to the member function",
+        type: "success",
+        confirmButtonText: "OK",
+        closeOnConfirm: false
+      },
+      function (isConfirm) {
+        location.href = "/books/recordstf/"+$('#rfid').val();
+      }
+    )
+    }else{
+      swal({
+        title: "It is not member's card!!",
+        text: "This card is not member card, need to register",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Go to member register",
+        closeOnConfirm: false
+      },
+      function (isConfirm) {
+        if(isConfirm){
+        location.href = "/members/add";
+      }else {
+        location.href = "/members/authstf";
+      }
+      }
+    )
+    }
+  }).fail(function (err) {
+    console.log(err.status);
+  });
+}
+var socket = io();
+socket.on('rfid',function (data) {
+  if(data) {
+    $('#rfid').val(data);
+    checkingRfid();
+  }
+
+});
+</script>
+
+</html>

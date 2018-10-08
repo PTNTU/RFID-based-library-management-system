@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+    <% include ../partial/user_head %>
+    <body>
+        <% include ../partial/user_header %>
+        <div class="search-area">
+            <div class="container">
+                <div class="row fitscreen flex flex-middle relative">
+                    <form action="#" class="search-form">
+                        <input id="focus" placeholder="Search your query and press “Enter”" type="text">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <main>
+            <!-- Static Banner Area Start -->
+            <section id="slider">
+                <div class="static-banner relative">
+                    <div class="overlay blue-overlay-5"></div>
+                    <div class="page-head">
+                        <h2 class="page-title">Record Books List</h2>
+                        <ul class="page-title-btn">
+                            <li><a href="/users/home" target="_blank">Home <i class="fa fa-caret-right" aria-hidden="true"></i></a></li>
+                            <li><a href="#" class="active">Record list</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <!-- Static Banner Area End -->
+            <!-- Regular Course Area Start -->
+            <section class="section-full course-grid1">
+                <div class="container">
+                    <div class="popular-course">
+                        <div class="row">
+                            <div class="col-md-offset-2 col-md-8 col-sm-12">
+                                <div class="section-head text-center pb-70">
+                                    <h2 class="first-title">Record List</h2>
+                                    <p>You borrowed book record list and can go with Go to details for books details</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                              <% for(var i =0; i< record.books.length;i++){%>
+                                <div class="single-list-course row no-gutter">
+                                    <div class="col-xs-12 col-sm-4">
+                                        <img src="<%= record.books[i].imgUrl%>" onerror="this.src='/images/404.jpg'" alt="">
+                                    </div>
+                                    <div class="col-xs-12 col-sm-8">
+                                        <div class="list-course-content">
+                                            <h3><a href="/users/bookDetail/<%=record.books[i].book_id%>" ><%=record.books[i].name%></a></h3>
+                                            <p><%=record.books[i].description%></p>
+                                            <div class="course-bottom-list flex space-between">
+                                                <div class="single-bottom learn-b">
+                                                    <a href="/users/bookDetail/<%=record.books[i].book_id%>" class="learn">Go To Details  <i class="ml-10 fa fa-caret-right" aria-hidden="true"></i></a>
+                                                </div>
+                                                <div class="single-bottom review">
+                                                    <span><%=record.books[i].author%></span>
+                                                </div>
+
+                                                <div class="single-bottom dollar">
+                                                    <span><%=record.books[i].range%></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <%}%>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 mt-60 text-center">
+                                <a href="#" class="btn load-course">View All Courses</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- / #Regular Course End -->
+                <!-- Col To Action Start -->
+
+                <!-- Col To Action End -->
+                <!-- Core Features Area Start -->
+
+                                            <!-- / #Core Features End -->
+                                        </main>
+        <!-- Footer Area Start -->
+        <% include ../partial/user-footer %>
+        <!-- Footer Area End -->
+
+
+        <!--
+        JavaScripts
+        ========================== -->
+        <!-- <script src="js/vendor/jquery-2.2.4.min.js"></script>
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/vendor/materialize.min.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/jquery.slicknav.min.js"></script> -->
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqCaX4fFEQRiTJoeclXKZRaFh2fYfps_Y&callback=initMap"></script>
+        <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script> -->
+        <!-- <script src="js/jquery.nice-select.js"></script> -->
+        <!-- <script src="js/jquery.jCounter-0.1.4.js"></script>
+
+        <script src="js/main.js"></script> -->
+        <script src="/js/minified/minified.js"></script>
+        <script src="/js/map-init.js"></script>
+    </body>
+</html>

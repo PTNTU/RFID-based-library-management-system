@@ -63,10 +63,10 @@
 
                                             <tr onclick="go('<%= hist[i]._id %>')" >
                                                 <td><%= i+1 %></td>
-                                                <td><%= hist[i].member_id.name %></td>
-                                                <td><%= hist[i].member_id.major %></td>
-                                                <td><%= hist[i].member_id.year %></td>
-                                                <td><%= hist[i].member_id.roleNo %></td>
+                                                <td><%= hist[i].member_id.ent_id.name %></td>
+                                                <td><%= hist[i].member_id.ent_id.major %></td>
+                                                <td><%= hist[i].member_id.ent_id.year %></td>
+                                                <td><%= hist[i].member_id.ent_id.roleNo %></td>
                                                 <td id="td<%= i%>"></td>
                                                 <td>
                                                   <% for(var j = 0; j< hist[i].books.length; j++){%>

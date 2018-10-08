@@ -1,0 +1,157 @@
+/* --------------- 25 Contact ---------------- */
+.contact {
+	position: relative;
+	overflow-x: hidden;
+	.bg-left {
+		background: url(../img/contact/1.jpg) no-repeat;
+		height: 770px;
+		width: 50%;
+		position: absolute;
+		left: 0;
+		background-position: center right;
+		z-index: -1;
+	}
+	.overlay-bg {
+		background:rgba(255,255,255,.7);
+		width: 50%;
+		left: 0;
+		height: 100%;
+	}
+	.address-content {
+		height: 770px;
+		margin-top: -30px;
+		@include mobile {
+			height: auto;
+			margin-top: 100px;
+		}
+		.single-address {
+			margin-top: 30px;
+			.icon {
+				width: 70px;
+				span {
+					display: inline-block;
+					font-size: 24px;
+				}
+			}
+		}
+	}
+	.contact-right {
+		height: 770px;
+		@include mobile {
+			height: auto;
+			margin-top: 100px;
+		}
+		.right-head {
+			h3 {
+				margin-bottom: 30px;
+			}
+			p{
+				margin-bottom: 20px;
+			}
+		}
+	}
+}
+.contact-body {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.subscribe-field {
+	h2 {
+		font-size: 36px;
+		text-align: center;
+		@include tablet {
+			font-size: 22px;
+			line-height: 1.3em;
+		}
+		@include mobile {
+			font-size: 18px;
+			line-height: 1.3em;
+		}
+	}
+}
+.subscribe {
+	input {
+		background: #fff none repeat scroll 0 0;
+		border: 1px solid #eeeeee;
+		color: #333333;
+		display: block;
+		font-size: 13px;
+		padding: 9px 20px;
+		transition: all 0.3s ease 0s;
+		width: 70%;
+		height: 40px;
+		border-right: none;
+		&:focus {
+			outline: none;
+		}
+		@include mobile {
+			width: 100%;
+		}
+	}
+	.btn {
+		border-radius: 2px;
+		width: 30%;
+		@include tablet {
+			width: 40%;
+		}
+		@include mobile {
+			width: 100%;
+			margin-top: 10px;
+		}
+	}
+}
+.contact-right {
+	.leave-comment {
+		margin-top: 0;
+	}
+}
+
+
+#map {
+	width: 100%;
+	height: 100%;
+}
+.sidebar-google-map {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 9;
+	background: $light;
+	height: 100%;
+	width: 50%;
+	text-align: center;
+	margin-right: -48%;
+	@include transition(margin 300ms ease-in-out);
+	@include mobile {
+		height: 100vh;
+		top: 25px;
+	}
+	.google-map {
+		width: 100%;
+		height: 100%;
+	}
+	.slide-toggle-map {
+		position: absolute;
+		top: 170px;
+		left: -40px;
+		background: $primary-color;
+		width: 40px;
+		height: 40px;
+		border-radius: 20px 0 0 20px;
+		text-align: center;
+		span {
+			line-height: 40px;
+			color: $light;
+			display: inline-block;
+			font-size: 14px;
+		}
+	}
+}
+.sidebar-open {
+	margin-right: 0;
+}
+.alert {
+	text-align: center;
+	color: green;
+}

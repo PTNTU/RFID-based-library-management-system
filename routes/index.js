@@ -7,6 +7,7 @@ var Book = require('../models/Book');
 var Record = require('../models/Record');
 var Member = require('../models/Member');
 var Student = require('../models/Student');
+var Staff = require('../models/Staff');
 var multer = require('multer');
 
 var auth = function(req, res, next) {
@@ -44,7 +45,9 @@ router.get('/',auth, function(req, res, next) {
       Student.count({},(err7, sCount)=>{
         if(err7) throw err7;
       Member.count({},(err3, mCount)=>{
-        if(err3) throw err3;
+      if(err3) throw err3;
+      Staff.count({},(err8,rtn8)=>{
+        if(err8) throw err8;
         Book.count({status: '01'},(err,brCount)=>{
           Book.aggregate([
             {
@@ -71,12 +74,13 @@ router.get('/',auth, function(req, res, next) {
               for(var t in bcount){
                 rcount += bcount[t]._id.length;
               }
-              res.render('index', { catCount: catCount, bookCounnt: bCount, memCount: mCount, brCount:brCount, avg:avg,rat:rat, bcount:rcount, scount:sCount });
+              res.render('index', { catCount: catCount, bookCounnt: bCount, memCount: mCount, brCount:brCount, avg:avg,rat:rat, bcount:rcount, stfCount:rtn8, scount:sCount });
             });
           });
         });
         });
       });
+    });
       });
     })
   });

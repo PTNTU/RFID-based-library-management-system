@@ -1,0 +1,41 @@
+.learn-word-top {
+	.section-head {
+		p {
+			.et-line {
+				font-size: 38px;
+				color: $primary-color;
+			}
+		}
+		.first-title {
+			@include mobile {
+				font-size: 22px;
+			}
+		}
+	}
+}
+.learn-word {
+	.right-learn {
+		p {
+			@include mobile {
+				margin-bottom: 0;
+				margin-top: 50px;
+			}
+		}
+	}
+	.left-learn {
+		img {
+			display: inline-block;
+		}
+	}
+	p {
+		margin-top: 100px;
+		@include tablet {
+			margin-top: 0px;
+		}
+		@include mobile {
+			margin-top: 0px;
+			margin-bottom: 50px;
+		}
+		font-size: 16px;
+	}
+}

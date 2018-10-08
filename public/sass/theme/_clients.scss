@@ -1,0 +1,39 @@
+/* --------------- 20 Clients ---------------- */
+.single-clients {
+	margin-top: 30px;
+	&:hover {
+		.client-img {
+			box-shadow: 7.071px 7.071px 30px 0px rgba(0, 0, 0, 0.1);
+			background-color: $light;
+		}
+	}
+	.client-img {
+		text-align: center;
+		padding: 50px 0;
+		display: block;
+		background-color: #f7f7f7;
+		img {
+			display: inline-block;
+		}
+	}
+	.client-details {
+		padding-left: 15px;
+		h3 {
+			margin: 30px 0 20px 0;
+			a {
+				color: $title-color;
+				&:hover {
+					color: $primary-color;
+				}
+			}
+		}
+		h6 {
+			a {
+				color: $title-color;
+				&:hover {
+					color: $primary-color;
+				}
+			}
+		}
+	}
+}

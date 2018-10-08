@@ -1,0 +1,66 @@
+/* -------------------06 Home Driving --------------- */
+.advance-search-area {
+	background: $primary-color;
+	padding: 40px 0;
+	.col-md-3 {
+		&:nth-child(2) {
+			@include mobile {
+				margin-top: 20px;
+			}
+		}
+		&:nth-child(3) {
+			@include tablet {
+				margin-top: 20px;
+			}
+			@include mobile {
+				margin-top: 20px;
+			}
+		}
+		&:nth-child(4) {
+			@include tablet {
+				margin-top: 20px;
+			}
+			@include mobile {
+				margin-top: 20px;
+			}
+		}
+	}
+}
+.advance-search {
+	.select-ct {
+		&:after {
+			color: $light;
+		}
+		.nice-select {
+			background: transparent;
+			border-radius: 2px;
+			border: 1px solid $light;
+			color: $light;
+		}
+		.list {
+			color: $text-color;
+		}
+	}
+	.single-search-btn {
+		.btn {
+			border: 1px solid $light;
+			border-radious: 3px;
+			width: 100%;
+		}
+	}
+}
+/* -------------------07 Home Designing School--------------- */
+.designing-search {
+	background: $primary-color2;
+	.advance-search {
+		.single-search-btn {
+			.btn {
+				background: $primary-color2;
+				&:hover {
+					background: $light;
+					color: $primary-color2;
+				}
+			}
+		}
+	}
+}

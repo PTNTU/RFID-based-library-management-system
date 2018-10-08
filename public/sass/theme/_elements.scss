@@ -1,0 +1,206 @@
+/* --------------- 30 404 Error Page ---------------- */
+.error-bg {
+	background:url(../img/extra/404-bg.jpg) no-repeat;
+	background-size: cover;
+	background-position: center center;
+}
+.error-content {
+	img {
+		display: inline-block;
+	}
+	p {
+		color: $light;
+	}
+	.error-btn {
+		display: inline-block;
+		padding: 0 55px;
+		height: 40px;
+		line-height: 40px;
+		text-align: center;
+		color: $light;
+		border-radius: 3px;
+		background: rgb(248,91,49); 
+		background: -moz-linear-gradient(top,  rgba(248,91,49,1) 0%, rgba(255,0,0,1) 100%);
+		background: -webkit-linear-gradient(top,  rgba(248,91,49,1) 0%,rgba(255,0,0,1) 100%); 
+		background: linear-gradient(to bottom,  rgba(248,91,49,1) 0%,rgba(255,0,0,1) 100%); 
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f85b31', endColorstr='#ff0000',GradientType=0 );
+		&:hover {
+			box-shadow: 14.849px 14.849px 50px 0px rgba(0, 0, 0, 0.3);
+		}
+	}
+}
+/* --------------- 31 Comming Soon Page ---------------- */
+.comming-bg {
+	background:url(../img/extra/comming-bg.jpg) no-repeat;
+	background-size: cover;
+	background-position: center center;
+}
+.comming-content {
+	margin-top: 350px;
+	@include mobile {
+		margin-top: 150px;
+	}
+	.subscribe-field {
+		h2 {
+			color: $light;
+			font-size: 36px;
+			margin-bottom: 35px;
+			@include mobile {
+				font-size: 18px;
+				margin-bottom: 15px;
+			}
+		}
+		p {
+			color: $light;
+		}
+	}
+	.subscribe {
+		input {
+			background: transparent;
+			color: $light;
+			&:focus {
+				outline: none;
+			}
+		}
+		.btn {
+			border-radius: 0px;
+		}
+		::-webkit-input-placeholder {
+		   opacity: 1;
+		   color: $light;
+		}
+
+		:-moz-placeholder { 
+		   opacity: 1;
+		   color: $light;
+		}
+
+		::-moz-placeholder {  
+		   opacity: 1;
+		   color: $light;
+		}
+
+		:-ms-input-placeholder {  
+		   opacity: 1;
+		   color: $light;
+		}
+	}
+}
+/* --------------- 36 Shop Home Page ---------------- */
+
+.tweet-area {
+	.tw-cr-bg {
+		background: #f7f7f7;
+	}
+	.tw-bg {
+		background: #3cc4f1;
+	}
+	.fb-bg {
+		background: #3056c3;
+	}
+	.twitter-body {
+		padding: 50px 0;
+		text-align: center;
+		height: 250px;
+		i {
+			color: $light;
+			margin-bottom: 15px;
+			font-size: 24px;
+		}
+		span {
+			color: $light;
+			display: block;
+			line-height: 1em;
+		}
+		h2 {
+			color: $light;
+			margin: 10px 0 35px 0;
+		}
+	}
+	.total-tweet {
+		height: 250px;
+		position: relative;
+		border-top: 1px solid $dark-gray;
+		border-bottom: 1px solid $dark-gray;
+		padding: 0 20px;
+		@include mobile {
+			height: 330px;
+		}
+		.tweet-btn-group {
+			margin-right: 10px;
+			position: absolute;
+			right: 0;
+			bottom: 50px;
+			z-index: 999;
+		}
+		.btn {
+			background: transparent;
+			border: 1px solid $primary-color;
+			//background: $light;
+			color: $title-color;
+			padding: 0 20px;
+			height: 35px;
+			line-height: 32px;
+			margin-right: 5px;
+			@include mobile {
+				span {
+					display: none;
+				}
+			}
+			&:hover {
+				background: $primary-color;
+				color: $light;
+				.fa {
+					color: $light;
+				}
+			}
+			.fa-caret-left {
+				padding-right: 5px;
+				@include mobile {
+					padding-right: 0;
+				}
+			}
+			.fa-caret-right {
+				padding-left: 5px;
+				@include mobile {
+					padding-left: 0;
+				}
+			}
+		}
+		.single-tweet {
+			.head {
+				margin: 30px 0 20px 0;
+				color: $title-color;
+			}
+			.tweet-content {
+				padding-right: 65px;
+				margin-bottom: 25px;
+			}
+			h5 {
+				font-size: 14px;
+				margin-bottom: 8px;
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

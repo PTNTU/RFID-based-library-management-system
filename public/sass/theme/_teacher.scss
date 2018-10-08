@@ -1,0 +1,556 @@
+/* ----------------06 Home Driving---------------- */
+.testimonial-2 {
+	padding : 160px 0 250px 0;
+}
+.expert-trainer {
+	.total-trainer {
+		margin-top: -30px;
+	}
+	.single-trainer {
+		margin-top: 30px;
+	}
+	.trainer-info {
+		h4 {
+			margin-top: 20px;
+			@include tablet {
+				margin-top: 0;
+			}
+			a {
+				color: $title-color;
+				font-size: 24px;
+				&:hover {
+					color: $primary-color;
+				}
+			}
+		}
+		p {
+			line-height: 21px;
+		}
+		a {
+			font-family: $fjalla-one;
+			color: $title-color;
+			@include transition(all .3s ease 0s);
+			&:hover {
+				color: $primary-color;
+			}
+		}
+	}
+}
+/* ----------------07 Home Designing---------------- */
+.home-designing {
+	.expert-trainer .trainer-info h4 a {
+		@include tablet {
+			font-size: 20px;
+		}
+		@include mobile {
+			font-size: 20px;
+		}
+		&:hover {
+			color: $primary-color2;
+		}
+	}
+	.expert-trainer .trainer-info a {
+		&:hover {
+			color: $primary-color2;
+		}
+	}
+	.teacher-img {
+		background-repeat: no-repeat;
+		background-size: cover;
+		height: 200px;
+		max-width: 100%;
+		position: relative;
+		&:hover {
+			.teacher-profile {
+				opacity: 1;
+			}
+		}
+	}
+	.teacher-profile {
+		background: rgba($primary-color2, 0.85) none repeat scroll 0 0;
+		height: 100%;
+		left: 0;
+		opacity: 0;
+		position: absolute;
+		top: 0;
+		@include transition(all .5s ease 0s);
+		width: 100%;
+		.social-link {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			a {
+				display: inline-block;
+				color: #fff;
+				padding: 5px;
+			}
+		}
+	}
+}
+/* ----------------08 Home Cooking School---------------- */
+.our-trainer {
+	.single-trainer {
+		&:hover {
+			.trainer-img {
+				border-bottom: 1px solid $primary-color3;
+			}
+			.trainer-intro {
+				h4 {
+					a {
+						color: $primary-color3;
+					}
+				}
+			}
+		}
+		.trainer-img {
+			text-align: center;
+			border-bottom: 1px solid $title-color;
+			@include transition(all .3s ease 0s);
+			img {
+				display: inline-block;
+			}	
+		}
+		.trainer-intro {
+			text-align: center;
+			h4 {
+				margin: 20px 0 10px 0;
+				a {
+					font-size: 24px;
+					color: $title-color;
+				}
+			}
+		}
+	}
+}
+/* ----------------09 About Educare---------------- */
+.our-teacher {
+	.trainer-info {
+		p {
+			@include tablet {
+				margin-bottom: 5px;
+			}
+		}
+		h4 {
+			margin-top: 30px;
+			@include tablet {
+				margin-top: 0;
+			}
+			a {
+				@include tablet {
+					font-size: 18px;
+				}
+				@include mobile {
+					font-size: 18px;
+				}
+			}
+		}
+		a {
+			color: $title-color;
+			@include transition(all .3s ease 0s);
+			&:hover {
+				color: $primary-color;
+			}
+		}
+	}
+	.teacher-img {
+		max-width: 100%;
+		height: 200px;
+		background-size: cover;
+		background-repeat: no-repeat;
+		position: relative;
+		&:hover {
+			.teacher-profile {
+				opacity: 1;
+			}
+		}
+		.teacher-profile {
+			@include transition(all .5s ease 0s);
+			opacity: 0;
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba($primary-color, .85);
+			.social-link {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				a {
+					display: inline-block;
+					color: #fff;
+					padding: 5px;
+				}
+			}
+		}
+	}
+}
+
+/* ----------------26 Teacher Grid ---------------- */
+.single-teacher {
+	@include tablet {
+		&:hover {
+			figcaption {
+				animation: none;
+			}
+		}
+	}
+	@include mobile {
+		&:hover {
+			figcaption {
+				animation: none;
+			}
+		}
+	}
+	&:hover {
+		figcaption {
+			border-top: 2px solid $primary-color;
+			animation: top linear;
+			animation-fill-mode: forwards;
+			-webkit-animation-iteration-count:1;
+			-webkit-animation-duration: 1s;
+		}
+	}
+	figure {
+		text-align: center;
+		position: relative;
+		height: 400px;
+		overflow: hidden;
+		@include tablet {
+			height: 450px;
+			overflow: visible;
+		}
+		img {
+			display: inline-block;
+		}
+		figcaption {
+			@include transition(all .3s ease 0s);
+			background:$light;
+			position: absolute;
+			left: 0;
+			border-top: 2px solid $title-color;
+			padding: 20px;
+			bottom: -90px;
+			@include tablet {
+				bottom: 0;
+				padding: 10px;
+				top: 255px;
+			}
+			@include mobile {
+				bottom: 0;
+				padding: 10px;
+				top: 255px;
+			}
+			h4 {
+				a {
+					font-size: 24px;
+					text-transform: capitalize;
+					color: $title-color;
+					&:hover {
+						color: $primary-color;
+					}
+				}
+				margin: 0px 0 8px 0;
+			}
+			p {
+				margin-top: 10px;
+			}
+		}
+	}
+}
+@keyframes top {
+	0% {
+		bottom: -90px;
+	}
+	100% {
+		bottom: 0px;
+	}
+}
+
+/* ----------------27 Teacher list ---------------- */
+.single-teacher-list {
+	@include transition(all .3s ease 0s);
+	box-shadow: 7.071px 7.071px 30px 0px rgba(0, 0, 0, 0.1);
+	&:hover {
+		box-shadow: 7.071px 7.071px 30px 0px rgba(0, 0, 0, 0.1);
+		a {
+			color: $primary-color;
+		}
+		.teacher-profile {
+				opacity: 1;
+			}
+	}
+	.teacher-img {
+		background-repeat: no-repeat;
+	    background-size: cover;
+	    height: 200px;
+	    max-width: 100%;
+	    position: relative;
+	    background-position: center center;
+	}
+	.teacher-profile {
+		background: rgba(248, 91, 49, 0.85) none repeat scroll 0 0;
+	    height: 100%;
+	    left: 0;
+	    opacity: 0;
+	    position: absolute;
+	    top: 0;
+	    @include transition(all .3s ease 0s);
+	    width: 100%;
+	}
+	.social-link {
+		left: 50%;
+		position: absolute;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		a {
+			display: inline-block;
+			color: #fff;
+			padding: 5px;
+		}
+	}
+}
+.teacher-list-content {
+	@include mobile {
+		padding: 20px 0;
+	}
+	h3 {
+		font-size: 24px;
+		margin-top: 30px;
+		@include transition(all .3s ease 0s);
+		@include tablet {
+			font-size: 18px;
+			margin-top: 15px;
+		}
+		@include mobile {
+			font-size: 18px;
+			margin-top: 15px;
+		}
+	}
+	span {
+		display: inline-block;
+		margin: 7px 0 10px 0;
+	}
+	p {
+		@include tablet {
+			margin-bottom: 10px;
+		}
+	}
+	a {
+		color: $title-color;
+		.fa {
+			margin-left: 2px;
+		}
+		&:hover {
+			color: $primary-color;
+		}
+	}
+}
+
+/* ----------------29 Teacher Details ---------------- */
+
+.teacher-details {
+	.left-web-course .tab {
+		padding-right: 50px !important;
+	}
+	.course-outline {
+		ul {
+			li {
+				@include mobile {
+					&:first-child {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+	.teacher-top {
+		.teacher-img {
+			@include mobile {
+				margin-right: 10px;
+				margin-top: 10px;
+			}
+			img {
+				width: 150px;
+				height: 150px;
+				border-radius: 50%;
+				margin-right: 40px;
+				@include mobile {
+					width: 50px;
+					height: 50px;
+					margin-right: 0;
+
+				}
+			}
+		}
+		.teacher-top-content {
+			h2 {
+				font-size: 24px;
+				margin-top: 20px;
+				margin-bottom: 7px;
+			}
+			p {
+				margin-bottom: 15px;
+			}
+			.btn {
+				padding: 0 40px;
+				margin-right: 7px;
+				@include mobile {
+					padding: 0 7px;
+					margin-right: 0px;
+				}
+			}
+		}
+	}
+	.course {
+		ul {
+			margin-bottom: 10px;
+			li {
+				margin-bottom: 0;
+				line-height: 78px;
+				@include mobile {
+					line-height: 50px;
+				}
+				a {
+					padding: 0 15px;
+				}
+			}
+			.head {
+				font-size: 18px;
+				font-family: $fjalla-one;
+				color: $title-color;
+			}
+			.step {
+				font-family: $fjalla-one;
+				color: $title-color;
+				font-size: 14px;
+			}
+			.dollar {
+				font-family: $fjalla-one;
+				color: $title-color;
+			}
+		}
+	}
+	.reviews {
+		.rating {
+			width: 65.0667%;
+			@include mobile {
+				width: 100%;
+			}
+			.rating-box {
+				width: 165px;
+				height: 165px;
+				background: $title-color;
+				color: $light;
+				text-align: center;
+				margin-right: 30px;
+				ul {
+					padding-top: 40px;
+				}
+				.av-rating {
+					font-size: 24px;
+					color: $primary-color;
+					font-family: $fjalla-one;
+					line-height: 42px;
+				}
+				li:first-child {
+					font-family: $fjalla-one;
+				}
+			}
+			.rating-body {
+				@include mobile {
+					margin: 20px 0;
+				}
+				h4 {
+					font-size: 16px;
+					margin-bottom: 10px;
+				}
+				ul {
+					margin-top: 3px;
+					li {
+						span {
+							margin: 0 5px;
+							.fa {
+								margin: 0 1px;
+							}
+						}
+					}
+				}
+			}
+		}
+		.feed-back {
+			width: 34.934%;
+			@include mobile {
+				width: 100%;
+			}
+			text-align: right;
+			h4 {
+				font-size: 16px;
+				text-align: left;
+				margin-bottom: 10px;
+			}
+			textarea{
+				width: 100%;
+				height: 90px;
+				border: 1px solid $dark-gray;
+				resize: none;
+				padding: 7px 10px;
+			}
+			.btn {
+				margin-top: 8px;
+				height: 35px;
+				line-height: 35px;
+				padding: 0 40px;
+			}
+		}
+		.normal {
+			.fa-star {
+				color: $dark-gray;
+			}
+		}
+		.fa-star {
+			margin: 0 1px;
+		}
+	}
+	.right-web-course {
+		margin: 0;
+		@include tablet {
+			margin-top: 30px;
+		}
+		@include mobile {
+			margin-top: 30px;
+		}
+	}
+	.single-info {
+		.single-stat {
+			h3 {
+				font-size: 36px;
+				margin-bottom: 16px;
+			}
+			padding-bottom: 15px;
+		}
+	}
+	.left-web-course {
+		.tab {
+			padding-right: 0;
+		}
+	}
+}
+.send-msg {
+	h4 {
+		font-size: 24px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+

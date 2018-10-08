@@ -51,6 +51,15 @@
                   <div class="col-lg-6">
                       <div class="card">
                           <div class="card-body">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#student" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">For Student</span></a> </li>
+                                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#staff" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">For Staff</span></a> </li>
+
+                            </ul>
+                            <div class="tab-content tabcontent-border">
+                              <div class="tab-pane active p-20" id="student" role="tabpanel">
+                                <br>
+
                               <div class="form-validation">
                                   <form class="form-valide" name="frm" action="/members/add" method="post">
                                     <input type="hidden" name="ent_id" id="ent_id" value="">
@@ -71,9 +80,9 @@
                                       </div>
 
                                       <div class="form-group row">
-                                          <label class="col-lg-4 col-form-label" for="val-suggestions">RFID <span class="text-danger">*</span></label>
+                                          <label class="col-lg-4 col-form-label" for="rfid">RFID <span class="text-danger">*</span></label>
                                           <div class="col-lg-6">
-                                              <textarea class="form-control" id="rfid" name="rfid" rows="5" placeholder="Your RFID number"></textarea>
+                                              <input type="text" class="form-control" id="rfid" name="rfid" placeholder="Your RFID number">
                                           </div>
                                       </div>
 
@@ -85,7 +94,82 @@
                                       </div>
                                   </form>
                               </div>
+                            </div>
+                            <div class="tab-pane p-20" id="staff" role="tabpanel">
+                              <br>
+                              <div class="form-validation">
+                                  <form class="form-valide" id="forStaff" name="formm" action="/members/addstaff" method="post">
+                                      <div class="form-group row">
+                                          <label class="col-lg-4 col-form-label" for="username">Enter Name <span class="text-danger">*</span></label>
+                                          <div class="col-lg-6">
+                                              <input type="text" class="form-control" id="username" name="username" placeholder="Enter a Name..">
+                                          </div>
+                                      </div>
+                                      <div class="form-group row">
+                                          <label class="col-lg-4 col-form-label" for="passwordsf">Password <span class="text-danger">*</span></label>
+                                          <div class="col-lg-6">
+                                              <input type="password" class="form-control" id="passwordsf" name="passwordsf" placeholder="Enter password...">
+                                          </div>
+                                      </div>
 
+                                      <div class="form-group row">
+                                          <label class="col-lg-4 col-form-label" for="rfidsf">RFID <span class="text-danger">*</span></label>
+                                          <div class="col-lg-6">
+                                              <input type="text" class="form-control" id="rfidsf" name="rfidsf" placeholder="Your RFID number">
+                                          </div>
+                                      </div>
+                                      <div class="form-group row">
+                                          <label class="col-lg-4 col-form-label" for="val-phoneus">Phone No. <span class="text-danger">*</span></label>
+                                          <div class="col-lg-6">
+                                              <input type="text" class="form-control" id="val-phoneus" name="phone" placeholder="0988888">
+                                          </div>
+                                      </div>
+                                      <div class="form-group row">
+                                          <label class="col-lg-4 col-form-label" for="dept">Department<span class="text-danger">*</span></label>
+                                          <div class="col-lg-6">
+                                              <select class="form-control" id="dept" name="dept">
+                                                  <option value="">Select Department</option>
+                                                  <option value="IT">IT</option>
+                                                  <option value="CIVIL">Civil</option>
+                                                  <option value="MP">MP</option>
+                                                  <option value="EP">EP</option>
+                                                  <option value="EC">EC</option>
+                                                  <option value="MC">MC</option>
+                                                  <option value="ENGLISH">English</option>
+                                                  <option value="MATH">Math</option>
+                                                  <option value="MYANMAR">Myanmar</option>
+                                                  <option value="PHYSIC">Physic</option>
+                                                  <option value="CHEMISTRY">Chemistry</option>
+                                                  <option value="STU_AFF">Student Affair</option>
+                                                  <option value="STA_AFF">Staff Affair</option>
+                                              </select>
+                                          </div>
+                                      </div>
+                                      <div class="form-group row">
+                                          <label class="col-lg-4 col-form-label" for="ocp">Occupation<span class="text-danger">*</span></label>
+                                          <div class="col-lg-6">
+                                              <select class="form-control" id="ocp" name="ocp">
+                                                  <option value="">Select Occupation</option>
+                                                  <option value="Professer">Professer</option>
+                                                  <option value="Associate Professer">Associate Professer</option>
+                                                  <option value="Lecturer">Lecturer</option>
+                                                  <option value="Assistant Lecturer">Assistant Lecturer</option>
+                                                  <option value="Tutor">Tutor</option>
+                                                  <option value="Demonstrator">Demonstrator</option>
+                                                  <option value="Officer">Officer</option>
+                                                  <option value="Others">Others</option>
+                                              </select>
+                                          </div>
+                                      </div>
+                                      <div class="form-group row">
+                                          <div class="col-lg-8 ml-auto">
+                                              <button type="button" id="submitb" class="btn btn-success">Submit</button>
+                                          </div>
+                                      </div>
+                                  </form>
+                              </div>
+                          </div>
+                              </div>
                           </div>
                       </div>
                   </div>
@@ -104,6 +188,21 @@
         <!-- End Page wrapper  -->
   </div>
   <!-- End Wrapper -->
+  <div class="modal"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" id="showData">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content p-20">
+          <h2>Student Details</h2>
+          <div class="modal-body">
+            <div id="showMo">
+
+            </div>
+          </div>
+          <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
   <!-- All Jquery -->
   <% include ../partial/javascript %>
   <script src="/javascripts/lib/form-validation/jquery.validate.min.js"></script>
@@ -118,7 +217,7 @@
 </body>
 <script type="text/javascript">
 $('#submitit').click(function () {
-  var data = { ent_no : $('#ent_no').val(),rfid:$('#rfid').val()};
+  var data = { ent_no : $('#ent_no').val(),rfid:$('#rfid').val(),type:'01'};
   if(data.ent_no == ''|| data.rfid =='') return;
   $.ajax({url:"/members/duplicate", data:data, type:"POST", success: function (result) {
     if(result.status == false){
@@ -132,9 +231,28 @@ $('#submitit').click(function () {
   }});
 });
 
+$('#submitb').click(function () {
+  var data = { type: '00',rfid:$('#rfidsf').val()};
+  if(data.rfid =='') return;
+  console.log('/////',data);
+  $.ajax({url:"/members/duplicate", data:data, type:"POST", success: function (result) {
+    if(result.status == false){
+      sweetAlert("Oops...", result.msg, "error");
+      $('#rfidsf').val('');
+      $('#rfidsf').focus();
+    }else {
+      formm.submit();
+      // document.getElementById('forStaff').submit();
+    }
+  }});
+});
+
 var socket = io();
 socket.on('rfid',function (data) {
-  if(data) $('#rfid').val(data);
+  if(data) {
+    $('#rfid').val(data);
+    $('#rfidsf').val(data);
+  }
 });
 
 var timeout = null;
@@ -151,9 +269,13 @@ ent_no.onkeyup = function (e) {
         $('#ent_id').val(res.student._id);
         $('#submitit').removeAttr('hidden');
         $('#adminmsg').html('<i class = "fa fa-check" style ="color:green;"></i>');
+        $('#showData').modal('show');
+        $('#showMo').html('Name: '+res.student.name+'<br> Major: '+res.student.major+'<br> Year: '+res.student.year+'<br> Roll No: '+res.student.roleNo+'<br> AC Year: '+res.student.ac_year);
       }else{
         $('#admshow').html(res.msg);
         $('#adminmsg').html('<i class = "fa fa-remove " style ="color:red;"></i>');
+        $('#showData').modal('show');
+        $('#showMo').html('Data Not Found!!');
       }
     }).fail(function (err) {
       console.log(err.status);

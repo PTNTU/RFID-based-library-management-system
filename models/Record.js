@@ -8,6 +8,10 @@ var RecordSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Members',
   },
+  staff_id:{
+    type: Schema.Types.ObjectId,
+    ref: 'Staffs',
+  },
   books:[{
       book_id: {
           type: Schema.Types.ObjectId,
@@ -32,6 +36,9 @@ var RecordSchema = new Schema({
         required: true,
         trim: true
       },
+      imgUrl:{
+        type: String,
+      }
   }],
   type:{
     type: String, // 00 is borrow, 01 is return

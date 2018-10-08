@@ -1,0 +1,655 @@
+.total-blog {
+	.single-blog1 {
+		img {
+			width: 100%;
+		}
+		.blog-content {
+			padding: 35px 40px;
+			@include tablet {
+				padding: 20px 15px;
+			}
+			@include mobile {
+				padding: 20px 15px;
+			}
+			.date {
+				color: $gray-color;
+				margin: 0px 0 5px 0;
+				display: inline-block;
+			}
+			.blog-head {
+				font-size: 24px;
+				margin: 10px 0 20px 0;
+				@include tablet {
+					font-size: 18px;
+				}
+				@include mobile {
+					font-size: 18px;
+				}
+				a {
+					color: $title-color;
+					&:hover {
+						color: $primary-color;
+					}
+				}
+			}
+			p {
+				a {
+					color: $title-color;
+					font-family: $fjalla-one;
+					&:hover {
+						color: $primary-color;
+					}
+				}
+			}
+			.blog-comment {
+				a {
+					@include tablet {
+						font-size: 10px;
+					}
+					@include mobile {
+						font-size: 10px;
+					}
+					&:hover {
+						color: $primary-color;
+						span {
+							color: $primary-color;
+						}
+					}
+					span {
+						margin-right: 10px;
+						@include tablet {
+							margin-right: 5px;
+						}
+					}
+				}
+			}
+		}	
+	}
+
+	.single-blog2 {
+		@include mobile {
+			margin-bottom: 30px;
+		}
+		.total-link {
+			padding: 28px 40px;
+			@include tablet {
+				padding: 20px 15px;
+			}
+			@include mobile {
+				padding: 20px 15px;
+			}
+			display: block;
+			.blog-head {
+				margin: 10px 0 30px 0;
+				a {
+					display: inline-block;
+					font-size: 24px;
+					@include tablet {
+						font-size: 18px;
+					}
+					color: $title-color;
+					@include transition(all .2s ease 0s);
+					&:hover {
+						color: $primary-color;
+					}
+				}
+			}
+			p { 
+				span {
+					font-size: 24px;
+				}
+			}
+			.s-comment {
+				@include tablet {
+					font-size: 10px;
+				}
+				@include mobile {
+					font-size: 10px;
+				}
+				@include transition(all .2s ease 0s);
+				&:hover {
+					color: $primary-color;
+				}
+				span {
+					margin-right: 10px;
+					@include tablet {
+						margin-right: 5px;
+					}
+				}
+			}
+		}
+	}
+	.single-blog3 {
+		.total-link {
+			display: inline-block;
+			padding: 29px 60px;
+			text-align: center;
+			color: $title-color;
+			font-size: 18px;
+			line-height: 24px;
+			.icon {
+				margin-bottom: 3px;
+				display: inline-block;
+				color: $primary-color;
+			}
+			.name {
+				a {
+					font-size: 14px;
+					color: $primary-color;
+				}
+			}
+		}
+	}
+	.single-blog4 {
+		margin-top: 30px;
+		@include mobile {
+			margin-bottom: 30px;
+		}
+		.total-link {
+			background: url(../img/blog/3.jpg) no-repeat;
+			height: 486px;
+			background-size: cover;
+			display: block;
+			color: $light;
+			width: 100%;
+			position: relative;
+			@include tablet {
+				height: 272px;
+			}
+			@include mobile {
+				height: 272px;
+			}
+			.total-content {
+				position: absolute;
+				left: 40px;
+				bottom: 35px;
+				@include tablet {
+					left: 20px;
+					bottom: 20px;
+				}
+			}
+			.blog-head {
+				margin: 10px 0 20px 0;
+				a {
+					display: inline-block;
+					font-size: 24px;
+					color: $light;
+					@include tablet {
+						font-size: 18px;
+					}
+					@include mobile {
+						font-size: 18px;
+					}
+					@include transition(all .2s ease 0s);
+					&:hover {
+						color: $primary-color;
+					}
+				}
+			}
+			.blog-comment {
+				width: 115%;
+				@include tablet {
+					width: 105%;
+				}
+				.s-comment {
+					@include tablet {
+						font-size: 10px;
+					}
+					@include mobile {
+						font-size: 10px;
+					}
+					@include transition(all .2s ease 0s);
+					color: $light;
+					&:hover {
+						color: $primary-color;
+					}
+					span {
+						margin-right: 5px;
+					}
+				}
+			}
+		}
+	}
+
+	.single-blog5 {
+		background: url(../img/blog/4.jpg) no-repeat;
+		padding: 28px 40px;
+		@include tablet {
+			padding: 20px 15px;
+		}
+		@include mobile {
+			padding: 20px 15px;
+			margin-top: 30px;
+		}
+		position: relative;
+		.overlay-bg {
+			background: rgba(0,0,0,.8);
+		}
+		.total-link {
+			position: relative;
+			z-index: 999;
+			.blog-head {
+				margin: 10px 0 30px 0;
+				a {
+					font-size: 24px;
+					color: $light;
+					@include tablet {
+						font-size: 18px;
+					}
+					@include mobile {
+						font-size: 18px;
+					}
+					@include transition(all .2s ease 0s);
+					&:hover {
+						color: $primary-color;
+					}
+				}
+			}
+			p { 
+				span {
+					font-size: 24px;
+					color: $light;
+				}
+			}
+			.s-comment {
+				@include tablet {
+					font-size: 10px;
+				}
+				@include mobile {
+					font-size: 10px;
+				}
+				color: $light;
+				@include transition(all .2s ease 0s);
+				&:hover {
+					color: $primary-color;
+				}
+				span {
+					margin-right: 10px;
+					@include tablet {
+						margin-right: 5px;
+					}
+					@include mobile {
+						margin-right: 5px;
+					}
+				}
+			}
+		}
+	}
+}
+
+/* ----------------07 Home Designing---------------- */
+.home-designing {
+	.total-blog {
+		.single-blog1 {
+			.blog-content {
+				.blog-head {
+					a {
+						&:hover {
+							color: $primary-color2;
+						}
+					}
+				}
+				p {
+					a {
+						&:hover {
+							color: $primary-color2;
+						}
+					}
+				}
+				.blog-comment {
+					a {
+						&:hover {
+							color: $primary-color2;
+							span {
+								color: $primary-color2;
+							}
+						}
+					}
+				}
+			}	
+		}
+		.single-blog2 {
+			.total-link {
+				.blog-head {
+					a {
+						&:hover {
+							color: $primary-color2;
+						}
+					}
+				}
+				.s-comment {
+					@include transition(all .2s ease 0s);
+					&:hover {
+						color: $primary-color2;
+					}
+				}
+			}
+		}
+		.single-blog3 {
+			.total-link {
+				background: $light;
+				.icon {
+					color: $primary-color2;
+				}
+				.name {
+					a {
+						font-size: 14px;
+						color: $primary-color2;
+					}
+				}
+			}
+		}
+		.single-blog4 {
+			.total-link {
+				.blog-head {
+					a {
+						&:hover {
+							color: $primary-color2;
+						}
+					}
+				}
+				.blog-comment {
+					.s-comment {
+						&:hover {
+							color: $primary-color2;
+						}
+					}
+				}
+			}
+		}
+		.single-blog5 {
+			.total-link {
+				.blog-head {
+					a {
+						&:hover {
+							color: $primary-color2;
+						}
+					}
+				}
+				.s-comment {
+					&:hover {
+						color: $primary-color2;
+					}
+				}
+			}
+		}
+	}
+}
+/* ----------------08 Home Designing---------------- */
+.blog8{
+	.total-blog {
+		.single-blog1 {
+			.blog-content {
+				.blog-head {
+					a {
+						&:hover {
+							color: $primary-color3;
+						}
+					}
+				}
+				p {
+					a {
+						&:hover {
+							color: $primary-color3;
+						}
+					}
+				}
+				.blog-comment {
+					a {
+						&:hover {
+							color: $primary-color3;
+							span {
+								color: $primary-color3;
+							}
+						}
+					}
+				}
+			}	
+		}
+		.single-blog2 {
+			.total-link {
+				.blog-head {
+					a {
+						&:hover {
+							color: $primary-color3;
+						}
+					}
+				}
+				.s-comment {
+					@include transition(all .2s ease 0s);
+					&:hover {
+						color: $primary-color3;
+					}
+				}
+			}
+		}
+		.single-blog3 {
+			.total-link {
+				background: $light;
+				.icon {
+					color: $primary-color3;
+				}
+				.name {
+					a {
+						font-size: 14px;
+						color: $primary-color3;
+					}
+				}
+			}
+		}
+		.single-blog4 {
+			.total-link {
+				background: url("../img/blog/c2.jpg");
+				.blog-head {
+					a {
+						&:hover {
+							color: $primary-color3;
+						}
+					}
+				}
+				.blog-comment {
+					.s-comment {
+						&:hover {
+							color: $primary-color3;
+						}
+					}
+				}
+				.overlay.op-2 {
+					background-color: rgba(0, 0, 0, 0.5);
+				}
+			}
+		}
+		.single-blog5 {
+			.total-link {
+				.blog-head {
+					a {
+						&:hover {
+							color: $primary-color3;
+						}
+					}
+				}
+				.s-comment {
+					&:hover {
+						color: $primary-color3;
+					}
+				}
+			}
+		}
+	}
+}
+/* ----------------32 Blog Home Slider --------------- */
+.blog-slider {
+	.slide-content {
+		h2 {
+			@include mobile {
+				font-size: 26px;
+			}
+		}
+	}
+}
+.blog-home {
+	.single-blog {
+		padding-top: 40px;
+	}
+	.blog-head {
+		h3 {
+			margin-bottom: 10px;
+			a {
+				font-size: 24px;
+				line-height: 1.3em;
+				color: $title-color;
+				&:hover {
+					color: $primary-color;
+				}
+			}
+		}
+		a {
+			color: $primary-color;
+		}
+	}
+	.blog-content {
+		padding-bottom: 40px;
+		border-bottom: 1px solid $dark-gray;
+		p {
+			padding: 0px 100px 20px 100px;
+			margin: 0;
+			@include tablet {
+				padding: 0px 30px 20px 30px;
+			}
+			@include mobile {
+				padding: 0px 20px 20px 20px;
+			}
+		}
+		.media-content {
+			iframe {
+				width: 100%;
+				height: 380px;
+			}
+		}
+		.media-content {
+			margin-bottom: 30px;
+			.link-banner {
+				background: #f7f7f7;
+				padding: 50px;
+				@include mobile {
+					padding: 30px;
+				}
+				span {
+					font-size: 24px;
+					color: $primary-color;
+				}
+				a {
+					font-family: $nunito;
+					font-size: 18px;
+				}
+			}
+		}
+		a {
+			font-family: $fjalla-one;
+			color: $title-color;
+			.fa {
+				margin-left: 5px;
+			}
+			&:hover {
+				color: $primary-color;
+			}
+		}
+		.overlay-bg {
+			background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.2) 100%);
+			background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.2) 100%);
+			background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.2) 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#33000000',GradientType=0 );
+		}
+	}
+	.border-none {
+		border-bottom: 1px solid $light;
+	}
+}
+.blog-pagination {
+	a {
+		font-family: $fjalla-one;
+		color: $title-color;
+		padding: 0 5px;
+		margin: 0;
+		@include transition(all .3s ease 0s);
+		&:hover {
+			color: $text-color;
+		}
+		span {
+			@include mobile {
+				display: none;
+			}
+		}
+	}
+	.active {
+		color: $primary-color;
+	}
+	.btn {
+		border: 1px solid $primary-color;
+		padding: 0 20px;
+		height: 35px;
+		line-height: 32px;
+		color: $title-color;
+		background: $light;
+		font-family: $nunito;
+		&:hover {
+			background: $primary-color;
+			color: $light;
+		}
+	}
+	.prev {
+		margin-right: 20px;
+		.fa {
+			padding-right: 10px;
+			@include mobile {
+				padding-right: 0;
+			}
+		}
+	}
+	.next {
+		margin-left: 20px;
+		.fa {
+			padding-left: 10px;
+			@include mobile {
+				padding-left: 0;
+			}
+		}
+	}
+}
+/* ----------------33 Blog Home Left Sidebar --------------- */
+.blog-left-widget{
+	.blog-content {
+		p {
+			padding: 0px 30px 20px;
+		}
+	}
+}
+/* ----------------35 Blog Details --------------- */
+.blog-details {
+	.related-publication {
+		.main-head-event {
+			margin-top: 50px;
+		}
+	}
+	.details {
+		.details-head {
+			color: $title-color;
+			a {
+				color: $primary-color;
+			}
+		}
+	}
+	.single-blog {
+		iframe {
+			width: 100%;
+			height: 380px;
+		}
+	}
+}
+blockquote {
+	border-left: 2px solid $primary-color;
+	font-size: 14px;
+	color: $title-color;
+	margin: 0 0 20px;
+	padding: 0px 30px 0px 50px;
+}

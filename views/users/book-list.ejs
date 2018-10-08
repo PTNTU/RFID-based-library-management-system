@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+    <% include ../partial/user_head %>
+    <body>
+        <% include ../partial/user_header %>
+        <div class="search-area">
+            <div class="container">
+                <div class="row fitscreen flex flex-middle relative">
+                    <form action="#" class="search-form">
+                        <input id="focus" placeholder="Search your query and press “Enter”" type="text">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <main>
+            <!-- Static Banner Area Start -->
+            <section id="slider" class="">
+                <div class="static-banner relative">
+                    <div class="overlay blue-overlay-5"></div>
+                    <div class="page-head">
+                        <h2 class="page-title">Library Book List</h2>
+                        <ul class="page-title-btn">
+                            <li><a href="/users/home" >Home <i class="fa fa-caret-right" aria-hidden="true"></i></a></li>
+                            <li><a href="/users/library" >Library<i class="fa fa-caret-right" aria-hidden="true"></i></a></li>
+                            <li><a href="#" class="active">Book List</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <!-- Static Banner Area End -->
+            <section class="pt-150 blog-home blog-left-widget">
+                <div class="container">
+                    <div class="row">
+                      <form class="" action="/users/bookList" method="post">
+
+                        <div class="col-sm-12">
+                            <div class="event-filter flex">
+                                <div class="single-filter ft-215">
+                                    <div class="select-ct">
+                                      <select name="category" id="category">
+                                        <option value="">select Category</option>
+                                        <% for(var i= 0; i< cat.length; i++){%>
+                                          <option value="<%=cat[i].main_cat%>"><%=cat[i].main_cat%></option>
+                                        <%}%>
+                                      </select>
+
+                                    </div>
+                                </div>
+                                <div class="single-filter ft-300">
+                                    <input placeholder="Enter Post title" value="<%=key[2]%>" name="keyword" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Post title'" type="text">
+                                </div>
+                                <div class="single-filter ft-175">
+                                    <div class="select-ct">
+                                      <select name="sort" id="sort">
+                                          <option value="1">Newest Books</option>
+                                          <option value="2">Old Books</option>
+                                          <option value="3">Best Borrow</option>
+                                      </select>
+                                    </div>
+                                </div>
+                                <div class="single-filter ft-135">
+                                    <button class="btn" type="submit">Find Books</button>
+                                </div>
+                            </div>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 col-sm-4 shop-widget-total">
+
+                        </div>
+                        <div class="col-md-9 col-sm-8">
+                            <div class="total-shop-list">
+                              <% for(var i = 0; i< book.length; i++){%>
+                                <div class="single-product-list row no-margin mt-30">
+                                    <div class="pl-n col-sm-4 col-xs-12">
+                                        <div class="shop-list-img">
+                                            <a href="/users/bookDetail/<%=book[i]._id%>"><img src="<%=book[i].imgUrl%>" onerror="this.src='/images/404.jpg'" alt="" class="img-responsive"></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8 col-xs-12">
+                                        <div class="shop-list-content">
+                                            <h3><a href="/users/bookDetail/<%=book[i]._id%>" ><%= book[i].book_name%></a></h3>
+                                            <p><span style="color:blue;">Author</span> <%= book[i].book_author%></p>
+                                            <p><%= book[i].description%></p>
+                                            <div class="flex space-between">
+                                                <div class="price">
+                                                    <%= book[i].count%>
+                                                </div>
+                                                <div class="icon">
+                                                    <!-- <a href="#"><i class="fa fa-shopping-basket"></i></a> -->
+                                                    <%= book[i].main_cat%>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                              <%}%>
+
+
+                                </div>
+                                <div class="row col-xs-12 text-center">
+                                    <button class="btn load-course mt-50">load more</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- Footer Area Start -->
+        <% include ../partial/user-footer %>
+        <!-- Footer Area End -->
+
+
+        <!--
+        JavaScripts
+        ========================== -->
+        <script src="js/vendor/jquery-2.2.4.min.js"></script>
+        <!-- <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/vendor/materialize.min.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/jquery.slicknav.min.js"></script> -->
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqCaX4fFEQRiTJoeclXKZRaFh2fYfps_Y&callback=initMap"></script>
+        <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script> -->
+        <!-- <script src="js/jquery.nice-select.js"></script> -->
+        <!-- <script src="js/jquery.jCounter-0.1.4.js"></script>
+
+        <script src="js/main.js"></script> -->
+        <script src="/js/minified/minified.js"></script>
+        <script src="/js/map-init.js"></script>
+    </body>
+    <script type="text/javascript">
+      // $("#sort").select(2).change();
+      // $('#sort').val(2).trigger('change');
+    </script>
+</html>

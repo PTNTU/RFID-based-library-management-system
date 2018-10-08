@@ -63,6 +63,11 @@ var form_validation = function() {
                         minlength: 5,
                         pwcheck: true,
                     },
+                    "passwordsf": {
+                        required: !0,
+                        minlength: 5,
+                        pwcheck: true,
+                    },
                     "val-confirm-password": {
                         required: !0,
                         equalTo: "#val-password"
@@ -85,10 +90,20 @@ var form_validation = function() {
                         required: !0,
                         minlength: 5
                     },
+                    "rfidsf": {
+                        required: !0,
+                        minlength: 5
+                    },
                     "year": {
                         required: !0
                     },
                     "major": {
+                        required: !0
+                    },
+                    "ocp": {
+                        required: !0
+                    },
+                    "dept": {
                         required: !0
                     },
                     "val-currency": {
@@ -191,6 +206,11 @@ var form_validation = function() {
                         minlength: "Your password must be at least 5 characters long",
                         pwcheck: "Please input at least 1 Upper, 1 lower, 1 digit and don't more 4 same word"
                     },
+                    "passwordsf": {
+                        required: "Please provide a password",
+                        minlength: "Your password must be at least 5 characters long",
+                        pwcheck: "Please input at least 1 Upper, 1 lower, 1 digit and don't more 4 same word"
+                    },
                     "val-confirm-password": {
                         required: "Please provide a password",
                         minlength: "Your password must be at least 5 characters long",
@@ -205,7 +225,10 @@ var form_validation = function() {
                     "sub_cat": "Please select a sub categories!",
                     "val-select2-multiple": "Please select at least 2 values!",
                     "rfid": "What can we do to become better?",
+                    "rfidsf": "What can we do to become better?",
                     "major": "Please select a major!",
+                    "dept": "Please select a department!",
+                    "ocp": "Please select a Occupation!",
                     "year": "Please select a year!",
                     "val-currency": "Please enter a price!",
                     "val-website": "Please enter your website!",

@@ -56,7 +56,7 @@
                               <div class="card-two">
                                   <header>
                                       <div class="avatar">
-                                          <img src="/images/book.jpg" alt="Allison Walker" />
+                                          <img src="<%=book.imgUrl%>" alt="Allison Walker" />
                                       </div>
                                   </header>
 
@@ -87,7 +87,8 @@
                           <!-- Tab panes -->
                           <div class="tab-content">
                               <div class="tab-pane active" id="home" role="tabpanel">
-                                  <div class="card-body">
+                                <h2>Coming Soon!!</h2>
+                                  <div class="card-body" style="filter:blur(10px)">
                                       <div class="profiletimeline">
                                           <div class="sl-item">
                                               <div class="sl-left"> <img src="/images/users/avatar-1.jpg" alt="user" class="img-circle" /> </div>
@@ -177,6 +178,8 @@
                                           </div>
                                       </div>
                                       <hr>
+                                      <h2>Coming Soon!!!</h2>
+                                      <div class="" style="filter:blur(10px);" tabindex="-1">
                                       <p class="m-t-30">Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.Cras dapibus. Vivamus
                                           elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p>
                                       <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
@@ -202,10 +205,11 @@
                                           <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
                                       </div>
                                   </div>
+                                </div>
                               </div>
                               <div class="tab-pane" id="settings" role="tabpanel">
                                   <div class="card-body">
-                                      <form class="form-horizontal form-material" action="/books/modify" method="post">
+                                      <form class="form-horizontal form-material" action="/books/modify" method="post" enctype="multipart/form-data">
                                         <input type="hidden" name="id" value="<%= book._id %>">
                                           <div class="form-group">
                                               <label class="col-md-12">Book Name</label>
@@ -276,6 +280,17 @@
                                                   <input type="text" class="form-control" id="book_author" name="book_author" value = "<%= book.book_author %>">
                                               </div>
                                           </div>
+                                          <div class="form-group row">
+                                              <label class="col-lg-4 col-form-label" for="book_author">Image <span class="text-danger">*</span></label>
+                                              <div class="col-lg-6">
+                                                  <div class="form-group">
+                                                      <label class="img-label" data-toggle="tooltip" title="Select photo">
+                                                          <img class="rounded" id="photo" src="<%=book.imgUrl%>" onerror="this.src='/images/upload.png'" alt="Image">
+                                                          <input type="file" class="sr-only" id="uploadImg" name="uploadImg" accept="images/*">
+                                                      </label>
+                                                  </div>
+                                              </div>
+                                          </div>
                                           <div class="form-group">
                                               <label class="col-md-12">Published Date </label>
                                               <div class="col-md-12">
@@ -297,6 +312,12 @@
                                               <label class="col-md-12">Reading Range</label>
                                               <div class="col-md-12">
                                                   <input type="text" class="form-control" id="book_range" name="book_range" value="<%= book.book_range %>" >
+                                              </div>
+                                          </div>
+                                          <div class="form-group row">
+                                              <label class="col-md-12" >Description </label>
+                                              <div class="col-md-12">
+                                                  <textarea class="form-control" id="description" name="desc" placeholder="Book description" rows="5" cols="5"><%= book.description %></textarea>
                                               </div>
                                           </div>
                                           <div class="form-group">
@@ -421,6 +442,22 @@
                 } );
             });
       }
+      function readURL(input) {
+          if (input.files && input.files[0]) {
+              var reader = new FileReader();
+
+              reader.onload = function (e) {
+                  $('#photo').attr('src', e.target.result);
+              }
+
+              reader.readAsDataURL(input.files[0]);
+          }
+      }
+
+      $("#uploadImg").change(function(){
+          readURL(this);
+          console.log('calll');
+      });
   </script>
 </body>
 

@@ -64,13 +64,13 @@
                       <span><i class="fa fa-shopping-cart f-s-40 color-success"></i></span>
                     </div>
                     <div class="media-body media-text-right">
-                      <h2><%= brCount %></h2>
-                      <a href="#"><p class="m-b-0">Borrowing Book</p></a>
+                      <h2><%= bcount %></h2>
+                      <a href="#"><p class="m-b-0">Borrowed Book</p></a>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-md-2">
+              <div class="col-md-3">
                 <div class="card p-30">
                   <div class="media">
                     <div class="media-left meida media-middle">
@@ -83,7 +83,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-2">
+              <div class="col-md-3">
                 <div class="card p-30">
                   <div class="media">
                     <div class="media-left meida media-middle">
@@ -96,7 +96,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-2">
+              <div class="col-md-3">
                 <div class="card p-30">
                   <div class="media">
                     <div class="media-left meida media-middle">
@@ -104,7 +104,45 @@
                     </div>
                     <div class="media-body media-text-right">
                       <h2><%= memCount %></h2>
-                      <a href="/members/list"><p class="m-b-0">Total Member</p></a>
+                      <a href="/members/list"><p class="m-b-0">Total Student Member</p></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card p-30">
+                  <div class="media">
+                    <div class="media-left meida media-middle">
+                      <span><i class="fa fa-user f-s-40 color-primary"></i></span>
+                    </div>
+                    <div class="media-body media-text-right">
+                      <h2><%= stfCount %></h2>
+                      <a href="/members/liststf"><p class="m-b-0">Total Staff Member</p></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="card">
+                  <div class="card-title">
+                    <a href="/books/history"><h4>Book Borrowing History For Staff</h4></a>
+                  </div>
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Department</th>
+                            <th>Occupation</th>
+                            <th>Type</th>
+                          </tr>
+                        </thead>
+                        <tbody id="histTabStf">
+
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                 </div>
@@ -143,7 +181,7 @@
               <div class="col-lg-6">
                 <div class="card">
                   <div class="card-title">
-                    <a href="/books/history"><h4>Book Borrowing History</h4></a>
+                    <a href="/books/history"><h4>Book Borrowing History For Student</h4></a>
                   </div>
                   <div class="card-body">
                     <div class="table-responsive">
@@ -174,7 +212,7 @@
                 <!-- <div class="row"> -->
                   <!-- <div class="col-lg-6"> -->
                     <div class="card">
-                      <a href="#"><h4 class="card-title">Book Categorie</h4></a>
+                      <a href="#"><h4 class="card-title">Book Categories Rating</h4></a>
                       <div class="card-body browser">
                         <%for(var l=0; l< avg.length; l++){ %>
                         <hr>
@@ -200,7 +238,7 @@
 
               <div class="col-lg-6">
                 <div class="card">
-                  <a href="#"><h4 class="card-title">Top Ten book rating</h4></a>
+                  <a href="#"><h4 class="card-title">Top Ten Book Rating</h4></a>
                   <div class="card-body browser">
                     <%for(var e=0; e< rat.length; e++){ %>
                       <hr>
@@ -248,13 +286,13 @@ $.post(
     var cell0 = row.insertCell(0);
     cell0.appendChild(document.createTextNode(k+1));//TODO need to add real path
     var cell1 = row.insertCell(1);
-    cell1.appendChild(document.createTextNode(res.data[k].name));
+    cell1.appendChild(document.createTextNode(res.data[k].ent_id.name));
     var cell2 = row.insertCell(2);
-    cell2.appendChild(document.createTextNode(res.data[k].major));
+    cell2.appendChild(document.createTextNode(res.data[k].ent_id.major));
     var cell3 = row.insertCell(3);
-    cell3.appendChild(document.createTextNode(res.data[k].year));
+    cell3.appendChild(document.createTextNode(res.data[k].ent_id.year));
     var cell4 = row.insertCell(4);
-    cell4.appendChild(document.createTextNode(res.data[k].roleNo));
+    cell4.appendChild(document.createTextNode(res.data[k].ent_id.roleNo));
     var cell5 = row.insertCell(5);
     cell5.appendChild(document.createTextNode(res.time[k]));
   }
@@ -270,19 +308,47 @@ $.post(
       row.insertCell(0).appendChild(document.createTextNode("Data Not Found"))
     }
     for(var k=0; k<res.data.length; k++){
+      console.log('call');
       var row = histTab.insertRow(k);
       var cell0 = row.insertCell(0);
       cell0.appendChild(document.createTextNode(k+1));//TODO need to add real path
       var cell1 = row.insertCell(1);
-      cell1.appendChild(document.createTextNode(res.data[k].member_id.name));
+      cell1.appendChild(document.createTextNode(res.data[k].member_id.ent_id.name));
       var cell2 = row.insertCell(2);
-      cell2.appendChild(document.createTextNode(res.data[k].member_id.major));
+      cell2.appendChild(document.createTextNode(res.data[k].member_id.ent_id.major));
       var cell3 = row.insertCell(3);
-      cell3.appendChild(document.createTextNode(res.data[k].member_id.year));
+      cell3.appendChild(document.createTextNode(res.data[k].member_id.ent_id.year));
       var cell4 = row.insertCell(4);
-      cell4.appendChild(document.createTextNode(res.data[k].member_id.roleNo));
+      cell4.appendChild(document.createTextNode(res.data[k].member_id.ent_id.roleNo));
       var cell5 = row.insertCell(5);
       cell5.appendChild(document.createTextNode((res.data[k].type=='01')? 'Return':'Borrow'));
+
+    }
+
+
+});
+
+$.post(
+  'books/histBorstf',
+).done(function (res) {
+    var histTab = document.getElementById('histTabStf');
+    if(res.data.length == 0) {
+      var row = histTab.insertRow(0);
+      row.insertCell(0).appendChild(document.createTextNode("Data Not Found"))
+    }
+    for(var k=0; k<res.data.length; k++){
+      console.log('call');
+      var row = histTab.insertRow(k);
+      var cell0 = row.insertCell(0);
+      cell0.appendChild(document.createTextNode(k+1));//TODO need to add real path
+      var cell1 = row.insertCell(1);
+      cell1.appendChild(document.createTextNode(res.data[k].staff_id.name));
+      var cell2 = row.insertCell(2);
+      cell2.appendChild(document.createTextNode(res.data[k].staff_id.dept));
+      var cell3 = row.insertCell(3);
+      cell3.appendChild(document.createTextNode(res.data[k].staff_id.ocp));
+      var cell4 = row.insertCell(4);
+      cell4.appendChild(document.createTextNode((res.data[k].type=='01')? 'Return':'Borrow'));
 
     }
 

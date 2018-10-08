@@ -11,6 +11,7 @@ var indexRouter = require('./routes/index');
 var memberRouter = require('./routes/members');
 var bookRouter = require('./routes/books');
 var studentRouter = require('./routes/students');
+var userRouter = require('./routes/users');
 
 var app = express();
 
@@ -23,6 +24,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/js', express.static(__dirname + '/node_modules/jquery/dist'));
+app.use('/js', express.static(__dirname + '/node_modules/cropperjs/dist'));
+app.use('/css', express.static(__dirname + '/node_modules/cropper/dist'));
+app.use('/js', express.static(__dirname + '/node_modules/jquery-cropper/dist'));
 
 mongoose.connect('mongodb://127.0.0.1/librarydb'); // studydb is anyname can insert
 var db = mongoose.connection;
@@ -41,6 +46,7 @@ app.use(function (req,res,next) {
   next();
 });
 app.use('/', indexRouter);
+app.use('/users', userRouter);
 app.use(function (req, res, next) {
   // res.locals.active = req.path;
   console.log('user path', req.path);

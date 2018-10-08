@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+    <% include ../partial/user_head %>
+    <body>
+        <% include ../partial/user_header %>
+        <div class="search-area">
+            <div class="container">
+                <div class="row fitscreen flex flex-middle relative">
+                    <form action="#" class="search-form">
+                        <input id="focus" placeholder="Search your query and press “Enter”" type="text">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <main>
+            <section id="slider" class="slider-section login">
+                <div class="slider2">
+                    <div class="register-bg fullscreen flex flex-middle relative">
+                        <div class="overlay overlay-bg"></div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="register-content">
+                                        <!-- <h1 class="mb-20">Log in to Have the Access</h1>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+                                        <a href="21-login-register.html" class="btn">Don’t have an Account?</a> -->
+                                    </div>
+                                </div>
+                                <div class="col-md-offset-1 col-md-5 col-sm-6 col-xs-12">
+                                    <div class="register-form login-form">
+                                        <h3>Student Log In</h3>
+                                        <form action="/users/login" method="post" name="frm">
+                                            <label>RFID Number </label>
+                                            <p><input type="text" id="rfid" name="rfid" onfocus="this.placeholder = ''" onblur="this.placeholder = 'RFID Number'" placeholder="RFID Number"></p>
+                                            <label>Password</label>
+                                            <p><input type="password" name="password"  onfocus="this.placeholder = ''" onblur="this.placeholder = '........'" placeholder="........"></p>
+                                            <div class="check"><input id="one" name="rememberMe" type="checkbox"><label for="one"><span></span>Remember RFID</label></div>
+                                            <div><button type="submit" class="btn">Log In</button></div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+
+        <!--
+        JavaScripts
+        ========================== -->
+        <script src="js/vendor/jquery-2.2.4.min.js"></script>
+        <!-- <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/vendor/materialize.min.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/jquery.slicknav.min.js"></script> -->
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqCaX4fFEQRiTJoeclXKZRaFh2fYfps_Y&callback=initMap"></script>
+        <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script> -->
+        <!-- <script src="js/jquery.nice-select.js"></script> -->
+        <!-- <script src="js/jquery.jCounter-0.1.4.js"></script>
+
+        <script src="js/main.js"></script> -->
+        <script src="/javascripts/js.cookie.js"></script>
+        <script src="/js/minified/minified.js"></script>
+        <script src="/js/map-init.js"></script>
+    </body>
+    <script type="text/javascript">
+    $(function () {
+      frm.onsubmit = function () {
+        if(frm.one.checked){
+          Cookies.set('rfid2', frm.rfid.value, { expires: 7 });
+        }else {
+          Cookies.remove("rfid2");
+        }
+      }
+      if( Cookies.get("rfid2")){
+        frm.rfid.value = Cookies.get("rfid2");
+        frm.one.checked = true;
+      }
+    });
+    </script>
+</html>

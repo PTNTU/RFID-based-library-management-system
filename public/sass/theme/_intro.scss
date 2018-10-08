@@ -1,0 +1,43 @@
+.welcome-stat {
+	margin-top: -50px;
+	.single-stat {
+		margin-top: 50px;
+		@include mobile {
+			text-align: center;
+			margin: 50px 0;
+		}
+		h2 {
+			@include tablet {
+				font-size: 26px;
+			}
+			@include mobile {
+				font-size: 18px;
+				text-align: center;
+			}
+		}
+		p {
+			font-size: 12px;
+		}
+		.et-line {
+			font-size: 36px;
+			color: $title-color;
+			@include mobile {
+				font-size: 18px;
+			}
+		}
+		p {
+			color: $gray-color;
+		}
+	}
+	.signal-h5 {
+		color: $primary-color;
+		font-size: 18px;
+		line-height: 27px;
+		padding-top: 40px;
+	}
+}
+.section-head {
+	h2 {
+		margin-bottom: 30px;
+	}
+}

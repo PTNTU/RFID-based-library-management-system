@@ -1,0 +1,331 @@
+/* --------------- 15 Events List View ---------------- */
+
+.event-filter {
+	background: #f7f7f7;
+	padding: 30px;
+	@include mobile {
+		display: block;
+		padding: 30px 30px 20px 30px;
+	}
+	.single-filter {
+		margin-right: 30px;
+		height: 40px;
+		input {
+		 	border: 1px solid #eeeeee;
+		 	display: block;
+			color: #333333;
+			font-size: 13px;
+			height: 40px;
+			line-height: 40px;
+			padding: 0 20px;
+			@include transition(all .3s ease 0s);
+			width: 100%;
+			background: #fff;
+			box-shadow: 7.071px 7.071px 30px 0px rgba(0, 0, 0, 0.1);
+			&:focus {
+		    	outline: none;
+		    	border: 1px solid #f7f7f7;
+		    }
+		}
+		::-webkit-input-placeholder {
+		   opacity: 1;
+		   color: $text-color;
+		}
+
+		:-moz-placeholder { /* Firefox 18- */
+		   opacity: 1;
+		   color: $text-color;
+		}
+
+		::-moz-placeholder {  /* Firefox 19+ */
+		   opacity: 1;
+		   color: $text-color;
+		}
+
+		:-ms-input-placeholder {  
+		   opacity: 1;
+		   color: $text-color;
+		}
+		.btn {
+			border-radius: 0px;
+			height: 40px;
+			line-height: 40px;
+			padding: 0;
+			width: 100%;
+			text-align: center;
+			box-shadow: 7.071px 7.071px 30px 0px rgba(0, 0, 0, 0.1);
+			&:hover {
+				color: $title-color;
+			}
+		}
+
+	}
+	.ft-98 {
+		width: 98px;
+		@include mobile {
+			width: 100%;
+			margin: 0 0 10px 0;
+		}
+	}
+	.ft-102 {
+		width: 102px;
+		@include mobile {
+			width: 100%;
+			margin: 0 0 10px 0;
+		}
+	}
+	.ft-117 {
+		width: 117px;
+		@include mobile {
+			width: 100%;
+			margin: 0 0 10px 0;
+		}
+	}
+	.ft-107 {
+		width: 107px;
+		@include mobile {
+			width: 100%;
+			margin: 0 0 10px 0;
+		}
+	}
+	.ft-215 {
+		width: 215px;
+		@include mobile {
+			width: 100%;
+			margin: 0 0 10px 0;
+		}
+	}
+	.ft-300 {
+		width: 300px;
+		@include mobile {
+			width: 100%;
+			margin: 0 0 10px 0;
+		}
+	}
+	.ft-175 {
+		width: 175px;
+		@include mobile {
+			width: 100%;
+			margin: 0 0 10px 0;
+		}
+	}
+	.ft-135 {
+		width: 135px;
+		@include mobile {
+			width: 100%;
+			margin: 0 0 10px 0;
+		}
+	}
+	.ft-165 {
+		width: 165px;
+		@include mobile {
+			width: 100%;
+			margin: 0 0 10px 0;
+		}
+	}
+	.ft-219 {
+		width: 219px;
+		@include mobile {
+			width: 100%;
+			margin: 0 0 10px 0;
+		}
+	}
+	.ft-270 {
+		width: 270px;
+		@include mobile {
+			width: 100%;
+			margin: 0 0 10px 0;
+		}
+	}
+	.ft-225 {
+		width: 20.8333%;
+		@include mobile {
+			width: 100%;
+			margin: 0 0 10px 0;
+		}
+	}
+	.mr-n {
+		margin-right: 0px;
+	}
+	.ft-330 {
+		width: 30.5555%;
+		@include mobile {
+			width: 100%;
+			margin: 0 0 10px 0;
+		}
+	}
+	.ft-360 {
+		width: 33.3333%;
+		@include mobile {
+			width: 100%;
+			margin: 0 0 10px 0;
+		}
+	}
+	.ft-165 {
+		width: 165px;
+		@include mobile {
+			width: 100%;
+			margin: 0 0 10px 0;
+		}
+	}
+	.ft-135 {
+		width: 135px;
+		@include mobile {
+			width: 100%;
+			margin: 0 0 10px 0;
+		}
+	}
+	.ft-428 {
+		width: 39.63%;
+		@include mobile {
+			width: 100%;
+			margin: 0 0 10px 0;
+		}
+	}
+	.ft-885 {
+		width: 81.944%;
+		@include mobile {
+			width: 100%;
+			margin: 0 0 10px 0;
+		}
+	}
+}
+.teacher {
+	@include tablet {
+		.event-filter {
+			padding: 30px 30px 20px 30px;
+			@include flex-wrap(wrap);
+			.single-filter {
+				width: 49%;
+				margin-right: 0;
+				margin-bottom: 10px;
+				&:nth-child(odd){
+					margin-right: 10px;
+				}
+			}
+		}
+	}
+}
+.blog-home {
+	@include tablet {
+		.event-filter {
+			padding: 30px 30px 20px 30px;
+			@include flex-wrap(wrap);
+			.single-filter {
+				width: 49%;
+				margin-right: 0;
+				margin-bottom: 10px;
+				&:nth-child(odd){
+					margin-right: 10px;
+				}
+			}
+		}
+	}
+}
+/* ----------------44 Buddypress activity after login ---------------- */
+
+
+.buddypress-filter {
+	@include flexbox();
+	@include tablet {
+		padding: 30px 30px 20px 30px;
+	}
+	@include mobile {
+		padding: 30px 30px 20px 30px;
+		@include justify-content(space-between);
+	}
+	.single-filter {
+		margin-right: 10px;
+		@include tablet {
+			width: 23%;
+			margin-bottom: 10px;
+		}
+		@include mobile {
+			margin-right: 0;
+		}
+		&:last-child {
+			margin-right: 0;
+		}
+		.btn {
+			border-radius: 0px;
+			height: 40px;
+			line-height: 40px;
+			padding: 0;
+			width: 100%;
+			text-align: center;
+			box-shadow: 7.071px 7.071px 30px 0px rgba(0, 0, 0, 0.1);
+			background: $light;
+			color: $title-color;
+			&:hover {
+				color: $light;
+				background: $primary-color;
+			}
+		}
+		.active {
+			background: $primary-color;
+			color: $light;
+		}
+	}
+	.filter-select {
+		@include tablet {
+			min-width: 280px;
+		}
+	}
+}
+@include mobile {
+	.bd-filter-mb1 {
+		.single-filter {
+			width: 48.5%;
+			&:nth-child(5) {
+				width: 100%;
+			}
+			&:nth-child(6) {
+				width: 100%;
+			}
+			&:nth-child(7) {
+				width: 100%;
+			}
+		}
+		.filter-select {
+			width: 100%;
+		}
+	}
+}
+/* ----------------47 Buddypress Members Details After Login ---------------- */
+
+
+.member-profile {
+	.single-filter {
+		width: 50%;
+		&:last-child {
+			width: 100%;
+		}
+	}
+}
+.buddypress {
+	.member-profile {
+		@include tablet {
+			@include flex-wrap (wrap);
+			.single-filter {
+				width: 18%;
+				&:last-child {
+					width: 280px;
+				}
+			}
+		}
+		@include mobile {
+			@include flex-wrap (wrap);
+			@include justify-content(space-between);
+			.single-filter {
+				width: 48.5%;
+				margin-bottom: 10px;
+				&:nth-child(7) {
+					width: 100%;
+				}
+				&:last-child {
+					width: 100%;
+				}
+			}
+		}
+	}
+}

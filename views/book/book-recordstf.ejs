@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include ../partial/head %>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->
+    <!--[if lt IE 9]>
+    <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<link href="/stylesheets/lib/sweetalert/sweetalert.css" rel="stylesheet">
+<link href="/stylesheets/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="/stylesheets/helper.css" rel="stylesheet">
+<link href="/stylesheets/lib/nestable/nestable.css" rel="stylesheet">
+<link href="/stylesheets/style.css" rel="stylesheet">
+</head>
+
+<body class="fix-header fix-sidebar">
+  <!-- Preloader - style you can find in spinners.css -->
+  <div class="preloader">
+    <svg class="circular" viewBox="25 25 50 50">
+			<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+  </div>
+  <!-- Main wrapper  -->
+  <div id="main-wrapper">
+    <!-- header header  -->
+    <% include ../partial/header %>
+      <!-- End header header -->
+      <!-- Left Sidebar  -->
+      <% include ../partial/leftSidebar %>
+        <!-- End Left Sidebar  -->
+        <!-- Page wrapper  -->
+        <div class="page-wrapper">
+          <!-- Bread crumb -->
+          <div class="row page-titles">
+            <div class="col-md-5 align-self-center">
+              <h3 class="text-primary">Book Borrow and Return Process</h3> </div>
+            <div class="col-md-7 align-self-center">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Books</a></li>
+                <li class="breadcrumb-item active">Record(For Staff)</li>
+              </ol>
+            </div>
+          </div>
+          <!-- End Bread crumb -->
+          <!-- Container fluid  -->
+          <div class="container-fluid">
+              <!-- Start Page Content -->
+
+              <div class="row justify-content-center">
+                  <div class="col-lg-12">
+                        <div class="card card-outline-info">
+                            <div class="card-header">
+                                <h4 class="m-b-0 text-white">Member Profile</h4>
+                            </div>
+                            <div class="card-body">
+                                <form class="form-horizontal">
+                                    <div class="form-body">
+                                        <div class="form-group">
+                                          <div class="row">
+                                              <div class="col-md-2 col-xs-6 b-r"> <strong>Full Name</strong>
+                                                  <br>
+                                                  <p class="text-muted"><%= staff.name %></p>
+                                              </div>
+                                              <div class="col-md-2 col-xs-6 b-r"> <strong>Mobile</strong>
+                                                  <br>
+                                                  <p class="text-muted"><%= staff.phone %></p>
+                                              </div>
+                                              <div class="col-md-2 col-xs-6 b-r"> <strong>RFID No.</strong>
+                                                  <br>
+                                                  <p class="text-muted"><%= staff.rfid %></p>
+                                              </div>
+                                              <div class="col-md-2 col-xs-6"> <strong>Department</strong>
+                                                  <br>
+                                                  <p class="text-muted"><%= staff.dept %></p>
+                                              </div>
+                                              <div class="col-md-2 col-xs-6"> <strong>Occupation</strong>
+                                                  <br>
+                                                  <p class="text-muted"><%= staff.ocp %></p>
+                                              </div>
+                                              <div class="col-md-2 col-xs-6"> <strong>Status</strong>
+                                                  <br>
+                                                  <p class="text-muted" id="sts"></p>
+                                              </div>
+                                          </div>
+                                        </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+              </div>
+              <div class="row justify-content-center">
+                  <div class="col-lg-12">
+                        <div class="card card-outline-warning">
+                            <div class="card-header">
+                                <h4 class="m-b-0 text-white">Book Borrowing Process</h4>
+                            </div>
+                            <% if(staff.status != '11') {%>
+                            <div class="card-body">
+                              <% if(record.status == '01' || record == "0"){%>
+                                <form class="form-horizontal">
+                                    <div class="form-body">
+                                        <div class="form-group row">
+                                          <div class="col-lg-6">
+                                          <div class="card card-outline-warning">
+                                              <div class="card-header">
+                                                  <h4 class="m-b-0 text-white">Scanning Barcode</h4>
+                                              </div>
+                                              <div class="card-body">
+                                                  <form class="form-horizontal">
+                                                      <div class="form-body">
+                                                          <div class="form-group row">
+                                                            <label class="col-lg-12 col-form-label text-center" for="barcode">Book's barcode </label>
+                                                            <div class="col-lg-10">
+                                                                <input type="text" class="form-control" id="barcode" name="barcode" placeholder="Please scan book barcode serial number">
+                                                            </div>
+                                                            </div>
+                                                          </div>
+
+                                                  </form>
+                                              </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                        <div class="card card-outline-warning">
+                                            <div class="card-header">
+                                                <h4 class="m-b-0 text-white">Book Lists</h4>
+                                            </div>
+                                            <div class="card-body">
+                                              <div class="table-responsive">
+                                                  <table class="table table-hover ">
+                                                      <thead>
+                                                          <tr>
+                                                              <th>#</th>
+                                                              <th>Book Name</th>
+                                                              <th>Author</th>
+                                                              <th>Duration</th>
+                                                          </tr>
+                                                      </thead>
+                                                      <tfoot >
+                                                          <tr>
+                                                              <th></th>
+                                                              <th></th>
+                                                              <th>Total</th>
+                                                              <th id="tol"></th>
+                                                          </tr>
+                                                      </tfoot>
+                                                      <tbody id="inTab">
+
+                                                      </tbody>
+                                                  </table>
+                                              </div>
+                                            </div>
+                                            <button type="button" id="btnborrow" class="btn btn-success btn-rounded m-b-10 m-l-5 ">Borrow</button>
+                                        </div>
+
+                                      </div>
+                                        </div>
+                                        </div>
+
+                                </form>
+                                <%} else{%>
+                                  <h2>Member cannot borrow before return borrowed books</h2>
+                                <%}%>
+                            </div>
+                            <%}else{%>
+                              <h2>Cannot allow block member for borrowing and returning process</h2>
+                              <%}%>
+                        </div>
+                    </div>
+
+                </div>
+                <% if(staff.status != '11'){%>
+              <div class="row justify-content-center">
+                  <div class="col-lg-12">
+                        <div class="card card-outline-success">
+                            <div class="card-header">
+                                <h4 class="m-b-0 text-white">Book Returning Process</h4>
+                            </div>
+                            <div class="card-body">
+                              <% if( record.status == '00' ){%>
+                              <form class="form-horizontal">
+                                  <div class="form-body">
+                                      <div class="form-group row">
+                                        <div class="col-lg-4">
+                                        <div class="card card-outline-success">
+                                            <div class="card-header">
+                                                <h4 class="m-b-0 text-white">Book Borrow Lists</h4>
+                                            </div>
+                                            <div class="card-body">
+                                              <div class="table-responsive">
+                                                  <table class="table table-hover ">
+                                                      <thead>
+                                                          <tr>
+                                                              <th>#</th>
+                                                              <th>Book Name</th>
+                                                              <th>Author</th>
+                                                              <th>Duration</th>
+                                                          </tr>
+                                                      </thead>
+                                                      <tfoot >
+
+                                                          <tr>
+                                                              <th></th>
+                                                              <th></th>
+                                                              <th>Total</th>
+                                                              <th ><%=record.tol_range %></th>
+                                                          </tr>
+                                                      </tfoot>
+                                                      <tbody id="borTab">
+                                                        <% if (record == 0){%>
+                                                           <p>Data not found!!</p>
+                                                        <%}else{%>
+                                                        <% if(record.books.length < 0 ){%>
+                                                          <p>Data Not Found!!</p>
+                                                        <%}else{%>
+                                                          <% for(var i = 0; i< record.books.length; i++){%>
+                                                            <tr id="bor<%=record.books[i].barcode%>">
+                                                              <th><%= i %></th>
+                                                              <th><%= record.books[i].name %></th>
+                                                              <th><%= record.books[i].author %></th>
+                                                              <th><%= record.books[i].range %></th>
+                                                            </tr>
+
+                                                            <%}%>
+                                                          <%}%>
+                                                        <%}%>
+                                                      </tbody>
+                                                  </table>
+                                              </div>
+                                            </div>
+
+                                        </div>
+
+                                      </div>
+                                        <div class="col-lg-4">
+                                        <div class="card card-outline-success">
+                                            <div class="card-header">
+                                                <h4 class="m-b-0 text-white">Scanning Barcode</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <form class="form-horizontal">
+                                                    <div class="form-body">
+                                                        <div class="form-group row">
+                                                          <label class="col-lg-12 col-form-label text-center" for="barcodeRec">Book's barcode </label>
+                                                          <div class="col-lg-10">
+                                                              <input type="text" class="form-control" id="barcodeRec" name="barcodeRec" placeholder="Please scan book barcode serial number">
+                                                          </div>
+
+                                                        </div>
+                                                        </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-4">
+                                      <div class="card card-outline-success">
+                                          <div class="card-header">
+                                              <h4 class="m-b-0 text-white">Book Returned Lists</h4>
+                                          </div>
+                                          <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table table-hover ">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>Book Name</th>
+                                                            <th>Author</th>
+                                                            <th>Duration</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tfoot >
+                                                          <tr>
+                                                              <th></th>
+                                                              <th></th>
+                                                              <th>Total</th>
+                                                              <th id="tolRec"></th>
+                                                          </tr>
+                                                    </tfoot>
+                                                    <tbody id="RecTab">
+                                                      <% if(record == 0){%>
+                                                      <p>Data not Found</p>
+                                                    <%}else{%>
+                                                      <% if(record.books.length < 0){%>
+                                                        <p>Data Not Found!!</p>
+                                                      <%}else{%>
+                                                        <% for(var i = 0; i< record.books.length; i++){%>
+                                                          <tr id="ret<%=record.books[i].barcode%>" hidden>
+                                                            <th><%= i %></th>
+                                                            <th><%= record.books[i].name %></th>
+                                                            <th><%= record.books[i].author %></th>
+                                                            <th><%= record.books[i].range %></th>
+                                                          </tr>
+
+                                                          <%}%>
+                                                        <%}%>
+                                                        <%}%>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                          </div>
+                                          <button type="button" id="btnreturn" hidden class="btn btn-success btn-rounded m-b-10 m-l-5 ">Return</button>
+                                      </div>
+
+                                    </div>
+
+                                      </div>
+                                      </div>
+
+                              </form>
+                              <%} else{%>
+                                <h2>No book borrowing history!!</h2>
+                                <%}%>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <%}%>
+              </div>
+
+        </div>
+              <!-- End PAge Content -->
+          </div>
+
+
+            <!-- End PAge Content -->
+          </div>
+          <!-- End Container fluid  -->
+          <!-- footer -->
+          <% include ../partial/footer %>
+          <!-- End footer -->
+        </div>
+        <!-- End Page wrapper  -->
+  </div>
+  <!-- End Wrapper -->
+  <!-- All Jquery -->
+  <% include ../partial/javascript %>
+  <script src="/javascripts/lib/form-validation/jquery.validate.min.js"></script>
+  <script src="/javascripts/lib/form-validation/jquery.validate-init.js"></script>
+  <script src="/javascripts/lib/sweetalert/sweetalert.min.js"></script>
+  <script src="/javascripts/underscore-min.js" charset="utf-8"></script>
+
+
+</body>
+<script type="text/javascript">
+switch ('<%= staff.status %>') {
+  case '00':
+   $('#sts').html('<span class="label label-rouded label-success pull-center">Normal</span>');
+    break;
+   case '01':
+   $('#sts').html('<span class="label label-rouded label-warning pull-center">Warning</span>');
+     break;
+   case "10":
+     $('#sts').html('<span class="label label-rouded label-default pull-center">Inactive</span>');
+     break;
+   case "11":
+     $('#sts').html('<span class="label label-rouded label-danger pull-center">Block</span>');
+     break;
+  default:
+   console.log('Unnormal');
+}
+</script>
+<script type="text/javascript">
+var borList = [];
+var retList = [];
+var tol_dur = 0;
+var retList = [];
+$('#barcode').keypress(function (e) {
+  if(e.keyCode == 13) {
+    e.preventDefault();
+    $.post(
+      '/books/barcheck',
+      {barcode : $('#barcode').val()}
+    ).done(function (res) {
+      var check = false;
+      if(res.status){
+        for(var j in borList){
+          console.log(borList[j],res.book._id);
+          if(borList[j]== res.book._id) {
+            check=true;
+            console.log('do');
+          }
+        }
+        if(check && borList.length>0){
+          sweetAlert("Oops...", "This Book is already inserted", "error");
+        }else{
+        borList.push(res.book._id);
+        $('#barcode').val('');
+        $('#barcode').focus();
+        tol_dur += res.book.book_range;
+        $('#tol').html(tol_dur +" days");
+
+        var inTab = document.getElementById('inTab');
+        var row = inTab.insertRow(0);
+        var cell0 = row.insertCell(0);
+        cell0.appendChild(document.createTextNode(1));
+        var cell1 = row.insertCell(1);
+        cell1.appendChild(document.createTextNode(res.book.book_name));
+        var cell2 = row.insertCell(2);
+        cell2.appendChild(document.createTextNode(res.book.book_author));
+        var cell3 = row.insertCell(3);
+        cell3.appendChild(document.createTextNode(res.book.book_range));
+
+      }
+    }else {
+      sweetAlert("Oops...", res.msg, "error");
+    }
+    }).fail(function (err) {
+      console.log(err.status);
+    });
+    }
+  // }
+});
+
+$('#btnborrow').click(function () {
+  swal({
+          title: "Checking Authorization",
+          text: "Enter Member's password!!",
+          type: "input",
+          inputType: "password",
+          showCancelButton: true,
+          closeOnConfirm: false,
+          animation: "slide-from-top",
+          inputPlaceholder: "Your Password Here"
+      },
+      function(inputValue){
+        if (inputValue === false) return false;
+        $.post(
+          '/books/pwdcheckstf',
+          {stf : '<%=staff._id%>', pwd : inputValue}
+        ).done(function (resc) {
+          if(resc.status){
+            $.post(
+              '/books/borrowstf',
+              {bor:JSON.stringify(borList) , stf: '<%= staff._id %>', tol_dur: tol_dur}
+            ).done(function (res) {
+              if(res.status){
+                swal({
+                  title: "Well Done",
+                  text: res.msg,
+                  type: "success",
+                  confirmButtonText: "OK",
+                  closeOnConfirm: true
+                },
+                function (isConfirm) {
+                  location.href = '/books/recordstf/<%= staff.rfid %>';
+                }
+              )
+              }else {
+                sweetAlert("Oops...", res.msg, "error");
+              }
+            });
+          }else {
+            swal.showInputError(resc.msg);
+            return false;
+          }
+        });
+
+      });
+
+
+
+});
+
+
+var booklist = [];
+<% if(record!=0){%>
+<% for(var k = 0; k< record.books.length; k++){%>
+  booklist.push('<%= record.books[k]._id %>');
+  <%}%>
+<%}%>
+var list_len = 0
+$('#barcodeRec').keypress(function (e) {
+  if(e.keyCode == 13) {
+    e.preventDefault();
+
+    <% if(record != 0) { %>
+      <% for(var i = 0; i< record.books.length; i++){%>
+          if('<%= record.books[i].barcode %>' == $('#barcodeRec').val() ){
+
+            if(list_len == <%= record.books.length %>){
+              console.log('same barcode');
+              return;
+            }
+            list_len ++;
+            retList.push('<%=record.books[i]._id %>');
+            var bar = '#bor'+$('#barcodeRec').val();
+            var ret = '#ret'+$('#barcodeRec').val();
+            $(bar).hide();
+            $(ret).removeAttr('hidden');
+          }
+
+      <%}%>
+      if(list_len == <%= record.books.length %>){
+        $('#btnreturn').removeAttr('hidden');
+      }
+
+    <%}%>
+    $('#barcodeRec').val('');
+    $('#barcodeRec').focus();
+    }
+});
+
+
+$('#btnreturn').click(function () {
+  console.log('init',booklist,retList);
+  var result = false;
+  for(var i = 0; i< booklist.length; i++){
+    for(var j in retList){
+      if(retList[j]== booklist[i]) result = true;
+      break;
+    }
+  }
+if(result){
+  console.log('equal');
+  $.post(
+    '/books/returnstf/<%=record._id%>',
+  ).done(function (res) {
+    if(res.status){
+      swal({
+        title: "Well Done",
+        text: res.msg,
+        type: "success",
+        confirmButtonText: "OK",
+        closeOnConfirm: true
+      },
+      function (isConfirm) {
+        location.href = '/books/recordstf/<%= staff.rfid %>';
+      }
+    )
+    }else {
+      sweetAlert("Oops...", res.msg, "error");
+    }
+  })
+}
+
+});
+
+
+</script>
+
+</html>

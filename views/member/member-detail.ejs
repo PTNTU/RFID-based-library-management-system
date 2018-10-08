@@ -214,7 +214,18 @@
                                                   <input type="text" value="<%= member.ent_id.name %>" id="name" readonly name="username" class="form-control form-control-line">
                                               </div>
                                           </div>
-
+                                          <div class="form-group">
+                                            <label for="example-email" class="col-md-12">Status</label>
+                                            <div class="col-md-12">
+                                              <select class="form-control" readonly id="status" name="status">
+                                                  <option value="">Select Status</option>
+                                                  <option value="00">Normal</option>
+                                                  <option value="01">Warning</option>
+                                                  <option value="10">Inactive</option>
+                                                  <option value="11">Block</option>
+                                              </select>
+                                            </div>
+                                        </div>
 
                                           <div class="form-group">
                                               <label class="col-md-12">RFID</label>
@@ -346,18 +357,7 @@
   socket.on('rfid',function (data) {
     if(data) $('#rfid').val(data);
   });
-  var date = new Date();
-  var yr = [];
-  date.setYear(date.getFullYear()-2);
-  yr[0]= date.getFullYear();
-  for (var i = 1; i < 4; i++) {
-    date.setYear(date.getFullYear()+1);
-    yr[i] = date.getFullYear();
-    $('#acyear').append(new Option(yr[i-1]+'/'+yr[i],yr[i]));
-  }
-  var year = Date.parse('<%= member.ac_year%>');
-  var date = new Date(year);
-  $('#acyear').val(date.getFullYear());
+
       $(function(){
         $("html").niceScroll({
             cursorcolor:"#16385d",
@@ -369,7 +369,7 @@
 
           $('#major').val('<%= member.major %>');
           $('#year').val('<%= member.year %>');
-          $('#status').val('<%= member.status %>');
+          $('#status').val('<%= member.status %>').change();
 
           switch ('<%= member.status %>') {
             case '00':
@@ -397,7 +397,6 @@
       // var memberPass = document.getElementById('memberPass');
       // var secPass = document.getElementById('secPass');
       var timeout = null;
-      var inName = ["#name","#major","#year","#status","#role","#phoneus","#rfid"];
 
       adminPass.onkeyup = function (e) {
         clearTimeout(timeout);
@@ -411,7 +410,9 @@
             if(res.status){
               $('#admshow').html(res.msg);
               $('#rfid').removeAttr('readonly');
+              $('#status').removeAttr('readonly');
               $('#save').removeAttr('disabled');
+              $('#remove_btn').removeAttr('hidden');
               $('#adminmsg').html('<i class = "fa fa-check" style ="color:green;"></i>');
               $('#adminsp').removeAttr('style');
             }else{

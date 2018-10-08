@@ -1,0 +1,158 @@
+/* --------------- 21 Testimonial Page ---------------- */
+.register-bg {
+	background:url(../img/extra/register-bg.jpg) no-repeat;
+	background-size: cover;
+	.overlay-bg {
+		background:rgba(0,30,50,.6);
+	}
+	@include mobile {
+		height: auto !important;
+	}
+}
+.register-content {
+	margin-top: 190px;
+	@include tablet {
+		margin-top: 140px;
+	}
+	@include mobile {
+		margin-top: 120px;
+	}
+	h1 {
+		color: $light;
+		font-size: 36px;
+		@include tablet {
+			font-size: 26px;
+		}
+		@include mobile {
+			font-size: 26px;
+		}
+	}
+	p {
+		color: $light;
+	}
+	.btn {
+		padding: 0 30px;
+	}
+}
+.register-form {
+	padding: 50px;
+	background: $light;
+	@include cmq (1201px, 1919px) {
+		padding: 30px;
+	}
+	@include tablet {
+		padding: 30px;
+	}
+	@include mobile {
+		margin-top: 30px;
+		padding: 30px;
+	}
+	h3 {
+		text-align: center;
+		font-size: 36px;
+		margin-bottom: 50px;
+		@include cmq (1201px, 1919px) {
+			margin-bottom: 30px;
+		}
+		@include tablet {
+			margin-bottom: 20px;
+			font-size: 26px;
+		}
+		@include mobile {
+			padding: 20px;
+			font-size: 26px;
+		}
+	}
+	label {
+		font-size: 14px;
+		color: $title-color;
+		font-weight: 400;
+		margin-bottom: 7px;
+	}
+	p {
+		margin-bottom: 2px;
+		input {
+			width: 100%;
+			background: #fff none repeat scroll 0 0;
+			border: 1px solid #eeeeee;
+			color: #333333;
+			font-size: 13px;
+			margin-bottom: 10px;
+			padding: 8px 20px;
+			box-shadow: 2.121px 2.121px 7px 0 rgba(0, 0, 0, 0.1);
+			font-weight: 400px;
+
+		}
+		
+		.btn {
+			width: 100%;
+		}
+	}
+	.forgot {
+		text-align: center;
+		@include mobile {
+			text-align: left;
+		}
+		a {
+			display: inline-block;
+		}
+	}
+	.forgot {
+		margin-top: 10px;
+	}
+	
+}
+.login-form {
+	padding: 72px 50px;
+	h3 {
+		margin-bottom: 90px;
+	}
+	@include mobile {
+		padding: 50px 30px;
+		h3 {
+			font-size: 26px;
+			margin-bottom: 30px;
+		}
+	}
+}
+.login {
+	.register-content {
+		margin-top: 160px;
+	}
+}
+.check {
+	position: relative;
+	margin-bottom: 10px;
+	input[type="checkbox"] {
+		margin-right: 17px;
+		opacity: 0;
+	}
+	span {
+		width: 12px;
+		height: 12px;
+		background: #f3f3f3;
+		display: inline-block;
+		position: absolute;
+		left: 1px;
+		top: 5px;
+		border-radius: 2px;
+		&:before {
+			position: absolute;
+			content: '';
+
+		}
+	}
+	input:checked + label > span {
+		position: absolute;
+		background: $text-color;
+	}
+	input:checked + label > span:before {
+		content: "\f00c";
+		font-family: "fontAwesome";
+		font-size: 8px;
+		position: absolute;
+		top: -4px;
+		left: 2.5px;
+		color: $light;
+	}
+}

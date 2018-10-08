@@ -2,6 +2,17 @@
 <html lang="en">
 
 <head>
+  <style media="screen">
+    .img-label img{
+      width: 25rem;
+    }
+    .img-label{
+      cursor: pointer;
+    }
+    .img-container img{
+      max-width: 100%;
+    }
+  </style>
   <% include ../partial/head %>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->
@@ -53,7 +64,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="form-validation">
-                                    <form class="form-valide" action="/books/add" method="post">
+                                    <form class="form-valide" action="/books/add" method="post" enctype="multipart/form-data">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="book_name">Book Name <span class="text-danger">*</span></label>
                                             <div class="col-lg-6">
@@ -124,6 +135,17 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="book_author">Image <span class="text-danger">*</span></label>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label class="img-label" data-toggle="tooltip" title="Select photo">
+                                                        <img class="rounded" id="photo" src="/images/upload.png" alt="Image">
+                                                        <input type="file" class="sr-only" id="uploadImg" name="uploadImg" accept="images/*">
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="pub_date">Published Date <span class="text-danger">*</span></label>
                                             <div class="col-lg-6">
                                                 <input type="date" class="form-control" id="pub_date" name="pub_date" placeholder="Published Date">
@@ -141,7 +163,12 @@
                                                 <input type="text" class="form-control" id="barcode" name="barcode" placeholder="489834343343424545">
                                             </div>
                                         </div>
-
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="description">Description <span class="text-danger">*</span></label>
+                                            <div class="col-lg-6">
+                                                <textarea class="form-control" id="description" name="desc" placeholder="Book description" rows="5" cols="5"></textarea>
+                                            </div>
+                                        </div>
                                         <div class="form-group row">
                                             <div class="col-lg-8 ml-auto">
                                                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -163,6 +190,21 @@
         </div>
         <!-- End Page wrapper  -->
     </div>
+    <div class="modal fade"  tabindex="-1" role="dialog" id="modal">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="img-container">
+                <img src="/images/upload.png" id="sourceImg" alt="">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button id="crop" type="button" class="btn btn-link waves-effect">Crop</button>
+              <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+            </div>
+          </div>
+        </div>
+      </div>
     <!-- End Wrapper -->
     <!-- All Jquery -->
     <% include ../partial/javascript %>
@@ -172,21 +214,24 @@
     <script src="/javascripts/lib/toastr/toastr.min.js"></script>
     <!-- scripit init-->
     <script src="/javascripts/lib/toastr/toastr.init.js"></script>
+    <!-- <script src="/js/jquery.js" charset="utf-8"></script> -->
+    <!-- <script src="/js/cropper.js" charset="utf-8"></script> -->
+    <!-- <script src="/js/jquery-cropper.js" charset="utf-8"></script> -->
 
 
 </body>
 <script type="text/javascript">
-  $('#book_name').blur(function () {
-    var data = { book : $('#book_name').val()};
-    if(data.book == '') return;
-    $.ajax({url:"/books/duplicate", data:data, type:"POST", success: function (result) {
-      if(result.status == false){
-        sweetAlert("Oops...", result.msg, "error");
-        $('#book_name').val('');
-        $('#book_name').focus();
-      }
-    }});
-  });
+  // $('#book_name').blur(function () {
+  //   var data = { book : $('#book_name').val()};
+  //   if(data.book == '') return;
+  //   $.ajax({url:"/books/duplicate", data:data, type:"POST", success: function (result) {
+  //     if(result.status == false){
+  //       sweetAlert("Oops...", result.msg, "error");
+  //       $('#book_name').val('');
+  //       $('#book_name').focus();
+  //     }
+  //   }});
+  // });
 
 var categories = [<%- cat%>];
 console.log(categories);
@@ -209,7 +254,71 @@ console.log(categories);
             }
         }
     }
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
 
+            reader.onload = function (e) {
+                $('#photo').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#uploadImg").change(function(){
+        readURL(this);
+        console.log('calll');
+    });
+    // var $modal = $('#modal');
+    //      var uploadImg = document.getElementById('uploadImg'); // upload file
+    //      uploadImg.addEventListener('change', function (e) {
+    //          var files = e.target.files;
+    //          var done = function (url) {
+    //            uploadImg.value = '';
+    //            $('#sourceImg').attr('src', url);
+    //            $modal.modal('show');
+    //          };
+    //          var reader;
+    //          var file;
+    //          var url;
+    //          if (files && files.length > 0) {
+    //            file = files[0];
+    //            if (URL) {
+    //              done(URL.createObjectURL(file));
+    //            } else if (FileReader) {
+    //              reader = new FileReader();
+    //              reader.onload = function (e) {
+    //                done(reader.result);
+    //              };
+    //              reader.readAsDataURL(file);
+    //            }
+    //          }
+    //      });
+    //      var cropper;
+    //      var canvas;
+    //      var sourceImg = document.getElementById('sourceImg');
+    //      $modal.on('shown.bs.modal', function () {
+    //        cropper = new Cropper(sourceImg, {
+    //            aspectRatio: 16 / 9,
+    //            preview: '.img-preview',
+    //            viewMode: 1,
+    //        });
+    //      }).on('hidden.bs.modal', function () {
+    //        cropper.destroy();
+    //        cropper = null;
+    //      });
+    //
+    //      $('#crop').click( function () {
+    //        $modal.modal('hide');
+    //        if (cropper) {
+    //          canvas = cropper.getCroppedCanvas({
+    //            width: 320,
+    //            height: 180,
+    //          });
+    //          $('#photo').attr('src', canvas.toDataURL() ); // change cropped image
+    //        }
+    //      });
 
 </script>
 

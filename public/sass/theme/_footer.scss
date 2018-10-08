@@ -1,0 +1,453 @@
+.footer-widget {
+	padding-top: 150px;
+	.tb-height {
+		@include tablet {
+			min-height: 350px;
+		}
+		@include mobile {
+			min-height: 350px;
+		}
+	}
+	ul.footer-address {
+		margin-top: 20px;
+		li {
+			margin-top: 10px;
+			span {
+				margin-right: 15px;
+				color: $primary-color;
+				font-size: 18px;
+			}
+		}
+	}
+	.footer-widget-link {
+		li {
+			margin-top: 5px;
+			a {
+				&:hover {
+					color: $primary-color;
+				}
+			}
+		}
+	}
+	.footer-widget-course {
+		.media-left {
+			padding-right: 20px;
+		}
+		.media-heading {
+			font-size: 14px;
+			a {
+				&:hover {
+					color: $primary-color;
+				}
+			}
+		}
+	}
+	.footer-widget-contact {
+		form {
+			margin-top: 10px;
+			p {
+				margin: 0;
+				input {
+			 	border: 1px solid #eeeeee;
+				color: #333333;
+				font-size: 13px;
+				margin-bottom: 10px;
+				padding: 6px 20px;
+				@include transition(all .3s ease 0s);
+				width: 100%;
+				background: transparent;
+				&:focus {
+				    	box-shadow: 7.071px 7.071px 30px 0px rgba(0, 0, 0, 0.1);
+				    	outline: none;
+				    	border: 1px solid #f7f7f7;
+				    }
+			 	}
+			 	textarea {
+			 		border: 1px solid #e2e2e2;
+				    color: #333333;
+				    margin-bottom: 8px;
+				    font-size: 13px;
+				    padding: 15px;
+				    resize: none;
+				    @include transition(all .3s ease 0s);
+				    width: 100%;
+				    background: transparent;
+				    height: 120px;
+				    &:focus {
+				    	box-shadow: 7.071px 7.071px 30px 0px rgba(0, 0, 0, 0.1);
+				    	outline: none;
+				    	border: 1px solid #f7f7f7;
+				    }
+			 	}
+			 	.submit-btn {
+			 		width: 100% !important;
+			 	}
+			}
+		}
+	}
+
+}
+.footer-social-link {
+	margin-top: 50px;
+	ul {
+		position: relative;
+		z-index: 0;
+		&:after {
+			position: absolute;
+			content: "";
+			width: 100%;
+			height: 1px;
+			background: #eeeeee;
+			top: 50%;
+			margin-top: -.5px;
+			z-index: -1;
+			left: 0;
+		}
+		li {
+			a {
+				width: 35px;
+				height: 35px;
+				border-radius: 50%;
+				border: 1px solid #eeeeee;
+				display: inline-block;
+				line-height: 35px;
+				text-align: center;
+				margin-left: 5px;
+				margin-right: 5px;
+				background: #f9f9f9;
+				@include transition (all .3s ease 0s);
+				&:hover {
+					background: $primary-color;
+					color: #fff;
+					border: none;
+					border: 1px solid  #f9f9f9;
+				}
+			}
+		}
+	}
+	
+}
+.footer-bottom-text {
+	margin: 25px 0;
+	text-align: center;
+	p {
+		a {
+			color: $primary-color;
+		}
+	}
+}
+
+/* ----------Footer Two Design---------------- */
+
+.footer2 {
+	.footer-widget {
+		color: $dark-gray;
+		.second-title {
+			color: $dark-gray;
+		}
+		.footer-widget-link {
+			li {
+				a {
+					color: $dark-gray;
+					&:hover {
+						color: $primary-color;
+					}
+				}
+			}
+		}
+		.footer-widget-course {
+			.media-heading {
+				
+				a {
+					color: $dark-gray;
+					&:hover {
+						color: $primary-color;
+					}
+				}
+			}
+		}
+		.footer-widget-contact {
+			form {
+				p {
+					input {
+						border: 1px solid #233d4e;
+						color: $dark-gray;
+						&:focus {
+							box-shadow: none;
+							border: 1px solid #778690;
+						}
+					}
+					textarea {
+						border: 1px solid #233d4e;
+						color: $dark-gray;
+						&:focus {
+							box-shadow: none;
+							border: 1px solid #778690;
+						}
+					}
+					.submit-btn {
+						width: 100% !important;
+					}
+				}
+			}
+		}
+
+	}
+	.footer-social-link {
+		ul {
+			&:after {
+				background: #264051;
+			}
+			li {
+				a {
+					border: 1px solid #264051;
+					color: #fff;
+					background: $blue-color;
+					@include transition (all .3s ease 0s);
+					&:hover {
+						background: $primary-color;
+						border: 1px solid  $primary-color;
+					}
+				}
+			}
+		}
+	}
+	.footer-bottom-text {
+		p {
+			color: $dark-gray;
+			a {
+				color: $primary-color;
+			}
+		}
+	}
+}
+/* ----------------05 Home Kindergarten ---------------- */
+.kindergarten-footer {
+	h1, h2, h3, h4, h5, h6 {
+		font-family: 'Pacifico', cursive;
+	}
+	.footer-widget ul.footer-address li span {
+		color: #ac40ff;
+	}
+	.footer-widget-link {
+		li {
+			a {
+				color: $text-color;
+				&:hover {
+					color: #ac40ff;
+				}
+			}
+		}
+	}
+	.second-title::after {
+		margin-top: 3px;
+	}
+	.widget1 {
+		.second-title::after {
+			background: #ac40ff;
+		}
+	}
+	.widget2 {
+		.second-title::after {
+			background: #96cd39;
+		}
+	}
+	.widget3 {
+		.second-title::after {
+			background: #fbbc05;
+		}
+	}
+	.footer-widget-course {
+		.media-heading {
+			a {
+				&:hover {
+					color: #96cd39;
+				}
+			}
+		}
+		.media-body {
+			span {
+				color: #96cd39;
+			}
+		}
+	}
+	.footer-widget-contact {
+		form {
+			.submit-btn {
+				background: #fbbc05;
+				&:hover {
+					background: $light;
+					color: #fbbc05;
+				}
+			}
+		}
+	}
+	.footer-social-link {
+		ul {
+			li {
+				a {
+					&:hover {
+						background: #ac40ff;
+						border: 1px solid  #ac40ff;
+					}
+				}
+			}
+		}
+	}
+	.footer-bottom-text {
+		p {
+			a {
+				color: #ac40ff;
+			}
+		}
+	}
+}
+/* ----------------07 Home Designing---------------- */
+.footer7 {
+	::-moz-selection { /* Code for Firefox */
+        background-color: $primary-color2;
+        color: $light;
+    }
+    ::selection {
+        background-color: $primary-color2;
+        color: $light;
+    }
+	.second-title::after {
+		background: $primary-color2;
+	}
+	.footer-widget ul.footer-address li span {
+		color: $primary-color2;
+	}
+	.reviews .fa-star {
+		color: $primary-color2;
+	}
+	.footer-widget .footer-widget-contact form p {
+		.btn {
+			background: $primary-color2;
+			color: $light;
+			&:hover {
+				color: $primary-color2;
+				background: $light;
+			}
+		}
+	}
+	.footer-social-link ul li a {
+		&:hover {
+			background: $primary-color2;
+			border: 1px solid $primary-color2;
+		}
+	}
+	.footer-bottom-text p a {
+		color: $primary-color2;
+	}
+	.footer-widget .footer-widget-link li a {
+		&:hover {
+			color: $primary-color2;
+		}
+	}
+	.footer-widget .footer-widget-course .media-heading a {
+		&:hover {
+			color: $primary-color2;
+		}
+	}
+}
+
+/* ----------------08 Home Cooking---------------- */
+.footer8 {
+	background: #f3f3f3;
+	::-moz-selection { /* Code for Firefox */
+        background-color: $primary-color3;
+        color: $light;
+    }
+    ::selection {
+        background-color: $primary-color3;
+        color: $light;
+    }
+	.footer-widget {
+		color: $text-color;
+	}
+	.footer-widget .second-title {
+		color: $title-color;
+	}
+	.second-title::after {
+		background: $primary-color3;
+	}
+	.footer-widget ul.footer-address li span {
+		color: $primary-color3;
+	}
+	.reviews .fa-star {
+		color: $primary-color3;
+	}
+	.footer-widget .footer-widget-contact form p {
+		color: $text-color;
+		.btn {
+			background: $primary-color3;
+			color: $light;
+			&:hover {
+				color: $primary-color3;
+				background: $light;
+			}
+		}
+	}
+	.footer-social-link ul li a {
+		background: #f3f3f3;
+		color: $title-color;
+		border: 1px solid #e3e3e3;
+		&:hover {
+			background: $primary-color3;
+			border: 1px solid $primary-color3;
+			color: $light;
+		}
+	}
+	.footer-bottom-text p a {
+		color: $primary-color3;
+	}
+	.footer-widget .footer-widget-link li a {
+		color: $text-color;
+		&:hover {
+			color: $primary-color3;
+		}
+	}
+	.footer-widget .footer-widget-course .media-heading a {
+		color: $text-color;
+		&:hover {
+			color: $primary-color3;
+		}
+	}
+	.footer-widget .footer-widget-contact form p input {
+		border: 1px solid #e3e3e3;
+		color: $text-color;
+		&:focus {
+			box-shadow: 7.071px 7.071px 30px 0px rgba(0, 0, 0, 0.1);
+			outline: none;
+			border: 1px solid #f3f3f3;
+		}
+	}
+	.footer-widget .footer-widget-contact form p textarea {
+		border: 1px solid #e3e3e3;
+		color: $text-color;
+		&:focus {
+			box-shadow: 7.071px 7.071px 30px 0px rgba(0, 0, 0, 0.1);
+			outline: none;
+			border: 1px solid #f3f3f3;
+		}
+	}
+	.footer-social-link ul::after {
+		background: #e3e3e3;
+	}
+	.footer-bottom-text p {
+		color: $text-color;
+	}
+}
+
+.submit-btn2 {
+	background: $light;
+	color: $title-color;
+	box-shadow: 7.071px 7.071px 30px 0px rgba(0, 0, 0, 0.1);
+	&:hover {
+		background: $primary-color;
+		color: $light;
+	}
+}
+
+

@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+    <% include ../partial/user_head %>
+    <body>
+<main class="kindergarten">
+<% include ../partial/user_header %>
+<div class="search-area">
+    <div class="container">
+        <div class="row fitscreen flex flex-middle relative">
+            <form action="#" class="search-form">
+                <input placeholder="Search your query and press “Enter”" type="text">
+            </form>
+        </div>
+    </div>
+</div>
+<section id="slider" class="slider-section relative">
+    <div class="slider1 deafult-slider kindergarten-slider">
+        <div class="item relative  fitscreen flex flex-middle" style="background: url(/img/learning-for-life.jpeg);">
+            <div class="overlay content-bg"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-sm-10 col-xs-12">
+                        <div class="slide-content">
+                            <h1>Learn For Life</h1>
+                            <p class="light ">There are no secrets to success. It is the result of preparation, hard work, and learning from failure.</p>
+                            <h3 class="light">Colin Powell</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item relative  fitscreen flex flex-middle" style="background: url(/images/success.jpg);background-position: center;">
+            <div class="overlay content-bg"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9 col-sm-10 col-xs-12">
+                        <div class="slide-content">
+                            <h1>Success</h1>
+                            <p class="light ">Success is no accident. It is hard work, perseverance, learning, studying, sacrifice and most of all, love of what you are doing or learning to do.</p>
+                            <h3 class="light">Pele</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item relative  fitscreen flex flex-middle" style="background: url(/images/teamwork.jpg); background-position: center;">
+            <div class="overlay content-bg"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9 col-sm-10 col-xs-12">
+                        <div class="slide-content">
+                            <h1>Teamwork</h1>
+                            <p class="light ">Unity is strength... when there is teamwork and collaboration, wonderful things can be achieved.</p>
+                            <h3 class="light">Mattie Stepanek</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Kindergarten Special Start -->
+<section class="section-full">
+    <div class="container">
+        <div class="educare-special">
+            <div class="row">
+                <div class="col-md-offset-2 col-md-8 col-sm-12">
+                    <div class="section-head s-head1 text-center pb-100">
+                        <h2 class="first-title">Top Borrow List</h2>
+                        <p>There are many kinds of book in the library.Among than we calculate the top borrowed list depand on the member borrow!!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+              <% if(blist.length < 4){%>
+                <h2>Data Not Found!!</h2>
+              <%}else{%>
+                <div class="total-special">
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="single-special">
+                            <div class="special-img">
+                                <img src="/images/one.png" alt="" class="img-responsive">
+                            </div>
+                            <h3><a href="#"><%=blist[0].book_name%></a></h3>
+                            <span>Author: <%=blist[0].book_author%></span>
+                            <br><br>
+                            <span>Categories: <%=blist[0].main_cat%></span>
+                            <div class="sp-corner1">
+                                <div class="mini-corner1"></div>
+                                <div class="mini-corner2"></div>
+                            </div>
+                            <div class="sp-corner2">
+                                <div class="mini-corner1"></div>
+                                <div class="mini-corner2"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="single-special special2">
+                            <div class="special-img">
+                                <img src="/images/2.png" alt="" class="img-responsive">
+                            </div>
+                            <h3><a href="#"><%=blist[1].book_name%></a></h3>
+                            <span>Author: <%=blist[1].book_author%></span>
+                            <br><br>
+                            <span>Categories: <%=blist[1].main_cat%></span>
+                            <div class="sp-corner1">
+                                <div class="mini-corner1"></div>
+                                <div class="mini-corner2"></div>
+                            </div>
+                            <div class="sp-corner2">
+                                <div class="mini-corner1"></div>
+                                <div class="mini-corner2"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="single-special special3">
+                            <div class="special-img">
+                                <img src="/images/three.png" alt="" class="img-responsive">
+                            </div>
+                            <h3><a href="#"><%=blist[2].book_name%></a></h3>
+                            <span>Author: <%=blist[2].book_author%></span>
+                            <br><br>
+                            <span>Categories: <%=blist[2].main_cat%></span>
+                            <div class="sp-corner1">
+                                <div class="mini-corner1"></div>
+                                <div class="mini-corner2"></div>
+                            </div>
+                            <div class="sp-corner2">
+                                <div class="mini-corner1"></div>
+                                <div class="mini-corner2"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="single-special special4">
+                            <div class="special-img">
+                                <img src="/images/four.png" alt="" class="img-responsive">
+                            </div>
+                            <h3><a href="#"><%=blist[3].book_name%></a></h3>
+                            <span>Author: <%=blist[3].book_author%></span>
+                            <br><br>
+                            <span>Categories: <%=blist[3].main_cat%></span>
+                            <div class="sp-corner1">
+                                <div class="mini-corner1"></div>
+                                <div class="mini-corner2"></div>
+                            </div>
+                            <div class="sp-corner2">
+                                <div class="mini-corner1"></div>
+                                <div class="mini-corner2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <%}%>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Kindergarten Special Start -->
+<!-- Kindergarten Special Start -->
+<section class="section-full special-programs relative">
+    <div class="overlay overlay-bg"> </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8 col-sm-12">
+                <div class="section-head s-head1 text-center pb-100">
+                    <h2 class="first-title">Library Rules and security</h2>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="total-programs">
+                <div class="col-md-4 col-sm-6">
+                    <div class="single-program flex">
+                        <div class="icon">
+                            <h1><span class="i1 fa fa-graduation-cap"></span></h1>
+                        </div>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <div class="program-body">
+                            <h4 class="ph1"><a href="#">Validate for student</a></h4>
+                            <b><p>Students' member validation is until the student finish their period of student life!!</p></b>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="single-program flex">
+                        <div class="icon">
+                          <h1><span class="i2 fa fa-unlock-alt"></span></h1>
+                        </div>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <div class="program-body">
+                            <h4 class="ph2"><a href="#">Password security</a></h4>
+                            <b><p>Password can change only member and anyone cann't borrowing without knowing Password</p></b>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="single-program flex">
+                        <div class="icon">
+                          <h1><span class="i3 fa fa-exclamation-triangle"></span></h1>
+                        </div>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <div class="program-body">
+                            <h4 class="ph3"><a href="#">Warning process</a></h4>
+                            <b><p>If member is not return borrowed books within range, member's card change to warning card!!</p></b>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="single-program flex">
+                        <div class="icon">
+                            <h1><span class="i4 fa fa-university"></span></h1>
+                        </div>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <div class="program-body">
+                            <h4 class="ph4"><a href="#">Validate for staff</a></h4>
+                            <b><p>Staffs' member validation is until the staff finish their staff period for the university!!</p></b>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="single-program flex">
+                        <div class="icon">
+                          <h1><span class="i5 fa fa-id-card"></span></h1>
+                        </div>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <div class="program-body">
+                            <h4 class="ph5"><a href="#">Member card activity</a></h4>
+                            <b><p>Member card is unique only for one member. So, no duplicate member card!!</p></b>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="single-program flex">
+                        <div class="icon">
+                          <h1><span class="i6 fa fa-ban"></span></h1>
+                        </div>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <div class="program-body">
+                            <h4 class="ph6"><a href="#">Blocking process</a></h4>
+                            <b><p>When member is breaking some rules, member card is lost or other process, admin can block the member card!!</p></b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Kindergarten Special Start -->
+<!-- Regular Class Area Start -->
+<section class="regular-classes section-full">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8 col-sm-12">
+                <div class="section-head s-head1 text-center pb-100">
+                    <h2 class="first-title">Total Users In Database</h2>
+                    <p>There are many users in database but divided three role. They are student,member and staff member.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="total-classes">
+                <div class="col-sm-4">
+                    <div class="single-classes first-class">
+                        <div class="class-img relative">
+                            <img src="/images/student.png" alt="" class="img-responsive">
+                            <div class="overlay overlay-bg"></div>
+                        </div>
+                        <div class="class-content">
+                            <h3><a href="#">Total Students</a></h3>
+                            <h2><%=student%></h2>
+                            <br>
+                            <ul>
+                                <li>All students in university</li>
+                                <li>All is not register in library </li>
+                                <li id="acyear"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="single-classes second-class">
+                        <div class="class-img relative">
+                            <img src="/images/add.png" alt="" class="img-responsive">
+                            <div class="overlay overlay-bg"></div>
+                        </div>
+                        <div class="class-content">
+                            <h3><a href="#">Total Student Member</a></h3>
+                            <h2><%=member%></h2>
+                            <br>
+                            <ul>
+                                <li>Total registerd student member</li>
+                                <li>All registered in library</li>
+                                <li id="a_year"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="single-classes third-class">
+                        <div class="class-img relative">
+                            <img src="/images/user.png" alt="" class="img-responsive">
+                            <div class="overlay overlay-bg"></div>
+                        </div>
+                        <div class="class-content">
+                            <h3><a href="#">Total Staff Member</a></h3>
+                            <h2><%=staff%></h2>
+                            <br>
+                            <ul>
+                                <li>All staff registered in library </li>
+                                <li>Can use until finish their period</li>
+                                <li id="c_year"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- / #Regular Class Area End  -->
+<!-- Chairman Msg Start -->
+<section id="chair-msg" class="relative kindergarten-principal chair-msg">
+    <div class="chairman-bg">
+        <div class="overlay test-overlay-bg"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-7">
+                    <div class="chairman-text">
+                        <h2 class="first-title" style="color:yellow;">Words from Developer</h2>
+                        <p style="color:cyan; font-size:18px;">I recomanded to join the smart library because this library will increase your knowledge.If you get some good things, my creation is complete and my tried is gone!!😍😍😍😍</p>
+                        <img src="/images/sign.png" alt="" width="200px"class="sign img-responsive">
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <div class="chairman-img">
+                        <img src="/images/developer_Fotor.jpg" alt="" width="300px" class="img-responsive">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Chairman Msg End -->
+<!-- Notice Board Start -->
+<!-- <section class="section-full bg-gray kindergarten-notice">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-offset-10">
+                <div class="section-head text-center pb-100">
+                    <h2 class="first-title">Notice Board</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adippisicing
+                    elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="total-notice">
+                <div class="col-sm-6 col-xs-12">
+                    <div class="single-notice notice1">
+                        <h3><a href="18-publication-details.html" target="_blank">New intake</a></h3>
+                        <p class="credit">By <span>Lara croft</span>, Jan 21st 2017</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                        <div class="notice-comment flex space-between">
+                            <div class="notice-left">
+                                <a href="#"><i class="et-line icon-heart"></i>168</a>
+                                <span>|</span>
+                                <a href="#"><i class="et-line icon-chat"></i>25</a>
+                            </div>
+                            <div class="notice-right">
+                                <a href="18-publication-details.html" target="_blank"><i class="fa fa-long-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xs-12">
+                    <div class="single-notice notice2">
+                        <h3><a href="18-publication-details.html" target="_blank">Our Kindergarten Anniversary</a></h3>
+                        <p class="credit">By <span>Lara croft</span>, Jan 21st 2017</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                        <div class="notice-comment flex space-between">
+                            <div class="notice-left">
+                                <a href="#"><i class="et-line icon-heart"></i>168</a>
+                                <span>|</span>
+                                <a href="#"><i class="et-line icon-chat"></i>25</a>
+                            </div>
+                            <div class="notice-right">
+                                <a href="18-publication-details.html" target="_blank"><i class="fa fa-long-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xs-12">
+                    <div class="single-notice notice3">
+                        <h3><a href="18-publication-details.html" target="_blank">How Kids make sense of Life</a></h3>
+                        <p class="credit">By <span>Lara croft</span>, Jan 21st 2017</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                        <div class="notice-comment flex space-between">
+                            <div class="notice-left">
+                                <a href="#"><i class="et-line icon-heart"></i>168</a>
+                                <span>|</span>
+                                <a href="#"><i class="et-line icon-chat"></i>25</a>
+                            </div>
+                            <div class="notice-right">
+                                <a href="18-publication-details.html" target="_blank"><i class="fa fa-long-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xs-12">
+                    <div class="single-notice notice4">
+                        <h3><a href="18-publication-details.html" target="_blank">New intake</a></h3>
+                        <p class="credit">By <span>Lara croft</span>, Jan 21st 2017</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                        <div class="notice-comment flex space-between">
+                            <div class="notice-left">
+                                <a href="18-publication-details.html" target="_blank"><i class="et-line icon-heart"></i>168</a>
+                                <span>|</span>
+                                <a href="18-publication-details.html" target="_blank"><i class="et-line icon-chat"></i>25</a>
+                            </div>
+                            <div class="notice-right">
+                                <a href="18-publication-details.html" target="_blank"><i class="fa fa-long-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xs-12">
+                    <div class="single-notice notice5">
+                        <h3><a href="18-publication-details.html" target="_blank">New intake</a></h3>
+                        <p class="credit">By <span>Lara croft</span>, Jan 21st 2017</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                        <div class="notice-comment flex space-between">
+                            <div class="notice-left">
+                                <a href="#"><i class="et-line icon-heart"></i>168</a>
+                                <span>|</span>
+                                <a href="#"><i class="et-line icon-chat"></i>25</a>
+                            </div>
+                            <div class="notice-right">
+                                <a href="18-publication-details.html" target="_blank"><i class="fa fa-long-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xs-12">
+                    <div class="single-notice notice6">
+                        <h3><a href="18-publication-details.html" target="_blank">How Kids make sense of Life</a></h3>
+                        <p class="credit">By <span>Lara croft</span>, Jan 21st 2017</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                        <div class="notice-comment flex space-between">
+                            <div class="notice-left">
+                                <a href="#"><i class="et-line icon-heart"></i>168</a>
+                                <span>|</span>
+                                <a href="#"><i class="et-line icon-chat"></i>25</a>
+                            </div>
+                            <div class="notice-right">
+                                <a href="18-publication-details.html" target="_blank"><i class="fa fa-long-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+<!-- Notice Board End -->
+<!-- <section class="cta-1 kindergarten-cta">
+    <div class="cta-bg4 relative"  data-velocity=".2">
+        <div class="overlay cta-overlay-bg4"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="cta-content">
+                        <h2>We are going to a picnic this easter!</h2>
+                        <div class="picnic-countdown">
+                            <div class="countdown flex" id="js-countdown">
+                                <div class="countdown__item">
+                                    <div class="countdown__timer js-countdown-days days common" aria-labelledby="day-countdown">
+
+                                    </div>
+
+                                    <div class="countdown__label title" id="day-countdown">Days</div>
+                                </div>
+
+                                <div class="countdown__item">
+                                    <div class="countdown__timer hours common js-countdown-hours" aria-labelledby="hour-countdown">
+
+                                    </div>
+
+                                    <div class="countdown__label title" id="hour-countdown">Hours</div>
+                                </div>
+
+                                <div class="countdown__item">
+                                    <div class="countdown__timer minutes common js-countdown-minutes" aria-labelledby="minute-countdown">
+
+                                    </div>
+
+                                    <div class="countdown__label title" id="minute-countdown">Minutes</div>
+                                </div>
+
+                                <div class="countdown__item">
+                                    <div class="countdown__timer seconds common js-countdown-seconds" aria-labelledby="second-countdown">
+
+                                    </div>
+
+                                    <div class="countdown__label title" id="second-countdown">Seconds</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="btn">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+<!-- Testimonial Area Start -->
+<!-- <section class="section-full kindergarten-testimonial">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="active-test-carousel">
+                    <div class="single-carousel">
+                        <div class="single-testimonial test1">
+                            <div class="icon">
+                                <span class="et-line  icon-quote"></span>
+                            </div>
+                            <div class="test-body">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                                <h4>Lara Croft Johnson</h4>
+                                <span>Father of pre school student</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-carousel">
+                        <div class="single-testimonial test2">
+                            <div class="icon">
+                                <span class="et-line  icon-quote"></span>
+                            </div>
+                            <div class="test-body">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                                <h4>Lara Croft Johnson</h4>
+                                <span>Father of pre school student</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-carousel">
+                        <div class="single-testimonial test1">
+                            <div class="icon">
+                                <span class="et-line  icon-quote"></span>
+                            </div>
+                            <div class="test-body">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                                <h4>Lara Croft Johnson</h4>
+                                <span>Father of pre school student</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-carousel">
+                        <div class="single-testimonial test2">
+                            <div class="icon">
+                                <span class="et-line  icon-quote"></span>
+                            </div>
+                            <div class="test-body">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                                <h4>Lara Croft Johnson</h4>
+                                <span>Father of pre school student</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-carousel">
+                        <div class="single-testimonial test1">
+                            <div class="icon">
+                                <span class="et-line  icon-quote"></span>
+                            </div>
+                            <div class="test-body">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                                <h4>Lara Croft Johnson</h4>
+                                <span>Father of pre school student</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-carousel">
+                        <div class="single-testimonial test2">
+                            <div class="icon">
+                                <span class="et-line  icon-quote"></span>
+                            </div>
+                            <div class="test-body">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                                <h4>Lara Croft Johnson</h4>
+                                <span>Father of pre school student</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+<!-- Testimonial Area End -->
+</main>
+<!-- Footer Area Start -->
+  <% include ../partial/user-footer %>
+<!-- Footer Area End -->
+
+
+        <!--
+        JavaScripts
+        ========================== -->
+        <script src="js/vendor/jquery-2.2.4.min.js"></script>
+        <!-- <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/vendor/materialize.min.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/jquery.slicknav.min.js"></script> -->
+        <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqCaX4fFEQRiTJoeclXKZRaFh2fYfps_Y&callback=initMap"></script> -->
+        <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script> -->
+        <!-- <script src="js/jquery.nice-select.js"></script> -->
+        <!-- <script src="js/jquery.jCounter-0.1.4.js"></script>
+
+        <script src="js/main.js"></script> -->
+        <script src="/js/minified/minified.js"></script>
+        <!-- <script src="/js/map-init.js"></script> -->
+    </body>
+    <script type="text/javascript">
+      var date = new Date();
+      var n = date.getFullYear();
+      var m = date.getMonth();
+      console.log(n,m);
+      var ac =(m>9)? n+'-'+n+1: n-1+'-'+n;
+      $('#acyear').html(ac+' Year');
+      $('#a_year').html(ac+' Year');
+      $('#c_year').html(ac+' Year');
+    </script>
+</html>

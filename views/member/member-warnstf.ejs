@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partial/head %>
+</head>
+
+<body class="fix-header fix-sidebar">
+    <!-- Preloader - style you can find in spinners.css -->
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+			<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+    </div>
+    <!-- Main wrapper  -->
+    <div id="main-wrapper">
+        <!-- header header  -->
+        <!-- header header  -->
+        <% include ../partial/header %>
+          <!-- End header header -->
+          <!-- Left Sidebar  -->
+          <% include ../partial/leftSidebar %>
+        <!-- End Left Sidebar  -->
+        <!-- Page wrapper  -->
+        <div class="page-wrapper">
+            <!-- Bread crumb -->
+            <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h3 class="text-primary">Warning Member</h3> </div>
+                <div class="col-md-7 align-self-center">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Member</a></li>
+                        <li class="breadcrumb-item active">warning</li>
+                    </ol>
+                </div>
+            </div>
+            <!-- End Bread crumb -->
+            <!-- Container fluid  -->
+            <div class="container-fluid">
+                <!-- Start Page Content -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Member Data Export</h4>
+                                <h6 class="card-subtitle">Export data to Copy, CSV, Excel, PDF & Print</h6>
+                                <div class="table-responsive m-t-40">
+                                    <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Name</th>
+                                                <th>Department</th>
+                                                <th>Occupation</th>
+                                                <th>Ph no.</th>
+                                                <th>RFID no.</th>
+                                                <th>Status</th>
+                                                <th>Expired</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                          <% for(var i = 0; i< member.length; i++){%>
+                                            <tr onclick="go('<%= member[i]._id %>')" >
+                                                <td><%= i+1 %></td>
+                                                <td><%= member[i].name %></td>
+                                                <td><%= member[i].dept %></td>
+                                                <td><%= member[i].ocp %></td>
+                                                <td><%= member[i].phone %></td>
+                                                <td><%= member[i].rfid %></td>
+                                                <td id="td<%= i%>"><span class="label label-rouded label-success pull-center">Normal</span></td>
+                                                <td><%= time%></td>
+                                            </tr>
+                                            <script type="text/javascript">
+                                               switch ('<%= member[i].status %>') {
+                                                 case '00':
+                                                  $('#td<%= i%>').html('<span class="label label-rouded label-success pull-center">Normal</span>');
+                                                   break;
+                                                  case '01':
+                                                  $('#td<%= i%>').html('<span class="label label-rouded label-warning pull-center">Warning</span>');
+                                                    break;
+                                                  case "10":
+                                                    $('#td<%= i%>').html('<span class="label label-rouded label-default pull-center">Inactive</span>');
+                                                    break;
+                                                  case "11":
+                                                    $('#td<%= i%>').html('<span class="label label-rouded label-danger pull-center">Block</span>');
+                                                    break;
+                                                 default:
+                                                  console.log('Unnormal');
+                                               }
+                                            </script>
+                                            <%}%>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- End PAge Content -->
+            </div>
+            <!-- End Container fluid  -->
+            <!-- footer -->
+            <% include ../partial/footer %>
+            <!-- End footer -->
+        </div>
+        <!-- End Page wrapper  -->
+    </div>
+    <!-- End Wrapper -->
+    <!-- All Jquery -->
+    <% include ../partial/javascript %>
+
+    <script src="/javascripts/lib/datatables/datatables.min.js"></script>
+    <script src="/javascripts/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="/javascripts/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>
+    <script src="/javascripts/lib/datatables/cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script src="/javascripts/lib/datatables/cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+    <script src="/javascripts/lib/datatables/cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+    <script src="/javascripts/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+    <script src="/javascripts/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
+    <script src="/javascripts/lib/datatables/datatables-init.js"></script>
+</body>
+<script type="text/javascript">
+  function go(id) {
+    location.href = "/members/detailstf/"+id;
+  }
+</script>
+
+</html>

@@ -1,0 +1,888 @@
+.chose-course-body {
+	.single-course {
+		.media-left {
+			padding-right: 30px;
+			a {
+				display: block;
+				img {
+					width: 100px;
+					height: 100px;
+					margin-bottom: 30px;
+					border: 3px solid #fff;
+					@include transition(all .3s ease 0s);
+					&:hover {
+						box-shadow: 3.536px 3.536px 20px 0px rgba(0, 0, 0, 0.4);
+						border: 3px solid #fff;
+					}
+				}
+			}
+		}
+		.media-body {
+			.media-heading {
+				a {
+					color: $title-color;
+					@include mobile {
+						font-size: 16px;
+					}
+					&:hover {
+						color: $primary-color;
+					}
+				}
+			}
+		}
+	}
+}
+.review-count {
+	display: inline-block;
+	padding-left: 30px;
+	@include tablet {
+		padding-left: 10px;
+	}
+	@include mobile {
+		padding-left: 10px;
+	}
+	color: $gray-color;
+}
+.reviews {
+	.fa-star {
+		color: $primary-color;
+		@include tablet {
+			font-size: 12px;
+		}
+		@include mobile {
+			font-size: 10px;
+		}
+	}
+}
+h5 {
+	font-size: 18px;
+}
+.single-popular {
+	@include mobile {
+		margin-bottom: 20px;
+	}
+	img {
+		@include mobile {
+			width: 100%;
+		}
+	}
+	@include transition (all .3s ease 0s);
+	&:hover {
+		box-shadow: 7.071px 7.071px 30px 0px rgba(0, 0, 0, 0.1);
+
+	}
+	.popular-course-content {
+		background: $light;
+		@include transition (all .3s ease 0s);
+		@include tablet {
+			padding: 20px;
+		}
+		h3 {
+			a {
+				color: $title-color;
+				@include tablet {
+					font-size: 18px;
+				}
+				@include mobile {
+					font-size: 18px;
+				}
+				&:hover {
+					color: $primary-color;
+				}
+			}
+			span {
+				@include tablet {
+					font-size: 18px;
+				}
+				@include mobile {
+					font-size: 18px;
+				}
+			}
+		}
+	}
+	li {
+		.glyphicon-play {
+			color: $primary-color;
+			margin-right: 15px;
+		}
+	}
+}
+
+
+/* ----------------02 Home College---------------- */
+
+/* Core Feature area start */
+.core-feature-body {
+	margin-top: -40px;
+	.single-feature {
+		margin-top: 40px;
+		@include mobile {
+			text-align: center;
+		}
+		&:hover {
+			.single-icon {
+				a {
+					color: $primary-color;
+				}
+			}
+			.feture-content {
+				.media-heading {
+					a {
+						color: $primary-color;
+					}
+				}
+			}
+		}
+		.single-icon {
+			@include tablet {
+				margin-bottom: 20px;
+			}
+			@include mobile {
+				margin-bottom: 20px;
+			}
+			a {
+				font-size: 60px;
+				display: inline-block;
+				color: $title-color;
+			}
+		}
+		.feture-content {
+			.media-heading {
+				margin-bottom: 20px;
+				a {
+					color: $title-color;
+				}
+			}
+		}
+	}
+}
+
+/* ----------------07 Home Designing---------------- */
+.regular-course7 {
+	.single-popular .popular-course-content h3 a {
+		&:hover {
+			color: $primary-color2;
+		}
+	}
+	.reviews .fa-star {
+		color: $primary-color2;
+	}
+	.course-bottom {
+		.trainer {
+			a {
+				&:hover {
+					color: $primary-color2 !important;
+				}
+			}
+		}
+		.amount {
+			background: $primary-color2 !important;
+		}
+	}
+	.popular-course-content {
+		.learn {
+			&:hover {
+				color: $primary-color2;
+			}
+		}
+	}
+}
+
+/* ----------------08 Home Cooking---------------- */
+.regular-course8 {
+	.single-popular .popular-course-content h3 a {
+		&:hover {
+			color: $primary-color3;
+		}
+	}
+	.reviews .fa-star {
+		color: $primary-color3;
+	}
+	.course-bottom {
+		.trainer {
+			a {
+				&:hover {
+					color: $primary-color3 !important;
+				}
+			}
+		}
+		.amount {
+			background: $primary-color3 !important;
+		}
+	}
+	.popular-course-content {
+		.learn {
+			&:hover {
+				color: $primary-color3;
+			}
+		}
+	}
+}
+
+/* ----------------10 Course Grid Style 01 ---------------- */
+.course-grid1 {
+	.single-popular {
+		margin-top: 50px;
+	}
+	.grid-course {
+		border-bottom: 1px solid $dark-gray;
+		border-left: 1px solid $dark-gray;
+		border-right: 1px solid $dark-gray;
+		@include transition (all .3s ease 0s);
+	}
+	.course-bottom {
+		.trainer {
+			a {
+				display: inline-block;
+				&:hover {
+					color: $primary-color;
+				}
+				.et-line {
+					margin-right: 5px;
+				}
+			}
+		}
+		.single-bottom {
+			background: #f3f3f3;
+			text-align: center;
+			border-left: 1px solid $light;
+			border-bottom: 1px solid $light;
+			width: 40%;
+			line-height: 50px;
+			@include tablet {
+				line-height: 25px;
+				padding: 7px 0;
+			}
+			@include mobile {
+				line-height: 25px;
+				padding: 7px 0;
+			}
+			&:last-child {
+				border-right: 1px solid $light;
+				width: 25%;
+			}
+		}
+		.amount {
+			background: $primary-color;
+			color: #fff;
+		}
+	}
+	.learn {
+		font-family: $fjalla-one;
+		color: $title-color;
+		text-transform: uppercase;
+		background: transparent;
+		&:hover {
+			color: $primary-color;
+		}
+	}
+	.btn {
+		background: transparent;
+		border: 1px solid $primary-color;
+		color: $title-color;
+		@include transition (all .2s ease 0s);
+		&:hover {
+			border: 1px solid #fff;
+			color: $primary-color;
+		}
+	}
+}
+
+
+/* ----------------12 Course List Style 01 ---------------- */
+
+.single-list-course {
+	margin-top: 30px;
+	border: 1px solid $dark-gray;
+	@include transition (all .3s ease 0s);
+	&:hover {
+		box-shadow: 7.071px 7.071px 30px 0px rgba(0, 0, 0, 0.1);
+	}
+	img {
+		width: 100%;
+	}
+}
+.list-course-content {
+	padding-top: 30px;
+	padding-left: 40px;
+	@include tablet {
+		padding-top: 0;
+		padding-left: 20px;
+	}
+	@include mobile {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	h3 {
+		padding-right: 20px;
+		margin-bottom: 18px;
+		a {
+			color: $title-color;
+			@include tablet {
+				font-size: 18px;
+			}
+			&:hover {
+				color: $primary-color;
+			}
+		}
+	}
+	p {
+		padding-right: 20px;
+	}
+	.course-bottom-list {
+		margin-top: 46px;
+		@include tablet {
+			@include flex-wrap (wrap);
+			margin-top: 0;
+		}
+		@include mobile {
+			@include flex-wrap (wrap);
+			margin-top: 0;
+		}
+		.icon {
+			.fa {
+				color: $primary-color;
+				font-size: 12px;
+			}
+		}
+		.single-bottom {
+			line-height: 50px;
+			border-bottom: 1px solid $light;
+			width: 50%;
+			@include tablet {
+				width: 33.333%;
+				text-align: center;
+			}
+			@include mobile {
+				width: 33.333%;
+				line-height: 20px;
+				font-size: 12px;
+				padding: 7px 0;
+				text-align: center;
+			}
+		}
+		.trainer {
+			background: #f3f3f3;
+			border-right: 1px solid $light;
+			text-align: center;
+			a {
+				&:hover {
+					color: $primary-color;
+				}
+				.et-line {
+					margin-right: 5px;
+				}
+			}
+		}
+		.seats {
+			background: #f3f3f3;
+			border-right: 1px solid $light;
+			text-align: center;
+		}
+		.dollar {
+			border-right: 1px solid $light;
+			background: $primary-color;
+			text-align: center;
+			color: $light;
+			width: 30%;
+			@include tablet {
+				width: 33.333%;
+			}
+		}
+	}
+}
+
+/* ----------------13 Course List Style 02 ---------------- */
+.course-list2 {
+	.list-course-content {
+		.heading-review {
+			@include tablet {
+				display: block;
+				//margin-top: 15px;
+			}
+			@include mobile {
+				display: block;
+				//margin-top: 15px;
+			}
+			p {
+				font-size: 14px;
+				color: $text-color;
+				font-family: $nunito;
+				padding-bottom: 20px;
+				display: inline-block;
+				margin-left: 30px;
+				padding-bottom: 0;
+			}
+			.icon {
+				color: $primary-color;
+				padding-right: 0px;
+				@include tablet {
+					margin-left: 0px;
+					margin-bottom: 15px;
+				}
+				@include mobile {
+					margin-left: 0px;
+					margin-bottom: 15px;
+				}
+			}
+		}
+		.course-bottom {
+			margin-top: 28px;
+			@include tablet {
+				margin-top: 0;
+			}
+			@include mobile {
+				margin-top: 0;
+			}
+		}
+		.learn-c {
+			padding: 15px 55px 29px 0;
+			@include tablet {
+				padding: 0 0 20px 0;
+			}
+			@include mobile {
+				padding: 0 0 20px 0;
+			}
+		}
+	}
+}
+/* ----------------14 Course Details ---------------- */
+.left-web-course {
+	.tabs .indicator {
+		display:none;
+	}
+	.tab {
+		padding-right: 50px;
+		@include tablet {
+			padding-right: 0;
+		}
+		@include mobile {
+			padding-right: 0;
+		}
+		a {
+			padding: 0;
+		}
+	}
+	.course-tab {
+		border-bottom: 1px solid $dark-gray;
+		li {
+			a {
+				font-size: 16px;
+				font-family: $fjalla-one;
+				color: $title-color;
+				&:hover {
+					color: $title-color;
+				}
+			}
+			.active {
+				color: $title-color;
+				position: relative;
+				&:after {
+					width: 100%;
+					content: "";
+					position: absolute;
+					height: 2px;
+					left: 0;
+					bottom: 0;
+					background: $primary-color;
+				}
+			}
+		}
+	}
+	.course-outline {
+		ul {
+			li {
+				&:first-child {
+					@include mobile {
+						width: 50%;
+					}
+				}
+			}
+		}
+		li {
+			line-height: 35px;
+			margin-bottom: 15px;
+			a {
+				border: 1px solid $dark-gray;
+				border-radius: 2px;
+				display: inline-block;
+				line-height: 33px;
+				padding: 0 35px;
+				color: $title-color;
+				@include transition(all .5s ease 0s);
+				&:hover {
+					background: $primary-color;
+					border: 1px solid $primary-color;
+					color: $light;
+				}
+				@include mobile {
+					padding: 0 15px;
+				}
+			}
+		}
+	}
+}
+.single-comment {
+	.comment-head {
+		position: relative;
+		.media-left {
+			padding-right: 20px;
+			img {
+				width: 70px;
+				height: 70px;
+				border-radius: 50%;
+			}
+		}
+		.media-heading {
+			font-size: 16px;
+			margin-top: 15px;
+		}
+		.btn {
+			position: absolute;
+			right: 0;
+			top: 18px;
+			padding: 0 25px;
+			height: 35px;
+			line-height: 35px;
+			.fa {
+				margin-right: 5px;
+			}
+			@include mobile {
+				padding: 0 10px;
+				height: 25px;
+				line-height: 25px;
+				top: 10px;
+				font-size: 12px;
+			}
+		}
+	}
+	.comment-body {
+		p {
+			padding-right: 20px;
+		}
+	}
+}
+.leave-comment {
+	margin-top: 50px;
+	h4 {
+		font-size: 16px;
+		border-bottom: 1px solid $dark-gray;
+		padding-bottom: 20px;
+	}
+	form {
+		margin-top: 30px;
+		p {
+			margin: 0;
+			input {
+				border: 1px solid #eeeeee;
+				color: #333333;
+				font-size: 13px;
+				margin-bottom: 10px;
+				padding: 6px 20px;
+				@include transition(all .3s ease 0s);
+				width: 100%;
+				background: transparent;
+				&:focus {
+					box-shadow: 7.071px 7.071px 30px 0px rgba(0, 0, 0, 0.1);
+					outline: none;
+					border: 1px solid #f7f7f7;
+				}
+			}
+			textarea {
+				margin-bottom: 10px;
+				border: 1px solid #e2e2e2;
+				color: #333333;
+				font-size: 13px;
+				padding: 10px 15px;
+				resize: none;
+				@include transition(all .3s ease 0s);
+				width: 100%;
+				background: transparent;
+				height: 86px;
+				&:focus {
+					box-shadow: 7.071px 7.071px 30px 0px rgba(0, 0, 0, 0.1);
+					outline: none;
+					border: 1px solid #f7f7f7;
+				}
+			}
+			.submit-btn {
+				width: 100% !important;
+			}
+		}
+	}
+	.pn1 {
+		padding-left: 0;
+		margin-bottom: -10px;
+		@include mobile {
+			padding-right: 0;
+			margin-bottom: 0;
+		}
+	}
+	.pn2 {
+		padding-right: 0;
+		
+		@include mobile {
+			padding-left: 0;
+		}
+	}
+}
+.right-web-course {
+	margin-top: -20px;
+	@include tablet {
+		margin-top: 30px;
+	}
+	@include mobile {
+		margin-top: 30px;
+	}
+	.single-info {
+		border-bottom: 1px solid $dark-gray;
+		@include tablet {
+			padding: 0 15px;
+		}
+		@include mobile {
+			padding: 0 15px;
+		}
+		h4 {
+			font-size: 18px;
+			line-height: 60px;
+			@include mobile {
+				font-size: 14px;
+			}
+			@include tablet {
+				font-size: 16px;
+			}
+			.et-line {
+				display: inline-block;
+				width: 40px;
+				@include mobile {
+					width: 30px;
+				}
+			}
+			a {
+				color: $primary-color;
+				&:hover {
+					color: $primary-color;
+				}
+			}
+		}
+		.review-star {
+			font-size: 14px;
+			color: $primary-color;
+			position: relative;
+		}
+	}
+	.enroll {
+		background: $title-color;
+		color: $light;
+		width: 100%;
+		margin-top: 20px;
+		@include tablet {
+			width: auto;
+		}
+		@include mobile {
+			width: auto;
+		}
+		&:hover {
+			background: $light;
+			color: $title-color;
+		}
+	}
+	.toltip {
+		position: absolute;
+		font-size: 14px;
+		font-family: $nunito;
+		padding: 0 25px;
+		height: 35px;
+		line-height: 35px;
+		top: 50%;
+		left: 105px;
+		margin-top: -17.5px;
+		pointer-events:none;
+		@include tablet {
+			display: none !important;
+		}
+		@include mobile {
+			display: none !important;
+		}
+		&:after {
+			position: absolute;
+			content: "";
+			width: 0; 
+			height: 0; 
+			border-top: 7px solid transparent;
+			border-bottom: 7px solid transparent; 
+			border-right: 10px solid $primary-color; 
+			left: -10px;
+			bottom: 10px;
+		}
+	}
+	.no-border {
+		border-bottom: 1px solid $light;
+	}
+}
+.click-review {
+	cursor: pointer;
+	h4 {
+		&:hover {
+			color: $primary-color;
+		}
+	}
+}
+.expand-review {
+	display: none;
+	.rating {
+		.rating-box {
+			width: 100px;
+			height: 100px;
+			background: $title-color;
+			color: $light;
+			text-align: center;
+			margin-right: 30px;
+			ul {
+				margin-top: 10px;
+			}
+			.av-rating {
+				font-size: 24px;
+				color: $primary-color;
+				font-family: $fjalla-one;
+				line-height: 42px;
+			}
+			li:first-child {
+				font-family: $fjalla-one;
+			}
+		}
+		.rating-body {
+			h4 {
+				font-size: 16px;
+				margin-bottom: 10px;
+			}
+			ul {
+				margin-top: 3px;
+				li {
+					span {
+						margin: 0 5px;
+						.fa {
+							margin: 0 1px;
+						}
+					}
+				}
+			}
+		}
+	}
+	.feed-back {
+		text-align: right;
+		h4 {
+			font-size: 16px;
+			text-align: left;
+			margin-bottom: 10px;
+		}
+		textarea{
+			width: 100%;
+			height: 90px;
+			border: 1px solid $dark-gray;
+			resize: none;
+			padding: 7px 10px;
+		}
+		.btn {
+			margin-top: 8px;
+			height: 35px;
+			line-height: 35px;
+			padding: 0 40px;
+		}
+	}
+	.normal {
+		.fa-star {
+			color: $dark-gray;
+		}
+	}
+	.fa-star {
+		margin: 0 1px;
+		color: $primary-color;
+	}
+	.total-comment {
+		border-bottom: 1px solid $dark-gray;
+		padding-bottom: 30px;
+	}
+}
+.modal-dialog {
+  margin: 70px auto;
+  max-width: 750px;
+  width: auto;
+  .modal-content {
+  	padding: 50px;
+  	border: none;
+  	border-radius: 3px;
+  	h3 {
+  		font-size: 18px;
+  		margin: 40px 0;
+  	}
+  	.back-btn {
+  		margin-top: 30px;
+  	}
+  }
+}
+/* ----------------22 Department Grid ---------------- */
+
+.departement-widget {
+	.course-grid1 .single-popular {
+		margin-top: 30px;
+	}
+	.popular-course-content > h3 {
+		font-size: 18px;
+	}
+	.popular-course-content {
+		padding: 30px;
+	}
+	.course-bottom {
+		.single-bottom {
+			span {
+				font-size: 12px;
+			}
+
+		}
+		.amount {
+
+		}
+	}
+}
+
+/* ----------------23 Department List ---------------- */
+
+.departement-widget-list {
+	.list-course-content {
+		.heading-review {
+			h3 {
+				padding-right: 0;
+			}
+			p {
+				margin-top: 4px;
+			}
+			.review {
+				margin-left: 10px;
+			}
+		}
+		.course-bottom{
+			margin-top: 44px;
+		}
+		.bottom-second {
+			.single-bottom {
+				padding: 15px 18.4px;
+			}
+		}
+		.course-bottom-list {
+			.single-bottom {
+				@include tablet {
+					width: 50%;
+				}
+				@include mobile {
+					width: 50%;
+				}
+			}
+		}
+	}
+}
+.course-list2 {
+	.list-course-content .course-bottom-list {
+		margin-top: 46px;
+	}
+}

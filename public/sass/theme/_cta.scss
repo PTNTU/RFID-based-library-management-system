@@ -1,0 +1,238 @@
+.cta-1 {
+	.cta-bg {
+		background: url(../img/cta/1.jpg);
+		background-size: cover;
+		background-attachment: fixed;
+		background-position: center center;
+	}
+	.cta-bg3 {
+		background: url(../img/cta/3.jpg);
+		background-size: cover;
+		background-attachment: fixed;
+		background-position: center center;
+	}
+	.cta-overlay-bg {
+		background: rgba(0,0,0,.75);
+	}
+	.cta-overlay-bg3 {
+		background: rgba(0,30,50, .75);
+	}
+	.cta-content {
+		text-align: center;
+		padding: 140px 0;
+		h2 {
+			color: #fff;
+			margin-bottom: 30px;
+			line-height: 1.5em;
+			@include tablet {
+				font-size: 26px;
+			}
+			@include mobile {
+				font-size: 26px;
+			}
+		}
+		.btn {
+			background: transparent none repeat scroll 0 0;
+			border: 1px solid #6c605c;
+			color: $primary-color;
+			&:hover {
+				background: #fff;
+			}
+		}
+	}
+}
+.cta2 {
+	.cta-bg2 {
+		background: url(../img/cta/2.jpg);
+		background-size: cover;
+		background-attachment: fixed;
+	}
+	.cta-overlay-bg-blue {
+		background: rgba(0,30,50, .75);
+	}
+}
+/* ----------------05 Home Kindergarten ---------------- */
+.kindergarten-cta {
+	.cta-bg4 {
+		background: url(../img/cta/4.jpg);
+		background-size: cover;
+		background-attachment: fixed;
+		background-position: center center;
+		.cta-overlay-bg4 {
+			background: rgba(0,0,0,.8);
+		}
+	}
+}
+/* ----------------07 Home Designing---------------- */
+.cta-7 {
+	.cta-bg7 {
+		background: url(../img/cta/5.jpg);
+		background-size: cover;
+		background-attachment: fixed;
+		background-position: center center;
+	}
+	.cta-overlay {
+		background: rgba(0,30,50, .75);
+	}
+	.single-cta {
+		padding: 130px 50px 130px 0;
+		@include mobile {
+			padding: 0;
+		}
+		span {
+			font-size: 36px;
+			color: $light;
+		}
+		h3 {
+			a {
+				font-size: 24px;
+				color: $light;
+			}
+			margin: 25px 0 15px 0;
+		}
+		p {
+			color: $light;
+		}
+	}
+	.first-cta {
+		@include mobile {
+			padding-top: 130px;
+			padding-bottom: 50px;
+		}
+	}
+	.last-cta {
+		@include mobile {
+			padding-top: 50px;
+			padding-bottom: 130px;
+		}
+	}
+}
+/* ----------------08 Home Cooking---------------- */
+.cta8 {
+	background: $dark-gray;
+	padding: 120px 0;
+	.cta-right-fruit {
+		@include mobile {
+			display: none;
+		}
+		img {
+			position: absolute;
+			right: 0;
+			top: -17%;
+			@include tablet {
+				width: 300px;
+				height: 262px;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+		}
+	}
+}
+.cta-bg8 {
+	.cta-content {
+		h2 {
+			color: $primary-color3;
+			font-size: 36px;
+			margin-bottom: 30px;
+			@include tablet {
+				font-size: 26px;
+				line-height: 1.5em;
+			}
+			@include mobile {
+				font-size: 20px;
+				line-height: 1.5em;
+			}
+		}
+		.btn {
+			margin-top: 10px;
+			background: $primary-color3;
+			color: $light;
+			&:hover {
+				background: $light;
+				color: $primary-color3;
+
+			}
+		}
+	}
+
+}
+/* ----------------10 Course Grid Style 01 ---------------- */
+.cta3 {
+	.cta-content {
+		h2 {
+			margin-bottom: 60px;
+		}
+	}
+}
+.cta-register {
+	padding: 70px 0;
+	background: rgba(255,255,255,.1);
+	position: relative;
+	@include mobile {
+		p {
+			margin-bottom: 0;
+		}
+	}
+	input {
+		border: 1px solid rgba(238,238,238,.15);
+		color: $dark-gray;
+		font-size: 13px;
+		margin-bottom: 10px;
+		padding: 8px 20px;
+		transition: all 0.2s ease 0s;
+		width: 100%;
+		background: #fff;
+		background-color: transparent;
+		&:focus {
+			outline: 1px solid $dark-gray;
+		}
+	}
+	input[type="text"] {
+		width: 100%;
+		
+	}
+	input[type="email"] {
+		width: 100%;
+	}
+	::-webkit-input-placeholder { 
+		color: #cccccc;
+	}
+	::-moz-placeholder { 
+		color: #cccccc;
+	}
+	:-ms-input-placeholder { 
+		color: #cccccc;
+	}
+	:-moz-placeholder { 
+		color: #cccccc;
+	}
+	.select-ct {
+		.nice-select {
+			background: transparent;
+			border: 1px solid rgba(238,238,238,.15);
+			box-shadow: none;
+			color: $dark-gray;
+			.option {
+				color: $text-color;
+			}
+		}
+		
+	}
+	.submit-btn {
+		position: absolute;
+		left: 50%;
+		transform: translate(-50%);
+		bottom: -20px;
+		padding: 0 100px;
+		border: none;
+		line-height: 40px;
+		background: $primary-color;
+		color: $light;
+		border-radius: 2px;
+		@include transition(all .3s ease 0s);
+		&:hover {
+			background: $light;
+			color: $primary-color;
+		}
+	}
+}

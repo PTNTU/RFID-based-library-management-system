@@ -1,0 +1,56 @@
+/* ----------------24 Department List ---------------- */
+.faq-cat {
+	.main-head-event {
+		margin-top: 30px;
+		padding-bottom: 19px;
+	}
+	.leave-comment{
+		margin-top: 80px;
+		.submit-btn {
+			padding: 0;
+			text-align: center;
+		}
+	}
+}
+.faq-accordion {
+	.collapsible {
+		border: none;
+	}
+	.collapsible-header {
+		font-size: 16px;
+		background: #fafafa;
+		border-bottom: 1px solid $light;
+		h4 {
+			line-height: 50px;
+			font-size: 16px;
+			@include mobile {
+				font-size: 14px;
+			}
+		}
+		i {
+			margin-right: 0px;
+		}
+		.fa {
+			line-height: 50px;
+			font-size: 16px;
+		}
+		padding: 0 30px;
+		@include mobile {
+			padding: 0 15px;
+		}
+	}
+	.collapsible-body {
+		border: none;
+		padding: 30px;
+	}
+	.active {
+		h4 {
+			color: $primary-color;
+		}
+		.fa {
+			color: $primary-color;
+			transform: rotate(180deg);
+		}
+	}
+
+}

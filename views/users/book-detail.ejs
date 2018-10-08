@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+    <% include ../partial/user_head %>
+    <body>
+        <% include ../partial/user_header %>
+        <div class="search-area">
+            <div class="container">
+                <div class="row fitscreen flex flex-middle relative">
+                    <form action="#" class="search-form">
+                        <input id="focus" placeholder="Search your query and press “Enter”" type="text">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <main>
+            <!-- Static Banner Area Start -->
+            <section id="slider" class="">
+                <div class="static-banner relative">
+                    <div class="overlay blue-overlay-5"></div>
+                    <div class="page-head">
+                        <h2 class="page-title">Book Details</h2>
+                        <ul class="page-title-btn">
+                            <li><a href="/users/libray" >Home <i class="fa fa-caret-right" aria-hidden="true"></i></a></li>
+                            <li><a href="/users/bookList" >Book List <i class="fa fa-caret-right" aria-hidden="true"></i></a></li>
+                            <li><a href="#" class="active"><%=book.book_name%></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <!-- Static Banner Area End -->
+            <!-- Web Design Course Area Start -->
+            <section class="section-full single-product">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 col-xs-12">
+                            <div class="left-web-course teacher-details">
+                                <div class="total-product-slider">
+                                  <div class="item active">
+                                      <img src="<%=book.imgUrl%>" onerror="this.src='/images/404.jpg'" alt="" class="img-responsive">
+                                  </div>
+                                  <div class="item">
+                                      <img src="/images/smart.jpg" alt="" class="img-responsive">
+                                  </div>
+                                  <div class="item">
+                                      <img src="/images/thank.jpg" alt="" class="img-responsive">
+                                  </div>
+
+                                </div>
+                                <div class="tab-menu mt-20">
+                                    <ul id="tabs-swipe-demo" class="tabs course-tab">
+                                        <li class="tab"><a href="#description">Description</a></li>
+                                        <li class="tab"><a class="active" href="#specification"> Specification</a></li>
+                                        <li class="tab"><a href="#comments">Comments</a></li>
+                                        <li class="tab"><a href="#reviews">Reviews</a></li>
+                                    </ul>
+                                </div>
+                                <div id="description" class="objectives mt-30" >
+                                    <p><%= book.description%></p>
+                                </div>
+                                <div id="specification" class="specification mt-30">
+                                  <h2>Coming Soon!!</h2>
+                                    <table style="filter:blur(10px);" tabindex="-1">
+                                        <tr>
+                                            <th>Size and Weight</th>
+                                            <td>Dimension <span>200x150x120</span></td>
+                                            <td>Weight <span>250 oz (Without cord)</span></td>
+                                        </tr>
+                                        <tr class="multi-row">
+                                            <th rowspan="4">General Features</th>
+                                            <td>Closed Types <span>Yes</span></td>
+                                            <td>Impedence <span>24 Ω at 1 kHz</span></td>
+                                        </tr>
+                                        <tr class="multi-row">
+                                            <td class="pt-20">Dynamic Type <span>Yes</span></td>
+                                            <td class="pt-20">Cord Type<span>24 Ω at 1 kHz</span></td>
+                                        </tr>
+                                        <tr class="multi-row">
+                                            <td class="pt-20">Driver Uint <span>1.18 in dynamic</span></td>
+                                            <td class="pt-20">Cord Length <span>3.94 ft</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pt-20">Sensitivities <span>102 dB/mW</span></td>
+                                            <td class="pt-20">Wearing Styles <span>Headband, On-ear</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Microphone</th>
+                                            <td colspan="2">Direction of In-Line Microphone <span>Omni directional</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th>What’s in the Box</th>
+                                            <td colspan="2">Instructions <span>Operating instructions</span></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div id="comments" class="comments mt-30">
+                                  <h2>Coming soon!!</h2>
+                                    <div class="total-comment" style="filter:blur(10px);" tabindex="-1">
+                                        <div class="single-comment">
+                                            <div class="comment-head">
+                                                <div class="media">
+                                                    <div class="media-left">
+                                                        <a href="#">
+                                                            <img class="media-object" src="/img/extra/comment-person.png" alt="...">
+                                                        </a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">Dorethy Kallyas</h4>
+                                                        <p>12th Feb, 2017 at 05:56 pm</p>
+                                                    </div>
+                                                </div>
+                                                <a href="#" class="btn"><i class="fa fa-reply" aria-hidden="true"></i>Reply</a>
+                                            </div>
+                                            <div class="comment-body">
+                                                <p class="mt-15">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
+                                            </div>
+                                        </div>
+                                        <div class="single-comment ml-20 mt-30">
+                                            <div class="comment-head">
+                                                <div class="media">
+                                                    <div class="media-left">
+                                                        <a href="#">
+                                                            <img class="media-object" src="/img/extra/comment-person.png" alt="...">
+                                                        </a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">Dorethy Kallyas</h4>
+                                                        <p>12th Feb, 2017 at 05:56 pm</p>
+                                                    </div>
+                                                </div>
+                                                <a href="#" class="btn"><i class="fa fa-reply" aria-hidden="true"></i>Reply</a>
+                                            </div>
+                                            <div class="comment-body">
+                                                <p class="mt-15">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
+                                            </div>
+                                        </div>
+                                        <div class="single-comment mt-30">
+                                            <div class="comment-head">
+                                                <div class="media">
+                                                    <div class="media-left">
+                                                        <a href="#">
+                                                            <img class="media-object" src="/img/extra/comment-person.png" alt="...">
+                                                        </a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">Dorethy Kallyas</h4>
+                                                        <p>12th Feb, 2017 at 05:56 pm</p>
+                                                    </div>
+                                                </div>
+                                                <a href="#" class="btn"><i class="fa fa-reply" aria-hidden="true"></i>Reply</a>
+                                            </div>
+                                            <div class="comment-body">
+                                                <p class="mt-15">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="leave-comment" style="filter:blur(10px);" tabindex="-1">
+                                        <h4>Leave a Commnt</h4>
+                                        <form action="#">
+                                            <div class="col-sm-7 pn1">
+                                                <p><input placeholder="First Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'First Name'" type="text" required></p>
+                                                <p><textarea placeholder="Comment" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Comment'" required></textarea></p>
+                                            </div>
+                                            <div class="col-sm-5 pn2">
+                                                <p><input placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'" type="email" required></p>
+                                                <p><input placeholder="Phone Number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone Number'" type="text" required></p>
+                                                <p><button class="btn submit-btn">Submit Comment</button></p>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div id="reviews" class="reviews mt-30" >
+                                  <h2>Coming soon</h2>
+                                    <div class="teacher-rating-top flex no-flex-xs" style="filter:blur(10px);" tabindex="-1">
+                                        <div class="rating flex no-flex-xs">
+                                            <div class="rating-box">
+                                                <ul>
+                                                    <li>Average</li>
+                                                    <li class="av-rating">4.9</li>
+                                                    <li>(2 Ratings)</li>
+                                                </ul>
+                                            </div>
+                                            <div class="rating-body">
+                                                <h4>Provide Your Rating</h4>
+                                                <ul>
+                                                    <li>Quality <span><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> </span>  Outstanding</li>
+                                                </ul>
+                                                <ul>
+                                                    <li>Quality <span class="normal"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> </span>  Outstanding</li>
+                                                </ul>
+                                                <ul>
+                                                    <li>Quality <span class="normal"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> </span>  Outstanding</li>
+                                                </ul>
+                                                <ul>
+                                                    <li>Quality <span class="normal"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> </span>  Outstanding</li>
+                                                </ul>
+                                                <ul>
+                                                    <li>Quality <span class="normal"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> </span>  Outstanding</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="feed-back">
+                                            <h4>Your Feedback</h4>
+                                            <textarea></textarea>
+                                            <button class="btn">Submit</button>
+                                        </div>
+                                    </div>
+                                    <div class="total-comment mt-50" style="filter:blur(10px);" tabindex="-1">
+                                        <div class="single-comment mt-30">
+                                            <div class="comment-head">
+                                                <div class="media">
+                                                    <div class="media-left">
+                                                        <a href="#">
+                                                            <img class="media-object" src="/img/extra/comment-person.png" alt="...">
+                                                        </a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">Dorethy Kallyas</h4>
+                                                        <span><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="comment-body">
+                                                <p class="mt-15">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                                            </div>
+                                        </div>
+                                        <div class="single-comment mt-30">
+                                            <div class="comment-head">
+                                                <div class="media">
+                                                    <div class="media-left">
+                                                        <a href="#">
+                                                            <img class="media-object" src="/img/extra/comment-person.png" alt="...">
+                                                        </a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">Dorethy Kallyas</h4>
+                                                        <span><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="comment-body">
+                                                <p class="mt-15">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-xs-12">
+                            <div class="right-web-course product-details">
+                                <div class="single-info flex space-between">
+                                    <h4><span class="et-line icon-layers"></span>Category</h4>
+                                    <h4><a href="#"><%=book.main_cat%></a></h4>
+                                </div>
+                                    <div class="single-info flex space-between">
+                                        <h4><span class="et-line icon-hourglass"></span>Duration</h4>
+                                        <div class='myform'>
+                                            <div class="quantity-field">
+                                                <input type='text' name='quantity' value='<%=book.book_range%>' class='qty' />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="single-info flex space-between">
+                                        <h4><span class="et-line  icon-adjustments"></span>Items</h4>
+                                        <div class='myform'>
+                                            <div class="quantity-field">
+                                                <input type='text' name='quantity2' value='<%=book.item%>' class='qty' />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="single-info flex space-between">
+                                        <h4><span class="et-line icon-trophy"></span>Borrowed Count</h4>
+                                        <h4><span class="price"><%= book.count%></span> </h4>
+                                    </div>
+                                    <div class="single-info flex space-between">
+                                        <h4><span class="et-line icon-megaphone"></span>Status</h4>
+                                        <h4><span class="prev-price"></span> <span class="parcent" id="status"></span></h4>
+                                    </div>
+                                    <div class="single-info flex space-between">
+                                        <h4><span class="et-line icon-pencil"></span>Author</h4>
+                                        <h4><span class="price"><%= book.book_author%></span> </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- / #Web Design Course End -->
+            </main>
+            <!-- Footer Area Start -->
+            <% include ../partial/user-footer %>
+            <!-- Footer Area End -->
+
+
+        <!--
+        JavaScripts
+        ========================== -->
+        <script src="/js/vendor/jquery-2.2.4.min.js"></script>
+        <!-- <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/vendor/materialize.min.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/jquery.slicknav.min.js"></script> -->
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqCaX4fFEQRiTJoeclXKZRaFh2fYfps_Y&callback=initMap"></script>
+        <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script> -->
+        <!-- <script src="js/jquery.nice-select.js"></script> -->
+        <!-- <script src="js/jquery.jCounter-0.1.4.js"></script>
+
+        <script src="js/main.js"></script> -->
+        <script src="/js/minified/minified.js"></script>
+        <script src="/js/map-init.js"></script>
+    </body>
+    <script type="text/javascript">
+      var status = (<%=book.status%> == '00')? 'avaliable' : (<%=book.status%> == '01')? 'borrowed': 'lost';
+      $('#status').html(status);
+    </script>
+</html>

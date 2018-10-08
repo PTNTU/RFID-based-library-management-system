@@ -1,0 +1,223 @@
+/* --------------- 17 Publication Board ---------------- */
+
+.publication-board {
+	.single-event {
+		@include transition(all .5s ease 0s);
+		@include tablet {
+				padding: 30px;
+			}
+		&:hover {
+			padding: 30px;
+			box-shadow: 7.071px 7.071px 30px 0px rgba(0, 0, 0, 0.1);
+			@include mobile {
+				padding: 0;
+			}
+		}
+	}
+	.event-img {
+		display: inline-block;
+		margin-right: 20px;
+		img {
+			width: 100%;
+		}
+	}
+	.btn {
+		background: transparent none repeat scroll 0 0;
+	    border: 1px solid #f85b31;
+	    color: #333;
+	    display: inline-block;
+	    &:hover {
+	    	border: 1px solid $light;
+	    	color: $primary-color;
+	    }
+	}
+	.media-left {
+		padding-right: 30px;
+	}
+	.event-body {
+		padding: 0;
+		@include mobile {
+			padding: 10px;
+		}
+		h3 {
+			margin: 0;
+		}
+		.date {
+			span {
+				margin-right: 10px;
+				color: $text-color;
+				padding-left: 1px;
+			}
+			color: $primary-color;
+			margin-bottom: 0;
+			margin: 10px 0;
+		}
+		p {
+			margin-bottom: 10px;
+			line-height: 21px;
+		}
+		.dark {
+			color: $title-color;
+		}
+		.learn {
+			background: transparent none repeat scroll 0 0;
+		    color: #333;
+		    font-family: "Fjalla One",sans-serif;
+		    text-transform: uppercase;
+		    &:hover {
+		    	color: $primary-color;
+		    }
+		}
+	}
+
+}
+
+.single-widget {
+	.widget-notice {
+		box-shadow: 7.071px 7.071px 30px 0px rgba(0, 0, 0, 0.1);
+		padding: 20px 60px 40px 20px;
+		li {
+			line-height: 30px;
+			a {
+				@include transition (all .2s ease 0s);
+				&:hover {
+					color: $primary-color;
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+	.widget-keywords {
+		padding: 20px 60px 40px 0px;
+		li {
+			display: inline;
+			line-height: 30px;
+			a {
+				display: inline-block;
+				text-transform: capitalize;
+			}
+			.big {
+				font-size: 18px;
+				color: $primary-color;
+			}
+		}
+	}
+}
+
+/* --------------- 18 Publication Details ---------------- */
+.publication-details {
+	.btn-next {
+		margin-right: -10px;
+		@include mobile {
+			margin-top: 20px;
+		}
+		.btn {
+			margin-right: 10px;
+			height: 35px;
+			line-height: 32px;
+			padding: 0 18px;
+			background: $light;
+			color: $title-color;
+			border: 1px solid $primary-color;
+			@include transition (all .3s ease 0s);
+			&:hover {
+				box-shadow: none;
+				background-color: $primary-color;
+				color: $light;
+			}
+		}
+		.fa-caret-left {
+			margin-right: 10px;
+		}
+		.fa-caret-right {
+			margin-left: 10px;
+		}
+	}
+}
+.post-details {
+	margin-top: 50px;
+	.overlay-bg {
+		background: rgba(0, 0, 0, 0) linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.2) 100%) repeat scroll 0 0;
+	}
+	h2 {
+		font-size: 24px;
+		margin-bottom: 15px;
+	}
+	.date {
+		a {
+			color: $primary-color;
+		}
+		span {
+			margin-right: 10px;
+		}
+		.icon-calendar {
+			margin-left: 10px;
+		}
+	}
+}
+
+.social-icon {
+	ul {
+		li {
+			display: inline;
+			a {
+				display: inline-block;
+				width: 35px;
+				height: 35px;
+				text-align: center;
+				line-height: 35px;
+				box-shadow: 2.121px 2.121px 7px 0px rgba(0, 0, 0, 0.1);
+				border-radius: 50%;
+				margin-right: 7px;
+				@include transition (all .3s ease 0s);
+				@include tablet {
+					margin-right: 0;
+				}
+				&:hover {
+					background: $primary-color;
+					color: $light;
+				}
+			}
+		}
+	}
+}
+.related-publication {
+	.main-head-event {
+		margin-top: 100px;
+	}
+	.single-related {
+		margin-top: 30px;
+		.media-left {
+			padding-right: 20px;
+			.overlay-bg {
+				background: rgba(0, 0, 0, 0) linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.2) 100%) repeat scroll 0 0;
+			}
+		}
+		.media-body {
+			h4 {
+				a {
+					font-size: 18px;
+					@include mobile {
+						font-size: 16px;
+					}
+					color: $title-color;
+					&:hover {
+						color: $primary-color;
+					}
+				}
+				margin-bottom: 15px;
+			}
+			.date {
+				margin-bottom: 15px;
+				a {
+					color: $primary-color;
+				}
+				span {
+					color: $text-color;
+					padding-left: 2px;
+					margin-right: 10px;
+				}
+			}
+		}
+	}
+}

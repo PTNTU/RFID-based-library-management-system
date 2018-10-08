@@ -1,0 +1,902 @@
+/* ----------------44 Buddypress activity after login ---------------- */
+
+.buddypress-activity {
+	.user-img {
+			img {
+				width: 60px;
+				height: 60px;
+				border-radius: 3px;
+
+			}
+			@include mobile {
+				margin-right: 10px;
+			}
+		}
+	.btn {
+		height: 35px;
+		line-height: 35px;
+		background: $light;
+		color: $text-color;
+		box-shadow: 2.121px 2.121px 7px 0px rgba(0, 0, 0, 0.1);
+		padding: 0 30px;
+		@include mobile {
+			padding: 0 20px;
+		}
+		&:hover {
+			background: $primary-color;
+			color: $light;
+		}
+	}
+	.load-course {
+		height: 40px;
+		line-height: 40px;
+		background: $primary-color;
+		color: $light;
+		padding: 0 30px;
+		&:hover {
+			background: $light;
+			color: $text-color;
+			box-shadow: 2.121px 2.121px 7px 0px rgba(0, 0, 0, 0.1);
+		}
+	}
+	.primary-color {
+		background: $primary-color;
+		color: $light;
+	}
+
+	.status-head {
+		color: $title-color;
+		border-bottom: 1px solid $dark-gray;
+		padding-bottom: 11px;
+		margin-bottom: 0;
+	}
+	.status-post-field {
+		.post-area {
+			width: 100%;
+			.post-box {
+				textarea {
+					background: #fff none repeat scroll 0 0;
+					border: medium none;
+					box-shadow: 2.121px 2.121px 7px 0 rgba(0, 0, 0, 0.1);
+					color: #333333;
+					display: block;
+					font-size: 13px;
+					height: 100px;
+					padding: 10px 20px;
+					resize: none;
+					@include transition (all 0.3s ease .0s)
+					width: 100%;
+				}
+			}
+		}
+		.post-control {
+			p {
+				line-height: 35px;
+				margin-bottom: 0;
+				margin-right: 15px;
+			}
+			.select-ct {
+				margin-right: 10px;
+				@include tablet {
+					margin-right: 0;
+				}
+				@include mobile {
+					margin-right: 0;
+				}
+				&:after {
+					margin-top: 7px;
+				}
+				.nice-select {
+					height: 35px;
+					line-height: 35px;
+					width: 270px;
+					@include mobile {
+						width: 155px;
+					}
+					border: none;
+					background: #f7f7f7;
+					.option {
+						line-height: 35px;
+						min-height: 35px;
+					}
+				}
+			}
+			@include tablet {
+				.btn {
+					margin-top: 10px;
+				}
+			}
+			@include mobile {
+				.btn {
+					margin-top: 10px;
+					padding: 0 20px;
+				}
+			}
+			@include wide-mobile {
+				.btn {
+					margin-top: 0px;
+				}
+			}
+		}
+	}
+}
+.activity-status-summury {
+	border-bottom: 1px solid $dark-gray;
+	padding-bottom: 12px;
+	a {
+		display: inline-block;
+		margin-left: 40px;
+		@include tablet {
+			margin-left: 17px;
+		}
+		@include mobile {
+			margin-left: 20px;
+		}
+		position: relative;
+		line-height: 1em;
+		&:first-child {
+			margin-left: 0;
+		}
+		&:last-child {
+			&:after {
+				width: 0;
+			}
+		}
+		&:after {
+			width: 1px;
+			height: 100%;
+			background: $primary-color;
+			right: -23px;
+			top: 0;
+			position: absolute;
+			content: '';
+		}
+		@include tablet {
+			&:after {
+				right: -11px;
+			}
+		}
+		@include mobile {
+			&:after {
+				right: -12px;
+			}
+		}
+		span {
+			color: $primary-color;
+			margin-left: 5px;
+		}
+	}
+}
+.single-status-post {
+	padding: 30px;
+	box-shadow: 2.121px 2.121px 7px 0px rgba(0, 0, 0, 0.1);
+	@include transition (all .3s ease 0s);
+	&:hover {
+		box-shadow: 7.071px 7.071px 30px 0px rgba(0, 0, 0, 0.1);
+	}
+	@include mobile {
+		padding: 10px;
+	}
+	.user-post-details {
+		padding-left: 20px;
+		width: 100%;
+		@include mobile {
+			padding-left: 10px;
+		}
+		.name-details {
+			align-items: baseline;
+			.name {
+				margin-bottom: 7px;
+				font-size: 16px;
+				a {
+					color: $title-color;
+					&:hover {
+						color: $primary-color;
+					}
+				}
+			}
+			.details {
+				a {
+					display: inline-block;
+					margin-left: 20px;
+					@include tablet {
+						margin-left: 0;
+					}
+					@include mobile {
+						margin-left: 0;
+					}
+					position: relative;
+					line-height: 1em;
+					&:hover {
+						color: $primary-color;
+					}
+					&:first-child {
+						margin-left: 0;
+					}
+					&:last-child {
+						&:after {
+							width: 0;
+						}
+					}
+					&:after {
+						width: 1px;
+						height: 100%;
+						background: $text-color;
+						right: -13px;
+						top: 0;
+						position: absolute;
+						content: '';
+					}
+					@include tablet {
+						&:after {
+							right: -2px;
+						}
+					}
+					@include mobile {
+						&:after {
+							right: -2px;
+						}
+					}
+					span {
+						margin-left: 5px;
+					}
+				}
+			}
+		}
+		p {
+			width: 80%;
+			margin-bottom: 10px;
+			a {
+				text-decoration: underline;
+				&:hover {
+					color: $primary-color;
+				}
+			}
+		}
+	}
+}
+.expand-post {
+	.user-post-details {
+		padding-bottom: 30px;
+		border-bottom: 1px solid $dark-gray;
+	}
+}
+.user-post-withcomment {
+	.single-status-post {
+		box-shadow: none;
+		border-bottom: 1px solid $dark-gray;
+		padding-right: 0;
+		padding-left: 20px;
+		@include mobile {
+			padding-left: 0px;
+		}
+		.user-post-details {
+			border-bottom: none;
+			padding-bottom: 0px;
+			@include mobile {
+				padding-left: 0;
+			}
+		}
+		@include mobile {
+			.name-details {
+				margin-top: 10px;
+			}
+		}
+	}
+	.reply-box {
+		width: 100%;
+		textarea {
+			background: #f7f7f7;
+			border: medium none;
+			color: #333333;
+			display: block;
+			font-size: 13px;
+			height: 100px;
+			padding: 10px 20px;
+			resize: none;
+			transition: all 0.3s ease 0s;
+			width: 100%;
+			@include mobile {
+				margin-top: 10px;
+			}
+		}
+	}
+	.single-comment-box {
+		border-bottom: none;
+		padding-bottom: 0;
+	}
+}
+
+/* ----------------45 Buddypress Group---------------- */
+.group-activity {
+	.group-head {
+		border-bottom: 1px solid $dark-gray;
+		padding-bottom: 11px;
+		@include tablet {
+			display: block;
+		}
+	}
+	.group-head-left {
+		a {
+			display: inline-block;
+			margin-left: 20px;
+			position: relative;
+			line-height: 1em;
+			color: $title-color;
+			&:hover {
+				color: $primary-color;
+			}
+			&:first-child {
+				margin-left: 0;
+			}
+			&:last-child {
+				&:after {
+					width: 0;
+				}
+			}
+			&:after {
+				width: 1px;
+				height: 100%;
+				background: $text-color;
+				right: -13px;
+				top: 0;
+				position: absolute;
+				content: '';
+			}
+			span {
+				margin-left: 5px;
+				color: $primary-color;
+			}
+		}
+	}
+	.group-head-right {
+		p {
+			color: $title-color;
+			span {
+				color: $primary-color;
+			}
+		}
+	}
+	.single-status-post .user-post-details .name-details .details a {
+		color: $title-color;
+		&:hover {
+			color: $primary-color;
+		}
+	}
+	.blog-pagination {
+		.btn {
+			line-height: 32px;
+			color: $title-color;
+			border-radius: 3px;
+			padding: 0 20px;
+			&:hover {
+				color: $light;
+			}
+		}
+	}
+}
+
+/* -----------------------44 Buddypress Members ------------------------------ */
+.member-activity {
+	.single-status-post .user-post-details p {
+		width: 100%;
+		margin-bottom: 0;
+	}
+	.member-request {
+		@include tablet {
+			margin-top: 10px;
+			text-align: right;
+			width: 100%;
+
+		}
+		@include mobile {
+			margin-top: 10px;
+			text-align: right;
+			width: 100%;
+		}
+		a {
+			display: inline-block;
+			&:hover {
+				color: $primary-color;
+			}
+		}
+	}
+}
+
+/* ----------------47 Buddypress Members Details After Login ---------------- */
+.member-top {
+	.btn {
+		background: $light;
+		color: $title-color;
+		border: 1px solid $primary-color;
+		border-radius: 3px;
+		line-height: 38px;
+		&:hover {
+			background: $primary-color;
+			color: $light;
+			box-shadow: 0px 3px 10px 0px rgba(248, 91, 49, 0.4);
+		}
+	}
+}
+
+.member-notification {
+	border-bottom: 1px solid $dark-gray;
+	p {
+		line-height: 40px;
+		@include mobile {
+			margin-right: 10px;
+			//line-height: 21px;
+		}
+	}
+	.group-head-left {
+		.read {
+			margin-bottom: 0;
+			margin-left: -20px;
+			a {
+				display: inline-block;
+				position: relative;
+				margin-left: 20px;
+				&:hover {
+					color: $primary-color;
+				}
+				&:after {
+					position: absolute;
+					content: '';
+					width: 1px;
+					height: 12px;
+					background: $title-color;
+					top: 15px;
+					right: -11px;
+				}
+				&:last-child {
+					&:after {
+						width: 0;
+					}
+				}
+			}
+		}
+	}
+	.group-head-right {
+		p {
+			margin-right: 30px;
+			margin-bottom: 0;
+		}
+	}
+	.btn {
+		border-radius: 0px;
+		padding: 0 30px;
+		@include mobile {
+			margin-top: 10px;
+		}
+	}
+	.select-ct {
+		width: 200px;
+		.nice-select {
+			border: none;
+		}
+	}
+}
+.member-notification-table {
+	.head {
+		td {
+			background: #fafafa;
+		}
+	}
+	td {
+		padding: 10px 30px;
+		a {
+			&:hover {
+				color: $primary-color;
+			}
+		}
+		&:first-child {
+			padding: 10px 20px 10px 30px;
+		}
+		@include tablet {
+			padding: 10px;
+		}
+		@include mobile {
+			padding: 10px 5px;
+			vertical-align: top;
+			&:first-child {
+				padding: 10px 5px;
+			}
+			&:nth-child(3) {
+				display: block;
+			}
+			&:nth-child(4) {
+				display: block;
+			}
+		}
+		.read {
+			margin-right: 10px;
+		}
+		.delete {
+			margin-left: 10px;
+		}
+
+	}
+	.check {
+		margin-bottom: 0;
+		position: relative;
+		label {
+			font-size: 14px;
+			font-weight: 400;
+			color: $text-color;
+			margin-bottom: 0;
+		}
+		input[type="checkbox"] {
+			z-index: 2;
+			opacity: 0;
+		}
+		span {
+			width: 12px;
+			height: 12px;
+			background: #f3f3f3;
+			display: inline-block;
+			position: absolute;
+			left: 1px;
+			top: 5px;
+			border-radius: 2px;
+			z-index: -99;
+			&:before {
+				position: absolute;
+				content: '';
+
+			}
+		}
+		input:checked + label > span {
+			position: absolute;
+			background: $text-color;
+		}
+		input:checked + label > span:before {
+			content: "\f00c";
+			font-family: "fontAwesome";
+			font-size: 8px;
+			position: absolute;
+			top: -4px;
+			left: 2.5px;
+			color: $light;
+		}
+	}
+	.checkall {
+		span {
+			z-index: 0;
+		}
+	}
+}
+.member-profile {
+	table {
+		margin-top: 20px;
+		width: 75%;
+		@include mobile {
+			width: 100%;
+		}
+		margin-left: auto;
+		margin-right: auto;
+		th {
+			font-family: $fjalla-one;
+			font-weight: 400;
+			color: $title-color;
+			padding: 8px;
+		}
+		td {
+			color: $primary-color;
+		}
+	}
+	.social-link {
+		a {
+			display: inline-block;
+			width: 30px;
+			line-height: 30px;
+			text-align: center;
+			background: $blue-color;
+			color: $light;
+			border-radius: 50%;
+			&:hover {
+				background: $primary-color;
+			}
+		}
+	}
+}
+.buddy-change-password {
+	.single-filter {
+		margin-top: 10px;
+		@include tablet {
+			display: block;
+		}
+		@include mobile {
+			display: block;
+		}
+		input {
+			background: #fff none repeat scroll 0 0;
+			border: none;
+			box-shadow: 2.121px 2.121px 7px 0px rgba(0, 0, 0, 0.1);
+			color: #333333;
+			display: block;
+			font-size: 13px;
+			height: 40px;
+			line-height: 40px;
+			padding: 0 20px;
+			transition: all 0.3s ease 0s;
+			width: 360px;
+			@include mobile {
+				width: 100%;
+			}
+			&:focus {
+				box-shadow: 7.071px 7.071px 30px 0 rgba(0, 0, 0, 0.1);
+			}
+		}
+		p {
+			margin-bottom: 0;
+			margin-left: 30px;
+			line-height: 40px;
+			span {
+				color: $primary-color;
+			}
+		}
+	}
+	.save-btn {
+		width: 360px;
+		text-align: right;
+		@include mobile {
+			width: 100%;
+		}
+	}
+	.btn {
+		border-radius: 0px;
+		height: 40px;
+		line-height: 40px;
+		background: $primary-color;
+		display: inline-block;
+		color: $light;
+		&:hover {
+			background: $light;
+			color: $title-color;
+		}
+	}
+}
+.single-forum {
+	.user-post-details p a {
+		text-decoration: none;
+		position: relative;
+		display: inline-block;
+		margin-right: 30px;
+		&:after {
+			background: #666 none repeat scroll 0 0;
+			content: "";
+			height: 80%;
+			position: absolute;
+			right: -13px;
+			top: 4px;
+			width: 1px;
+		}
+		&:last-child {
+			margin-right: 0;
+			&:after {
+				width: 0;
+			}
+		}
+	}
+	.forums-summary-right {
+		@include tablet {
+			margin-top: 10px;
+			margin-left: 62px;
+		}
+		@include mobile {
+			margin-top: 10px;
+		}
+		.voice {
+			padding: 15px 30px 15px 20px;
+			@include mobile {
+				padding: 15px 15px 15px 15px;
+			}
+			border-left: 1px solid $dark-gray;
+			@include tablet {
+				border-left: 0px;
+			}
+			@include mobile {
+				border-left: 0px;
+			}
+			a {
+				color: $title-color;
+				&:hover {
+					color: $primary-color;
+				}
+			}
+		}
+		.created {
+			padding: 15px 0 15px 20px;
+			border-left: 1px solid $dark-gray;
+			a {
+				color: $title-color;
+				&:hover {
+					color: $primary-color;
+				}
+			}
+			h6 {
+				margin-bottom: 6px;
+			}
+		}
+	}
+}
+.group-activity {
+	.group-head {
+		.active {
+			a {
+				color: $primary-color;
+			}
+		}
+		.group-head-left {
+			li {
+				display: inline-block;
+				margin-left: 30px;
+				position: relative;
+				line-height: 1em;
+				color: $title-color;
+				&:hover {
+					color: $primary-color;
+				}
+				&:first-child {
+					margin-left: 0;
+				}
+				&:last-child {
+					&:after {
+						width: 0;
+					}
+				}
+				&:after {
+					width: 1px;
+					height: 100%;
+					background: $text-color;
+					right: -15px;
+					top: 0;
+					position: absolute;
+					content: '';
+				}
+				span {
+					margin-left: 5px;
+					color: $primary-color;
+				}
+			}
+		}
+	}
+}
+.notification-checkbox {
+	padding-top: 5px;
+	.single-check {
+		position: relative;
+		input[type=radio] {
+			cursor: pointer;
+			position: relative;
+			display: none;
+		}
+		input[type=radio]:checked ~ .notify-check {
+			background: $primary-color;
+			color: $light;
+			border: 1px solid $primary-color;
+		}
+		.notify-check {
+			width: 40px;
+			line-height: 30px;
+			text-align: center;
+			border: 1px solid $dark-gray;
+			font-size: 14px;
+			color: $text-color;
+			font-weight: 400;
+			cursor: pointer;
+		}
+	}
+}
+.buddy-profile {
+	table {
+		width: 100%;
+		margin-top: 20px;
+		&:first-child {
+			margin-top: 30px;;
+		}
+		th {
+			font-weight: 400;
+			background: #fafafa;
+			padding: 12px 30px;
+			color: $title-color;
+			&:first-child {
+				width: 70%;
+			}
+		}
+		td {
+			line-height: 30px;
+			padding: 5px 30px;
+			border-bottom: 1px solid $dark-gray;
+			&:first-child {
+				width: 70%;
+			}
+		}
+		.select-ct {
+			width: 167px;
+			&:after {
+				margin-top: 1px;
+			}
+			.nice-select {
+				border: none;
+				height: 30px;
+				line-height: 30px;
+				padding-left: 30px;
+				.option {
+					min-height: 30px;
+					line-height: 30px;
+					padding-left: 30px;
+				}
+			}
+		}
+	}
+}
+/* ----------------48 Buddypress Group Details After Login ---------------- */
+.teacher-top-content {
+	p {
+		.line {
+			display: inline-block;
+			margin: 0 10px;
+		}
+	}
+}
+.group-details {
+	.user-post-details {
+		p {
+			.line {
+				display: inline-block;
+				margin: 0 10px;
+			}
+			a {
+				text-decoration: none;
+			}
+		}
+	}
+}
+.forum-categories {
+	.main-list {
+		li {
+			a {
+				color: $title-color;
+			}
+			ul {
+				padding-left: 20px;
+				li {
+					a {
+						color: $text-color;
+					}
+				}
+			}
+		}
+	}
+}
+.forum-home {
+	.single-forum .forums-summary-right .voice {
+		padding: 0px 30px 0px 20px;
+	}
+	.single-forum .forums-summary-right .created {
+		padding: 0px 0 0px 20px;
+	}
+	.single-status-post .user-post-details p {
+		line-height: 1.3em;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

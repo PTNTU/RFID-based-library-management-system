@@ -1,0 +1,24 @@
+.brand {
+    @include mobile {
+        @include justify-content(center);
+    }
+    .item {
+        text-align: center;
+        img {
+            display: inline-block !important;
+        }
+    }
+}
+.icons {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    img {
+        max-width: 100px;
+        height: auto;
+        opacity: 0.25;
+        @include transition (all .3s ease 0s);
+        &:hover {
+            opacity: 1;
+        }
+    }
+}

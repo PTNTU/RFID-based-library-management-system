@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+    <% include ../partial/user_head %>
+    <body>
+      <header id="header5" class="white-bg k-header-top default-header">
+          <div class="header-top hidden-xs">
+              <div class="container">
+                  <div class="row">
+                      <div class="col-md-5 col-sm-6 col-xs-12 top-left">
+                          <ul class="flex no-flex-xs">
+                              <li><i class="fa fa-clock-o"></i> Mon to fri 09.00am - 3pm</li>
+                              <li class="email"><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="mailto:yethuaung481995@gmail.com">To developer</a></li>
+                          </ul>
+                      </div>
+                      <div class="col-md-offset-3 col-md-4 col-sm-6 col-xs-12 top-right">
+                          <ul class="flex flex-right">
+                              <li class="phone"><i class="fa fa-phone" aria-hidden="true"></i><a href="tel:+959777111437">+959777111437</a></li>
+                              <!-- <li class="flex select-icon">
+                                  <i class="fa fa-language" aria-hidden="true"></i>
+                                  <div class="">
+                                      <div class="select-ct">
+                                          <select>
+                                              <option value="1">English</option>
+                                              <option value="2">Bangla</option>
+                                              <option value="3">Hindi</option>
+                                              <option value="4">Chinese</option>
+                                          </select>
+                                      </div>
+                                  </div>
+                              </li> -->
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="container">
+              <div class="navbar-area kindergarten-nav flex space-between">
+                  <div class="left-bar">
+                      <div class="logo">
+                          <a href="#">
+                              <img src="/images/text.png" alt="">
+                          </a>
+                      </div>
+                  </div>
+                  <div class="right-bar flex">
+                      <nav>
+                          <ul id="mobile" class="main-menu  hidden-xs">
+                              <li class="my-active"><a href="/users/home">Home</a>
+                                  <!-- <ul class="sub-menu">
+                                      <li><a href="index.html" target="_blank">Home University</a></li>
+                                      <li><a href="02-home-college.html" target="_blank">Home College</a></li>
+                                      <li><a href="03-home-online-education.html" target="_blank">Home Online Education</a></li>
+                                      <li><a href="04-home-language.html" target="_blank">Home Language</a></li>
+                                      <li><a href="05-home-kindergarten.html" target="_blank">Home Kindergarten</a></li>
+                                      <li><a href="06-home-driving-school.html" target="_blank">Home Driving School</a></li>
+                                      <li><a href="07-home-designing-school.html" target="_blank">Home Designing School</a></li>
+                                      <li><a href="08-home-cooking-school.html" target="_blank">Home Cooking School</a></li>
+                                  </ul> -->
+                              </li>
+                              <li><a href="#">Student</a>
+                                  <ul class="sub-menu">
+                                    <% if(ses ==  undefined){%>
+                                      <li><a href="/users/login" >Student login</a></li>
+                                    <%}else{%>
+                                      <li><a href="/users/logout" >Student logout</a></li>
+                                    <%}%>
+
+                                      <!-- <li><a href="11-course-grid-02.html" target="_blank">Course Grid 02</a></li>
+                                      <li><a href="12-course-list-01.html" target="_blank">Course List 01</a></li>
+                                      <li><a href="13-course-list-02.html" target="_blank">Course List 02</a></li>
+                                      <li><a href="14-course-details.html" target="_blank">Course Details</a></li> -->
+                                  </ul>
+                              </li>
+                              <li><a href="#">Staff</a>
+                                  <ul class="sub-menu">
+                                      <li><a href="/users/signin">Staff login</a></li>
+                                      <!-- <li><a href="27-teacher-list.html" target="_blank">Teacher List</a></li>
+                                      <li><a href="28-teacher-archive.html" target="_blank">Teacher Archive</a></li>
+                                      <li><a href="29-teacher-details.html" target="_blank">Teacher Details</a></li> -->
+                                  </ul>
+                              </li>
+                              <li><a href="#">Library</a>
+                                  <ul class="sub-menu">
+                                      <li><a href="/users/library">Library Home</a></li>
+                                      <li><a href="/users/bookList">Book list</a></li>
+                                  </ul>
+                              </li>
+
+                          </ul>
+                      </nav>
+                      <!-- <div class="search-icon hidden-xs">
+                          <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                      </div> -->
+                  </div>
+              </div>
+          </div>
+      </header>
+
+        <div class="search-area">
+            <div class="container">
+                <div class="row fitscreen flex flex-middle relative">
+                    <form action="#" class="search-form">
+                        <input id="focus" placeholder="Search your query and press “Enter”" type="text">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <main>
+            <!-- Static Banner Area Start -->
+            <section id="slider">
+                <div class="static-banner relative">
+                    <div class="overlay blue-overlay-5"></div>
+                    <div class="page-head">
+                        <h2 class="page-title"><%=student.ent_id.name%></h2>
+                        <ul class="page-title-btn">
+                            <li><a href="/users/home" >Home<i class="fa fa-caret-right" aria-hidden="true"></i></a></li>
+                            <li><a href="#" class="active">Your Profile</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <!-- Static Banner Area End -->
+            <!-- Web Design Course Area Start -->
+            <section class="section-full teacher-details">
+                <div class="container">
+                    <div class="row">
+                        <div class="web-course">
+                            <div class="col-md-8 col-xs-12">
+                                <div class="left-web-course">
+                                    <div class="teacher-top flex">
+                                        <div class="teacher-img">
+                                            <img src="<%=student.ent_id.imgUrl%>" onerror="this.src='/images/404.jpg'" alt="" class="img-responsive">
+                                        </div>
+                                        <div class="teacher-top-content">
+                                            <h2><%=student.ent_id.name%></h2>
+                                            <p>Student,  <%=student.ent_id.major%> Department</p>
+                                        </div>
+                                    </div>
+                                    <div class="tab-menu mt-20">
+                                        <ul id="tabs-swipe-demo" class="tabs course-tab">
+                                            <li class="tab"><a class="active" href="#about">About Me</a></li>
+                                            <li class="tab"><a href="#course">My History</a></li>
+                                        </ul>
+                                    </div>
+                                    <div id="about" class="about mt-30">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est lut persp aborum.</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est lut persp aborum.</p>
+                                            </div>
+                                        </div>
+                                        <p class="mt-15">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                    </div>
+                                    <div id="course" class="course mt-30 course-outline text-center">
+                                      <% for(var i = 0; i< record.length; i++){%>
+                                        <ul class="flex space-between no-flex-xs">
+                                            <li><img src="/images/his.jpg" alt=""></li>
+                                            <li class="head"><%=record[i].borrowed_date%></li>
+                                            <li class="step"><%- (record[i].type == '00')? `<b><span style="color:brown;">borrow </span></b>`: `<b><span style="color:green;">return</span></b>`%></li>
+                                            <li class="dollar"><%=record[i].tol_range%> days</li>
+                                            <li><a href="/users/student/recordDetail/<%=record[i]._id%>" >View Record Details</a></li>
+                                        </ul>
+                                      <% }%>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-xs-12">
+                                <div class="right-web-course">
+                                    <div class="single-info flex space-between">
+                                        <div class="single-stat">
+                                            <h4><b><%= student.ent_id.ac_year%></b></h4>
+                                            <p>AC Year</p>
+                                        </div>
+                                        <div class="single-stat">
+                                            <h4 id="la"></h4>
+                                            <p>Last Activity</p>
+                                        </div>
+                                        <div class="single-stat">
+                                            <h4 id="sta"></h4>
+                                            <p>Status</p>
+                                        </div>
+                                    </div>
+                                    <div class="single-info flex space-between">
+                                        <h4><span class="et-line icon-megaphone"></span>Phone</h4>
+                                        <h4>+95 <%=student.ent_id.phone%></h4>
+                                    </div>
+                                    <div class="single-info flex space-between">
+                                        <h4><span class="et-line icon-twitter"></span>Entery No.</h4>
+                                        <h4><%=student.ent_id.ent_no%></h4>
+                                    </div>
+                                    <div class="single-info flex space-between">
+                                        <h4><span class="et-line   icon-attachment"></span>Year</h4>
+                                        <h4><%=student.ent_id.year%></h4>
+                                    </div>
+                                    <div class="single-info flex space-between">
+                                        <h4><span class="et-line   icon-attachment"></span>Roll No.</h4>
+                                        <h4><%=student.ent_id.roleNo%></h4>
+                                    </div>
+                                    <div class="single-info flex space-between">
+                                        <h4><span class="et-line icon-map-pin"></span>RFID No.</h4>
+                                        <h4><%=student.rfid%></h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- / #Web Design Course End -->
+        </main>
+        <!-- Footer Area Start -->
+        <% include ../partial/user-footer %>
+        <!-- Footer Area End -->
+
+
+        <!--
+        JavaScripts
+        ========================== -->
+        <!-- <script src="js/vendor/jquery-2.2.4.min.js"></script>
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/vendor/materialize.min.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/jquery.slicknav.min.js"></script> -->
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqCaX4fFEQRiTJoeclXKZRaFh2fYfps_Y&callback=initMap"></script>
+        <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script> -->
+        <!-- <script src="js/jquery.nice-select.js"></script> -->
+        <!-- <script src="js/jquery.jCounter-0.1.4.js"></script>
+
+        <script src="js/main.js"></script> -->
+        <script src="/js/minified/minified.js"></script>
+        <script src="/js/map-init.js"></script>
+    </body>
+    <script type="text/javascript">
+      switch ('<%=student.status%>') {
+        case "00":
+          $('#sta').html('<b><span style="color:green;">Normal<span></b>');
+          break;
+        case "01":
+          $('#sta').html('<b><span style="color:brown;">Warning<span></b>');
+          break;
+        case "10":
+          $('#sta').html('<b><span style="color:gray;"">Inactive<span></b>');
+          break;
+        case "11":
+          $('#sta').html('<b><span style="color:red;">Block<span></b>');
+          break;
+        default:
+        case "10":
+          $('#sta').html('<span class="parcent">Error Loading<span>');
+      }
+      var aa = ('<%=student.last_act%>' == "00")? '<b><span style="color:brown;">Borrow<span></b>' : '<b><span style="color:green;">Return<span></b>';
+      $('#la').html(aa);
+    </script>
+</html>

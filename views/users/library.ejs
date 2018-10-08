@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+    <% include ../partial/user_head %>
+    <body>
+        <% include ../partial/user_header %>
+        <div class="search-area">
+            <div class="container">
+                <div class="row fitscreen flex flex-middle relative">
+                    <form action="#" class="search-form">
+                        <input id="focus" placeholder="Search your query and press “Enter”" type="text">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <main>
+            <!--Shop Home Slider Area Start -->
+            <section id="slider" class="slider-section">
+                <div class="deafult-slider blog-slider shop-home">
+                    <div class="item fullscreen flex flex-middle" style="background-image: url(/images/book.jpg);">
+                      <% if(top[0] == null){%>
+                        <h2>Data Not Found!!</h2>
+                      <%}else{%>
+                        <div class="container">
+                            <div class="col-xs-12">
+                                <div class="slide-content text-center">
+                                    <img src="<%= top[0].imgUrl%>" onerror="this.src='/images/upload.png'" alt="" class="img-responsive">
+                                    <h1 class="light">All Time Best Borrowed Book</h1>
+                                    <h2 class="light"><%= top[0].book_name%></h2>
+                                    <a href="/users/bookDetail/<%=top[0]._id%>" class="btn">View Details <i class="fa fa-caret-right" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="overlay-slider"></div>
+                      <%}%>
+
+                    </div>
+                    <div class="item fullscreen flex flex-middle" style="background-image: url(/images/know.jpg);">
+                      <% if(top[1] == null){%>
+                        <h2>Data Not Found!!</h2>
+                      <%}else{%>
+                        <div class="container">
+                            <div class="col-xs-12">
+                                <div class="slide-content text-center">
+                                    <img src="<%= top[1].imgUrl%>" alt="" class="img-responsive">
+                                    <h1 class="light">All Time Second Borrowed Book</h1>
+                                    <h2 class="light"><%= top[1].book_name%></h2>
+                                    <a href="/users/bookDetail/<%=top[1]._id%>" class="btn">View Details <i class="fa fa-caret-right" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="overlay-slider"></div>
+                        <%}%>
+                    </div>
+                </div>
+            </section>
+            <!-- Shop Home Slider Area End -->
+            <!-- <section class="deal">
+                <div class="container">
+                    <div class="row no-gutter">
+                        <div class="col-sm-3">
+                            <div class="single-service">
+                                <a href="#">
+                                    <span class="et-line icon-global"></span>
+                                    <h4>Free Shipping</h4>
+                                    <p class="sum-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do.</p>
+                                    <p class="bullet"> <i class="fa fa-circle" aria-hidden="true"></i><i class="fa fa-circle" aria-hidden="true"></i><i class="fa fa-circle" aria-hidden="true"></i></p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="single-service">
+                                <a href="#">
+                                    <span class="et-line icon-lifesaver"></span>
+                                    <h4>Technical Support</h4>
+                                    <p class="sum-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do.</p>
+                                    <p class="bullet"> <i class="fa fa-circle" aria-hidden="true"></i><i class="fa fa-circle" aria-hidden="true"></i><i class="fa fa-circle" aria-hidden="true"></i></p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="single-service">
+                                <a href="#">
+                                    <span class="et-line icon-recycle"></span>
+                                    <h4>Return & Exchange</h4>
+                                    <p class="sum-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do.</p>
+                                    <p class="bullet"> <i class="fa fa-circle" aria-hidden="true"></i><i class="fa fa-circle" aria-hidden="true"></i><i class="fa fa-circle" aria-hidden="true"></i></p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="single-service">
+                                <a href="#">
+                                    <span class="et-line icon-wallet"></span>
+                                    <h4>Loyality Programs</h4>
+                                    <p class="sum-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do.</p>
+                                    <p class="bullet"> <i class="fa fa-circle" aria-hidden="true"></i><i class="fa fa-circle" aria-hidden="true"></i><i class="fa fa-circle" aria-hidden="true"></i></p>
+                                </a>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="row no-gutter women-headphone">
+                        <div class="col-sm-6 col-xs-12">
+                            <div class="deal-left">
+                                <img src="<%=top[0].imgUrl%>" onerror="this.src='/images/book.jpg'" alt="" class="img-responsive">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12">
+                            <div class="deal-right">
+                                <span class="top">Top Borrow</span>
+                                <% if(top[0] == null){%>
+                                  <h2>Data Not Found!!</h2>
+                                <%}else{%>
+                                <h3><%=top[0].book_name%></h3>
+                                <p><%=top[0].description%></p>
+                                <div class="total-box">
+                                    <div class="price">
+                                        <h2><%=top[0].count%></h2>
+
+                                    </div>
+                                </div>
+                                <%}%>
+                                <!-- <div class="coutndown-area">
+                                    <div class="countdown flex space-between" id="js-countdown">
+                                        <div class="countdown__item">
+                                            <div class="countdown__timer js-countdown-days days common" aria-labelledby="day-countdown">
+
+                                            </div>
+
+                                            <div class="countdown__label title" id="day-countdown">Days</div>
+                                        </div>
+
+                                        <div class="countdown__item">
+                                            <div class="countdown__timer hours common js-countdown-hours" aria-labelledby="hour-countdown">
+
+                                            </div>
+
+                                            <div class="countdown__label title" id="hour-countdown">Hours</div>
+                                        </div>
+
+                                        <div class="countdown__item">
+                                            <div class="countdown__timer minutes common js-countdown-minutes" aria-labelledby="minute-countdown">
+
+                                            </div>
+
+                                            <div class="countdown__label title" id="minute-countdown">Minutes</div>
+                                        </div>
+
+                                        <div class="countdown__item">
+                                            <div class="countdown__timer seconds common js-countdown-seconds" aria-labelledby="second-countdown">
+
+                                            </div>
+
+                                            <div class="countdown__label title" id="second-countdown">Seconds</div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Product Area Start -->
+            <section class="section-full bg-gray mt-150 mt-n">
+                <div class="container">
+                    <div class="total-product">
+                        <div class="row no-gutter">
+                            <div class="col-md-3 col-sm-4">
+                                <div class="popular-product">
+                                    <a href="#" target="_blank">
+                                        <figure>
+                                            <span class="et-line icon-dial"></span>
+                                            <h5>Popular Products</h5>
+                                            <p>Calculate upon the borrowed count</p>
+                                        </figure>
+                                    </a>
+                                </div>
+                            </div>
+                            <% for( var i = 0; i< list.length; i++){%>
+                              <div class="col-md-3 col-sm-4">
+                                  <div class="single-product">
+                                      <a href="/users/bookDetail/<%=list[i]._id%>" >
+                                          <figure>
+                                              <img src="<%= list[i].imgUrl%>" onerror="this.src='/images/book.jpg'" alt="" class="img-responsive">
+                                              <figcaption>
+                                                  <h6><%=list[i].book_name%></h6>
+                                                  <ul class="flex space-between">
+                                                      <li class="primary-color"><%=list[i].count%></li>
+                                                  </ul>
+                                              </figcaption>
+                                          </figure>
+                                      </a>
+                                  </div>
+                              </div>
+                            <%}%>
+
+
+                        <div class="col-xs-12 text-center mt-50">
+                            <button class="btn load-course">load more</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Product Area End -->
+            <!-- Tweet Area Start -->
+            <!-- <div class="container">
+                <div class="tweet-area">
+                    <div class="row no-gutter">
+                        <div class="col-md-3 col-xs-12">
+                            <div class="twitter-body tw-bg">
+                                <i class="fa fa-twitter"></i>
+                                <span>Twitter</span>
+                                <h2>98652</h2>
+                                <span>#shop.educare</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 tw-cr-bg col-xs-12">
+                            <div class="total-tweet">
+                                <div class="tweet-carousel">
+                                    <div class="single-tweet">
+                                        <p class="head">Latest Tweets</p>
+                                        <p class="tweet-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam <span class="primary-color">#educare</span>, <span class="primary-color">#Online shop</span></p>
+                                        <h5>@codepixar</h5>
+                                        <span>02 Hours ago</span>
+                                    </div>
+                                    <div class="single-tweet">
+                                        <p class="head">Latest Tweets</p>
+                                        <p class="tweet-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam <span class="primary-color">#educare</span>, <span class="primary-color">#Online shop</span></p>
+                                        <h5>@codepixar</h5>
+                                        <span>02 Hours ago</span>
+                                    </div>
+                                    <div class="single-tweet">
+                                        <p class="head">Latest Tweets</p>
+                                        <p class="tweet-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam <span class="primary-color">#educare</span>, <span class="primary-color">#Online shop</span></p>
+                                        <h5>@codepixar</h5>
+                                        <span>02 Hours ago</span>
+                                    </div>
+                                </div>
+                                <div class="tweet-btn-group">
+                                    <a class="btn prev-tw"><i class="fa fa-caret-left"></i><span>Prev Tweet</span></a>
+                                    <a class="btn next-tw"><span>Next Tweet</span><i class="fa fa-caret-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-xs-12">
+                            <div class="twitter-body fb-bg">
+                                <i class="fa fa-facebook"></i>
+                                <span>Facebook</span>
+                                <h2>102563</h2>
+                                <span>#shop.educare</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <!-- Tweet Area End -->
+            <div class="container-fluid bg-gray">
+                <div class="container icons">
+                    <div class="row" id="demo">
+                        <div class="brand">
+                            <div class="item"><img src="/img/brand/1.png" alt="icon-1"/></div>
+                            <div class="item"><img src="/img/brand/2.png" alt="icon-1"/></div>
+                            <div class="item"><img src="/img/brand/3.png" alt="icon-1"/></div>
+                            <div class="item"><img src="/img/brand/4.png" alt="icon-1"/></div>
+                            <div class="item"><img src="/img/brand/5.png" alt="icon-1"/></div>
+                            <div class="item"><img src="/img/brand/6.png" alt="icon-1"/></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <section class="section-full subscribe-field">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-offset-1 col-sm-10 col-xs-12">
+                            <h2>Subscribe to our Newsletter</h2>
+                        </div>
+                    </div>
+                    <div class="row subscribe mt-30">
+                        <div class="col-sm-offset-3 col-sm-6 flex no-flex-xs"><input placeholder="Enter Email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email address'" type="email"><button class="btn">Subscribe</button></div>
+                    </div>
+                    <div class="row text-center mt-30">
+                        <p>Don’t worry, We won’t send any spam, promise</p>
+                    </div>
+                </div>
+            </section> -->
+        </main>
+        <!-- Footer Area Start -->
+        <% include ../partial/user-footer %>
+        <!-- Footer Area End -->
+
+
+        <!--
+        JavaScripts
+        ========================== -->
+        <!-- <script src="js/vendor/jquery-2.2.4.min.js"></script>
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/vendor/materialize.min.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/jquery.slicknav.min.js"></script> -->
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqCaX4fFEQRiTJoeclXKZRaFh2fYfps_Y&callback=initMap"></script>
+        <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script> -->
+        <!-- <script src="js/jquery.nice-select.js"></script> -->
+        <!-- <script src="js/jquery.jCounter-0.1.4.js"></script>
+
+        <script src="js/main.js"></script> -->
+        <script src="/js/minified/minified.js"></script>
+        <script src="/js/map-init.js"></script>
+    </body>
+</html>

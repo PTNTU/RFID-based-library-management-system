@@ -1,0 +1,49 @@
+// including variables and mixins
+@import "theme/variables";
+@import "theme/mixins";
+@import "theme/flexbox";
+@import "theme/reset";
+// including reset styles
+
+// header
+@import "theme/headers";
+// home pages
+//@import "theme/home-pages";
+// title
+@import "theme/title";
+//slider
+@import "theme/sliders";
+//home-pages
+@import "theme/notice-board";
+// services
+@import "theme/intro";
+// portfolio / gallery
+@import "theme/course";
+// features
+@import "theme/chairman-msg";
+// price table
+@import "theme/testimonial";
+// testimonials
+@import "theme/cta";
+@import "theme/brand";
+@import "theme/learn-word";
+@import "theme/search-field";
+@import "theme/blog";
+@import "theme/event";
+@import "theme/publication";
+@import "theme/clients";
+@import "theme/register";
+@import "theme/widget";
+@import "theme/faqs";
+@import "theme/contact";
+@import "theme/teacher";
+@import "theme/elements";
+@import "theme/nice-select";
+@import "theme/shop";
+@import "theme/filter-btn";
+@import "theme/kindergarten";
+@import "theme/vector";
+@import "theme/buddypress";
+
+@import "theme/footer";
+
